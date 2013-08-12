@@ -194,6 +194,12 @@
 \newblock Rasterbar libtorrent.
 \newblock \url{http://www.rasterbar.com/products/libttorrent}.
 
+\bibitem{octoshape}
+{\sc Octoshape}.
+\newblock Cnn uses octoshape.
+\newblock Available on
+  \url{http://octoshape.com/cnn-com-using-octoshapes-p2p-for-live-feed/}.
+
 \bibitem{Palasamudram:2012:UBR:2391229.2391240}
 {\sc Palasamudram, D.~S., Sitaraman, R.~K., Urgaonkar, B., and Urgaonkar, R.}
 \newblock Using batteries to reduce the power costs of internet-scale
@@ -284,6 +290,13 @@
 \newblock Greening the internet with nano data centers.
 \newblock In {\em Proceedings of the 5th international conference on Emerging
   networking experiments and technologies\/} (2009), ACM, pp.~37--48.
+
+\bibitem{Vu:2010:UOC:1865106.1865115}
+{\sc Vu, L., Gupta, I., Nahrstedt, K., and Liang, J.}
+\newblock Understanding overlay characteristics of a large-scale peer-to-peer
+  iptv system.
+\newblock {\em ACM Trans. Multimedia Comput. Commun. Appl. 6}, 4 (Nov. 2010),
+  31:1--31:24.
 
 \bibitem{vuong1989likelihood}
 {\sc Vuong, Q.}

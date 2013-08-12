@@ -18,20 +18,20 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces In Complex relationship of entities in Internet, CDN mostly placed in data center near to eyeball ISP. If CDN can not reach eyeball ISP due to business or economic reason, CDN can be placed near to IXP or even inside IXP, and CDN will reach eyeball ISP from peering point inside IXP.\relax }}{24}
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Model of content delivery architecture with peer assisted.\relax }}{25}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces COP curve for the chilled water cooling units from HP Lab utility data center. As the target temperature of the air the cooling unit pumps into the floor plenum increases, the COP increases.\relax }}{25}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Dummy network\relax }}{27}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces CDN.\relax }}{28}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces CDN-P2P $\rho =0.25$.\relax }}{28}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces CDN-P2P $\rho =0.5$.\relax }}{28}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces CDN-P2P $\rho =0.75$.\relax }}{28}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces CDN-P2P $\rho =1$.\relax }}{28}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Different power consumption between CDN and CDN-P2P for CDN server component with $\rho =0.25,0.5,0.75,1$.\relax }}{29}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Different power consumption between CDN and CDN-P2P for total system with $\rho =0.25,0.5,0.75,1$.\relax }}{29}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Different power consumption between CDN and CDN-P2P for CDN server component with $\rho =0.75$.\relax }}{29}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Different power consumption between CDN and CDN-P2P for total system with $\rho =0.75$.\relax }}{29}
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Power consumption of CDN server, router, and peers in lower bound strategy.\relax }}{30}
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Power consumption of CDN server, router, and peers in request driven strategy.\relax }}{30}
-\contentsline {figure}{\numberline {6.16}{\ignorespaces Power consumption of CDN server, router, and peers, in water leveling strategy.\relax }}{30}
-\contentsline {figure}{\numberline {6.17}{\ignorespaces Power consumption difference between request driven strategy and lower bound strategy.\relax }}{30}
-\contentsline {figure}{\numberline {6.18}{\ignorespaces Power consumption difference between water leveling strategy and lower bound strategy.\relax }}{30}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces COP curve for the chilled water cooling units from HP Lab utility data center. As the target temperature of the air the cooling unit pumps into the floor plenum increases, the COP increases.\relax }}{26}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Dummy network\relax }}{28}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces CDN.\relax }}{29}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces CDN-P2P $\rho =0.25$.\relax }}{29}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces CDN-P2P $\rho =0.5$.\relax }}{29}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces CDN-P2P $\rho =0.75$.\relax }}{29}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces CDN-P2P $\rho =1$.\relax }}{29}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Different power consumption between CDN and CDN-P2P for CDN server component with $\rho =0.25,0.5,0.75,1$.\relax }}{30}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Different power consumption between CDN and CDN-P2P for total system with $\rho =0.25,0.5,0.75,1$.\relax }}{30}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Different power consumption between CDN and CDN-P2P for CDN server component with $\rho =0.75$.\relax }}{30}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Different power consumption between CDN and CDN-P2P for total system with $\rho =0.75$.\relax }}{30}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Power consumption of CDN server, router, and peers in lower bound strategy.\relax }}{31}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Power consumption of CDN server, router, and peers in request driven strategy.\relax }}{31}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Power consumption of CDN server, router, and peers, in water leveling strategy.\relax }}{31}
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Power consumption difference between request driven strategy and lower bound strategy.\relax }}{31}
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Power consumption difference between water leveling strategy and lower bound strategy.\relax }}{31}
 \addvspace {10\p@ }

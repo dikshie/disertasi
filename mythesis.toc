@@ -28,13 +28,13 @@
 \contentsline {chapter}{\numberline {5}Green Networking}{22}
 \contentsline {chapter}{\numberline {6}Energy Saving in Peer-Assisted CDN}{23}
 \contentsline {section}{\numberline {6.1}Motivation}{23}
-\contentsline {section}{\numberline {6.2}System Description}{23}
-\contentsline {subsection}{\numberline {6.2.1}Abstracting Data Center Power}{24}
-\contentsline {subsection}{\numberline {6.2.2}Energy Model}{26}
+\contentsline {section}{\numberline {6.2}System Description}{24}
+\contentsline {subsection}{\numberline {6.2.1}Abstracting Data Center Power}{25}
+\contentsline {subsection}{\numberline {6.2.2}Energy Model}{25}
 \contentsline {section}{\numberline {6.3}Result and Discussion}{27}
 \contentsline {subsection}{\numberline {6.3.1}Live Streaming}{27}
-\contentsline {subsection}{\numberline {6.3.2}Online Storage}{30}
-\contentsline {section}{\numberline {6.4}Summary}{30}
+\contentsline {subsection}{\numberline {6.3.2}Online Storage}{29}
+\contentsline {section}{\numberline {6.4}Summary}{29}
 \contentsline {chapter}{\numberline {7}Conclusion and Future Work}{32}
 \contentsline {section}{\numberline {7.1}Conclusion}{32}
 \contentsline {section}{\numberline {7.2}Future Work}{33}
