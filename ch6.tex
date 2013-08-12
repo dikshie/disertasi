@@ -12,6 +12,34 @@ For example, CNN uses the Octoshape solution that enables their broadcast to sca
 From the Internet provider point of view, the presence of so many always-on users suggests that it is possible to delegate a portion of computing, storage and networking tasks to the users, thus creating P2P networks where users can share files and multimedia content. 
 Starting from file sharing protocols, P2P architectures have evolved toward video on demand and support for live events.
 
+Broadband network access helps P2P applications to perform better. 
+xDSL networks are deployed worldwide, and in some countries, such as Japan, even higher bandwidth fiber to the home (FTTH) already exceeds DSL in market penetration. 
+In the coming years, network operators throughout the world will massively deploy FTTH.  
+As access bandwidth increases, P2P systems may become more efficient since a peer can contribute much more.
+
+In Peer assisted CDN \footnote{In this paper we use Peer Assisted CDN and CDN-P2P interchangeably.}, users can download content from CDN nodes from or other users or peers. 
+A user may cache the content after download to serve requests from other users. 
+Due to the complexity of the behavior of peers, the process should be done in the home gateway user where the ISP can control it.
+
+On the other hand, the data center where the CDN server is placed faces costs for powering the data center. 
+The Uptime Institute, a global data center authority, surveyed $1100$ data center owners and operators in 2012 and reported that $55$\% of organizations will increase their financial budget $10$\% over 2011 \cite{uptime}.
+$30$\% of organizations were expected run out of data center capacity (power, cooling, space, and network) by the end of 2012 \cite{uptime}.  
+More than $50$\% of the organizations surveyed reported that saving energy \footnote{As we are discussing steady-state operation, energy and power are in direct correspondence so we use the terms interchangeably.}  is a major priority. 
+Even in the data centers using the state of art cooling technologies heat dissipation accounts for at least $20$\% and as much as $50$\% of the total power consumption \cite{google}. 
+The increases in energy cost and the demand due to growth of traffic urges the data center operators and owners to look for ways to reduce energy usage in the years to come. 
+Although reducing energy consumption can effectively reduce overall cost, this will limit the capacity for growth and scalability of the service provisioning. 
+For example: routers and servers spend most of their energy on the baseline activities such as running the fans, spinning disk, powering the backplane, and powering the memory. 
+Even in an idle state, modern systems can be consuming anything from $50$\% to $80$\% of the power consumed under maximum load \cite{4404806,4509688}. 
+
+Alternatively, the data center can be revamped by relocating some services to end-host computers or peers. 
+Peers contribute their communication, storage, and computation resources to exchange data and provide services while the data center performs central administration and authentication as well as backend processing. 
+A P2P network formed by peers offers flexibility and scalability in service delivery. 
+
+We study the energy consumption of hybrid CDN-P2P in two use cases: live streaming and online storage services.  
+It has been shown that CDN energy consumption is better than P2P architecture \cite{feldmann2010energy,baliga2007energy}. 
+The questions are: with the opportunity to offload the CDN’s workload to the peers, how much energy saving can the CDN server get and how large is the difference compared to a pure CDN architecture.  
+If we can estimate the difference between a CDN architecture and a peer-assisted CDN combined with an estimate of peer power consumption, we can use this difference as a basis calculation for giving an incentive to users since peer assisted relies heavily on the user’s uptime and upload rate. 
+Furthermore, since the power consumption is reduced, the power requirement inside the data center can be reduced thus relaxing capacity planning. 
 
 
 \begin{figure}[tb]
