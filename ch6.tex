@@ -44,41 +44,123 @@ Furthermore, since the power consumption is reduced, the power requirement insid
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{System Description}\label{system model}
+\subsection{Live Streaming}
+
 \begin{figure}[thb]
 \begin{center}
-\includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/p2p-cdn.eps}
+\includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/livesky.eps}
 \end{center}
-\caption{Model of content delivery architecture with peer assisted.}
+\caption{Example model of peer-assisted online storage architecture.}
 \label{fig:iptv}
 \end{figure} 
 
-Figure \ref{fig:iptv} shows model of CDN with peer assisted.  
-$P_s$ in fig.\ref{fig:iptv} is peers in level 1 or seeders.  
-Seeders get content directly from CDN.  
-$P_l$ in fig.\ref{fig:iptv} is peers in level 2 or leechers.
-Leechers get content from seeders.
+Figure \ref{fig:iptv} shows an example model of a peer-assisted CDN for live streaming adapted from \cite{Yin:2010:LEC:1823746.1823750}. 
+CDN servers deliver video contents from the content provider to end-users. 
+The CDN usually is organized into several tiers usually to cope with the scale demand. 
+Edge CDN servers are directly responsible for serving end users. 
+The goal of the server side peer is for efficient data distribution with some measures to guard against some node failures and network delay.
 
-Maximum number of seeders is bounded by maximum CDN's capacity, while maximum number of leechers in level 2 is bounded by number of seeders can support the bitrate.
-Denote number of seeders is $n_s$, number of leechers is $n_l$, $\rho$ is maximum bitrate that supplied by seeders to leechers, and $r=1$ is video bitrate, therefore we have number of leechers that can be supported by seeders is:
+The CDN overlay is largely tree-based. 
+To provide greater reliability, a CDN node may allow retrieving the content either from other nodes. 
+Edge CDN servers are responsible for serving end users
+
+For this system, we introduce the concepts of seeder and leecher. 
+A peer that is served by an edge CDN server is called a seeder while a peer that is served by seeders is called a leecher.
+
+A peer obtains the URL from a content source.  
+The global server load balancer finds a suitable edge CDN node for this peer. 
+The peer is then redirected to the nearest edge CDN. 
+The edge CDNs has decision logic that decides if a new peer should be served directly by the edge CDN or if it should be redirected to the P2P overlay.
+
+In the P2P overlay, the stream is separated into several substreams according the stream id and peers are organized in a tree-based overlay. 
+A working peer-assisted CDN live streaming system is defined by parameters such as: (1) video bitrate, (2) the total number of peers, (3) the edge CDN servers bandwidth, and (4) peer upload bandwidth capacity and churn rates. 
+
+The maximum number of seeders is bounded by the CDN's capacity, while the maximum number of leechers is bounded by the number of seeders with a certain upload rate.
+Let us denote the number of the seeders by $n_s$, the number of leechers by $n_l$, the maximum bitrate supplied by seeders to leechers by $\rho$, and the video bitrate by $r$. 
+The number of leechers that can be supported by seeders is:
 
 \begin{equation}\label{eqn:leecher}
 	\lfloor n_l \rfloor = n_s . \rho
 \end{equation}
 
-Number of seeders that support or upload content to leecher is:
+The number of seeders that support or upload content to leechers is:
 
 \begin{equation}\label{eqn:seeders-to-leechers}
 	n_{s}^{u} = n_l . \frac{r}{\rho}
 \end{equation}
 
-The illustration as follows, suppose we have video bitrate $r=1$, seeder upload rate $\rho=0.25$, and maximum CDN capacity is $643Mbps$. 
-Maximum number of seeders supported by CDN is $n_s=643$.
-Maximum number leechers supported by seeders is $n_l=160$.  
-Number of seeders that upload content to leechers is $n_{s}^{u}=640$.  
-Therefore we have three seeders that do not need to upload content to leecher. 
+In peer-assisted live streaming, we introduce the utilization policy where the CDN server admits peers as seeders as long as the CDN utilization does not exceed $50$\%, which we defined as $50$\% of the capacity of a Gigabit Ethernet. 
+When the utilization hits $50$\%, incoming peers are admitted as leechers, hence they receive the contents from seeders. 
+When more peers join the system and the upload capacity of the seeders is exceeded, the policy raises the utilization cap and the server admits the newly joined peers as seeders. 
+We consider this policy to be better than adding a new server from the point of view of energy consumption.
+
+\subsection{Peer-Assisted Online Storage}
+
+\begin{figure}[thb]
+\begin{center}
+\includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/fs2you-arch.eps}
+\end{center}
+\caption{Example model of peer-assisted online storage architecture.}
+\label{fig:fs2you-arch}
+\end{figure} 
+
+Figure \ref{fig:fs2you-arch} illustrates the architecture of peer-assisted online storage for a file hosting system (one-click hosting service with peer-assistance) and interactions among the main components \cite{5061997}. 
+In this system, each file provided by users is treated as a swarm. Each end user is treated as a peer.
+
+In Fig.\ref{fig:fs2you-arch}, arrows 1, 2, and 3 denote the interaction between a participating peer and tracking server and replication servers for uploading a new file. 
+Arrows 4, 5, and 6 denote the interaction between peers and the tracking server to maintain the peer topology. 
+Arrow 7 denotes the sharing of the file and exchange of availability data among peers. 
+Arrows 8 and 9 represent peer requests and server response.
+
+The tracking server’s function is to maintain swarm information and bootstraps peers. 
+Replication servers working as dedicated content servers have a function for maintaining the availability of swarms when peers do not actively serve them alone. 
+
+We choose this peer-assisted online storage model because this model has been implemented widely in China, e.g. FS2You \cite{fs2you}, and because one-click file hosting services are very popular right now \cite{Mahanti:2011:MAC:1963192.1963346}. 
+Such services rely heavily on server farms inside the data center, thus energy cost becomes important \cite{arstechnica}. 
+In this model, since the server holds an important role in this system, we present a simple mathematical model of server bandwidth allocation strategies as a basis for energy calculations \cite{4199285,Sun:2009:POS:1542245.1542249}, as follows: 
+
+\begin{itemize}
+\item Type-1 represents less popular files and type-2 represents popular files. 
+\item $S_{t1}$ represents server bandwidth allocated to a type-1 file and $S_{t2}$ represents server bandwidth allocated to a type-2 file. 
+\item $S$ is the total server bandwidth.
+\item $S_{max1}$ is the maximum amount of server bandwidth that can be assigned to a file of type-1 and $S_{max2}$ is the maximum amount of server bandwidth that can be assigned to a file of type-2.
+\item $M_{t1}$ is the number of type-1 files and $M_{t2}$ is the number of type-2 files.
+\item $\mu$ is upload rate of a peer.
+\item $\alpha_{t1}$ is the arrival rate of new peers in type-1 file and $\alpha_{t2}$ is the arrival rate of new peers in type-2 file.
+\item $\alpha = M_{t1} \alpha_{t1} + M_{t2} \alpha_{t2}$
+\item $M=M_{t1} + M_{t2}$ 
+\item $\eta_{t1}$  is the file sharing effectiveness. It is the fraction of the upload capacity of peers that is being utilized for type-1 file.
+\item $\eta_{t2}$  is the file sharing effectiveness. It is the fraction of the upload capacity of peers that is being utilized for type-2 file.
+\item $T_d$ is the average downloading time. 
+\item $x_i$ is the average number of peers.
+\end{itemize}
+
+There are three server bandwidth allocation strategies: (1) lower bound of the average downloading time; (2) request driven strategy; (3) water leveling strategy. 
+In the lower bound strategy, the server uses the bandwidth for type-1 files until $S_{t1}$ reaches its maximum value, then the residual server bandwidth can be assigned to type-2 files. 
+In the request driven strategy, the server serves every request from peers. 
+The server bandwidth is equally divided among all the peers. Let’s assume that the number of requests for a file to the server is proportional to the peer arrival rate of the file. 
+Let’s also assume that when the amount of server bandwidth assigned to one of the two types of files has reached its maximum value, the residual server bandwidth will be assigned to the other type of file. 
+In the water leveling strategy, the server bandwidth is equalized across all the files by taking file popularity into consideration. 
+The server serves the requests from peers according to a certain probability, which is inversely proportional to the peer arrival rate of the file.
+Let’s assume that the number of requests for a file to the server is proportional to the peer arrival rate of the file, the server will serve the same number of requests for different files and therefore the server bandwidth is equally allocated across all the files.  
+In order to be able to calculate our power consumption, we need to get the number of peers in the system that can be expressed as \cite{Sun:2009:POS:1542245.1542249}:
+
+\begin{equation}\label{eqn:numofpeers}
+\begin{split}
+\sum x_i = T_d . \sum \lambda_i
+\end{split}     
+\end{equation} 
+
+Furthermore, we can calculate $T_d$:
+
+\begin{equation}\label{eqn:averagetimedownload}
+\begin{split}
+T_d &= \frac{1}{M_{t1}.\lambda_{t1} + M_{t2}.\lambda_{t2}}\left(\frac{M_{t1}.f_{t1}.\lambda_{t1}.\eta_{t2} + M_{t2}.f_{t2}.\lambda_{t2}.\eta_{t1}}{\mu.\eta_{t1}.\eta_{t2}} - \frac{S_{t1} (M_{t1}.\eta_{t2}-M_{t2}.\eta_{t1}) + S.M_{t2}.\eta_{t1}}{\mu.\eta_{t1}.\eta_{t2}}\right) 
+\end{split}     
+\end{equation} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Abstracting Data Center Power}\label{thermodynamics}
+\subsection{Energy Model}\label{thermodynamics}
 
 However, the COP for a cooling cycling is not constant, increasing with the temperature of the air the cooling unit pushes into the plenum.  
 COP value empirically can be computed using \cite{moore2005making}:

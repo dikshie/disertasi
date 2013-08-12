@@ -11,6 +11,12 @@
 \newblock In {\em Computer Communications and Networks, 2009. ICCCN 2009.
   Proceedings of 18th Internatonal Conference on\/} (2009), IEEE, pp.~1--6.
 
+\bibitem{arstechnica}
+{\sc Arstechnica}.
+\newblock Megaupload data cost.
+\newblock
+  \url{http://arstechnica.com/tech-policy/2012/03/isp-storing-25-petabytes-of-megaupload-data-costs-us-9000-a-day/}.
+
 \bibitem{baliga2007energy}
 {\sc Baliga, J., Hinton, K., and Tucker, R.~S.}
 \newblock Energy consumption of the internet.
@@ -46,12 +52,6 @@
 \newblock Evolution and enhancement of bittorrent network topologies.
 \newblock In {\em Quality of Service, 2008. IWQoS 2008. 16th International
   Workshop on\/} (2008), IEEE, pp.~1--10.
-
-\bibitem{Dischinger:2007:CRB:1298306.1298313}
-{\sc Dischinger, M., Haeberlen, A., Gummadi, K.~P., and Saroiu, S.}
-\newblock Characterizing residential broadband networks.
-\newblock In {\em Proceedings of the 7th ACM SIGCOMM conference on Internet
-  measurement\/} (New York, NY, USA, 2007), IMC '07, ACM, pp.~43--56.
 
 \bibitem{doyle2005robust}
 {\sc Doyle, J., Alderson, D., Li, L., Low, S., Roughan, M., Shalunov, S.,
@@ -178,6 +178,12 @@
   technologies, architectures, and protocols for computer communications\/}
   (2006), ACM, pp.~135--146.
 
+\bibitem{Mahanti:2011:MAC:1963192.1963346}
+{\sc Mahanti, A.}
+\newblock Measurement and analysis of cyberlocker services.
+\newblock In {\em Proceedings of the 20th international conference companion on
+  World wide web\/} (New York, NY, USA, 2011), WWW '11, ACM, pp.~373--378.
+
 \bibitem{6524219}
 {\sc Mandal, U., Lange, C., Gladisch, A., and Mukherjee, B.}
 \newblock Should isps adopt hybrid cdn-p2p in ip-over-wdm networks: An
@@ -277,6 +283,12 @@
 \newblock Temporal distance metrics for social network analysis.
 \newblock In {\em Proceedings of the 2nd ACM workshop on Online social
   networks\/} (New York, NY, USA, 2009), WOSN '09, ACM, pp.~31--36.
+
+\bibitem{4199285}
+{\sc Tewari, S., and Kleinrock, L.}
+\newblock Analytical model for bittorrent-based live video streaming.
+\newblock In {\em Consumer Communications and Networking Conference, 2007. CCNC
+  2007. 4th IEEE\/} (jan. 2007), pp.~976 --980.
 
 \bibitem{tian2007modeling}
 {\sc Tian, Y., Wu, D., and Ng, K.}
