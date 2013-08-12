@@ -42,41 +42,6 @@ If we can estimate the difference between a CDN architecture and a peer-assisted
 Furthermore, since the power consumption is reduced, the power requirement inside the data center can be reduced thus relaxing capacity planning. 
 
 
-\begin{figure}[tb]
-\begin{center}
-\includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/business-relationship.eps}
-\end{center}
-\caption{In Complex relationship of entities in Internet, 
-CDN mostly placed in data center near to eyeball ISP. 
-If CDN can not reach eyeball ISP due to business or economic reason, CDN can be placed near to IXP or even inside IXP, and CDN will reach eyeball ISP from peering point inside IXP.}
-\label{fig:businessrelationship}
-%\vspace{-2mm}
-\end{figure} 
-
-
-CDN architectures are host-oriented: content is delivered to end users through host servers that are centrally managed in a few data centers fig.\ref{fig:businessrelationship}. 
-The growing of Internet traffic dominated by video, the energy consumption of a host oriented architecture becomes problematic due to over provisioning factor.
-The idea of utilizing the user's computation power to support ISP operation is not new. 
-The figaro project proposed residential gateway as an integrator of different networks and services, becoming an Internet wide distributed content management for a proposed future Internet architecture.  
-The important key in this architecture is both user home gateway and access bandwidth controlled and managed by ISP.
-
-An overlay provider’s main goal in utilizing an home gateway delivery network is to save bandwidth and to reduce hosting costs of its servers. 
-Additionally, this approach reduces the cooling costs of the servers that make up a large part of hosting costs.
-The reduction of server costs (without a performance degradation) requires that users contribute sufficient amount of resources. 
-These resources include the upload bandwidth, CPU, memory, disk storage, and last but not least their online time. 
-As Internet access is typically paid in a flat-rate manner, the additional upload of video segments might not result in additional costs for the users. 
-The requirements of CPU, memory, and disk storage are also comparably low, since the uploaders don’t need to render or re-encode the videos. 
-Instead, the only requirement is to forward video segments to other receivers.
-
-In this case, ISP can offload part of workload on their CDN to user's home gateway.  
-By offloading workload, their CDN can relax energy demand thus relaxing data center power budget or relaxing capacity planning for power.
-This architecture depends largely on the number of devices which can be found online at a point in time.
-While some users keep their home gateway online at all times, there are small number of users might turn off or their home gateway can not be reached.
-Based on study from Dischinger et al., \cite{Dischinger:2007:CRB:1298306.1298313} and Valancius et al., \cite{valancius2009greening}, the average availability of the residential gateways in 12 major ISPs over one month is up $85\%$ with $5\%$ until $8\%$ uptime variations thought out a day.
-
-In this chapter, we presents our work on tradeoff of power consumption of CDN-P2P architecture.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{System Description}\label{system model}
 \begin{figure}[thb]
