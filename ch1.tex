@@ -1,0 +1,109 @@
+\chapter{Introduction}
+\section{Backround}
+Internet-based multimedia content delivery enables users to watch desired content from any location at an any point of time. 
+With the increasing capacities of end-user devices and faster Internet connections, the popularity of such services is growing steadily. 
+Cisco VNI predicts that video streaming will significantly outweigh other types of consumer Internet traffic, such as file sharing, Web, Voice over IP (VoIP), and online gaming \cite{ciscovni}. 
+Contrary to file transfers, video streaming enables users to watch the video while downloading it, which imposes strict requirements on the delivery infrastructure. 
+The users expect a performance similar to the traditional television with short startup delays and without performance degradations or playback stalling during watching. This is exacerbated by the growing requirements on video quality, such as higher resolutions and additional features (high-definition and 3D videos). 
+The higher quality typically results in increased video bitrates that require higher download bandwidth.
+Contrary to file transfers, video streaming enables users to watch the video while downloading it, which imposes strict requirements on the delivery infrastructure. 
+The users expect a performance similar to the traditional television with short startup delays and without performance degradations or play- back stalling during watching. 
+This is exacerbated by the growing requirements on video quality, such as higher resolutions and additional features (high-definition and 3D videos). 
+The higher quality typically results in increased video bitrates that require higher download bandwidth.
+
+Today users are increasingly able to consume videos directly from their TV screens using Internet-enabled Set-top Boxes (STBs) such as digital video recorders, game con- soles, or other entertainment devices. 
+Questions arise as which delivery architecture is able to provide this vast amount of video content to end-user devices and which mechanisms are required to make this architecture scalable and cost-efficient. 
+Common solutions are centralized and decentralized delivery architectures employing various mechanisms to deliver video streams to end-users. 
+These delivery architectures build overlay networks on top of the underlying Internet infrastructure.
+The simplest architecture for video streaming is based on the centralized client-server model. Here (one or many) video servers send a separate video stream to each client, which results in high bandwidth costs for popular content and potential scalability issues for large numbers of concurrent users. 
+The peer-to-peer (p2p) paradigm offers a promising alternative to pure server-based video distribution networks. 
+Here, the users, called peers1, not only consume but also provide services to other peers. The application of the p2p paradigm to video streaming uses peers’ resources, such as local storage, computational power, and band- width, to reduce the load and costs of content servers. In the extreme case of pure p2p streaming, there are no dedicated servers anymore and all services are provided by regular peers.
+If we consider a commercial streaming system, a pure p2p solution turns out to be insufficient because it lacks important properties such as service guarantees for users, security, and control by the content provider. 
+In order to overcome these limitations, a peer-assisted architecture can combine content servers and peers intelligently.
+
+In order to understand the relationships between entities in P2P-CDN ecosystem and to identify the possible tensions, we must understand their roles in the architecture:
+\begin{itemize}
+	\item Overlay providers contribute the initial content and host servers for content injection and indexing. 
+	In a pure commercial scenario the overlay provider also acts as a content provider, while in a scenario with user-generated content the content is contributed by users that upload it to content servers. 
+	Typically, an overlay provider receives certain payments for the hosted content, either directly from users (usage-dependent or subscription-based) or indirectly via advertisements.
+	\item Users consume the streamed videos but also provide their resources to the system, such as upload bandwidth, local storage space, and online time. 
+	The users typically pay flat-rate fees for the Internet access, which explains why they allow an overlay provider to use their upload bandwidth.
+	\item Network operators provide infrastructure for Internet access and receive flat-rate payments from the users for this service. 
+	Typical delivery overlays span several network domains controlled by different network operators. 
+	Therefore, network operators must manage both the internal and external traffic flows to avoid congestion and excessive payments for traffic transit.
+\end{itemize}
+
+A peer-assisted solution shifts the main load of content delivery from the overlay providers’ servers to users. 
+However, the actual delivery costs are shifted from the overlay providers to the network operators. 
+The reason is the widespread acceptance of flat-rate based pricing for the Internet access. 
+These pricing schemes allow network operators to attract users and to sell high-speed Internet connections. 
+But peer-assisted overlays can also lead to bottlenecks and link congestions, since the Internet architecture is built for the client-server traffic pattern where the traffic flows from content servers to the users. 
+In the last years, the management of overlay traffic that crosses the boundaries of network operators’ domains has gained a lot of attention in the research community. Thereby, various traffic management methods have been proposed to relieve the tension between the overlays and network operators. 
+However, most of them fail to satisfy the demands of both parties.
+
+\section{Challenges}
+In this section, we discuss the specific challenges of peer-assisted. 
+Most of these challenges arise from the necessity to achieve quality of service (QoS) comparable to the current client-server systems, while using the limited resources of unreliable peers.
+\begin{itemize}
+	\item {Limited resources of an individual peer compared to a typical server mean that the resources of many peers must be combined to serve the same streaming request. 
+	This applies in particular to the upload bandwidth, which is typically much smaller than the download bandwidth.}
+	\item {Heterogeneity of peers in terms of their resources and behavior. 
+	For example, the upload capacity is a resource that differs between the users and affects the system’s performance significantly.}
+	\item {Lack of service guarantees at peers makes it difficult to ensure a quality streaming experience to the users (comparable to well-dimensioned server-based sys- tems). 
+	In a commercial scenario, in contrast to pure p2p-based systems, all users should be able to receive the quality they paid for, which makes the coupling between the peer’s contribution of resources and received streaming quality undesirable.}
+	\item {Missing or insufficient incentives for users to contribute their resources are a common issue for p2p-based systems.
+	In a commercial scenario, it can be partially solved by offering rewards or discounts for contributed resources.
+	For example, a peer might get certain credits for each megabyte of data uploaded to other peers. 
+	However, this does not solve the issue of users that should remain online in order to provide content availability.}
+	\item {Energy consumption is becoming an important challenge for content delivery.
+	While various approaches were proposed to increase the energy efficiency of servers and routers in terms of reduced power consumption, the same issue applies for the users’ devices. 
+	One interesting aspect here is whether an idle peer should stay online to serve new requests or leave the system. 
+	While the first option would maximize the peer’s contribution to the system, the second option would save energy that might be wasted if the services of this peer are not required.}
+	\item {Negative impact on the network infrastructure is another issue in peer-assisted and pure p2p delivery architectures. 
+	Most p2p and peer-assisted overlays apply their own application level routing mechanisms that might have undesired effects on the underlying network such as congested links or high costs for the transit traffic.}
+\end{itemize}
+
+\section{Motivation}
+P2P as in this case BitTorrent as the most popular filesharing applications dominated the Internet traffic and is still growing even thought recent studies suggest that its growth slower than the growth of Internet traffic and its proportion to the Internet traffic is declining.
+This popularity reflects the robustness and efficiency of the BitTorrent protocol.
+These characteristics of BitTorrent come from its peer and piece selection strategies to distribute large files efficiently.  
+
+Many properties of BitTorrent such as upload, download performance, peer arrival and departure have been studied but only few research have assessed the topological properties of BitTorrent.  
+The BitTorrent system is different from other P22P systems. 
+The BitTorrent protocol does not offer peer traversal and the BitTorrent tracker also does not know about the relationship between peers since peers never sending information to the tracker concerning their connectivity with other peer.  
+While a crawler can be used in other P2P networks such as Gnutella, in BitTorrent we can not easily use a crawler to discover topology, making direct measurement of the topology very difficult and challenging. 
+This BitTorrent swarm topologies reflects peer behavior.
+The peer relationship behavior is very important as a basis to design controllable P2P system that to be used together with other system for example peer assisted CDN or peer assisted cloud. 
+
+In the current modern content delivery, CDN providers tend to combine P2P with CDN in order to help the scaling the services, especially related to traffic or bandwidth saving.
+It has been done by for example: Akamai and Pando networks.
+The bigger issue is not traffic or bandwidth that relatively easy to fulfilled by adding network card into router or adding more servers, instead energy consumption by CDN provider itself inside data center.
+Since the Internet traffic grows, demand for scaling is also grow thus demand for energy is also grow.  
+This growing is constrained by energy supply in data center.
+The usage of peer assisted CDN can be seen not only for helping scaling the services, but there is potential to reduce the energy consumption furthermore this reduction can relax energy budget inside data center. 
+
+
+\section{Approach}
+The key factors in this research are: (1) characterization of peer dynamic in P2P systems and (2) energy consumption trade-off in the using of P2P to assist CDN server.
+
+\textbf{P2P Swarm Dynamics}\\
+The real-world BitTorrent swarms were measured using a rigorous and simple method in order to understand the BitTorrent topology. 
+To our knowledge, our approach is the first to perform such a study on real-world the BitTorrent network topologies. 
+We used the BitTorrent peer exchange (PEX) messages to infer the topology of BitTorrent swarms listed on a BitTorrent tracker claiming the be the largest BitTorrent network on the Internet, instead of building small BitTorrent networks on testbed such as PlanetLab or OneLab as other researchers have done.
+We also performed simulations using the same approach to show the validity of the inferred topology resulted from the PEX messages by comparing it with the topology of the simulated network.
+
+\textbf{Energy Consumption of peer assisted CDN}\\
+As intermediate step in merging between P2P and CDN, this research introduce energy consumption trade-off in peer-assisted CDN. 
+We analyze the characteristics and the requirements of peer-assisted CDN for live streaming and peer-assisted CDN for online storage.
+Then we propose energy consumption model for both peer-assisted CDN architectures.
+To be able to validate the result, we use model from both architectures that currently running on the Internet which are LiveSky \cite{Yin:2010:LEC:1823746.1823750} and FS2you \cite{fs2you}.
+ 
+
+
+\section{Contribution}
+This dissertation makes contributions for enabling analysis into integration of P2P services and CDN services.
+\begin{itemize}
+	\item For P2P, we propose new and effective methodology to infer BitTorrent swarm topologies. 
+	We show that gathering BitTorrent swarm topologies is important as step to understand peer behavior. 
+	\item For energy trade-off, we show that both peer-assisted CDN architecture have different in energy characteristics that can be used as considering model in the service integration between P2P and CDN, furthermore this model can use by CDN provider as basis for: capacity planning in data center and incentive planning to customer who will run peer-assisted mode in home gateway.
+\end{itemize}

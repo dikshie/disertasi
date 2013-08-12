@@ -1,0 +1,26 @@
+\chapter{P2P measurement}
+\section{Introduction}
+BitTorrent as the most P2P filesharing application is responsible for a major portion of the Internet traffic share and is daily used by hundred of millions of users. 
+This has attracted the interest of the research community that has thoroughly evaluated the performance and the demographic aspects of BitTorrent. 
+Due to the complexity of the system, the most relevant studies have tried to understand different aspects by performing real measurements of BitTorrent swarms in the wild, this is inferring information from real swarms in real time.
+Several techniques have been used in order to measure different aspects of BitTorrent so far. 
+In this Chapter we present a survey of different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
+
+\section{Measuring BitTorrent}
+In this Section we describe the BitTorrent measurement techniques defined in the literature so far. 
+We classify them into two main categories macroscopic and microscopic depending on the retrieved information. 
+
+\subsection{Macroscopic Technique}
+The main objective of these techniques is to understand the demographics of the BitTorrent ecosystem: the type of published content, the popularity of the content, the distribution of BitTorrent users per country (or ISP), the relevance of the different portals and trackers, etc. 
+Furthermore, the macroscopic measurements allow to study some performance aspects such as the ratio of seeders/leechers, the session time of the BitTorrent users, the arrival rate of peers, the seedless state (period the torrent is without seeder) duration, etc.
+We classify the macroscopic techniques into two subcategories: BitTorrent portals crawling and BitTorrent trackers crawling.
+
+\subsection{Microscopic Technique}
+The described macroscopic techniques retrieve exclusively the peers’ IP addresses, thus only metrics associated to the presence/absence of the peer can be studied. Unfortunately, IP address does not suffice to infer relevant performance metrics at the peer level such as peers’ download and upload rate. 
+For this purpose we need to apply more sophisticated (but less scalable) techniques that we name microscopic techniques.
+To perform microscopic techniques we need to implement different parts of the BitTorrent peer wire protocol. 
+Any microscopic crawler has to implement the functions to perform the handshaking procedure. 
+This is essential to connect to other peers. 
+The handshaking procedure can be done actively (the crawler initiates it) or passively (the crawler waits until a peer starts the handshaking). 
+Once the crawler is connected to a peer, it exploits different messages of the peer wire protocol in order to measure different parameters. 
+

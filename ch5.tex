@@ -1,0 +1,27 @@
+\chapter{Green Networking}
+
+Since the seminal paper by Gupta and Singh \cite{Gupta:2003:GI:863955.863959}, presented at SIGCOMM in 2003, the subject of green networking has received considerable attention. 
+In recent years, valuable efforts have been devoted to reducing unnecessary energy expenditure.
+Big companies such as Google, Microsoft, and Amazon, are turning to a host of new technologies to reduce operating costs and consume less energy.
+Google, for example, is planning to operate its data centers with a zero carbon footprint by using, among other things, hydropower, water-based chillers, and external cold air to do some of the cooling.
+Several approaches have been considered to reduce energy consumption in networks. These include:
+\begin{itemize}
+	\item The design of low power components that are still able to offer acceptable levels of performance. 
+	For example, at the circuit level techniques such as Dynamic Voltage Scaling (DVS) and Dynamic Frequency Scaling (DFS) can be used. 
+	With DVS the supply voltage is reduced when not needed, which results in slower operation of the circuitry. 
+	DFS reduces the number of processor instructions in a given amount of time, thus reducing performance. 
+	These techniques can reduce energy consumption significantly. 
+	
+	\item Consuming energy from renewable energy sources sites rather than incurring in electricity transmission overheads, thus reducing CO2 emissions.
+	
+	\item Designing new network architectures, for example by moving network equipment and network functions to strategic places. 
+	Examples include placing optical amplifiers at the most convenient locations and performing complex switching and routing functions near renewable sources.
+	
+	\item Using innovative cooling techniques. Researchers in Finland, for instance, are running servers outside in Finnish winter, with air temperatures below $20$ degrees celsius.
+	
+	\item Performing resource consolidation, capitalizing on available energy. 
+	This can be done via traffic engineering, for instance. 
+	By aggregating traffic flows over a subset of the network devices and links allows others to be switched off temporarily or be placed in sleep mode. 
+	Another way is by migrating computation, typically using virtualization to move workloads transparently.
+	
+\end{itemize}

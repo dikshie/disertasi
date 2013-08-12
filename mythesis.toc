@@ -1,0 +1,40 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}
+\contentsline {section}{\numberline {1.1}Backround}{5}
+\contentsline {section}{\numberline {1.2}Challenges}{6}
+\contentsline {section}{\numberline {1.3}Motivation}{7}
+\contentsline {section}{\numberline {1.4}Approach}{7}
+\contentsline {section}{\numberline {1.5}Contribution}{8}
+\contentsline {chapter}{\numberline {2}Related Work}{9}
+\contentsline {chapter}{\numberline {3}P2P measurement}{11}
+\contentsline {section}{\numberline {3.1}Introduction}{11}
+\contentsline {section}{\numberline {3.2}Measuring BitTorrent}{11}
+\contentsline {subsection}{\numberline {3.2.1}Macroscopic Technique}{11}
+\contentsline {subsection}{\numberline {3.2.2}Microscopic Technique}{11}
+\contentsline {chapter}{\numberline {4}Characteristics of BitTorrent Swarms}{12}
+\contentsline {section}{\numberline {4.1}Introduction}{12}
+\contentsline {section}{\numberline {4.2}Measurement Methodology}{12}
+\contentsline {subsection}{\numberline {4.2.1}Graph Sampling}{13}
+\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{14}
+\contentsline {subsection}{\numberline {4.2.3}Data Analysis Background}{14}
+\contentsline {section}{\numberline {4.3}Experimental Results}{15}
+\contentsline {subsection}{\numberline {4.3.1}Power-law Distribution of Node Degree}{15}
+\contentsline {subsection}{\numberline {4.3.2}Alternative Distributions}{17}
+\contentsline {subsubsection}{Nested Case}{17}
+\contentsline {subsubsection}{Non-Nested Case}{18}
+\contentsline {subsection}{\numberline {4.3.3}Clustering Coefficient}{19}
+\contentsline {section}{\numberline {4.4}Confirmation via Simulation}{19}
+\contentsline {section}{\numberline {4.5}Related Work}{20}
+\contentsline {section}{\numberline {4.6}Summary}{21}
+\contentsline {chapter}{\numberline {5}Green Networking}{22}
+\contentsline {chapter}{\numberline {6}Energy Saving in Peer-Assisted CDN}{23}
+\contentsline {section}{\numberline {6.1}Motivation}{23}
+\contentsline {section}{\numberline {6.2}System Description}{23}
+\contentsline {subsection}{\numberline {6.2.1}Abstracting Data Center Power}{24}
+\contentsline {subsection}{\numberline {6.2.2}Energy Model}{26}
+\contentsline {section}{\numberline {6.3}Result and Discussion}{27}
+\contentsline {subsection}{\numberline {6.3.1}Live Streaming}{27}
+\contentsline {subsection}{\numberline {6.3.2}Online Storage}{30}
+\contentsline {section}{\numberline {6.4}Summary}{30}
+\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{32}
+\contentsline {section}{\numberline {7.1}Conclusion}{32}
+\contentsline {section}{\numberline {7.2}Future Work}{33}

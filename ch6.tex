@@ -1,0 +1,418 @@
+\chapter{Energy Saving in Peer-Assisted CDN}
+
+\section{Motivation}
+Streaming content, especially video, represents a significant fraction of the traffic volume on the Internet, and it has become a standard practice to deliver this type of content using Content Delivery Networks (CDNs) such as Akamai and Limelight for better scaling and quality of experience for the end users.  
+For example, YouTube uses Google cache and MTV uses Akamai in their operations.
+
+With the spread of broadband Internet access at a reasonable flat monthly rate, users are connected to the Internet 24 hours a day and they can download and share multimedia content.  
+P2P (peer to peer) applications are also widely deployed.  In China, P2P is very popular; we see many P2P applications from China such as PPLive, PPStream, UUSe, Xunlei, etc. \cite{}  
+Some news broadcasters also rely on P2P technology to deliver popular live events.  For example, CNN uses the Octoshape solution that enables their broadcast to scale and offer good video quality as the number of users increases.
+
+From the Internet provider point of view, the presence of so many always-on users suggests that it is possible to delegate a portion of computing, storage and networking tasks to the users, thus creating P2P networks where users can share files and multimedia content. 
+Starting from file sharing protocols, P2P architectures have evolved toward video on demand and support for live events.
+
+
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/business-relationship.eps}
+\end{center}
+\caption{In Complex relationship of entities in Internet, 
+CDN mostly placed in data center near to eyeball ISP. 
+If CDN can not reach eyeball ISP due to business or economic reason, CDN can be placed near to IXP or even inside IXP, and CDN will reach eyeball ISP from peering point inside IXP.}
+\label{fig:businessrelationship}
+%\vspace{-2mm}
+\end{figure} 
+
+
+CDN architectures are host-oriented: content is delivered to end users through host servers that are centrally managed in a few data centers fig.\ref{fig:businessrelationship}. 
+The growing of Internet traffic dominated by video, the energy consumption of a host oriented architecture becomes problematic due to over provisioning factor.
+The idea of utilizing the user's computation power to support ISP operation is not new. 
+The figaro project proposed residential gateway as an integrator of different networks and services, becoming an Internet wide distributed content management for a proposed future Internet architecture.  
+The important key in this architecture is both user home gateway and access bandwidth controlled and managed by ISP.
+
+An overlay provider’s main goal in utilizing an home gateway delivery network is to save bandwidth and to reduce hosting costs of its servers. 
+Additionally, this approach reduces the cooling costs of the servers that make up a large part of hosting costs.
+The reduction of server costs (without a performance degradation) requires that users contribute sufficient amount of resources. 
+These resources include the upload bandwidth, CPU, memory, disk storage, and last but not least their online time. 
+As Internet access is typically paid in a flat-rate manner, the additional upload of video segments might not result in additional costs for the users. 
+The requirements of CPU, memory, and disk storage are also comparably low, since the uploaders don’t need to render or re-encode the videos. 
+Instead, the only requirement is to forward video segments to other receivers.
+
+In this case, ISP can offload part of workload on their CDN to user's home gateway.  
+By offloading workload, their CDN can relax energy demand thus relaxing data center power budget or relaxing capacity planning for power.
+This architecture depends largely on the number of devices which can be found online at a point in time.
+While some users keep their home gateway online at all times, there are small number of users might turn off or their home gateway can not be reached.
+Based on study from Dischinger et al., \cite{Dischinger:2007:CRB:1298306.1298313} and Valancius et al., \cite{valancius2009greening}, the average availability of the residential gateways in 12 major ISPs over one month is up $85\%$ with $5\%$ until $8\%$ uptime variations thought out a day.
+
+In this chapter, we presents our work on tradeoff of power consumption of CDN-P2P architecture.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{System Description}\label{system model}
+\begin{figure}[thb]
+\begin{center}
+\includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/p2p-cdn.eps}
+\end{center}
+\caption{Model of content delivery architecture with peer assisted.}
+\label{fig:iptv}
+\end{figure} 
+
+Figure \ref{fig:iptv} shows model of CDN with peer assisted.  
+$P_s$ in fig.\ref{fig:iptv} is peers in level 1 or seeders.  
+Seeders get content directly from CDN.  
+$P_l$ in fig.\ref{fig:iptv} is peers in level 2 or leechers.
+Leechers get content from seeders.
+
+Maximum number of seeders is bounded by maximum CDN's capacity, while maximum number of leechers in level 2 is bounded by number of seeders can support the bitrate.
+Denote number of seeders is $n_s$, number of leechers is $n_l$, $\rho$ is maximum bitrate that supplied by seeders to leechers, and $r=1$ is video bitrate, therefore we have number of leechers that can be supported by seeders is:
+
+\begin{equation}\label{eqn:leecher}
+	\lfloor n_l \rfloor = n_s . \rho
+\end{equation}
+
+Number of seeders that support or upload content to leecher is:
+
+\begin{equation}\label{eqn:seeders-to-leechers}
+	n_{s}^{u} = n_l . \frac{r}{\rho}
+\end{equation}
+
+The illustration as follows, suppose we have video bitrate $r=1$, seeder upload rate $\rho=0.25$, and maximum CDN capacity is $643Mbps$. 
+Maximum number of seeders supported by CDN is $n_s=643$.
+Maximum number leechers supported by seeders is $n_l=160$.  
+Number of seeders that upload content to leechers is $n_{s}^{u}=640$.  
+Therefore we have three seeders that do not need to upload content to leecher. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Abstracting Data Center Power}\label{thermodynamics}
+
+However, the COP for a cooling cycling is not constant, increasing with the temperature of the air the cooling unit pushes into the plenum.  
+COP value empirically can be computed using \cite{moore2005making}:
+
+\begin{equation}\label{eqn:copt}
+	COP(T) = 0.0068.T^2 + 0.0008.T + 0.458
+\end{equation}
+
+where $T = T_{sup} + T_{adj}$ and $T_{adj} = T_{safe}^{in}-T_{max}^{in}$. \\
+$T_{sup}$ is temperature supply by cooling unit and $T_{adj}$ is temperature difference between maximum safe hardware inlet temperature ($T_{safe}^{in}$) and the maximum observed hardware inlet temperature ($T_{max}^{in}$).
+If $T_{adj}$ is negative, it indicates that a hardware inlet exceeds maximum safe temperature thus we need to lower $T_{sup}$ to bring the hardwares back below the system redline level.
+
+\begin{figure}[thb]
+\begin{center}
+\includegraphics[scale=0.8]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps}
+\end{center}
+\caption{COP curve for the chilled water cooling units from HP Lab utility data center.
+As the target temperature of the air the cooling unit pumps into the floor plenum increases, the COP increases.}
+\label{fig:twotier}
+%\vspace{-2mm}
+\end{figure} 
+
+Cooling cost can be calculated as  \cite{moore2005making} :
+
+\begin{equation}\label{eqn:cost}
+C = \frac{Q}{COP(T)}
+\end{equation}
+
+Where $Q$ is amount of power the servers and hardwares consume.
+COP(T) is our COP at $T=T_{sup}+T_{adj}$.
+Currently we assume a uniform $T_{sup}$ from each cooling units due to the complications introduced by non-uniform cold air supply.
+
+
+%%%%%%%%
+\subsection{Energy Model}\label{energy model}
+
+In this paper, our goal is to provide a general view and a fair comparison of the energy consume by a CDN and hybrid CDN-P2P architecture. 
+To do so, we designed a series of model and perform an analysis.
+Our energy model is similar to the models used in \cite{Nedevschi:2008:HDC:1855610.1855618}.
+Network model for energy is assumed to be flat network as shown in fig.\ref{fig:iptv}.
+
+For each component, we consider two energy measurement:  baseline energy consumption and energy consumed per work unit $\delta$.
+The baseline energy is the energy consumed to keep the device on.
+Even when there is no traffic, the device still consume energy.
+The energy consumption for a single request in CDN server as:
+\begin{equation}\label{eqn:E_d}
+	E_{d} = E_s
+\end{equation}
+while the energy consumption for a single request in network as:
+\begin{equation}\label{eqn:E_r}
+	E_{r} = d_s.E_r
+\end{equation}
+and energy of peer or client is $E_p$.
+
+where $d_s$ is number of hops or the path length.
+We define $\delta_s$ and $\delta_r$ work-induced energy consumed per additional bit transferred by a server and router.   
+We can express these per-bit work induced consumptions as follows:
+\begin{equation}\label{eqn:delta_s}
+	\delta_s = \frac{(S_{max} - S_{base})}{M_s} 
+\end{equation}
+$S_{base}$ is a server's baseline power consumption.  
+$S_{max}$ is a server's power when operating at maximum capacity.
+$M_s$ is the maximum capacity in bit per second for a server.
+Same formulation also applied for network component.  
+\begin{equation}\label{eqn:delta_r}
+	\delta_r = \frac{(R_{max} - R_{base})}{M_R} 
+\end{equation}
+$R_{max}$ is a router power when operating at maximum capacity.
+$R_{base}$ is a router's baseline power consumption.
+$M_R$ is maximum capacity in bit per second for a router.
+
+Substituting eq.\ref{eqn:delta_s}, and eq.\ref{eqn:delta_r} to eq.\ref{eqn:E_d} and eq.\ref{eqn:E_r}, we can rewrite eq.\ref{eqn:E_d} and eq.\ref{eqn:E_r} as follows:
+\begin{equation}\label{eqn:E_ddanE_r}
+\begin{split}
+	E_{d} &= \delta_s.B + E_{s-baseline}\\
+	E_{r} &= d_s.\delta_r.B + E_{r-baseline}\\
+	E_{p} &= \delta.B + E_{p-baseline}
+\end{split}
+\end{equation}
+Finaly total energy is:
+\begin{equation}\label{eqn:E_t}
+\begin{split}
+	E_{t} &= E_d + E_r + E_p \\
+	E_{t} &= \delta_s.B + E_{s-baseline} + d_s.\delta_r.B + E_{r-baseline} + \delta_p.B + E_{p-baseline}
+\end{split}
+\end{equation}
+where $B$ is size of file to be transferred. 
+
+Considering cooling energy, we can substitute eq.\ref{eqn:cost} to eq.\ref{eqn:E_t}, therefore total energy consumed: 
+\begin{equation}
+	\hat{E}_{t} = E_{t}.\left( 1+\frac{1}{COP(T)} \right)
+\end{equation}
+
+
+\section{Result and Discussion}\label{analysis}
+\subsection{Live Streaming}
+For numerical simulation, we use work induced energy consumed per second from \cite{Nedevschi:2008:HDC:1855610.1855618}.
+For CDN server baseline, we use server idle power $E_{s-baseline}=290$ watt and router baseline power $E_{r-baseline}=750$ watt \cite{Nedevschi:2008:HDC:1855610.1855618}. 
+For peer baseline, we use peer base power $E_{p-baseline}=13.5$ watt \cite{valancius2009greening}.
+The peer has 256MB flash storage.
+%The dummy network model used in this numerical simulation is shown in fig.\ref{fig:dummy}.
+The data flows from CDN to network in this case router then arrive in seeders. 
+If seeders need to upload data to leechers then, it will flows through router then arrive in leechers. 
+Parameters values used in this numerical simulation is shown in table \ref{tab:simparameters}.
+\begin{table}[thb]
+\caption{Numerical Simulation Parameters.}
+\label{tab:simparameters}
+\hbox to\hsize{\hfil
+\begin{tabular}{l|l}\hline\hline
+Symbol & Value\\\hline
+$\delta_s$ & $5.2 . 10^{-8}$ (J/b)\\
+$\delta_r$ & $8.0 . 10^{-9}$ (J/b)\\
+$\delta_p$ & $16 . 10^-9$ (J.b)\\
+$E_{r-baseline}$ & $750$ watt \\
+$E_{s-baseline}$ & $290$ watt \\
+$E_{p-baseline}$ & $13.5$ watt \\
+%%$B$ & $500$MB\\
+$d_s$ & $1$ \\
+$N_{s}^{u}$ & $[0.25,0.5,0.75,1]$ Mbps \\
+$N$ & $[100,..,1000]$ \\
+$T$ & $[20,25]$ correspond to COP value $[3.194,4.728]$\\\hline
+\end{tabular}\hfil}
+\end{table}
+
+\begin{figure}[thb]
+\begin{center}
+\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/topology.eps}
+\end{center}
+\caption{Dummy network}
+\label{fig:dummy}
+\vspace{-2mm}
+\end{figure} 
+
+
+\begin{figure*}[t]
+\centering
+\begin{minipage}[b]{0.3\linewidth}
+	\includegraphics[scale=0.5]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdn.eps}
+	\caption{CDN.}
+	\label{fig:4-0}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.3\linewidth}
+	\includegraphics[scale=0.5]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-1.eps}
+	\caption{CDN-P2P $\rho=0.25$.}
+	\label{fig:4-1}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.3\linewidth}
+	\includegraphics[scale=0.5]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-2.eps}
+	\caption{CDN-P2P $\rho=0.5$.}
+	\label{fig:4-2}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.35\linewidth}
+	\includegraphics[scale=0.5]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps}
+	\caption{CDN-P2P $\rho=0.75$.}
+	\label{fig:4-3}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.35\linewidth}
+	\includegraphics[scale=0.5]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-4.eps}
+	\caption{CDN-P2P $\rho=1$.}
+	\label{fig:4-4}
+\end{minipage}
+%\caption{main}
+\label{fig:main}
+\end{figure*}
+
+Figure \ref{fig:4-0} shows energy usage for CDN server, router, total energy consumption for CDN scenario (without peer assisted).
+We plot energy consumption for CDN server, router, clients, and total energy for every $T$ or $COP$ coefficient value.
+In CDN only scenario, the energy consumption is increase as number of client increase.  
+This is natural because increasing of clients imply to increasing of traffic from CDN server through router to clients.
+The effect of different $T$ to total energy is small.  
+It is between $1\%$ until $7.7\%$.
+
+Figure \ref{fig:4-1} shows energy consumption for CDN, router, and total energy consumption for CDN-P2P scenario.
+We use upload rate of seeders to leechers $\rho=0.25$.
+We assume that CDN server always utilize under $50\%$.
+For CDN server energy $E_d$, the usage of energy increase until number of seeders $n_s=500$.
+On $n_s=500$ the CDN server right on $50\%$ utilization.
+When CDN server on $50\%$ utilization, maximum number of seeders are $n_s=500$ and number of leechers can be served by seeders is $125$ peers.  
+Therefore in this situation, CDN server can save energy, because with just $50\%$ utilization, additional $125$ peers are served from seeders.  
+We can see this situation as flat line in fig.\ref{fig:4-1}.
+Next, to be able to server more peers, we allow CDN server to increase the $62.5\%$ utilization.
+With $62.5\%$ utilization, $625$ peers served by CDN server. 
+Number of leechers can be supported by seeders are $156$ peers.
+In this situation CDN server can save energy, because with just $62.5\%$ utilization and number additional $156$ peers are served from seeders.  
+We can see this situation as flat line in fig.\ref{fig:4-1} from $N=625$ until $N=781$
+In router case, we do not see router can get energy saving because number of traffic increase as increasing number of peers. 
+For example, when CDN server on $50\%$ utilization, maximum number seeders are $n_s=500$ and number of leechers can be served by seeders is $125$ peers.
+Traffic traverse through router is $500$Mbps plus additional $125$Mbps. 
+We get $125$Mbps from $500$ multiply to upload rate of seeders $0.25$Mbps
+Different air temperature supply, make different power consumption.  
+With $T=25$ or $COP=3.194$, we can see the power consumption for all components decrease.
+That's because energy needed to supply air cooling with temperature $T=25$ is less than  energy needed to supply air cooling with temperature $T=20$.
+%The difference is from $7.3\%$ until $7.7\%$.
+
+Next, Figure \ref{fig:4-2} shows energy consumption for CDN, router, and total energy consumption for CDN-P2P scenario.
+We use upload rate of seeders to leechers $\rho=0.5$.
+We assume that CDN server utilization under $50\%$.
+For CDN server energy, the usage of energy increase until number of seeders $n_s=500$.
+On $n_s=500$ the CDN server right on $50\%$ utilization.
+When CDN server on $50\%$ utilization, maximum number of seeders are $n_s=500$ and number of leechers can be served by seeders are $250$ peers.
+In this situation, CDN server can save energy, because with just $50\%$ utilization, additional $250$ peers are served from seeders. 
+We can see this situation as flat line in fig.\ref{fig:4-1} from $N=500$ until $N=750$.
+In order to allow more peers, then CDN server must allow to increase its utilization from $50\%$ to $75\%$.
+Again we will see flat line in fig.\ref{fig:4-1} from $N=750$ until $N=1125$. 
+That's because with CDN server utilization $75\%$, with number of seeders $n_s=750$ can also serve leechers $n_l=325$ leechers.
+On the other hand, energy consumption of router increasing with the increasing number of peers because router needs to accommodate traffic from all peers. 
+
+Figure \ref{fig:4-3} shows energy consumption for CDN, router, and total energy consumption for CDN-P2P scenario.  
+We use upload rate of seeders to leechers $\rho=0.75$.
+We assume that CDN server utilization under $50\%$.
+The result almost same with previous. 
+CDN server energy increase until number of seeders $n_s=500$.
+When CDN server hit $50\%$ utilization, maximum number of seeders are $n_s=500$ and number of leechers can be served by seeders are $325$ peers. 
+Therefore with same energy level on $50\%$ utilization the system can server additional $325$ peers. 
+Again, for router energy consumption is increasing. 
+
+Figure \ref{fig:4-4} shows energy consumption for CDN, router, and total energy consumption for CDN-P2P scenario.  
+We use upload rate of seeders to leechers $\rho=1$.
+We assume that CDN server utilization under $50\%$.
+The result almost same with previous. 
+CDN server energy increase until number of seeders $n_s=500$.
+When CDN server hit $50\%$ utilization, maximum number of seeders are $n_s=500$ and number of leechers can be served by seeders are $500$ peers. 
+Therefore with same energy consumption level on $50\%$ utilization the system can server additional $500$ peers. 
+Once again, router energy consumption is increasing. 
+
+
+\begin{figure*}[ht]
+\centering
+\begin{minipage}[b]{0.4\linewidth}
+	\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff3dimension.eps}
+	\caption{Different power consumption between CDN and CDN-P2P for CDN server component with $\rho=0.25,0.5,0.75,1$.}
+	\label{fig:diff1}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.4\linewidth}
+	\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff3dimension2.eps}
+	\caption{Different power consumption between CDN and CDN-P2P for total system with $\rho=0.25,0.5,0.75,1$.}
+	\label{fig:diff2}
+\end{minipage}
+\centering
+\begin{minipage}[b]{0.4\linewidth}
+	\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3.eps}
+	\caption{Different power consumption between CDN and CDN-P2P for CDN server component with $\rho=0.75$.}
+	\label{fig:diffs1}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.4\linewidth}
+	\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3-total.eps}
+	\caption{Different power consumption between CDN and CDN-P2P for total system with $\rho=0.75$.}
+	\label{fig:diffs2}
+\end{minipage}
+%\caption{main}
+\label{fig:maindiff}
+\end{figure*}
+
+Figure \ref{fig:diff1} shows percentage difference of energy consumption between CDN and CDN-P2P for CDN server component with $\rho=[0.25,0.5,0.75,1]$.
+The power saving that CDN server get is from $3.8\%$ to $11\%$.
+More clear figure is shown in fig.\ref{fig:diffs1} for $\rho=0.75$ where CDN server can save energy because the utilization of CDN server is same when the system has number of peers from $500$ to $875$ and from $875$ peers to $1531$ are handle with same CDN utilization.   
+Figure \ref{fig:diff2} shows percentage difference of energy consumption between CDN and CDN-P2P for total system with $\rho=[0.25,0.5,0.75,1]$.
+The power saving that total system get is from $0.1\%$ to $0.9\%$.
+Figure \ref{fig:diffs2} reports percentage difference of energy consumption between CDN and CDN-P2P for total system with $\rho=0.75$.
+While CDN server part can save more energy, due to peers high energy consumption then total energy saving in the system that we can get is small, from $0.2\%$ to $0.9\%$.
+
+
+\subsection{Online Storage}
+
+In peer-assisted online storage, user contribute their upload bandwidth to redistribute of a file that they are downloading or that they have cached locally.
+We follow peer-assisted online storage model in \cite{Sun:2009:POS:1542245.1542249} as basis of our work. 
+In peer-assisted online storage, users can browse a catalog of available files and asynchronously issue request to download a given file, which are ideally immediately satisfied by the system.
+In order to reduce startup latency, first block of file must be downloaded from server \cite{5199550}.
+In peer-assisted online storage, users interested to a specific file can retrieve it from servers (CDN) and from users storing copy of it in their computer or dedicated set top boxes/home gateway remotely.  
+Peer-assisted online storage model in \cite{Sun:2009:POS:1542245.1542249}, the arrival process of request for considered file follow Poisson process, it takes into account multiple files of different popularity and server bandwidth provisioning.
+For detail, we refer the readers to \cite{Sun:2009:POS:1542245.1542249,5199550,5061997}.
+All numerical simulation parameters that we used in this section same as \cite{Sun:2009:POS:1542245.1542249}.
+
+
+\begin{figure*}[ht]
+\centering
+\begin{minipage}[b]{0.3\linewidth}
+	\includegraphics[scale=0.45]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy1.eps}
+	\caption{Power consumption of CDN server, router, and peers in lower bound strategy.}
+	\label{fig:stg1}
+\end{minipage}
+\hfill
+\centering
+\begin{minipage}[b]{0.3\linewidth}
+	\includegraphics[scale=0.45]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy2.eps}
+	\caption{Power consumption of CDN server, router, and peers in request driven strategy.}
+	\label{fig:stg2}
+\end{minipage}
+\hfill
+\centering
+\begin{minipage}[b]{0.3\linewidth}
+	\includegraphics[scale=0.45]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy3.eps}
+	\caption{Power consumption of CDN server, router, and peers, in water leveling strategy.}
+	\label{fig:stg3}
+\end{minipage}
+%\caption{main}
+\label{fig:storage}
+\end{figure*}
+
+\begin{figure*}[ht]
+\centering
+\begin{minipage}[b]{0.3\linewidth}
+	\includegraphics[scale=0.45]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-2to1.eps}
+	\caption{Power consumption difference between request driven strategy and lower bound strategy.}
+	\label{fig:diff2to1}
+\end{minipage}
+\hfill
+\centering
+\begin{minipage}[b]{0.3\linewidth}
+	\includegraphics[scale=0.45]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3to1.eps}
+	\caption{Power consumption difference between water leveling strategy and lower bound strategy.}
+	\label{fig:diff3to1}
+\end{minipage}
+%\caption{main}
+\label{fig:diffstrategy}
+\end{figure*}
+
+\section{Summary}\label{summary6}
+
+In this paper, we have introduced the comparison of energy consumption between the peer-assisted CDN architecture and CDN architecture for live streaming and video on demand service.
+Integrating peer to peer capability to assist the existing CDN has a potential to save energy consumption.
+In this study, we show that event without explicitly considering energy consumption while assigning content, the peer assisted CDN can save energy consumption.
+Our model shows that different peer-assisted CDN architecture for live streaming and online storage purpose can have different energy saving. 
+Even different strategies in peer-assisted online storage can have different result.  
+

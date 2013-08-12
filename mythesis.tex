@@ -1,0 +1,76 @@
+%
+% The thesis guidelines stipulate that "The two copies of the thesis for
+% examination should be soft-bound (not ringbound) and printed on one side of
+% the page only. It is required that the hard-bound copy of a thesis will be
+% printed on both sides of the page on paper of a weight of at least 90 gsm"
+% Therefore, use 
+%
+%   \documentclass[oneside]{tcd-phd-thesis}
+%
+% for the copy for examination, but
+%
+%   \documentclass[twoside]{tcd-phd-thesis}
+%
+\documentclass[oneside]{tcd-phd-thesis}
+\usepackage{url}
+\usepackage[dvips]{graphicx}
+\usepackage[fleqn]{amsmath}
+\usepackage[varg]{txfonts}
+\usepackage{cite}
+\usepackage{epsfig}
+\usepackage{float}
+\usepackage{caption}
+
+
+
+\begin{document}
+
+\input title
+
+\frontmatter
+%\input declaration
+\input summary
+\input acknowledgements
+
+\mainmatter
+\tableofcontents
+\listoffigures
+
+\input ch1
+\input ch2
+\input ch3
+\input ch4
+\input ch5
+\input ch6
+\input ch7
+
+
+% .. other chapters go here ..
+
+%
+% If you have appendices, use
+%
+%   \appendix
+% 
+% and then \input your appendices the same way that you are inputting chapters,
+% above
+%
+
+%
+% "1.33.11 References. Systematic and complete reference to sources used and a
+% classified list of all sources used must be included in the thesis. The
+% titles of journals preferably should not be abbreviated; if they are,
+% abbreviations must comply with an internationally recognised system (the
+% format may vary according to the precedents and customs of the subject area;
+% graduate students should consult with their Supervisor as to appropriate
+% presentation)." 
+%
+% Replace "acm" by a different style for different styles of references (try
+% "abbrv", "alpha", "apalike", "ieeetr", "plain" or "siam"). This affects the
+% style of references within the text, the ordering of the bibliography, etc.
+%
+
+\bibliographystyle{acm}
+\bibliography{references}
+
+\end{document}

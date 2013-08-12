@@ -1,0 +1,329 @@
+\begin{thebibliography}{10}
+
+\bibitem{al2007understanding}
+{\sc Al~Hamra, A., Legout, A., and Barakat, C.}
+\newblock Understanding the properties of the bittorrent overlay.
+\newblock {\em CoRR abs/0707.1820\/} (2007).
+
+\bibitem{al2009swarming}
+{\sc Al-Hamra, A., Liogkas, N., Legout, A., and Barakat, C.}
+\newblock Swarming overlay construction strategies.
+\newblock In {\em Computer Communications and Networks, 2009. ICCCN 2009.
+  Proceedings of 18th Internatonal Conference on\/} (2009), IEEE, pp.~1--6.
+
+\bibitem{baliga2007energy}
+{\sc Baliga, J., Hinton, K., and Tucker, R.~S.}
+\newblock Energy consumption of the internet.
+\newblock In {\em Optical Internet, 2007 and the 2007 32nd Australian
+  Conference on Optical Fibre Technology. COIN-ACOFT 2007. Joint International
+  Conference on\/} (2007), IEEE, pp.~1--3.
+
+\bibitem{4509688}
+{\sc Chabarek, J., Sommers, J., Barford, P., Estan, C., Tsiang, D., and Wright,
+  S.}
+\newblock Power awareness in network design and routing.
+\newblock In {\em INFOCOM 2008. The 27th Conference on Computer Communications.
+  IEEE\/} (2008), pp.~457--465.
+
+\bibitem{ciscovni}
+{\sc Cisco}.
+\newblock Cisco visual networking index.
+\newblock
+  \url{http://www.cisco.com/en/US/netsol/ns827/networking_solutions_sub_solution.html}.
+
+\bibitem{clauset2009power}
+{\sc Clauset, A., Shalizi, C., and Newman, M.}
+\newblock Power-law distributions in empirical data.
+\newblock {\em SIAM review 51}, 4 (2009), 661--703.
+
+\bibitem{dale2008evolution}
+{\sc Dale, C., Liu, J., Peters, J., and Li, B.}
+\newblock Evolution and enhancement of bittorrent network topologies.
+\newblock In {\em Quality of Service, 2008. IWQoS 2008. 16th International
+  Workshop on\/} (2008), IEEE, pp.~1--10.
+
+\bibitem{Dischinger:2007:CRB:1298306.1298313}
+{\sc Dischinger, M., Haeberlen, A., Gummadi, K.~P., and Saroiu, S.}
+\newblock Characterizing residential broadband networks.
+\newblock In {\em Proceedings of the 7th ACM SIGCOMM conference on Internet
+  measurement\/} (New York, NY, USA, 2007), IMC '07, ACM, pp.~43--56.
+
+\bibitem{doyle2005robust}
+{\sc Doyle, J., Alderson, D., Li, L., Low, S., Roughan, M., Shalunov, S.,
+  Tanaka, R., and Willinger, W.}
+\newblock The robust yet fragile nature of the internet.
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America 102}, 41 (2005), 14497.
+
+\bibitem{feldmann2010energy}
+{\sc Feldmann, A., Gladisch, A., Kind, M., Lange, C., Smaragdakis, G., and
+  Westphal, F.-J.}
+\newblock Energy trade-offs among content delivery architectures.
+\newblock In {\em Telecommunications Internet and Media Techno Economics
+  (CTTE), 2010 9th Conference on\/} (2010), IEEE, pp.~1--6.
+
+\bibitem{fs2you}
+{\sc FS2You}.
+\newblock Fs2you.
+\newblock \url{http://www.rayfile.com/en/}.
+
+\bibitem{grindodevolvingnet}
+{\sc Grindrod, P., and Higham, D.~J.}
+\newblock {Evolving graphs: dynamical models, inverse problems and
+  propagation}.
+\newblock {\em Proceedings of the Royal Society A: Mathematical, Physical and
+  Engineering Science 466}, 2115 (Mar. 2010), 753--770.
+
+\bibitem{5963557}
+{\sc Guan, K., Atkinson, G., Kilper, D., and Gulsen, E.}
+\newblock On the energy efficiency of content delivery architectures.
+\newblock In {\em Communications Workshops (ICC), 2011 IEEE International
+  Conference on\/} (2011), pp.~1--6.
+
+\bibitem{guo2005measurements}
+{\sc Guo, L., Chen, S., Xiao, Z., Tan, E., Ding, X., and Zhang, X.}
+\newblock Measurements, analysis, and modeling of bittorrent-like systems.
+\newblock In {\em Proceedings of the 5th ACM SIGCOMM conference on Internet
+  Measurement\/} (2005), USENIX Association, p.~4.
+
+\bibitem{Gupta:2003:GI:863955.863959}
+{\sc Gupta, M., and Singh, S.}
+\newblock Greening of the internet.
+\newblock In {\em Proceedings of the 2003 conference on Applications,
+  technologies, architectures, and protocols for computer communications\/}
+  (New York, NY, USA, 2003), SIGCOMM '03, ACM, pp.~19--26.
+
+\bibitem{TR464}
+{\sc Ho\ss{}feld, T., Hock, D., Oechsner, S., Lehrieder, F., Despotovic, Z.,
+  Kellerer, W., and Michel, M.}
+\newblock Measurement of bittorrent swarms and their as topologies.
+\newblock Technical Report 464, University of Wurzburg, November 2009.
+
+\bibitem{huang2007peer}
+{\sc Huang, C., Li, J., and Ross, K.}
+\newblock Peer-assisted vod: Making internet video distribution cheap.
+\newblock In {\em Proc. of IPTPS\/} (2007), vol.~7.
+
+\bibitem{Huang:2007:IVP:1282427.1282396}
+{\sc Huang, C., Li, J., and Ross, K.~W.}
+\newblock Can internet video-on-demand be profitable?
+\newblock {\em SIGCOMM Comput. Commun. Rev. 37}, 4 (Aug. 2007), 133--144.
+
+\bibitem{Huang:2008:UHC:1496046.1496064}
+{\sc Huang, C., Wang, A., Li, J., and Ross, K.~W.}
+\newblock Understanding hybrid cdn-p2p: why limelight needs its own red swoosh.
+\newblock In {\em Proceedings of the 18th International Workshop on Network and
+  Operating Systems Support for Digital Audio and Video\/} (New York, NY, USA,
+  2008), NOSSDAV '08, ACM, pp.~75--80.
+
+\bibitem{Krioukov:2011:NDI:1925861.1925878}
+{\sc Krioukov, A., Mohan, P., Alspaugh, S., Keys, L., Culler, D., and Katz, R.}
+\newblock Napsac: design and implementation of a power-proportional web
+  cluster.
+\newblock {\em SIGCOMM Comput. Commun. Rev. 41}, 1 (Jan. 2011), 102--108.
+
+\bibitem{Kryczka2011}
+{\sc Kryczka, M., Cuevas, R., Guerrero, C., and Azcorra, A.}
+\newblock Unrevealing the structure of live bittorrent swarms: Methodology and
+  analysis.
+\newblock In {\em Proc. IEEE Int Peer-to-Peer Computing (P2P) Conf\/} (2011),
+  pp.~230--239.
+
+\bibitem{legout2007clustering}
+{\sc Legout, A., Liogkas, N., Kohler, E., and Zhang, L.}
+\newblock Clustering and sharing incentives in bittorrent systems.
+\newblock In {\em Proceedings of the 2007 ACM SIGMETRICS international
+  conference on Measurement and modeling of computer systems\/} (2007), ACM,
+  pp.~301--312.
+
+\bibitem{legout2006rarest}
+{\sc Legout, A., Urvoy-Keller, G., and Michiardi, P.}
+\newblock Rarest first and choke algorithms are enough.
+\newblock In {\em Proceedings of the 6th ACM SIGCOMM conference on Internet
+  measurement\/} (2006), ACM, pp.~203--216.
+
+\bibitem{li2010measurement}
+{\sc Li, Z., Goyal, A., Chen, Y., and Kuzmanovic, A.}
+\newblock Measurement and diagnosis of address misconfigured p2p traffic.
+\newblock In {\em INFOCOM, 2010 Proceedings IEEE\/} (2010), IEEE, pp.~1--9.
+
+\bibitem{5199550}
+{\sc Liu, F., Sun, Y., Li, B., and Zhang, X.}
+\newblock Understanding the roles of servers in large-scale peer-assisted
+  online storage systems.
+\newblock In {\em Communications, 2009. ICC '09. IEEE International Conference
+  on\/} (2009), pp.~1--5.
+
+\bibitem{mahadevan2006systematic}
+{\sc Mahadevan, P., Krioukov, D., Fall, K., and Vahdat, A.}
+\newblock Systematic topology analysis and generation using degree
+  correlations.
+\newblock In {\em Proceedings of the 2006 conference on Applications,
+  technologies, architectures, and protocols for computer communications\/}
+  (2006), ACM, pp.~135--146.
+
+\bibitem{6524219}
+{\sc Mandal, U., Lange, C., Gladisch, A., and Mukherjee, B.}
+\newblock Should isps adopt hybrid cdn-p2p in ip-over-wdm networks: An
+  energy-efficiency perspective?
+\newblock In {\em Advanced Networks and Telecommuncations Systems (ANTS), 2012
+  IEEE International Conference on\/} (2012), pp.~6--11.
+
+\bibitem{mitzenmacher2004brief}
+{\sc Mitzenmacher, M.}
+\newblock A brief history of generative models for power law and lognormal
+  distributions.
+\newblock {\em Internet mathematics 1}, 2 (2004), 226--251.
+
+\bibitem{moore2005making}
+{\sc Moore, J., Chase, J., Ranganathan, P., and Sharma, R.}
+\newblock Making scheduling" cool": temperature-aware workload placement in
+  data centers.
+\newblock In {\em Proceedings of the annual conference on USENIX Annual
+  Technical Conference\/} (2005), pp.~5--5.
+
+\bibitem{Nedevschi:2008:HDC:1855610.1855618}
+{\sc Nedevschi, S., Ratnasamy, S., and Padhye, J.}
+\newblock Hot data centers vs. cool peers.
+\newblock In {\em Proceedings of the 2008 conference on Power aware computing
+  and systems\/} (Berkeley, CA, USA, 2008), HotPower'08, USENIX Association,
+  pp.~8--8.
+
+\bibitem{rasterbar}
+{\sc Nordberg, A.}
+\newblock Rasterbar libtorrent.
+\newblock \url{http://www.rasterbar.com/products/libttorrent}.
+
+\bibitem{Palasamudram:2012:UBR:2391229.2391240}
+{\sc Palasamudram, D.~S., Sitaraman, R.~K., Urgaonkar, B., and Urgaonkar, R.}
+\newblock Using batteries to reduce the power costs of internet-scale
+  distributed networks.
+\newblock In {\em Proceedings of the Third ACM Symposium on Cloud Computing\/}
+  (New York, NY, USA, 2012), SoCC '12, ACM, pp.~11:1--11:14.
+
+\bibitem{pouwelse2004measurement}
+{\sc Pouwelse, J., Garbacki, P., Epema, D., and Sips, H.}
+\newblock A measurement study of the bittorrent peer-to-peer file-sharing
+  system.
+\newblock {\em Delft University of Technology Parallel and Distributed Systems
+  Report Series, Tech. Rep. Technical Report PDS-2004-007\/} (2004).
+
+\bibitem{qureshi2009cutting}
+{\sc Qureshi, A., Weber, R., Balakrishnan, H., Guttag, J., and Maggs, B.}
+\newblock Cutting the electric bill for internet-scale systems.
+\newblock {\em ACM SIGCOMM Computer Communication Review 39}, 4 (2009),
+  123--134.
+
+\bibitem{clientv}
+{\sc Setting, V. B. C.~G.}
+\newblock Available on \url{http://wiki.vuze.com/w/Good_settings}.
+
+\bibitem{stutzbach2006understanding}
+{\sc Stutzbach, D., and Rejaie, R.}
+\newblock Understanding churn in peer-to-peer networks.
+\newblock In {\em Proceedings of the 6th ACM SIGCOMM conference on Internet
+  measurement\/} (2006), ACM, pp.~189--202.
+
+\bibitem{stutzbach2007sampling}
+{\sc Stutzbach, D., Rejaie, R., Duffield, N., Sen, S., and Willinger, W.}
+\newblock Sampling techniques for large, dynamic graphs.
+\newblock In {\em INFOCOM 2006. 25th IEEE International Conference on Computer
+  Communications. Proceedings\/} (2007), IEEE, pp.~1--6.
+
+\bibitem{stutzbach2008characterizing}
+{\sc Stutzbach, D., Rejaie, R., and Sen, S.}
+\newblock Characterizing unstructured overlay topologies in modern p2p
+  file-sharing systems.
+\newblock {\em Networking, IEEE/ACM Transactions on 16}, 2 (2008), 267--280.
+
+\bibitem{Sun:2009:POS:1542245.1542249}
+{\sc Sun, Y., Liu, F., Li, B., and Li, B.}
+\newblock Peer-assisted online storage and distribution: modeling and server
+  strategies.
+\newblock In {\em Proceedings of the 18th international workshop on Network and
+  operating systems support for digital audio and video\/} (New York, NY, USA,
+  2009), NOSSDAV '09, ACM, pp.~13--18.
+
+\bibitem{5061997}
+{\sc Sun, Y., Liu, F., Li, B., Li, B., and Zhang, X.}
+\newblock Fs2you: Peer-assisted semi-persistent online storage at a large
+  scale.
+\newblock In {\em INFOCOM 2009, IEEE\/} (2009), pp.~873--881.
+
+\bibitem{Tang2009}
+{\sc Tang, J., Musolesi, M., Mascolo, C., and Latora, V.}
+\newblock Temporal distance metrics for social network analysis.
+\newblock In {\em Proceedings of the 2nd ACM workshop on Online social
+  networks\/} (New York, NY, USA, 2009), WOSN '09, ACM, pp.~31--36.
+
+\bibitem{tian2007modeling}
+{\sc Tian, Y., Wu, D., and Ng, K.}
+\newblock Modeling, analysis and improvement for bittorrent-like file sharing
+  networks.
+\newblock In {\em INFOCOM 2006. 25th IEEE International Conference on Computer
+  Communications. Proceedings\/} (2007), IEEE, pp.~1--11.
+
+\bibitem{urvoy2007impact}
+{\sc Urvoy-Keller, G., and Michiardi, P.}
+\newblock Impact of inner parameters and overlay structure on the performance
+  of bittorrent.
+\newblock In {\em INFOCOM 2006. 25th IEEE International Conference on Computer
+  Communications. Proceedings\/} (2007), IEEE, pp.~1--6.
+
+\bibitem{clientf}
+{\sc uTorrent Bittorrent Client's~Forum}.
+\newblock Available on \url{http://forum.utorrent.com/viewtopic.php?id=47523}.
+
+\bibitem{clientu}
+{\sc uTorrent Bittorrent Client's Good~Setting}.
+\newblock Available on \url{http://forum.utorrent.com/viewtopic.php?id=58404}.
+
+\bibitem{valancius2009greening}
+{\sc Valancius, V., Laoutaris, N., Massouli{\'e}, L., Diot, C., and Rodriguez,
+  P.}
+\newblock Greening the internet with nano data centers.
+\newblock In {\em Proceedings of the 5th international conference on Emerging
+  networking experiments and technologies\/} (2009), ACM, pp.~37--48.
+
+\bibitem{vuong1989likelihood}
+{\sc Vuong, Q.}
+\newblock Likelihood ratio tests for model selection and non-nested hypotheses.
+\newblock {\em Econometrica: Journal of the Econometric Society 57}, 2 (1989),
+  307--333.
+
+\bibitem{Wang:2008:IRA:1459359.1459397}
+{\sc Wang, J., Huang, C., and Li, J.}
+\newblock On isp-friendly rate allocation for peer-assisted vod.
+\newblock In {\em Proceedings of the 16th ACM international conference on
+  Multimedia\/} (New York, NY, USA, 2008), MM '08, ACM, pp.~279--288.
+
+\bibitem{watts1998collective}
+{\sc Watts, D., and Strogatz, S.}
+\newblock Collective dynamics of small-world networks.
+\newblock {\em Nature 393}, 6684 (1998), 440--442.
+
+\bibitem{wu2010understanding}
+{\sc Wu, D., Dhungel, P., Hei, X., Zhang, C., and Ross, K.}
+\newblock Understanding peer exchange in bittorrent systems.
+\newblock In {\em Peer-to-Peer Computing (P2P), 2010 IEEE Tenth International
+  Conference on\/} (2010), IEEE, pp.~1--8.
+
+\bibitem{xu2006analysis}
+{\sc Xu, D., Kulkarni, S.~S., Rosenberg, C., and Chai, H.-K.}
+\newblock Analysis of a cdn--p2p hybrid architecture for cost-effective
+  streaming media distribution.
+\newblock {\em Multimedia Systems 11}, 4 (2006), 383--399.
+
+\bibitem{Yin:2010:LEC:1823746.1823750}
+{\sc Yin, H., Liu, X., Zhan, T., Sekar, V., Qiu, F., Lin, C., Zhang, H., and
+  Li, B.}
+\newblock Livesky: Enhancing cdn with p2p.
+\newblock {\em ACM Trans. Multimedia Comput. Commun. Appl. 6}, 3 (Aug. 2010),
+  16:1--16:19.
+
+\bibitem{zhang2010bittorrent}
+{\sc Zhang, C., Dhungel, P., Liu, Z., and Ross, K.}
+\newblock Bittorrent darknets.
+\newblock In {\em INFOCOM, 2010 Proceedings IEEE\/} (2010), IEEE, pp.~1--9.
+
+\end{thebibliography}
