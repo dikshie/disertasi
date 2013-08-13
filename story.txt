@@ -1,3 +1,38 @@
+P2P part
+--------
+P2P is known has advantage in scalability for delivering content. 
+However, P2P has disadvantage such as: neglect to underlay routing policy, the P2P is often un-stable due to run by home end-users.
+Despite the disadvantage of P2P, some CDN companies employ P2P technology for assist their CDN server.
+For example:  Akamai, Octoshape (used by CNN), China Cache (LiveSky).
+The goal is simple, to assist CDN server for coping high traffic.  
+Although the goal is talking only saving traffic, P2P has benefit for reducing energy consumption of CDN server.  
+As long as we can understand the behavior of P2P network, we can get benefit for energy reduction in CDN server.  
+In order to understand the behavior of P2P network, we need a real world measurement.
+
+
+Data center/CDN part
+---------------------
+data center network (DCN) and CDNs are both designed to distributed web content efficiently.
+Since the last decade as the internet traffic volume grows rapidly, it has been recognized that content need to be hosted in a distributed fashion instead of centralized.
+this is because CDN would improve significantly as contents are moved close to end users. 
+Therefore CDN was introduced by operating thousands of data centers that are deployed toward global end-users at the edge of the internet. 
+Futhermore, web contents are replicated and cached at data centers which are now closer to users.
+Hence, the functionalities of both CDN and data centers are to deliver web to global end-users efficiently.
+
+Effective power consumption reduction in data centers would directly lead to greener CDNs, as a CDN often comprises multiple data centers.
+The most effective power-saving strategy in data centers so far is dynamic provisioning-based, i.e., to consolidate network loads to fewer servers and networking elements.
+
+The Internet comprises many types of content objects, such as webpages, pictures and streaming videos. 
+Traditionally, end-users have been fetching content objects directly from the origins of their content providers, which are typically located in storage server clusters of data centers. 
+However, hosting content objects in a centralized manner has multiple issues, which may lead to degradations of both network reliability and content delivery efficiency, especially under heavy network load.
+The key idea of CDN is for its operator to replicate and cache the contents to multiple distributed data centers, which are deployed towards Point-of-Presence (PoP) nodes worldwide. 
+PoP nodes normally represent city-wide aggregation of end-users’ requests. 
+Note that subject to the capacities of the CDN data centers, a CDN is capable of hosting content objects from multiple content providers.
+In order to manage the servers and the content delivery sessions, the CDN operator establishes a content distribution overlay. 
+The overlay is a virtual platform, i.e., a software layer on top of the Internet, which has PoP nodes and content servers mapped to it. It is capable of managing the servers and content delivery sessions by mapping incoming content request firstly to distinct data centers, and then to distinct servers. 
+In the past decade, the global CDN industry has been growing rapidly. Currently, there are hundreds of CDN operators worldwide, and the largest one among them (Akamai Technologies) has deployed over 40,000 content servers by 2006. 
+By 2010, the number of Akamai’s content servers has increased to more than 61,000 which are distributed in 70 countries, indicating the significant growth of the CDN industry. 
+Considering that a typical CDN often involves many data centers and servers distributed globally, the energy costs of operating such an Internet-scale infrastructure would be significant and need to be effectively reduced in the near future.
 
 
 
