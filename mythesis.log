@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  13 AUG 2013 00:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  13 AUG 2013 11:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -607,10 +607,10 @@ Missing character: There is no ™ in font txr!
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [25]
+ [25] [26]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps Graphic file (type 
 eps)
- <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps> [26] [27]
+ <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps> [27]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/topology.eps Graphic file (
 type eps)
 
@@ -619,124 +619,124 @@ File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdn.eps Graphic file (type
 eps)
 
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdn.eps>
-Overfull \hbox (48.36833pt too wide) in paragraph at lines 301--302
+Overfull \hbox (48.36833pt too wide) in paragraph at lines 305--306
 [][] 
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-1.eps Graphic file (
 type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-1.eps>
-Overfull \hbox (48.36833pt too wide) in paragraph at lines 307--308
+Overfull \hbox (48.36833pt too wide) in paragraph at lines 311--312
 [][] 
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-2.eps Graphic file (
 type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-2.eps>
-Overfull \hbox (48.36833pt too wide) in paragraph at lines 313--314
+Overfull \hbox (48.36833pt too wide) in paragraph at lines 317--318
 [][] 
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps Graphic file (
 type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps>
-Overfull \hbox (26.3161pt too wide) in paragraph at lines 319--320
+Overfull \hbox (26.3161pt too wide) in paragraph at lines 323--324
 [][] 
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-4.eps Graphic file (
 type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-4.eps>
-Overfull \hbox (26.3161pt too wide) in paragraph at lines 325--326
+Overfull \hbox (26.3161pt too wide) in paragraph at lines 329--330
 [][] 
  []
 
-[28]
+[28] [29]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff3dimension.eps Graphic 
 file (type eps)
  <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff3dimension.eps>
-Overfull \hbox (40.4078pt too wide) in paragraph at lines 397--398
+Overfull \hbox (40.4078pt too wide) in paragraph at lines 401--402
 [][] 
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 398--398
+Underfull \hbox (badness 1688) in paragraph at lines 402--402
 []\OT1/txr/m/n/10 Figure 6.10: |Dif-fer-ent power con-sump-
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff3dimension2.eps Graphic
  file (type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff3dimension2.eps>
-Overfull \hbox (40.4078pt too wide) in paragraph at lines 403--404
+Overfull \hbox (40.4078pt too wide) in paragraph at lines 407--408
 [][] 
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3.eps Graphic file (ty
 pe eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3.eps>
-Overfull \hbox (40.4078pt too wide) in paragraph at lines 409--410
+Overfull \hbox (40.4078pt too wide) in paragraph at lines 413--414
 [][] 
  []
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 410--410
+Underfull \hbox (badness 1688) in paragraph at lines 414--414
 []\OT1/txr/m/n/10 Figure 6.12: |Dif-fer-ent power con-sump-
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3-total.eps Graphic fi
 le (type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3-total.eps>
-Overfull \hbox (40.4078pt too wide) in paragraph at lines 415--416
+Overfull \hbox (40.4078pt too wide) in paragraph at lines 419--420
 [][] 
  []
 
-[29]
+[30]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy1.eps Graphic file 
 (type eps)
  <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy1.eps>
-Overfull \hbox (30.29973pt too wide) in paragraph at lines 447--448
+Overfull \hbox (30.29973pt too wide) in paragraph at lines 451--452
 [][] 
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy2.eps Graphic file 
 (type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy2.eps>
-Overfull \hbox (30.29973pt too wide) in paragraph at lines 454--455
+Overfull \hbox (30.29973pt too wide) in paragraph at lines 458--459
 [][] 
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy3.eps Graphic file 
 (type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/strategy3.eps>
-Overfull \hbox (30.29973pt too wide) in paragraph at lines 461--462
+Overfull \hbox (30.29973pt too wide) in paragraph at lines 465--466
 [][] 
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-2to1.eps Graphic file 
 (type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-2to1.eps>
-Overfull \hbox (30.29973pt too wide) in paragraph at lines 472--473
+Overfull \hbox (30.29973pt too wide) in paragraph at lines 476--477
 [][] 
  []
 
 
-Underfull \hbox (badness 1033) in paragraph at lines 473--473
+Underfull \hbox (badness 1033) in paragraph at lines 477--477
 []\OT1/txr/m/n/10 Figure 6.17: |Power con-sump-
  []
 
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3to1.eps Graphic file 
 (type eps)
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/diff-3to1.eps>
-Overfull \hbox (30.29973pt too wide) in paragraph at lines 479--480
+Overfull \hbox (30.29973pt too wide) in paragraph at lines 483--484
 [][] 
  []
 
 
-Underfull \hbox (badness 1910) in paragraph at lines 480--480
+Underfull \hbox (badness 1910) in paragraph at lines 484--484
 \OT1/txr/m/n/10 ing strat-egy and lower bound
  []
 
-[30]) (./ch7.tex [31] [32]
+) (./ch7.tex [31] [32]
 Chapter 7.
 ) [33
 
@@ -788,12 +788,12 @@ Missing character: There is no Â in font txr!
 Missing character: There is no ’ in font txr!
 ) [38] (./mythesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4109 strings out of 493312
- 60146 string characters out of 6137876
- 124069 words of memory out of 5000000
- 7440 multiletter control sequences out of 15000+600000
+ 4108 strings out of 493312
+ 60131 string characters out of 6137876
+ 127069 words of memory out of 5000000
+ 7439 multiletter control sequences out of 15000+600000
  41174 words of font info for 114 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,11n,38p,1162b,339s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mythesis.dvi (41 pages, 167408 bytes).
+Output written on mythesis.dvi (41 pages, 168328 bytes).

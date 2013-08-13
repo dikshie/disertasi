@@ -32,11 +32,10 @@
 \contentsline {subsection}{\numberline {6.2.1}Live Streaming}{23}
 \contentsline {subsection}{\numberline {6.2.2}Peer-Assisted Online Storage}{24}
 \contentsline {subsection}{\numberline {6.2.3}Energy Model}{26}
-\contentsline {subsection}{\numberline {6.2.4}Energy Model}{26}
-\contentsline {section}{\numberline {6.3}Result and Discussion}{28}
-\contentsline {subsection}{\numberline {6.3.1}Live Streaming}{28}
+\contentsline {section}{\numberline {6.3}Result and Analysis}{28}
+\contentsline {subsection}{\numberline {6.3.1}Numerical Parameters}{28}
 \contentsline {subsection}{\numberline {6.3.2}Online Storage}{30}
-\contentsline {section}{\numberline {6.4}Summary}{30}
+\contentsline {section}{\numberline {6.4}Summary}{31}
 \contentsline {chapter}{\numberline {7}Conclusion and Future Work}{33}
 \contentsline {section}{\numberline {7.1}Conclusion}{33}
 \contentsline {section}{\numberline {7.2}Future Work}{34}

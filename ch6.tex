@@ -162,16 +162,52 @@ T_d &= \frac{1}{M_{t1}.\lambda_{t1} + M_{t2}.\lambda_{t2}}\left(\frac{M_{t1}.f_{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energy Model}\label{thermodynamics}
 
-However, the COP for a cooling cycling is not constant, increasing with the temperature of the air the cooling unit pushes into the plenum.  
-COP value empirically can be computed using \cite{moore2005making}:
+Our goal is to provide a general view and fair comparison of the energy consumed by a pure CDN and a hybrid CDN-P2P architecture. 
+To do so, we designed a series of models and performed an analysis. 
+Our energy model is similar to the models used in \cite{Nedevschi:2008:HDC:1855610.1855618}. 
+The differences with \cite{Nedevschi:2008:HDC:1855610.1855618} are, firstly, our baseline energy is not a function of bitrate flow. 
+Our baseline energy is based on the minimum energy required to turn on the device without any traffic flowing through the device. 
+Secondly, our overhead ratio is based on the Coefficient of Performance (COP) of the cooling cycle in data center, which we will explain at the end of this section.
 
-\begin{equation}\label{eqn:copt}
-	COP(T) = 0.0068.T^2 + 0.0008.T + 0.458
-\end{equation}
+Let $E_s$, $E_r$, and $E_p$ denote the energy consumption of a single request at each a CDN server, router, and peer respectively. 
+Next, we define baseline energy consumption as the energy consumed to keep the device on, even when there is no traffic. 
+Let $E_{s-base}$, $E_{r-base}$, and $E_{p-base}$ denote the baseline energy consumption for CDN server, router, and peer respectively; and $E_{s-max}$, $E_{r-max}$, $E_{p-max}$ denote the power consumption of server, router, and peer when operating at the maximum capacity. 
 
-where $T = T_{sup} + T_{adj}$ and $T_{adj} = T_{safe}^{in}-T_{max}^{in}$. \\
-$T_{sup}$ is temperature supply by cooling unit and $T_{adj}$ is temperature difference between maximum safe hardware inlet temperature ($T_{safe}^{in}$) and the maximum observed hardware inlet temperature ($T_{max}^{in}$).
-If $T_{adj}$ is negative, it indicates that a hardware inlet exceeds maximum safe temperature thus we need to lower $T_{sup}$ to bring the hardwares back below the system redline level.
+Next, we introduce work-induced energy as the energy consume per bit transferred. Let $\delta_s$,$\delta_r$, and $\delta_p$ denote the work-induced energy consumed per additional bit transferred by each CDN server, router, and peer,
+
+\begin{equation}\label{eqn:delta_s}
+\delta_s = \frac{(E_{s-max}-E_{s-base})}{M_s}
+\end{equation} 
+
+\begin{equation}\label{eqn:delta_r}
+\delta_r = \frac{(E_{r-max}-E_{r-base})}{M_r}
+\end{equation} 
+
+\begin{equation}\label{eqn:delta_p}
+\delta_p = \frac{(E_{p-max}-E_{p-base})}{M_p}
+\end{equation} 
+
+Furthermore, we can get:
+
+\begin{equation}\label{eqn:E_s}
+E_s = \delta_s B + E_{s-base}
+\end{equation} 
+
+\begin{equation}\label{eqn:E_r}
+E_r = d \delta_r B + E_{r-base}
+\end{equation} 
+
+\begin{equation}\label{eqn:E_p}
+E_p = \delta_p B + E_{p-base}
+\end{equation} 
+
+where $d$ is the number of hops and $B$ is the size of file to be transferred in bits.
+
+We now introduce the overhead for the server and routers. 
+The only overhead that we will consider here is cooling power.  
+Since servers and routers are placed in the data center, the data center needs to be provisioned with adequate cooling. 
+This cooling overhead in the data center is quantified by the coefficient of performance (COP). 
+The COP value itself has been empirically determined to be  \cite{moore2005making}:
 
 \begin{figure}[thb]
 \begin{center}
@@ -179,109 +215,77 @@ If $T_{adj}$ is negative, it indicates that a hardware inlet exceeds maximum saf
 \end{center}
 \caption{COP curve for the chilled water cooling units from HP Lab utility data center.
 As the target temperature of the air the cooling unit pumps into the floor plenum increases, the COP increases.}
-\label{fig:twotier}
+\label{fig:copgraph}
 %\vspace{-2mm}
 \end{figure} 
 
-Cooling cost can be calculated as  \cite{moore2005making} :
+\begin{equation}\label{eqn:copt}
+	COP(T) = 0.0068.T^2 + 0.0008.T + 0.458
+\end{equation}
+
+Where $T$ is the temperature supplied by the cooling unit in Celsius.
+Figure \ref{fig:copgraph} shows the $COP(T)$ value for every $T$.
+Finally, the cooling cost can be calculated as \cite{moore2005making}:
 
 \begin{equation}\label{eqn:cost}
 C = \frac{Q}{COP(T)}
 \end{equation}
 
-Where $Q$ is amount of power the servers and hardwares consume.
-COP(T) is our COP at $T=T_{sup}+T_{adj}$.
-Currently we assume a uniform $T_{sup}$ from each cooling units due to the complications introduced by non-uniform cold air supply.
+Where $Q$ is the amount of power consumed by the servers and hardware. 
+We assume a uniform $T$ at each cooling unit. 
+Taking into account the cooling energy overhead, the total energy consumption is as follows:
 
-
-%%%%%%%%
-\subsection{Energy Model}\label{energy model}
-
-In this paper, our goal is to provide a general view and a fair comparison of the energy consume by a CDN and hybrid CDN-P2P architecture. 
-To do so, we designed a series of model and perform an analysis.
-Our energy model is similar to the models used in \cite{Nedevschi:2008:HDC:1855610.1855618}.
-Network model for energy is assumed to be flat network as shown in fig.\ref{fig:iptv}.
-
-For each component, we consider two energy measurement:  baseline energy consumption and energy consumed per work unit $\delta$.
-The baseline energy is the energy consumed to keep the device on.
-Even when there is no traffic, the device still consume energy.
-The energy consumption for a single request in CDN server as:
-\begin{equation}\label{eqn:E_d}
-	E_{d} = E_s
-\end{equation}
-while the energy consumption for a single request in network as:
-\begin{equation}\label{eqn:E_r}
-	E_{r} = d_s.E_r
-\end{equation}
-and energy of peer or client is $E_p$.
-
-where $d_s$ is number of hops or the path length.
-We define $\delta_s$ and $\delta_r$ work-induced energy consumed per additional bit transferred by a server and router.   
-We can express these per-bit work induced consumptions as follows:
-\begin{equation}\label{eqn:delta_s}
-	\delta_s = \frac{(S_{max} - S_{base})}{M_s} 
-\end{equation}
-$S_{base}$ is a server's baseline power consumption.  
-$S_{max}$ is a server's power when operating at maximum capacity.
-$M_s$ is the maximum capacity in bit per second for a server.
-Same formulation also applied for network component.  
-\begin{equation}\label{eqn:delta_r}
-	\delta_r = \frac{(R_{max} - R_{base})}{M_R} 
-\end{equation}
-$R_{max}$ is a router power when operating at maximum capacity.
-$R_{base}$ is a router's baseline power consumption.
-$M_R$ is maximum capacity in bit per second for a router.
-
-Substituting eq.\ref{eqn:delta_s}, and eq.\ref{eqn:delta_r} to eq.\ref{eqn:E_d} and eq.\ref{eqn:E_r}, we can rewrite eq.\ref{eqn:E_d} and eq.\ref{eqn:E_r} as follows:
-\begin{equation}\label{eqn:E_ddanE_r}
-\begin{split}
-	E_{d} &= \delta_s.B + E_{s-baseline}\\
-	E_{r} &= d_s.\delta_r.B + E_{r-baseline}\\
-	E_{p} &= \delta.B + E_{p-baseline}
-\end{split}
-\end{equation}
-Finaly total energy is:
-\begin{equation}\label{eqn:E_t}
-\begin{split}
-	E_{t} &= E_d + E_r + E_p \\
-	E_{t} &= \delta_s.B + E_{s-baseline} + d_s.\delta_r.B + E_{r-baseline} + \delta_p.B + E_{p-baseline}
-\end{split}
-\end{equation}
-where $B$ is size of file to be transferred. 
-
-Considering cooling energy, we can substitute eq.\ref{eqn:cost} to eq.\ref{eqn:E_t}, therefore total energy consumed: 
 \begin{equation}
-	\hat{E}_{t} = E_{t}.\left( 1+\frac{1}{COP(T)} \right)
+	E_{t} = E_s \left(1 + \frac{1}{COP(T)}\right) + E_r \left(1 + \frac{1}{COP(T)}\right)
 \end{equation}
 
+We do not include the cooling overhead in the peer energy consumption because most of the peers in homes do not need a separate cooling supply.
 
-\section{Result and Discussion}\label{analysis}
-\subsection{Live Streaming}
-For numerical simulation, we use work induced energy consumed per second from \cite{Nedevschi:2008:HDC:1855610.1855618}.
-For CDN server baseline, we use server idle power $E_{s-baseline}=290$ watt and router baseline power $E_{r-baseline}=750$ watt \cite{Nedevschi:2008:HDC:1855610.1855618}. 
-For peer baseline, we use peer base power $E_{p-baseline}=13.5$ watt \cite{valancius2009greening}.
-The peer has 256MB flash storage.
-%The dummy network model used in this numerical simulation is shown in fig.\ref{fig:dummy}.
-The data flows from CDN to network in this case router then arrive in seeders. 
-If seeders need to upload data to leechers then, it will flows through router then arrive in leechers. 
-Parameters values used in this numerical simulation is shown in table \ref{tab:simparameters}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Result and Analysis}\label{analysis}
+
+\subsection{Numerical Parameters}
+
+The parameters used in this analysis were adapted from \cite{baliga2007energy,valancius2009greening,Sun:2009:POS:1542245.1542249,Nedevschi:2008:HDC:1855610.1855618}. 
+The parameters values are shown in Table \ref{tab:simparameters}.
+We choose the numerical parameters from \cite{baliga2007energy,valancius2009greening,Sun:2009:POS:1542245.1542249,Nedevschi:2008:HDC:1855610.1855618}  because these parameters were gathered from empirical measurements. 
+
 \begin{table}[thb]
 \caption{Numerical Simulation Parameters.}
 \label{tab:simparameters}
 \hbox to\hsize{\hfil
-\begin{tabular}{l|l}\hline\hline
-Symbol & Value\\\hline
-$\delta_s$ & $5.2 . 10^{-8}$ (J/b)\\
-$\delta_r$ & $8.0 . 10^{-9}$ (J/b)\\
-$\delta_p$ & $16 . 10^-9$ (J.b)\\
-$E_{r-baseline}$ & $750$ watt \\
-$E_{s-baseline}$ & $290$ watt \\
-$E_{p-baseline}$ & $13.5$ watt \\
-%%$B$ & $500$MB\\
-$d_s$ & $1$ \\
-$N_{s}^{u}$ & $[0.25,0.5,0.75,1]$ Mbps \\
-$N$ & $[100,..,1000]$ \\
-$T$ & $[20,25]$ correspond to COP value $[3.194,4.728]$\\\hline
+\begin{tabular}{l|l|l}\hline\hline
+Symbol & Description & Values\\\hline
+$\delta_s$ & Work induced at server per bit transferred & $5.2 . 10^{-8}$ (J/b)\\
+$\delta_r$ & Work induced at router per bit transferred & $8.0 . 10^{-9}$ (J/b)\\
+$\delta_p$ & Work induced at peer per bit transferred  & $16 . 10^-9$ (J.b)\\
+$E_{r-base}$ & Router baseline power consumption & $750$ watt \\
+$E_{s-base}$ & Server baseline power consumption & $290$ watt \\
+$E_{p-base}$ & Peer baseline power consumption & $13.5$ watt \\
+$r$ & Video bitrate in live streaming & 1Mbps \\
+$d$ & Number of hops & $1$ \\
+$N_{s}^{u}$ & Upload rate of peers in live streaming & $[0.25,0.5,0.75,1]$ Mbps \\
+$N$ & Number of peers in live streaming & $[100,..,1000]$ \\
+$\delta_{t1}$ & Type-1 peer arrival rate to less popular files in online  & 0.1 \\
+& storage (Poisson process) & \\
+$\delta_{t2}$ & Type-2 peer arrival rate to less popular files in online  & 1 \\
+& storage (Poisson process) & \\
+$\eta_{t1}$ & File type-1 sharing effectiveness. The fraction of the   & 0.5 \\
+& upload capacity of peers that is being utilized in  & \\
+& online storage & \\
+$\eta_{t2}$ & File type-2 sharing effectiveness. The fraction of the   & 1 \\
+& upload capacity of peers that is being utilized in  & \\
+& online storage & \\
+$M_{t1}$ & Number of files in type-1 files or less popular files  & 10 \\
+$M_{t2}$ & Number of files in type-2 files or less popular files & 1 \\
+$f_{t1} = f_{t2}$ & File size in online storage & 100 MB \\
+$\mu$ & Upload rate of peers in online storage & 0.5Mbps \\
+$c$ & Downloading rate of peers in online storage & 1Mbps \\
+$T$ & Air temperature supplied form cooling unit  & $[20,25]$ correspond to COP \\
+& in data center & value $[3.194,4.728]$ \\\hline
 \end{tabular}\hfil}
 \end{table}
 
