@@ -10,21 +10,21 @@
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$.\relax }}{18}
 \contentsline {figure}{\numberline {4.7}{\ignorespaces CDF plot of $\rho $ value of log-likehood ratio test for power-law v.s log-normal.\relax }}{19}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Scatter plot $p$ values v.s log-likelihood ratio (LR) for likelihood test for power-law vs log-normal.\relax }}{19}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces CDF plot of $\rho $ value of log-likehood ratio test for power-law v.s exponential.\relax }}{19}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Scatter plot $p$ values v.s log-likelihood ratio (LR) for likelihood test for power-law vs exponential.\relax }}{19}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces CDF plot of the clustering coefficient for each torrent.\relax }}{20}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces $\alpha $ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.\relax }}{21}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces CDF plot of $\rho $ value of log-likehood ratio test for power-law v.s exponential.\relax }}{20}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Scatter plot $p$ values v.s log-likelihood ratio (LR) for likelihood test for power-law vs exponential.\relax }}{20}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces CDF plot of the clustering coefficient for each torrent.\relax }}{21}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces $\alpha $ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.\relax }}{22}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Example model of peer-assisted online storage architecture.\relax }}{25}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Example model of peer-assisted online storage architecture.\relax }}{27}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces COP curve for the chilled water cooling units from HP Lab utility data center. As the target temperature of the air the cooling unit pumps into the floor plenum increases, the COP increases.\relax }}{29}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Simplified physical representation flow of data.\relax }}{31}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Power consumption for the server, router, peer, and total system for CDN architecture. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{32}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Power consumption for the server, router, peer and total system for peer-assisted CDN with $N_s^u=0.75$. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{33}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Savings in power consumption between CDN architecture and peer-assisted CDN for server with $N_s^u=[0.25,0.5,0.75,1]$.\relax }}{34}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Savings in power consumption between CDN architecture and peer-assisted CDN for total system with $N_s^u=[0.25,0.5,0.75,1]$.\relax }}{35}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Power consumption for lower bound strategy. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{35}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Savings in power consumption between each bandwidth allocation and CDN architecture for total and server. Note that the server and router energy (data center) are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{36}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Power consumption for total (left axis) and router (right axis) under different server bandwidth allocation strategies when peer arrival rate of less popular varies. We use fixed server bandwidth $S=50$ MBps.\relax }}{36}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Example model of peer-assisted online storage architecture.\relax }}{26}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Example model of peer-assisted online storage architecture.\relax }}{28}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces COP curve for the chilled water cooling units from HP Lab utility data center. As the target temperature of the air the cooling unit pumps into the floor plenum increases, the COP increases.\relax }}{30}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Simplified physical representation flow of data.\relax }}{32}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Power consumption for the server, router, peer, and total system for CDN architecture. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{33}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Power consumption for the server, router, peer and total system for peer-assisted CDN with $N_s^u=0.75$. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{34}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Savings in power consumption between CDN architecture and peer-assisted CDN for server with $N_s^u=[0.25,0.5,0.75,1]$.\relax }}{35}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Savings in power consumption between CDN architecture and peer-assisted CDN for total system with $N_s^u=[0.25,0.5,0.75,1]$.\relax }}{36}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Power consumption for lower bound strategy. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{36}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Savings in power consumption between each bandwidth allocation and CDN architecture for total and server. Note that the server and router energy (data center) are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{37}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Power consumption for total (left axis) and router (right axis) under different server bandwidth allocation strategies when peer arrival rate of less popular varies. We use fixed server bandwidth $S=50$ MBps.\relax }}{37}
 \addvspace {10\p@ }
