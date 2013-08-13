@@ -24,7 +24,7 @@ Our other options inferring topologies are simulation or deploying Bittorrent no
 
 \begin{figure}[tb]
 \begin{center}
-\includegraphics[scale=0.5]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/pex_2.eps}
+\includegraphics[scale=0.6]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/pex_2.eps}
 \end{center}
 \caption{Simplified view of our approach. Left: At time t=1, the actor gets a PEX message from peer A and
 learns that peer A is connected to peer B and C. At t=2, the actor gets  PEX messages from peers C and A. The actor
@@ -130,7 +130,7 @@ For the detailed calculations of both $x_{min}$ and $\alpha$, see Appendix B in 
 
 \begin{figure}[!t]
 \begin{center}
-\includegraphics[scale=0.8]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-num.eps}
+\includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-num.eps}
 \end{center}
 \caption{CDF plot of number of peers for the 50 swarms during measurement.}
 %\caption{CDF plot of number of peers for the 50 swarms during measurement with 104 to 1400 time samples for each torrent. 
@@ -180,7 +180,7 @@ We address these concerns next.
 
 \begin{figure}[!tb]
 \begin{center}
-\includegraphics[scale=0.8]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/output_2.eps}
+\includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/output_2.eps}
 \end{center}
 \caption{Node degree fit for snapshots of two torrents, with three fits shown in log scale.} 
 %Torrent1: for $x_{min}=1$ , $\alpha = 2.9$, and $p=0.01$. For $x_{min}=2$ , $\alpha = 2.11$, and $p = 0.01$. Torrent3: for $x_{min}=1$, $\alpha = 2.1$, and $p = 0.1$. }
@@ -189,42 +189,32 @@ We address these concerns next.
 
 \begin{figure}[!tb]
 \begin{center}
-\includegraphics[scale=0.8]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/aggregate-p-cdf.eps}
+\includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/aggregate-p-cdf.eps}
 \end{center}
 \caption{CDF plot of $p$ value of K-S statistics.} 
 %It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
 %The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
 \label{fig:cdf-p}
 \end{figure}
- 
-\begin{figure*}[!tb]
-\centering
-\begin{minipage}[b]{.45\linewidth}
-\centering
-\includegraphics[width=2.6in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/gabung-korelasi-p-rho.eps}
-\end{minipage}%
-\hfill%
-\begin{minipage}[b]{.45\linewidth}
-\centering
-\centering
-\includegraphics[width=2.6in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/gabung-korelasi-p-rho-4region.eps}
-\end{minipage}\\[-7pt]
-\begin{minipage}[t]{.45\linewidth}
+
+
+
+\begin{figure}[!tb]
+\begin{center}
+\includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/gabung-korelasi-p-rho.eps}
+\end{center}
 \caption{Scatter plot of $p$ value vs $\rho$ value.} 
-%Points in area 1 ($\rho$ value $<0.1$ and $p$ value $>0$) are the samples where a power-law with exponential cut-off is a more plausible model than a power-law. In area 3, a pure power-law may be more plausible than power-law with exponential cut-off, while in area 2 the results are ambiguous.}
 \label{fig:scatter-pvalue-vs-rho}
-\end{minipage}%
-\hfill%
-\begin{minipage}[t]{.45\linewidth}
-\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$.}
-         %In this figure we define area 1: $LR>0$ and $p$ value $<0.1$, area 2: $LR>0$ 
-         %and $p$ value $>0.1$, area 3: $LR<0$ and $p$ value $<0.1$, area 4: $LR<0$ and $p$ 
-         %value $>0.1$. There are no points in area 1 and area 2, meaning that the power-law
-         %model is not a better model for all data; instead $42\%$ of the points lie in area 3 
-         %and $58\%$ of the points lie in area 4.}
+\end{figure}
+
+\begin{figure}[!tb]
+\begin{center}
+\includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/gabung-korelasi-p-rho-4region.eps}
+\end{center}
+\caption{Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$.} 
 \label{fig:scatter-pvalue-vs-lr-for-rho-le-01}
-\end{minipage}%
-\end{figure*}
+\end{figure}
+
 
 \subsection{Alternative Distributions}
 Even if we have estimated the power-law parameter properly and the fit is decent, it does not mean the power-law model is good.
@@ -274,13 +264,13 @@ These observations clearly demonstrate that comparing models is a very complex t
 \centering
 \begin{minipage}[b]{.45\linewidth}
 \centering
-\includegraphics[width=2.6in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
+\includegraphics[width=2.8in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
 \end{minipage}%
 \hfill%
 \begin{minipage}[b]{.45\linewidth}
 \centering
 \centering
-\includegraphics[width=2.6in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-p-lognorm.eps}
+\includegraphics[width=2.8in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-p-lognorm.eps}
 \end{minipage}\\[-7pt]
 \begin{minipage}[t]{.45\linewidth}
 \caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s 
@@ -299,13 +289,13 @@ These observations clearly demonstrate that comparing models is a very complex t
 \centering
 \begin{minipage}[b]{.45\linewidth}
 \centering
-\includegraphics[width=2.6in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
+\includegraphics[width=2.8in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
 \end{minipage}%
 \hfill%
 \begin{minipage}[b]{.45\linewidth}
 \centering
 \centering
-\includegraphics[width=2.6in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-pi-exp.eps}
+\includegraphics[width=2.8in]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-pi-exp.eps}
 \end{minipage}\\[-7pt]
 \begin{minipage}[t]{.45\linewidth}
 \caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s exponential.} 
@@ -363,7 +353,7 @@ Considering only the low clustering coefficient, the Bittorrent topologies seem 
 
 \begin{figure}[!tb] 
 \begin{center}
-\includegraphics[scale=0.8]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-clustering.eps}
+\includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-clustering.eps}
 \end{center}
 \caption{CDF plot of the clustering coefficient for each torrent.}%It is clearly show that Bittorrent networks have low clustering coefficient.} 
 \label{fig:cdf-clustering}
@@ -383,7 +373,7 @@ The Spearman rank correlation test gives $0.38 \leq \rho \leq 0.5$, which we con
 Therefore, the simulator confirms that the PEX method can be used to estimate $\alpha$.
 \begin{figure}[!tb]
 \begin{center}
-\includegraphics[scale=0.8]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/netscicom-graphs/simula.eps}
+\includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/netscicom-graphs/simula.eps}
 \end{center}
 \caption{$\alpha$ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.}
 \label{fig:simulation}
