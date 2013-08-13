@@ -163,13 +163,6 @@
 \newblock Measurement and diagnosis of address misconfigured p2p traffic.
 \newblock In {\em INFOCOM, 2010 Proceedings IEEE\/} (2010), IEEE, pp.~1--9.
 
-\bibitem{5199550}
-{\sc Liu, F., Sun, Y., Li, B., and Zhang, X.}
-\newblock Understanding the roles of servers in large-scale peer-assisted
-  online storage systems.
-\newblock In {\em Communications, 2009. ICC '09. IEEE International Conference
-  on\/} (2009), pp.~1--5.
-
 \bibitem{mahadevan2006systematic}
 {\sc Mahadevan, P., Krioukov, D., Fall, K., and Vahdat, A.}
 \newblock Systematic topology analysis and generation using degree
