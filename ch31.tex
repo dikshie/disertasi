@@ -1,0 +1,53 @@
+\chapter{P2P Content Delivery}
+\section{Introduction}
+
+Peer-to-peer (P2P) applications have attracted great attentions.
+P2P applications such as Napster, Gnutella, FastTrack, BitTorrent, Skype and PPLive, have attracted the end users.
+Unlike a client-server based system, P2P bring with them serving capacity. 
+Therefore, as the nodes of P2P grows, the capacity of the network grows, too. 
+This enables a P2P application cheap to build and it can have good scalability.
+
+\section{Anatomy of P2P Applications}
+\subsection{P2P File Sharing}
+We noted that the popular P2P file sharing applications are Gnutella, eDonkey, and Bittorrent.  
+
+Gnutella is one of the earliest P2P file sharing.
+Gnutella is one of those pure P2P applications that do not have a centralized server.
+In initial phase connection, a Gnutella peer joins the network via at least one known peer, whose IP address is obtained either via an existing list of pre-configured addresses.
+From this initial Gnutella peer, the new coming peer will discover more new Gnutella peers.
+Tthe source peer will send the search request to all actively connected peers. 
+The recipient peer answers will answer the query if it knows anything useful, or forwards the request to other peers.
+The query thus propagates among the Gnutella network.
+Basically, Gnutella will floods the network to conduct the search.
+
+
+\subsection{P2P Streaming}
+
+
+
+
+
+\section{P2P Measurement}
+BitTorrent as the most P2P filesharing application is responsible for a major portion of the Internet traffic share and is daily used by hundred of millions of users. 
+This has attracted the interest of the research community that has thoroughly evaluated the performance and the demographic aspects of BitTorrent. 
+Due to the complexity of the system, the most relevant studies have tried to understand different aspects by performing real measurements of BitTorrent swarms in the wild, this is inferring information from real swarms in real time.
+Several techniques have been used in order to measure different aspects of BitTorrent so far. 
+In this Chapter we present a survey of different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
+
+\section{Measuring BitTorrent}
+In this Section we describe the BitTorrent measurement techniques defined in the literature so far. 
+We classify them into two main categories macroscopic and microscopic depending on the retrieved information. 
+
+\subsection{Macroscopic Technique}
+The main objective of these techniques is to understand the demographics of the BitTorrent ecosystem: the type of published content, the popularity of the content, the distribution of BitTorrent users per country (or ISP), the relevance of the different portals and trackers, etc. 
+Furthermore, the macroscopic measurements allow to study some performance aspects such as the ratio of seeders/leechers, the session time of the BitTorrent users, the arrival rate of peers, the seedless state (period the torrent is without seeder) duration, etc.
+We classify the macroscopic techniques into two subcategories: BitTorrent portals crawling and BitTorrent trackers crawling.
+
+\subsection{Microscopic Technique}
+The described macroscopic techniques retrieve exclusively the peers’ IP addresses, thus only metrics associated to the presence/absence of the peer can be studied. Unfortunately, IP address does not suffice to infer relevant performance metrics at the peer level such as peers’ download and upload rate. 
+For this purpose we need to apply more sophisticated (but less scalable) techniques that we name microscopic techniques.
+To perform microscopic techniques we need to implement different parts of the BitTorrent peer wire protocol. 
+Any microscopic crawler has to implement the functions to perform the handshaking procedure. 
+This is essential to connect to other peers. 
+The handshaking procedure can be done actively (the crawler initiates it) or passively (the crawler waits until a peer starts the handshaking). 
+Once the crawler is connected to a peer, it exploits different messages of the peer wire protocol in order to measure different parameters. 

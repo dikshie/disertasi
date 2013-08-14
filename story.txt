@@ -1,3 +1,26 @@
+\chapter{P2P Content Delivery}
+\section{Introduction}
+
+Peer-to-peer (P2P) applications have attracted great attentions.
+P2P applications such as Napster, Gnutella, FastTrack, BitTorrent, Skype and PPLive, have attracted the end users.
+Unlike a client-server based system, P2P bring with them serving capacity. 
+Therefore, as the nodes of P2P grows, the capacity of the network grows, too. 
+This enables a P2P application cheap to build and it can have good scalability.
+
+\section{Anatomy of P2P Applications}
+\subsection{P2P File Sharing}
+
+\subsection{P2P Streaming}
+
+
+
+
+
+
+
+
+
+----------------------------
 P2P part
 --------
 P2P is known has advantage in scalability for delivering content. 

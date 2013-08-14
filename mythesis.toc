@@ -5,38 +5,42 @@
 \contentsline {section}{\numberline {1.4}Approach}{7}
 \contentsline {section}{\numberline {1.5}Contribution}{8}
 \contentsline {chapter}{\numberline {2}Related Work}{9}
-\contentsline {chapter}{\numberline {3}P2P measurement}{11}
+\contentsline {chapter}{\numberline {3}P2P Content Delivery}{11}
 \contentsline {section}{\numberline {3.1}Introduction}{11}
-\contentsline {section}{\numberline {3.2}Measuring BitTorrent}{11}
-\contentsline {subsection}{\numberline {3.2.1}Macroscopic Technique}{11}
-\contentsline {subsection}{\numberline {3.2.2}Microscopic Technique}{11}
-\contentsline {chapter}{\numberline {4}Characteristics of BitTorrent Swarms}{12}
-\contentsline {section}{\numberline {4.1}Introduction}{12}
-\contentsline {section}{\numberline {4.2}Measurement Methodology}{12}
-\contentsline {subsection}{\numberline {4.2.1}Graph Sampling}{13}
-\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{14}
-\contentsline {subsection}{\numberline {4.2.3}Data Analysis Background}{14}
-\contentsline {section}{\numberline {4.3}Experimental Results}{15}
-\contentsline {subsection}{\numberline {4.3.1}Power-law Distribution of Node Degree}{15}
-\contentsline {subsection}{\numberline {4.3.2}Alternative Distributions}{16}
-\contentsline {subsubsection}{Nested Case}{17}
-\contentsline {subsubsection}{Non-Nested Case}{18}
-\contentsline {subsection}{\numberline {4.3.3}Clustering Coefficient}{20}
-\contentsline {section}{\numberline {4.4}Confirmation via Simulation}{21}
-\contentsline {section}{\numberline {4.5}Related Work}{22}
-\contentsline {section}{\numberline {4.6}Summary}{23}
-\contentsline {chapter}{\numberline {5}Green Networking}{24}
-\contentsline {chapter}{\numberline {6}Energy Saving in Peer-Assisted CDN}{25}
-\contentsline {section}{\numberline {6.1}Motivation}{25}
-\contentsline {section}{\numberline {6.2}System Description}{26}
-\contentsline {subsection}{\numberline {6.2.1}Live Streaming}{26}
-\contentsline {subsection}{\numberline {6.2.2}Peer-Assisted Online Storage}{27}
-\contentsline {subsection}{\numberline {6.2.3}Energy Model}{29}
-\contentsline {section}{\numberline {6.3}Result and Analysis}{31}
-\contentsline {subsection}{\numberline {6.3.1}Numerical Parameters}{31}
-\contentsline {subsection}{\numberline {6.3.2}Live Streaming Service}{31}
-\contentsline {subsection}{\numberline {6.3.3}Online Storage}{33}
-\contentsline {section}{\numberline {6.4}Summary}{35}
-\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{38}
-\contentsline {section}{\numberline {7.1}Conclusion}{38}
-\contentsline {section}{\numberline {7.2}Future Work}{39}
+\contentsline {section}{\numberline {3.2}Anatomy of P2P Applications}{11}
+\contentsline {subsection}{\numberline {3.2.1}P2P File Sharing}{11}
+\contentsline {subsection}{\numberline {3.2.2}P2P Streaming}{11}
+\contentsline {section}{\numberline {3.3}P2P Measurement}{11}
+\contentsline {section}{\numberline {3.4}Measuring BitTorrent}{12}
+\contentsline {subsection}{\numberline {3.4.1}Macroscopic Technique}{12}
+\contentsline {subsection}{\numberline {3.4.2}Microscopic Technique}{12}
+\contentsline {chapter}{\numberline {4}Characteristics of BitTorrent Swarms}{13}
+\contentsline {section}{\numberline {4.1}Introduction}{13}
+\contentsline {section}{\numberline {4.2}Measurement Methodology}{13}
+\contentsline {subsection}{\numberline {4.2.1}Graph Sampling}{14}
+\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{15}
+\contentsline {subsection}{\numberline {4.2.3}Data Analysis Background}{15}
+\contentsline {section}{\numberline {4.3}Experimental Results}{16}
+\contentsline {subsection}{\numberline {4.3.1}Power-law Distribution of Node Degree}{16}
+\contentsline {subsection}{\numberline {4.3.2}Alternative Distributions}{17}
+\contentsline {subsubsection}{Nested Case}{18}
+\contentsline {subsubsection}{Non-Nested Case}{19}
+\contentsline {subsection}{\numberline {4.3.3}Clustering Coefficient}{21}
+\contentsline {section}{\numberline {4.4}Confirmation via Simulation}{22}
+\contentsline {section}{\numberline {4.5}Related Work}{23}
+\contentsline {section}{\numberline {4.6}Summary}{24}
+\contentsline {chapter}{\numberline {5}Green Networking}{25}
+\contentsline {chapter}{\numberline {6}Energy Saving in Peer-Assisted CDN}{26}
+\contentsline {section}{\numberline {6.1}Motivation}{26}
+\contentsline {section}{\numberline {6.2}System Description}{27}
+\contentsline {subsection}{\numberline {6.2.1}Live Streaming}{27}
+\contentsline {subsection}{\numberline {6.2.2}Peer-Assisted Online Storage}{28}
+\contentsline {subsection}{\numberline {6.2.3}Energy Model}{30}
+\contentsline {section}{\numberline {6.3}Result and Analysis}{32}
+\contentsline {subsection}{\numberline {6.3.1}Numerical Parameters}{32}
+\contentsline {subsection}{\numberline {6.3.2}Live Streaming Service}{32}
+\contentsline {subsection}{\numberline {6.3.3}Online Storage}{34}
+\contentsline {section}{\numberline {6.4}Summary}{36}
+\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{39}
+\contentsline {section}{\numberline {7.1}Conclusion}{39}
+\contentsline {section}{\numberline {7.2}Future Work}{40}
