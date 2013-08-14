@@ -1,16 +1,23 @@
 \chapter{P2P Content Delivery}
 \section{Introduction}
-
-Peer-to-peer (P2P) applications have attracted great attentions.
-P2P applications such as Napster, Gnutella, FastTrack, BitTorrent, Skype and PPLive, have attracted the end users.
-Unlike a client-server based system, P2P bring with them serving capacity. 
-Therefore, as the nodes of P2P grows, the capacity of the network grows, too. 
-This enables a P2P application cheap to build and it can have good scalability.
-
-\section{Anatomy of P2P Applications}
+%comprehensive explanation about P2P is here
 \subsection{P2P File Sharing}
-
 \subsection{P2P Streaming}
+\subsection{P2P overlay}
+
+%now we go to more detail on measurement and energy
+\section{P2P Measurement}
+\section{Measuring BitTorrent}
+\subsection{Macroscopic Technique}
+\subsection{Microscopic Technique}
+
+\section{Green Networking}
+
+
+
+
+
+
 
 
 

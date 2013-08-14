@@ -3,11 +3,13 @@
 
 Peer-to-peer (P2P) applications have attracted great attentions.
 P2P applications such as Napster, Gnutella, FastTrack, BitTorrent, Skype and PPLive, have attracted the end users.
+According to the P2P paradigm, the network of P2P is formed by peers that equally share the burden of providing services to each other in a cooperative manner.
+Each peer contributes parts of its resources (network bandwidth, disk storage, etc.).
 Unlike a client-server based system, P2P bring with them serving capacity. 
 Therefore, as the nodes of P2P grows, the capacity of the network grows, too. 
-This enables a P2P application cheap to build and it can have good scalability.
+This enables a P2P application is cheap to build and it can have good scalability for content delivery.  
 
-\section{Anatomy of P2P Applications}
+
 \subsection{P2P File Sharing}
 We noted that the popular P2P file sharing applications are Gnutella, eDonkey, and Bittorrent.  
 
@@ -18,21 +20,42 @@ From this initial Gnutella peer, the new coming peer will discover more new Gnut
 Tthe source peer will send the search request to all actively connected peers. 
 The recipient peer answers will answer the query if it knows anything useful, or forwards the request to other peers.
 The query thus propagates among the Gnutella network.
-Basically, Gnutella will floods the network to conduct the search.
+Basically, Gnutella will floods the network to conduct the search and users will get content by doing search.
 
+The eDonkey network operates as a hybrid P2P and server. 
+The eDonkey network consists number of of clients and number of servers. 
+The eDonkey server acts as a indexes files, communication hub, and for distributing IP addresses of other eDonkey servers to the eDonkey clients.
+
+
+BitTorrent was created in 2002 by Bram Cohen. 
+It runs on an open protocol specification thus there a lot of implementation.
+To share a file or a set of files (bundle of files) through BitTorrent, a torrent file is first created. 
+The torrent file contains the metadata of the shared content, which includes the information of the tracker that coordinates the file distribution, and the hashes of the file blocks to be distributed. 
+The torrent file is usually distributed via web.
+When a client wants to get a file, it first obtains the torrent file. 
+The client then contacts the tracker listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
+BitTorrent has generated great enthusiasm for P2P file sharing distribution.  
+Many open source software projects use Bittorrent to distribute their applications.
 
 \subsection{P2P Streaming}
-
-
-
-
+Beside of P2P for filesharing, we also noted that P2P for streaming is also on the rise especially in China.
+The target of P2P streaming is to build a scalable P2P platform for TV/music delivery. 
+More than a dozen companies are actively working in this area for example UUSe, PPLive, PPStream. 
+Let's take PPLive as an example since it is the most popular P2P streaming service.
+According to \cite{} in 2007, the number of concurrent users for the most popular PPLive session raises to 1.5 million.
+When the PPLive client is launched by users, it retrieves from a channel server the metadata information of all channels. 
+The PPLive client presents the channel list to the user, who selects one particular channel to watch. 
+After the channel selection, the PPLive client further talks to a tracker of that channel, and retrieves a list of peers that are watching the same channel. 
+The PPLive client connects to a set of peers, and starts to exchange data. 
+The challenge in P2P streaming is to provide a sustained streaming bit rate to all peers joining the network. 
+Unlike P2P file sharing, where the content delivery can be carried out on a best effort basis, in P2P streaming, insufficient delivery bandwidth leads to poor quality of service, such as playback stalling or freezing, which is very annoying to the users.
 
 \section{P2P Measurement}
 BitTorrent as the most P2P filesharing application is responsible for a major portion of the Internet traffic share and is daily used by hundred of millions of users. 
 This has attracted the interest of the research community that has thoroughly evaluated the performance and the demographic aspects of BitTorrent. 
 Due to the complexity of the system, the most relevant studies have tried to understand different aspects by performing real measurements of BitTorrent swarms in the wild, this is inferring information from real swarms in real time.
 Several techniques have been used in order to measure different aspects of BitTorrent so far. 
-In this Chapter we present a survey of different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
+We present a survey of different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
 
 \section{Measuring BitTorrent}
 In this Section we describe the BitTorrent measurement techniques defined in the literature so far. 
@@ -51,3 +74,32 @@ Any microscopic crawler has to implement the functions to perform the handshakin
 This is essential to connect to other peers. 
 The handshaking procedure can be done actively (the crawler initiates it) or passively (the crawler waits until a peer starts the handshaking). 
 Once the crawler is connected to a peer, it exploits different messages of the peer wire protocol in order to measure different parameters. 
+
+
+\section{Green Networking}
+
+Since the seminal paper by Gupta and Singh \cite{Gupta:2003:GI:863955.863959}, presented at SIGCOMM in 2003, the subject of green networking has received considerable attention. 
+In recent years, valuable efforts have been devoted to reducing unnecessary energy expenditure.
+Big companies such as Google, Microsoft, and Amazon, are turning to a host of new technologies to reduce operating costs and consume less energy.
+Google, for example, is planning to operate its data centers with a zero carbon footprint by using, among other things, hydropower, water-based chillers, and external cold air to do some of the cooling.
+Several approaches have been considered to reduce energy consumption in networks. These include:
+\begin{itemize}
+	\item The design of low power components that are still able to offer acceptable levels of performance. 
+	For example, at the circuit level techniques such as Dynamic Voltage Scaling (DVS) and Dynamic Frequency Scaling (DFS) can be used. 
+	With DVS the supply voltage is reduced when not needed, which results in slower operation of the circuitry. 
+	DFS reduces the number of processor instructions in a given amount of time, thus reducing performance. 
+	These techniques can reduce energy consumption significantly. 
+	
+	\item Consuming energy from renewable energy sources sites rather than incurring in electricity transmission overheads, thus reducing CO2 emissions.
+	
+	\item Designing new network architectures, for example by moving network equipment and network functions to strategic places. 
+	Examples include placing optical amplifiers at the most convenient locations and performing complex switching and routing functions near renewable sources.
+	
+	\item Using innovative cooling techniques. Researchers in Finland, for instance, are running servers outside in Finnish winter, with air temperatures below $20$ degrees celsius.
+	
+	\item Performing resource consolidation, capitalizing on available energy. 
+	This can be done via traffic engineering, for instance. 
+	By aggregating traffic flows over a subset of the network devices and links allows others to be switched off temporarily or be placed in sleep mode. 
+	Another way is by migrating computation, typically using virtualization to move workloads transparently.
+	
+\end{itemize}
