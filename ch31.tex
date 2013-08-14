@@ -26,7 +26,6 @@ The eDonkey network operates as a hybrid P2P and server.
 The eDonkey network consists number of of clients and number of servers. 
 The eDonkey server acts as a indexes files, communication hub, and for distributing IP addresses of other eDonkey servers to the eDonkey clients.
 
-
 BitTorrent was created in 2002 by Bram Cohen. 
 It runs on an open protocol specification thus there a lot of implementation.
 To share a file or a set of files (bundle of files) through BitTorrent, a torrent file is first created. 
@@ -36,6 +35,7 @@ When a client wants to get a file, it first obtains the torrent file.
 The client then contacts the tracker listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
 BitTorrent has generated great enthusiasm for P2P file sharing distribution.  
 Many open source software projects use Bittorrent to distribute their applications.
+
 
 \subsection{P2P Streaming}
 Beside of P2P for filesharing, we also noted that P2P for streaming is also on the rise especially in China.
@@ -50,12 +50,13 @@ The PPLive client connects to a set of peers, and starts to exchange data.
 The challenge in P2P streaming is to provide a sustained streaming bit rate to all peers joining the network. 
 Unlike P2P file sharing, where the content delivery can be carried out on a best effort basis, in P2P streaming, insufficient delivery bandwidth leads to poor quality of service, such as playback stalling or freezing, which is very annoying to the users.
 
+
 \section{P2P Measurement}
 BitTorrent as the most P2P filesharing application is responsible for a major portion of the Internet traffic share and is daily used by hundred of millions of users. 
 This has attracted the interest of the research community that has thoroughly evaluated the performance and the demographic aspects of BitTorrent. 
 Due to the complexity of the system, the most relevant studies have tried to understand different aspects by performing real measurements of BitTorrent swarms in the wild, this is inferring information from real swarms in real time.
 Several techniques have been used in order to measure different aspects of BitTorrent so far. 
-We present a survey of different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
+We present different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
 
 \section{Measuring BitTorrent}
 In this Section we describe the BitTorrent measurement techniques defined in the literature so far. 
@@ -67,7 +68,7 @@ Furthermore, the macroscopic measurements allow to study some performance aspect
 We classify the macroscopic techniques into two subcategories: BitTorrent portals crawling and BitTorrent trackers crawling.
 
 \subsection{Microscopic Technique}
-The described macroscopic techniques retrieve exclusively the peers’ IP addresses, thus only metrics associated to the presence/absence of the peer can be studied. Unfortunately, IP address does not suffice to infer relevant performance metrics at the peer level such as peers’ download and upload rate. 
+The described macroscopic techniques retrieve exclusively the peers IP addresses, thus only metrics associated to the presence/absence of the peer can be studied. Unfortunately, IP address does not suffice to infer relevant performance metrics at the peer level such as peers’ download and upload rate. 
 For this purpose we need to apply more sophisticated (but less scalable) techniques that we name microscopic techniques.
 To perform microscopic techniques we need to implement different parts of the BitTorrent peer wire protocol. 
 Any microscopic crawler has to implement the functions to perform the handshaking procedure. 
