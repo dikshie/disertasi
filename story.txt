@@ -1,3 +1,29 @@
+2.1 introduction
+
+teknologi, aplikasi, sejarah, semua hal yang berkaitan tentang p2p secara umum.
+gambaran besar riset p2p: framework seperti apa, research problems apa aja: bagaimana penelitian sekarang dan problem apa saja yang belum selesai
+kenapa penelitian measurement dan energy footprint(?) penting
+
+2.2 P2P Measurement
+apa saja framework penelitian p2p measurement yang sekarang
+di mana yang masih kurang
+
+2.3 P2P Energy Footprint
+apa saja framework penelitian p2p energy footprint yang sekarang
+di mana yang masih kurang
+[8/14/13 11:23:40 PM] Husni: 
+tujuan ch 2: 
+1. pembaca mengerti tentang state of the arts riset p2p
+2. pembaca mengapa kenapa risetmu penting 
+3. pembaca tahu di mana persisnya kontribusi risetmu (di ch1 cuma sebut poin2 kontribusi; di ch2 paham detailnya)
+
+
+
+
+
+
+
+----------------------------------------
 \chapter{P2P Content Delivery}
 \section{Introduction}
 %comprehensive explanation about P2P is here
