@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {2.2}P2P Measurement}{13}
 \contentsline {section}{\numberline {2.3}Measuring BitTorrent}{13}
 \contentsline {subsection}{\numberline {2.3.1}Macroscopic Technique}{13}
-\contentsline {subsection}{\numberline {2.3.2}Microscopic Technique}{13}
+\contentsline {subsection}{\numberline {2.3.2}Microscopic Technique}{14}
 \contentsline {section}{\numberline {2.4}Green Networking}{14}
 \contentsline {chapter}{\numberline {3}Related Work}{15}
 \contentsline {chapter}{\numberline {4}Characteristics of BitTorrent Swarms}{17}
