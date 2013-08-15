@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  15 AUG 2013 19:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  15 AUG 2013 20:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -664,11 +664,15 @@ Missing character: There is no ™ in font txr!
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [38]) (./ch7.tex [39] [40] [41]
+ [38]) (./ch2.tex [39] [40] [41]
 Chapter 6.
-) [42
+[42
 
-] (./mythesis.bbl [43]
+]) (./ch7.tex [43]
+Chapter 7.
+) [44
+
+] (./mythesis.bbl [45]
 LaTeX Font Info:    Try loading font information for OT1+txtt on input line 18.
 
 
@@ -690,7 +694,7 @@ Missing character: There is no Â in font txr!
 Missing character: There is no “ in font txr!
 Missing character: There is no Â in font txr!
 Missing character: There is no ” in font txr!
-[44
+[46
 
 ]
 Underfull \hbox (badness 1325) in paragraph at lines 131--134
@@ -698,13 +702,13 @@ Underfull \hbox (badness 1325) in paragraph at lines 131--134
 data cen-ter in-dus-try sur-vey.  Avail-able on $\OT1/txtt/m/n/10 http : / /
  []
 
-[45]
+[47]
 Underfull \hbox (badness 10000) in paragraph at lines 213--217
 []\OT1/txr/m/sc/10 Octoshape\OT1/txr/m/n/10 .  Cnn uses oc-toshape.  Avail-able
  on $\OT1/txtt/m/n/10 http : / / octoshape . com /
  []
 
-[46]
+[48]
 Underfull \hbox (badness 2781) in paragraph at lines 305--307
 []\OT1/txr/m/sc/10 uTorrent Bit-tor-rent Client's Good Set-ting\OT1/txr/m/n/10 
 .  Avail-able on $\OT1/txtt/m/n/10 http : / / forum . utorrent . com /
@@ -714,14 +718,14 @@ Missing character: There is no Â in font txr!
 Missing character: There is no ‘ in font txr!
 Missing character: There is no Â in font txr!
 Missing character: There is no ’ in font txr!
-) [47] (./mythesis.aux) ) 
+) [49] (./mythesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4085 strings out of 493312
- 59713 string characters out of 6137876
+ 4087 strings out of 493312
+ 59729 string characters out of 6137876
  124069 words of memory out of 5000000
  7422 multiletter control sequences out of 15000+600000
  41174 words of font info for 114 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,11n,38p,1162b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mythesis.dvi (50 pages, 187584 bytes).
+Output written on mythesis.dvi (52 pages, 198560 bytes).

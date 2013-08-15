@@ -141,13 +141,22 @@ It has been shown that blind selections of neighbors in P2P networks may result 
 Furthermore, it can significantly impact on the shape and amount of traffic among different ISPs, which may result being quite different from what foreseen in ISPs peering agreements.
 Although, many solution exists the implementations are still not deployed. 
 
+While algorithms and mechanism in P2P system has been analyzed by many researchers, measurement of P2P is other aspect that important to do. 
+For example, in cross layer issue, P2P is often blind in selection of neighbors in P2P networks that affect underlying ISP's traffic engineering policies.  
+This effect can only seen if we have good real measurement instead doing simulation.
+
+
 
 
 
 
 \section{P2P Measurement}
-BitTorrent as the most P2P filesharing application is responsible for a major portion of the Internet traffic share and is daily used by hundred of millions of users. 
+
+
+Bittorrent is the most successful Peer-to-Peer (P2P) application and is responsible for a major portion of Internet traffic. 
 This has attracted the interest of the research community that has thoroughly evaluated the performance and the demographic aspects of BitTorrent. 
+It has been largely studied using simulations, models and real measurements. 
+Although simulations and modelling are easier to perform, they typically simplify analyzed problems and in case of Bittorrent they are likely to miss some of the effects which occur in real swarms. 
 Due to the complexity of the system, the most relevant studies have tried to understand different aspects by performing real measurements of BitTorrent swarms in the wild, this is inferring information from real swarms in real time.
 Several techniques have been used in order to measure different aspects of BitTorrent so far. 
 We present different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.

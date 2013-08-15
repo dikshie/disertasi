@@ -28,3 +28,4 @@
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Savings in power consumption between each bandwidth allocation and CDN architecture for total and server. Note that the server and router energy (data center) are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{41}
 \contentsline {figure}{\numberline {5.11}{\ignorespaces Power consumption for total (left axis) and router (right axis) under different server bandwidth allocation strategies when peer arrival rate of less popular varies. We use fixed server bandwidth $S=50$ MBps.\relax }}{41}
 \addvspace {10\p@ }
+\addvspace {10\p@ }
