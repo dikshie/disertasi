@@ -1,50 +1,54 @@
 \chapter{P2P Content Delivery}
 \section{Introduction}
 
-Peer-to-peer (P2P) applications have attracted great attentions.
 P2P applications such as Napster, Gnutella, FastTrack, BitTorrent, Skype and PPLive, have attracted the end users.
-According to the P2P paradigm, the network of P2P is formed by peers that equally share the burden of providing services to each other in a cooperative manner.
-Each peer contributes parts of its resources (network bandwidth, disk storage, etc.).
-Unlike a client-server based system, P2P bring with them serving capacity. 
-Therefore, as the nodes of P2P grows, the capacity of the network grows, too. 
-This enables a P2P application is cheap to build and it can have good scalability for content delivery.  
+According to the P2P paradigm, the P2P network is formed by peers that equally share the computing resources in a cooperative manner.
+Each peer contributes of its resources such as network bandwidth, storage, etc. 
+As the nodes of P2P grows, the capacity of the network grows, too because many peers join to the network. 
+This enables a P2P application is cheap and it can be used for content delivery.  
 
 We noted that the popular P2P file sharing applications are Gnutella, eDonkey, and Bittorrent.  
-Gnutella is one of the earliest P2P file sharing.
-Gnutella is one of those pure P2P applications that do not have a centralized server.
-In initial phase connection, a Gnutella peer joins the network via at least one known peer, whose IP address is obtained either via an existing list of pre-configured addresses.
-From this initial Gnutella peer, the new coming peer will discover more new Gnutella peers.
-The source peer will send the search request to all actively connected peers. 
-The recipient peer answers will answer the query if it knows anything useful, or forwards the request to other peers.
-The query thus propagates among the Gnutella network.
-Basically, Gnutella will floods the network to conduct the search and users will get content by doing search.
+Gnutella is one of the earliest P2P file sharing applications in the Internet.
+Gnutella is pure P2P applications that do not use a centralized server.
+A Gnutella peer joins the network via at least one known peer.
+That known peer IP address is obtained via pre-configured addresses. 
+From this initial Gnutella peer, we can discover new Gnutella peers.
+The Gnutella peer will send the search request to all connected peers. 
+The recipient peer will answer the query if it knows anything. 
+The recipient peer can forward the request to other peers if it does not know the answer.
+Thus, The query will propagate among the Gnutella network.
+Therefire Gnutella will floods the network for searching.
 
+Other P2P applications is eDonkey.  
+This applications is very popular in Europe. 
 The eDonkey network operates as a hybrid P2P and server. 
 The eDonkey network consists number of of clients and number of servers. 
-The eDonkey server acts as a indexes files, communication hub, and for distributing IP addresses of other eDonkey servers to the eDonkey clients.
+IP address of server is usually pre-configured when user installing the applications for the first time.  
+If users want to change the server, user can read on eDonkey web portal.
+The eDonkey server is working as a indexes files and for distributing IP addresses of other eDonkey peers to the eDonkey users.
 
 BitTorrent was created in 2002 by Bram Cohen. 
-It runs on an open protocol specification thus there a lot of implementation.
-To share a file or a set of files (bundle of files) through BitTorrent, a torrent file is first created. 
-The torrent file contains the metadata of the shared content, which includes the information of the tracker that coordinates the file distribution, and the hashes of the file blocks to be distributed. 
-The torrent file is usually distributed via web.
-When a client wants to get a file, it first obtains the torrent file. 
-The client then contacts the tracker listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
-BitTorrent has generated great enthusiasm for P2P file sharing distribution.  
-Many open source software projects use Bittorrent to distribute their applications.
-In Bittorrent, a seeder is a client who has complete the content and a leecher is a client who download the content.
+It runs on an open protocol specification thus there a lot of Bittorrent implementation.
+To share a file or a set of files through BitTorrent, a torrent file must be created for the first time.  
+The torrent file contains the information of the content, which includes the information of the tracker and the hashes of the file blocks to be distributed.
+The torrent file is usually distributed via Bittorent web portals.
+When a client wants to get a file that shared in Bittorrent web portals, it must obtain the torrent file from Bittorrent portals.
+The client then contacts the trackers listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
+BitTorrent has generated great enthusiasm for P2P file sharing distribution due to simplicity.  
+Many open source software projects use Bittorrent to distribute their applications which is quite big enough (equal or than CD disk space).
+Important terms in Bittorrent: a seeder is a client who has complete the content and a leecher is a client who download the content.
 
 Beside of P2P for filesharing, we also noted that P2P for streaming is also on the rise especially in China.
 The target of P2P streaming is to build a scalable P2P platform for TV/music delivery. 
-More than a dozen companies are actively working in this area for example UUSe, PPLive, PPStream. 
+More than a dozen companies are actively working in this area for example UUSe, PPLive, PPStream.  
 Let's take PPLive as an example since it is the most popular P2P streaming service.
 According to \cite{} in 2007, the number of concurrent users for the most popular PPLive session raises to 1.5 million.
-When the PPLive client is launched by users, it retrieves from a channel server the metadata information of all channels. 
-The PPLive client presents the channel list to the user, who selects one particular channel to watch. 
-After the channel selection, the PPLive client further talks to a tracker of that channel, and retrieves a list of peers that are watching the same channel. 
-The PPLive client connects to a set of peers, and starts to exchange data. 
+When the PPLive client is launched by users, it retrieves from a channel servers the metadata information of all channels. 
+After users choose the channel, the PPLive client further talks to a tracker of that channel. 
+Next the trackers will give  a list of peers that are watching the same channel. 
+After getting a list of peers, the PPLive client connects to a set of peers, and starts to exchange data. 
 The challenge in P2P streaming is to provide a sustained streaming bit rate to all peers joining the network. 
-Unlike P2P file sharing, where the content delivery can be carried out on a best effort basis, in P2P streaming, insufficient delivery bandwidth leads to poor quality of service, such as playback stalling or freezing, which is very annoying to the users.
+Unlike P2P file sharing, where the content can be carried on a best effort basis, in P2P streaming, insufficient delivery bandwidth can lead to poor quality of service. 
 
 \begin{figure}[tb]
 \begin{center}
@@ -54,93 +58,64 @@ Unlike P2P file sharing, where the content delivery can be carried out on a best
 \label{fig:p2ptech}
 \end{figure}
 
-Figure \ref{fig:p2ptech} shows the presentation of content-centric P2P technologies.
-It is not easy to identify an overall, clean, architecture in which the various P2P services related to content delivery. 
-However, we can broadly group P2P services for content delivery applications in three main levels. T
-he bottom level provides the basic networking abstractions, i.e., the P2P overlay networks. 
-The middle level provides additional P2P services for content management and delivery. 
-Above them, we can identify P2P applications. 
-These can be either built directly on top of P2P overlay networks. 
-Additional abstractions can be exist in the middle helping the content management and delivery process.
-These abstractions may provide tree structures for meshes or gossip services, or even integrate P2P and CDN delivery mechanisms. 
-P2P file sharing, streaming and Video-on-Demand (VoD) are typical examples of applications built on top of these abstractions. 
-Finally, mobility, security, trust and cooperation are seen as cross-layer issues,.
-Problems related to mismatches between the traffic generated by P2P applications and peering agreements among ISPs, which are also in a cross-layer issue.
+Figure \ref{fig:p2ptech} shows the presentation of P2P technologies building block.
+It is not easy to identify an overall architecture in which the various P2P services related to content delivery. 
+The bottom level provides the basic networking abstractions, i.e., the P2P overlay networks. 
+The middle level provides additional P2P services for delivery and management (including searching)
+Above them, we can see P2P applications which work on the top of previous blocks.
+Additional overlay abstractions can be exist in the middle to help delivery process. 
+For examples:  mesh structure and gossip service.
+Finally, security, trust and cooperation are seen as cross-layer issues including the mismatches between P2P applications cooperation and ISPs.
 
 All P2P networks run on top of the Internet. 
-We often consider the P2P network as an overlay network.
+We often consider the P2P network as an overlay network on the top of Internet. 
 We classified overlay to: structured, unstructured, and hierarchical. 
-The general idea of structured overlays is defining a virtual address space and assign overlay addresses to peers in this space which defines neighborhood relationships between peers.
-The most common use of such an overlay is for storing and locating objects. 
-An object to be stored in the overlay is stored on the peer responsible for the address of the object.
-The core functions of a structured overlay network are address assignment, join and leave operations, structure maintenance, routing and forwarding.
+Structured overlays is a virtual address space and assign overlay addresses to peers in this space which defines neighborhood relationships between peers.
+The function of structured overlay is for storing and locating objects. 
 
-Unlike structured overlays, unstructured systems do not enforce any particular structure in the network. 
-From a topological standpoint, unstructured networks typically resemble random graphs. 
-In some unstructured P2P networks peers do have not all the same role. 
-The basic mechanism used to build unstructured networks permits several degrees of freedom in the choice of the neighbors. 
-This can be exploited to obtain certain properties in the overlay structure. 
-Moreover, a few proposals look at choosing neighbors based on the users interests. 
-The rationale behind this choice is that people always sharing common interests are likely to share similar content, and thus searches for a particular type of content is more efficient if peers likely to store that content type are neighbors. 
+In unstructured systems, the unstructured overlay do not enforce any particular structure in the network. 
+Unstructured overlay networks typically close to random graphs. 
+In unstructured P2P networks, peers usually do have not the same role with other peers.
+In unstructured P2P networks, a peer can choose any other peers as neighbor to the some degree of freedom.  
 
-Conceptually, unstructured architectures with superpeers are hierarchical networks, the superpeers forming the top level, and ordinary peers the bottom level.
-However, this form of overlays is usually still classified in the unstructured family. 
-With hierarchical overlays we thus denote a more complex architecture. 
-Nodes are organized in different groups, and each group runs its own overlay. 
-A top-level overlay is then formed by one representative per group. 
+In hierarchical overlay network, we can say that unstructured architectures with superpeers are hierarchical networks.
+The superpeers is forming the top level and ordinary peers the bottom level.
+In hierarchical overlay network peers are organized in different groups and each group can runs its own overlay. 
 
-Searching for content is one of the key services for which overlay networks are used, and thus it has attracted  and still attracts  a lot of attention.
-In the area of P2P networks, indices can be of three types: centralized, localized, or distributed. 
-Centralized indices typically rely on a unique entity in the network that stores the index. 
-Peers have to query the central index in order to know where the content of interest is stored.
-Using localized indices is what most unstructured networks do. 
-In this case, each peer indexes only content available locally. 
-A query looking for a particular content must thus be propagated among peers in order to check each local index.
-However, indexing does not solve content poisoning.
+Searching for content in overlay network is one of the key services in P2P which attracted  and still attracts a lot of attention.
+In P2P networks, indices can be centralized, localized, or distributed. 
+In structured overlay network centralized indices typically rely on a unique entity in the structured overlay network that stores the index. 
+In unstructured overlay network localized indices is usually use for searching. 
+Therefore, a query looking for a particular content must be propagated among peers.
+However, indexing does not solve content poisoning problem in P2P.
 
-Search techniques in unstructured networks are very widely interested to researchers. 
-One of the reasons is that unstructured topologies are very robust with respect to flash crowd, making them suitable for distributed content retrieval systems. However, searching typically results in the exploration of the overlay. 
-Making such exploration efficient in terms of overhead, without sacrificing performance in terms of success ratio, is an exciting and non-trivial problem.
-The search techniques described so far assume that pieces of content are replicated as peers request, find and fetch them on the local nodes. 
-Another important direction focuses on search driven proactive replication, i.e. looks at how to proactively replicate content in order to optimize the search functionality. 
-This body of work is actually shared between search and replication techniques. 
+In structured overlay networks, due to fix structured form, this networks can provide the support for exact match queries.  
+Let's take Distributed Hash Table (DHT) for example. 
+It has key and address of available content therefore a search operation results is fast and efficient.
 
-Structured overlays provide the perfect support for exact match queries, i.e., queries issued on the values of keys used for storing the contents in the overlay. 
-In these cases users query for content whose key is k, and, due to the overlay mechanism, the only place where the content can be is at the peer responsible for the address hash(k). 
-Therefore, a search operation results in a forwarding operation, and is as efficient as forwarding on the overlay.
-The challenge in structured networks is providing efficient free-text (or keyword) search, which is a much more general case in which users asks for any piece of content containing a given set of keywords. 
-Note that in unstructured networks this type of queries is easily supported, essentially because indices are mostly local. 
-For example, when random walks are used, each peer visited by the random walk can easily lookup the index for content having the set of keywords K.
+Replication is tied with P2P networks.  
+Let's take example in Bittorrent.  
+If a user download content in Bittorrent,  it means that user replicated the contents.  
+The block of content that already downloaded replicated in his/her PC and that block can be downloaded by other peers that need.
+Consistency is important in Bittorrent, that's why Bittorrent provide hash for every block for checking the right block and reject bad block from fake content.
 
-Replication solutions are typically tied with the underlying P2P overlays they are designed for. 
-In the case of structured P2P networks, a typical approach consists in exploiting closeness in the ID space to proactively replicate objects. 
-Caching is another key topic in distributed systems and therefore in P2P systems. 
-However, no particularly original solutions have been proposed with specific reference to P2P environments.
-As a complement to replication policies, researchers have also investigated consistency solutions for P2P environments. 
-Clearly, replication and consistency management are intertwined topics in distributed systems. 
-Consistency management is an extremely well investigated topic in the caching area.
-
-Gossiping is a simple yet effective mechanism with numerous applications in various fields of distributed computing. 
-It builds upon a very simple mechanism to distribute a generic piece of information in a distributed system. 
-Each peer participating in a gossiping process contacts a random number of other peers it is aware of (the number of peers, also known as fanout, being a system parameter). 
+Gossiping is a simple and effective mechanism to spread the information. 
+In P2P overlay networks, each peer participating in a gossiping process contacts of other peers in random and exchange the information between them.
 In push gossip, the contacted peers receive a piece of information from the contacting peer. 
 In pull gossip, the contacted peers send a piece of information to the contacting peer. 
-The set of peers to contact can be chosen completely at random, or according to some preferential rule.
-Gossip mechanisms have also been used as underlying services to build both structured and unstructured networks. 
+In Bittorrent implementation gossiping is in push and pull mode and the set of peers to contact is chosen at random.
 
-Another important facet of security for P2P networks is clearly related to trust, and particularly to establishment of reputation. 
-Typically, establishing reputation of peers requires collecting information about previous interactions, distinguishes between probabilistic estimation and social-based estimation. 
-Reputation is established based on a restricted sample of the complete information about previous interactions. 
-It aggregates of the whole available information are used to establish trustworthiness.
-Finally, cooperation enforcement are other key topics related to security in P2P environments.
-The tit-for-tat policy of BitTorrent is one popular example of cooperation enforcement.
+Another important aspect in security of P2P is related to trust, and particularly to establishment of reputation. 
+Establishing reputation of peers requires collecting information about previous interactions. 
+For example, Bittorrent tracker usually has log to record the peers behavior. 
+If a peer has bad upload/download ratio, Bittorrent tracker can blacklist that peer to join the Bittorrent swarm since the tit-for-tat policy of Bittorrent is the basis of cooperation enforcement.
 
 We highlight an important aspect related to the impact of P2P technologies on ISP policies (cross layer issues). 
-P2P solutions are most of the time network agnostic, in the sense that they do not take in great consideration the physical characteristics of the network paths they generate. 
+P2P solutions are network agnostic, in the sense that they do not take any consideration the layer 3 of the network paths. 
 Having agnostic P2P solutions can cause problems at different levels to ISPs. 
 It has been shown that blind selections of neighbors in P2P networks may result in unnecessary traversal of multiple links inside an ISP. 
 Furthermore, it can significantly impact on the shape and amount of traffic among different ISPs, which may result being quite different from what foreseen in ISPs peering agreements.
-Although, many solution exists the implementations are still not deployed. 
+Although, many solution to this problem are exist, the implementations are still not deployed widely.  
 
 While algorithms and mechanism in P2P system has been analyzed by many researchers, measurement of P2P is other aspect that important to do. 
 First example: in cross layer issue, P2P is often blind in selection of neighbors in P2P networks that affect underlying ISP's traffic engineering policies.  
@@ -153,12 +128,11 @@ This question can only be answered by doing measurement in real Bittorrent swarm
 
 Energy was another aspect that is quite separated from current P2P research but now that topic becomes to rise. 
 While popularity of P2P is decline because users now the content to the cloud, in some region P2P filesharing (e.g. Bittorent) applications is still popular.
-In parallel to the development of P2P services, ISPs have evolved from providing basic Internet connectivity to offering higher valued services (e.g. Internet+TV+phone triple-play, or recent quad-play). 
-The STBs or home gateways play an increasingly important role in this evolution. 
-The latest STB generations are similar to small computers with hard-drives, CPU, and even GPU processors. 
-In this context, these devices can be used to deploy the afore-mentioned P2P services. 
-This P2P approach allows the operator (e.g. ISP) to manage the distributed STBs, and therefore potentially control the churn rate and pattern. 
-Hence, it is very important to considering energy consumption of in P2P.
+In parallel to the development of P2P services, ISPs have evolved from providing basic Internet connectivity to offering higher valued services such as Internet+TV+phone triple-play, or recent quad-play. 
+The STBs or home gateways play an increasingly important role in this evolution since the services for user configured in this STB or home gateway.
+The latest STB generations are similar to small PC. 
+In this context, these devices can be used to deploy the  P2P services. 
+Therefore, it is very important to considering energy consumption of in P2P.
 
 
 
@@ -205,9 +179,11 @@ We classify the macroscopic techniques into two subcategories: BitTorrent portal
 The (major) BitTorrent portals index millions of torrents in a structured way. 
 Furthermore, they provide detailed information about each indexed torrent (typically) on a specific torrent web page. 
 For example, in the case of the Pirate Bay (the biggest Bittorrent portal), the torrent web page associated to a torrent with an assigned torrent-id equal to $i$ can be accessed through the url \url{http://thepiratebay.org/torrent/i}.
-Once we know the id assigned to a given torrent in the Pirate Bay, we just need to access its web page and parse it (using an html parser) to retrieve the torrent information. 
+Once we know the id assigned to a given torrent in the web portal, we just need to access its web page and parse it to retrieve the torrent information. 
 However, in order to analyze the demographics of Bittorrent we need to crawl a large number of torrents. 
 By post-processing the retrieved data from the Bittorrent portal crawling we can characterize very relevant aspects of the BitTorrent ecosystem demographics. 
+For example:  Content Popularity Distribution, Distribution of number of published content per category and subcategory, and Torrents Publishing Rate per date.
+It's depends on Bittorrent web portals, some Bittorrent portals do not give detail information about the torrent information. 
 
 
 \item BitTorrent trackers crawling:

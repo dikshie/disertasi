@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  16 AUG 2013 13:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  16 AUG 2013 15:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -484,25 +484,24 @@ File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/p2p-technologies.eps Graphi
 c file (type eps)
  <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/p2p-technologies.eps>
 [11] [12]
-Overfull \hbox (5.71228pt too wide) in paragraph at lines 187--197
+Overfull \hbox (5.71228pt too wide) in paragraph at lines 161--171
 [][] 
  []
 
-[13]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 207
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 181
 .
- (/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/ot1txtt.fd
+(/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
 )
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [14])
-(./ch2.tex [15]
+ [13])
+(./ch2.tex [14]
 Chapter 3.
-[16
+[15
 
-]) (./ch4.tex [17]
+]) (./ch4.tex [16]
 Chapter 4.
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
@@ -517,13 +516,13 @@ Overfull \hbox (1.6405pt too wide) in paragraph at lines 27--28
  [] 
  []
 
-[18
+[17
 
-] [19] [20]
+] [18] [19]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-num.eps Graphic 
 file (type eps)
 
-<../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-num.eps> [21]
+<../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-num.eps> [20]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/output_2.eps Graphic fil
 e (type eps)
 
@@ -541,7 +540,7 @@ File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/gabung-korelasi-p-rh
 o-4region.eps Graphic file (type eps)
 
 <../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/gabung-korelasi-p-rho-4re
-gion.eps> [22] [23]
+gion.eps> [21] [22]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-c
 df-non-nested-lognorm.eps Graphic file (type eps)
 
@@ -560,7 +559,7 @@ File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-pi-exp.eps
  Graphic file (type eps)
 
 <../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-pi-exp.eps>
-[24] [25] [26]
+[23] [24] [25]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-clustering.eps G
 raphic file (type eps)
 
@@ -569,13 +568,13 @@ File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/netscicom-graphs/simula.eps Gra
 phic file (type eps)
 
 <../../../papers/IEEE-P2P/tex/IEICE/jurnal/netscicom-graphs/simula.eps>
-[27] [28]) (./ch6.tex [29]
+[26] [27]) (./ch6.tex [28]
 Chapter 5.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
-[30
+[29
 
 ]
 Missing character: There is no â in font txr!
@@ -586,7 +585,7 @@ Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/livesky.eps Graphic file (t
 ype eps)
- <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/livesky.eps> [31]
+ <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/livesky.eps> [30]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/fs2you-arch.eps Graphic fil
 e (type eps)
 
@@ -598,7 +597,7 @@ Overfull \hbox (0.93146pt too wide) in paragraph at lines 101--102
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
-[32]
+[31]
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
@@ -608,10 +607,10 @@ Missing character: There is no ™ in font txr!
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [33] [34]
+ [32] [33]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps Graphic file (type 
 eps)
- <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps> [35]
+ <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps> [34]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/topology.eps Graphic file (
 type eps)
 
@@ -626,7 +625,7 @@ eps)
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps Graphic file (
 type eps)
 
-<../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps> [36]
+<../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps> [35]
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
@@ -642,7 +641,7 @@ Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
 
-[37]
+[36]
 Overfull \hbox (20.7477pt too wide) in paragraph at lines 372--374
 []\OT1/txr/m/n/10 Figure 5.8[] shows the to-tal en-ergy sav-ings of CDN-P2P com
 -pared to CDN ar-chi-tec-ture for $\OML/txmi/m/it/10 N[] \OT1/txr/m/n/10 = [0\O
@@ -662,7 +661,7 @@ File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/difference-total-peer-arriv
 alrate.eps Graphic file (type eps)
 
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/difference-total-peer-arrivalrat
-e.eps> [38]
+e.eps> [37]
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
@@ -675,15 +674,15 @@ Missing character: There is no ™ in font txr!
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [39]) (./ch2.tex [40] [41] [42]
+ [38]) (./ch2.tex [39] [40] [41]
 Chapter 6.
-[43
+[42
 
-]) (./ch7.tex [44]
+]) (./ch7.tex [43]
 Chapter 7.
-) [45
+) [44
 
-] (./mythesis.bbl [46]
+] (./mythesis.bbl [45]
 Underfull \hbox (badness 3884) in paragraph at lines 15--19
 []\OT1/txr/m/sc/10 Arstechnica\OT1/txr/m/n/10 .  Megau-pload data cost.  $\OT1/
 txtt/m/n/10 http : / / arstechnica . com / tech-[]policy / 2012 / 03 /
@@ -699,7 +698,7 @@ Missing character: There is no Â in font txr!
 Missing character: There is no “ in font txr!
 Missing character: There is no Â in font txr!
 Missing character: There is no ” in font txr!
-[47
+[46
 
 ]
 Underfull \hbox (badness 1325) in paragraph at lines 131--134
@@ -707,13 +706,13 @@ Underfull \hbox (badness 1325) in paragraph at lines 131--134
 data cen-ter in-dus-try sur-vey.  Avail-able on $\OT1/txtt/m/n/10 http : / /
  []
 
-[48]
+[47]
 Underfull \hbox (badness 10000) in paragraph at lines 213--217
 []\OT1/txr/m/sc/10 Octoshape\OT1/txr/m/n/10 .  Cnn uses oc-toshape.  Avail-able
  on $\OT1/txtt/m/n/10 http : / / octoshape . com /
  []
 
-[49]
+[48]
 Underfull \hbox (badness 2781) in paragraph at lines 305--307
 []\OT1/txr/m/sc/10 uTorrent Bit-tor-rent Client's Good Set-ting\OT1/txr/m/n/10 
 .  Avail-able on $\OT1/txtt/m/n/10 http : / / forum . utorrent . com /
@@ -723,7 +722,7 @@ Missing character: There is no Â in font txr!
 Missing character: There is no ‘ in font txr!
 Missing character: There is no Â in font txr!
 Missing character: There is no ’ in font txr!
-) [50] (./mythesis.aux) ) 
+) [49] (./mythesis.aux) ) 
 Here is how much of TeX's memory you used:
  4088 strings out of 493312
  59756 string characters out of 6137876
@@ -733,4 +732,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  36i,11n,38p,1162b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mythesis.dvi (53 pages, 202564 bytes).
+Output written on mythesis.dvi (52 pages, 197800 bytes).
