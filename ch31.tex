@@ -182,22 +182,15 @@ For example: content popularity distribution, distribution of published content,
 It's depends on Bittorrent web portals, some Bittorrent portals do not give detail information about the torrent information. 
 
 \item BitTorrent trackers crawling:
-
-
-
+While crawling Bittorrent portals can give us information about the torrent type and torrent publisher and some number of seeders and leechers, that technique is not sufficient for more detail information such as distribution of users per country or performance relevant information such as peers arrival rate and peers session time.
+To get that information, we need to collect IP address of seeders and leechers in the Bittorrent swarms.  
+This information can only get from Bittorrent tracker logs by asking to Bittorrent tracker owners or by crawling the Bittorent tracker.
 \end{itemize}
 
 
-
-
 \subsubsection{Microscopic Technique}
-The described macroscopic techniques retrieve exclusively the peers IP addresses, thus only metrics associated to the presence/absence of the peer can be studied. Unfortunately, IP address does not suffice to infer relevant performance metrics at the peer level such as peers’ download and upload rate. 
-For this purpose we need to apply more sophisticated (but less scalable) techniques that we name microscopic techniques.
-To perform microscopic techniques we need to implement different parts of the BitTorrent peer wire protocol. 
-Any microscopic crawler has to implement the functions to perform the handshaking procedure. 
-This is essential to connect to other peers. 
-The handshaking procedure can be done actively (the crawler initiates it) or passively (the crawler waits until a peer starts the handshaking). 
-Once the crawler is connected to a peer, it exploits different messages of the peer wire protocol in order to measure different parameters. 
+While in macroscopic techniques we can get the peers IP level information, that information does not sufficient to infer more detail performance metrics at the peer level such as peers download and upload rate, and how peers can connect each other (graph of the network).
+To get this information, we need more sophisticated techniques that implement wire level Bittorent protocol since the crawling techniques in this case means we join directly to Bittorrent swarm.
 
 
 \section{Green Networking}
