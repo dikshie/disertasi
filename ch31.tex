@@ -135,22 +135,18 @@ In this context, these devices can be used to deploy the  P2P services.
 Therefore, it is very important to considering energy consumption of in P2P.
 
 
-
-
-
 \section{P2P Measurement}
 
-Bittorrent is the most successful Peer-to-Peer (P2P) application and is responsible for a major portion of Internet traffic. 
-This has attracted the interest of the research community that has thoroughly evaluated the performance and the demographic aspects of BitTorrent. 
+Bittorrent is the most successful Peer-to-Peer (P2P) application and was responsible for a major portion of Internet traffic in the past.
+This has attracted the interest of the research community to evaluated the performance and the demographic aspects of BitTorrent.
 Example current popular an application that use Bittorrent like protocol is Spotify which is a very popular streaming music application in Europe and US.
 Bittorent has been largely studied using simulations, models and real measurements. 
-Although simulations and modelling are easier to perform, they typically simplify analyzed problems and they are likely to miss some of the effects which occur in real Bittorent swarms. 
+Although simulations and modelling are easier to perform, they typically simplify the problems and they are likely to miss some of the effects which occur in real Bittorent swarms. 
 Several techniques have been used in order to measure different aspects of BitTorrent so far. 
-Since many popular applications work based on Bittorrent like protocol, we will focus on it.
-%We present different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
+Since many popular applications work based on Bittorrent like protocol these days, we will focus on it.
 
 \subsection{Measuring BitTorrent}
-In this Section we describe the BitTorrent measurement techniques defined in the literature so far. 
+In this sub section we describe the BitTorrent measurement techniques defined in the literature so far. 
 We classify them into two main categories macroscopic and microscopic depending on the retrieved information. 
 Table \ref{tab:measurementtechniques} shows the summary of different techniques on Bittorrent measurement. 
 
@@ -159,32 +155,31 @@ Table \ref{tab:measurementtechniques} shows the summary of different techniques 
 \label{tab:measurementtechniques}
 \hbox to\hsize{\hfil}
 \begin{tabular}{c|c|c|c}\hline\hline
-Property & Portal Crawling & Tracker Crawling & Peers Crawler \\ \hline
-Category & Macroscopic & Macroscopic & Microscopic \\ \hline
-Type of Information & Torrents Level & Demographics and  & Peer Level Performance \\ 
+Property & Portal crawling & Tracker crawling & Peers crawler \\ \hline
+Scope & Macroscopic & Macroscopic & Microscopic \\ \hline
+Information level & Torrents level & Demographics and  & Peer level performance \\ 
  &  & High level performance  & \\ \hline
-Cost of Crawler Preparation & Low & Medium & High \\ \hline
-Scalability & Very High & High & Medium \\ \hline
-Obtained Result Details & Basic & Medium & High \\ \hline
-Completeness of Torrent Population & - & High & Very High \\ \hline
+Cost of crawler preparation & low & medium & high \\ \hline
+Obtained result details & basic & medium & high \\ \hline
+Peers population results & - & High & Very High \\ \hline
 \end{tabular}
 \end{table}
 
 \subsubsection{Macroscopic Technique}
-The main objective of these techniques is to understand the demographics of the BitTorrent ecosystem: the type of published content, the popularity of the content, the distribution of BitTorrent users per country (or ISP), the relevance of the different portals and trackers, etc. 
-Furthermore, the macroscopic measurements allow to study some performance aspects such as the ratio of seeders/leechers, the session time of the BitTorrent users, the arrival rate of peers, the seedless state (period the torrent is without seeder) duration, etc.
-We classify the macroscopic techniques into two subcategories: BitTorrent portals crawling and BitTorrent trackers crawling.
+The goal macroscopic technique is to understand the demographics of the Bittorrent ecosystem for example the type of published content, the popularity of the content, the distribution of BitTorrent users per country, etc. 
+The macroscopic measurement allows us to get the performance information such as the ratio of between seeder to leechers, the session time of the Bittorrent users, the seedless state (period the torrent is without seeder) duration, etc.
+We can classify the macroscopic techniques into two subcategories: Bittorrent portals crawling and Bittorrent trackers crawling.
+
 \begin{itemize}
 \item BitTorrent portals crawling: 
-The (major) BitTorrent portals index millions of torrents in a structured way. 
-Furthermore, they provide detailed information about each indexed torrent (typically) on a specific torrent web page. 
-For example, in the case of the Pirate Bay (the biggest Bittorrent portal), the torrent web page associated to a torrent with an assigned torrent-id equal to $i$ can be accessed through the url \url{http://thepiratebay.org/torrent/i}.
-Once we know the id assigned to a given torrent in the web portal, we just need to access its web page and parse it to retrieve the torrent information. 
-However, in order to analyze the demographics of Bittorrent we need to crawl a large number of torrents. 
-By post-processing the retrieved data from the Bittorrent portal crawling we can characterize very relevant aspects of the BitTorrent ecosystem demographics. 
-For example:  Content Popularity Distribution, Distribution of number of published content per category and subcategory, and Torrents Publishing Rate per date.
+The (major) Bittorrent portals index millions of torrents in a structured way. 
+They provide detailed information about each indexed torrent on a specific torrent web page. 
+Once we know the how Bittorrent portals indexing the torrents, we can crawl the Bittorrent portals using that index.
+If we want to analyze the demographics of Bittorrent, we need to crawl a large number of torrents.
+This is take time since millions of torrents exist in Bittorrent portals, every second a new torrent can be published to Bittorrent portals (including fake torrent).
+By processing the data from the Bittorrent crawling, we can get the information related to Bittorrent demographics.
+For example: content popularity distribution, distribution of published content, and publishing rate of new torrents.
 It's depends on Bittorrent web portals, some Bittorrent portals do not give detail information about the torrent information. 
-
 
 \item BitTorrent trackers crawling:
 
