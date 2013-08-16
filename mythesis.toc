@@ -11,34 +11,34 @@
 \contentsline {subsubsection}{Macroscopic Technique}{13}
 \contentsline {subsubsection}{Microscopic Technique}{14}
 \contentsline {section}{\numberline {2.3}Green Networking}{14}
-\contentsline {chapter}{\numberline {3}Related Work}{15}
-\contentsline {chapter}{\numberline {4}Characteristics of BitTorrent Swarms}{17}
-\contentsline {section}{\numberline {4.1}Introduction}{17}
-\contentsline {section}{\numberline {4.2}Measurement Methodology}{17}
-\contentsline {subsection}{\numberline {4.2.1}Graph Sampling}{18}
-\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{19}
-\contentsline {subsection}{\numberline {4.2.3}Data Analysis Background}{19}
-\contentsline {section}{\numberline {4.3}Experimental Results}{20}
-\contentsline {subsection}{\numberline {4.3.1}Power-law Distribution of Node Degree}{20}
-\contentsline {subsection}{\numberline {4.3.2}Alternative Distributions}{21}
-\contentsline {subsubsection}{Nested Case}{22}
-\contentsline {subsubsection}{Non-Nested Case}{23}
-\contentsline {subsection}{\numberline {4.3.3}Clustering Coefficient}{25}
-\contentsline {section}{\numberline {4.4}Confirmation via Simulation}{26}
-\contentsline {section}{\numberline {4.5}Related Work}{27}
-\contentsline {section}{\numberline {4.6}Summary}{28}
-\contentsline {chapter}{\numberline {5}Energy Saving in Peer-Assisted CDN}{29}
-\contentsline {section}{\numberline {5.1}Motivation}{29}
-\contentsline {section}{\numberline {5.2}System Description}{30}
-\contentsline {subsection}{\numberline {5.2.1}Live Streaming}{30}
-\contentsline {subsection}{\numberline {5.2.2}Peer-Assisted Online Storage}{31}
-\contentsline {subsection}{\numberline {5.2.3}Energy Model}{33}
-\contentsline {section}{\numberline {5.3}Result and Analysis}{35}
-\contentsline {subsection}{\numberline {5.3.1}Numerical Parameters}{35}
-\contentsline {subsection}{\numberline {5.3.2}Live Streaming Service}{35}
-\contentsline {subsection}{\numberline {5.3.3}Online Storage}{37}
-\contentsline {section}{\numberline {5.4}Summary}{39}
-\contentsline {chapter}{\numberline {6}Related Work}{42}
-\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{44}
-\contentsline {section}{\numberline {7.1}Conclusion}{44}
-\contentsline {section}{\numberline {7.2}Future Work}{45}
+\contentsline {chapter}{\numberline {3}Related Work}{16}
+\contentsline {chapter}{\numberline {4}Characteristics of BitTorrent Swarms}{18}
+\contentsline {section}{\numberline {4.1}Introduction}{18}
+\contentsline {section}{\numberline {4.2}Measurement Methodology}{18}
+\contentsline {subsection}{\numberline {4.2.1}Graph Sampling}{19}
+\contentsline {subsection}{\numberline {4.2.2}Experimental Methodology}{20}
+\contentsline {subsection}{\numberline {4.2.3}Data Analysis Background}{20}
+\contentsline {section}{\numberline {4.3}Experimental Results}{21}
+\contentsline {subsection}{\numberline {4.3.1}Power-law Distribution of Node Degree}{21}
+\contentsline {subsection}{\numberline {4.3.2}Alternative Distributions}{22}
+\contentsline {subsubsection}{Nested Case}{23}
+\contentsline {subsubsection}{Non-Nested Case}{24}
+\contentsline {subsection}{\numberline {4.3.3}Clustering Coefficient}{26}
+\contentsline {section}{\numberline {4.4}Confirmation via Simulation}{27}
+\contentsline {section}{\numberline {4.5}Related Work}{28}
+\contentsline {section}{\numberline {4.6}Summary}{29}
+\contentsline {chapter}{\numberline {5}Energy Saving in Peer-Assisted CDN}{30}
+\contentsline {section}{\numberline {5.1}Motivation}{30}
+\contentsline {section}{\numberline {5.2}System Description}{31}
+\contentsline {subsection}{\numberline {5.2.1}Live Streaming}{31}
+\contentsline {subsection}{\numberline {5.2.2}Peer-Assisted Online Storage}{32}
+\contentsline {subsection}{\numberline {5.2.3}Energy Model}{34}
+\contentsline {section}{\numberline {5.3}Result and Analysis}{36}
+\contentsline {subsection}{\numberline {5.3.1}Numerical Parameters}{36}
+\contentsline {subsection}{\numberline {5.3.2}Live Streaming Service}{36}
+\contentsline {subsection}{\numberline {5.3.3}Online Storage}{38}
+\contentsline {section}{\numberline {5.4}Summary}{40}
+\contentsline {chapter}{\numberline {6}Related Work}{43}
+\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{45}
+\contentsline {section}{\numberline {7.1}Conclusion}{45}
+\contentsline {section}{\numberline {7.2}Future Work}{46}

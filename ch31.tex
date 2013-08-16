@@ -32,7 +32,7 @@ When a client wants to get a file, it first obtains the torrent file.
 The client then contacts the tracker listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
 BitTorrent has generated great enthusiasm for P2P file sharing distribution.  
 Many open source software projects use Bittorrent to distribute their applications.
-In Bittorrent, a seeder is a client who has complete the content and a seeder is a client who download the content.
+In Bittorrent, a seeder is a client who has complete the content and a leecher is a client who download the content.
 
 Beside of P2P for filesharing, we also noted that P2P for streaming is also on the rise especially in China.
 The target of P2P streaming is to build a scalable P2P platform for TV/music delivery. 
@@ -132,7 +132,7 @@ Another important facet of security for P2P networks is clearly related to trust
 Typically, establishing reputation of peers requires collecting information about previous interactions, distinguishes between probabilistic estimation and social-based estimation. 
 Reputation is established based on a restricted sample of the complete information about previous interactions. 
 It aggregates of the whole available information are used to establish trustworthiness.
-Finally, cooperation enforcement are other key topics related to security in P2P environments. T
+Finally, cooperation enforcement are other key topics related to security in P2P environments.
 The tit-for-tat policy of BitTorrent is one popular example of cooperation enforcement.
 
 We highlight an important aspect related to the impact of P2P technologies on ISP policies (cross layer issues). 
@@ -168,16 +168,32 @@ Hence, it is very important to considering energy consumption of in P2P.
 
 Bittorrent is the most successful Peer-to-Peer (P2P) application and is responsible for a major portion of Internet traffic. 
 This has attracted the interest of the research community that has thoroughly evaluated the performance and the demographic aspects of BitTorrent. 
-It has been largely studied using simulations, models and real measurements. 
 Example current popular an application that use Bittorrent like protocol is Spotify which is a very popular streaming music application in Europe and US.
-Although simulations and modelling are easier to perform, they typically simplify analyzed problems and in case of Bittorrent they are likely to miss some of the effects which occur in real swarms. 
-Due to the complexity of the system, the most relevant studies have tried to understand different aspects by performing real measurements of BitTorrent swarms in the wild, this is inferring information from real swarms in real time.
+Bittorent has been largely studied using simulations, models and real measurements. 
+Although simulations and modelling are easier to perform, they typically simplify analyzed problems and they are likely to miss some of the effects which occur in real Bittorent swarms. 
 Several techniques have been used in order to measure different aspects of BitTorrent so far. 
-We present different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
+Since many popular applications work based on Bittorrent like protocol, we will focus on it.
+%We present different measurement techniques that constitutes a first step in the designing the future measurement techniques and tools for analyzing large scale systems.
 
 \subsection{Measuring BitTorrent}
 In this Section we describe the BitTorrent measurement techniques defined in the literature so far. 
 We classify them into two main categories macroscopic and microscopic depending on the retrieved information. 
+
+\begin{table}[thb]
+\caption{Comparison of Measurement Techniques in Bittorrent.}
+\label{tab:measurementtechniques}
+\hbox to\hsize{\hfil}
+\begin{tabular}{c|c|c|c}\hline\hline
+Property & Portal Crawling & Tracker Crawling & Peers Crawler \\ \hline
+Category & Macroscopic & Macroscopic & Microscopic \\ \hline
+Type of Information & Torrents Level & Demographics and  & Peer Level Performance \\ 
+ &  & High level performance  & \\ \hline
+Cost of Crawler Preparation & Low & Medium & High \\ \hline
+Scalability & Very High & High & Medium \\ \hline
+Obtained Result Details & Basic & Medium & High \\ \hline
+Completeness of Torrent Population & - & High & Very High \\ \hline
+\end{tabular}
+\end{table}
 
 \subsubsection{Macroscopic Technique}
 The main objective of these techniques is to understand the demographics of the BitTorrent ecosystem: the type of published content, the popularity of the content, the distribution of BitTorrent users per country (or ISP), the relevance of the different portals and trackers, etc. 
