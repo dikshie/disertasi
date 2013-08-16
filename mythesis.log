@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  16 AUG 2013 13:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  16 AUG 2013 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -489,10 +489,16 @@ Overfull \hbox (5.71228pt too wide) in paragraph at lines 187--197
  []
 
 [13]
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 207
+.
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/ot1txtt.fd
+File: ot1txtt.fd 2000/12/15 v3.1
+)
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [14]) (./ch2.tex [15]
+ [14])
+(./ch2.tex [15]
 Chapter 3.
 [16
 
@@ -678,12 +684,6 @@ Chapter 7.
 ) [45
 
 ] (./mythesis.bbl [46]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 18.
-
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/ot1txtt.fd
-File: ot1txtt.fd 2000/12/15 v3.1
-)
 Underfull \hbox (badness 3884) in paragraph at lines 15--19
 []\OT1/txr/m/sc/10 Arstechnica\OT1/txr/m/n/10 .  Megau-pload data cost.  $\OT1/
 txtt/m/n/10 http : / / arstechnica . com / tech-[]policy / 2012 / 03 /
@@ -733,4 +733,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  36i,11n,38p,1162b,322s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mythesis.dvi (53 pages, 201372 bytes).
+Output written on mythesis.dvi (53 pages, 202564 bytes).

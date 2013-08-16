@@ -200,6 +200,24 @@ Completeness of Torrent Population & - & High & Very High \\ \hline
 The main objective of these techniques is to understand the demographics of the BitTorrent ecosystem: the type of published content, the popularity of the content, the distribution of BitTorrent users per country (or ISP), the relevance of the different portals and trackers, etc. 
 Furthermore, the macroscopic measurements allow to study some performance aspects such as the ratio of seeders/leechers, the session time of the BitTorrent users, the arrival rate of peers, the seedless state (period the torrent is without seeder) duration, etc.
 We classify the macroscopic techniques into two subcategories: BitTorrent portals crawling and BitTorrent trackers crawling.
+\begin{itemize}
+\item BitTorrent portals crawling: 
+The (major) BitTorrent portals index millions of torrents in a structured way. 
+Furthermore, they provide detailed information about each indexed torrent (typically) on a specific torrent web page. 
+For example, in the case of the Pirate Bay (the biggest Bittorrent portal), the torrent web page associated to a torrent with an assigned torrent-id equal to $i$ can be accessed through the url \url{http://thepiratebay.org/torrent/i}.
+Once we know the id assigned to a given torrent in the Pirate Bay, we just need to access its web page and parse it (using an html parser) to retrieve the torrent information. 
+However, in order to analyze the demographics of Bittorrent we need to crawl a large number of torrents. 
+By post-processing the retrieved data from the Bittorrent portal crawling we can characterize very relevant aspects of the BitTorrent ecosystem demographics. 
+
+
+\item BitTorrent trackers crawling:
+
+
+
+\end{itemize}
+
+
+
 
 \subsubsection{Microscopic Technique}
 The described macroscopic techniques retrieve exclusively the peers IP addresses, thus only metrics associated to the presence/absence of the peer can be studied. Unfortunately, IP address does not suffice to infer relevant performance metrics at the peer level such as peers’ download and upload rate. 
