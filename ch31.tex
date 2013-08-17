@@ -158,7 +158,7 @@ Table \ref{tab:measurementtechniques} shows the summary of different techniques 
 Property & Portal crawling & Tracker crawling & Peers crawler \\ \hline
 Scope & macroscopic & macroscopic & microscopic \\ \hline
 Information level & torrents level & demographics and  & peer level performance \\ 
- &  & High level performance  & \\ \hline
+ &  & general performance  & \\ \hline
 Cost of crawler preparation & low & medium & high \\ \hline
 Obtained result details & basic & medium & high \\ \hline
 Peers population results & - & high & very high \\ \hline
@@ -246,29 +246,32 @@ Google, for example, is planning to operate its data centers with a zero carbon 
 While energy is mostly concerned by companies that run hundred of server and hundred of networking devices inside data center, only a little considering is made for home users. 
 Remembering that P2P applications was the largest fraction of the Internet traffic in the past, although it is now decline due to the popularity of content sharing via cloud computing, we still have many popular P2P application that run based on P2P paradigm.  
 For example, spotify.
-Spotify is fee based music streaming applications for mobile and desktop. 
+Spotify is fee based music streaming service for mobile and desktop. 
 It is very popular in Europe and USA. 
-Spotify works like Bitorrent.  
-These figures shows that making P2P applications more energy efficient is important. 
+Spotify works like Bitorrent though there are several difference.
+These figures shows that making P2P applications more energy efficient is important.
+These days ISPs have evolved from providing basic Internet connectivity to offering higher valued services such as Internet+TV+phone.
+In this value added service, the STBs or home gateways play an increasingly important. 
+This STBs is same powerfull as PC desktop while the shape quite small compared to desktop PC. 
+However, the powerfull of STB means consume more power. 
+Since broadband home Internet users are increasing, consideration to reduce energy consumption of STB is required. 
 
-Several approaches have been considered to reduce energy consumption in networks. These include:
-\begin{itemize}
-	\item The design of low power components that are still able to offer acceptable levels of performance. 
-	For example, at the circuit level techniques such as Dynamic Voltage Scaling (DVS) and Dynamic Frequency Scaling (DFS) can be used. 
-	With DVS the supply voltage is reduced when not needed, which results in slower operation of the circuitry. 
-	DFS reduces the number of processor instructions in a given amount of time, thus reducing performance. 
-	These techniques can reduce energy consumption significantly. 
-	
-	\item Consuming energy from renewable energy sources sites rather than incurring in electricity transmission overheads, thus reducing CO2 emissions.
-	
-	\item Designing new network architectures, for example by moving network equipment and network functions to strategic places. 
-	Examples include placing optical amplifiers at the most convenient locations and performing complex switching and routing functions near renewable sources.
-	
-	\item Using innovative cooling techniques. Researchers in Finland, for instance, are running servers outside in Finnish winter, with air temperatures below $20$ degrees celsius.
-	
-	\item Performing resource consolidation, capitalizing on available energy. 
-	This can be done via traffic engineering, for instance. 
-	By aggregating traffic flows over a subset of the network devices and links allows others to be switched off temporarily or be placed in sleep mode. 
-	Another way is by migrating computation, typically using virtualization to move workloads transparently.
-	
-\end{itemize}
+Several approaches have been considered to reduce energy consumption. 
+For example: Dynamic Voltage Scaling (DVS) and Dynamic Frequency Scaling (DFS) can be used to reduce energy consumption.
+With DVS the supply voltage is reduced when not needed, hence we can get slower operation of circuit.
+DFS can reduce the number of processor instructions, thus reducing performance.
+Another approach is designing new network architectures.
+For example: placing optical amplifiers at the most convenient locations and the task functions near renewable sources.
+Performing resource consolidation, capitalizing on available energy is also considered as a way to reduce energy consumption.
+This can be done via traffic engineering. 
+Another way is by migrating computation or delegate the workload, typically using virtualization to move workloads transparently.
+
+Due to the complexity of P2P networks, DVS and DFS can be implemented in hardware level.  
+While in network level, migrating computation task is the another way to reduce energy consumption.  
+For example in \cite{6249349}, Gianetti et al. propose the usage of Bittorrent proxy for  delegating the Bittorrent client work. 
+Delegating some work to Bittorrent proxy can save up to $25\%$ of energy usage for PC desktop used for Bittorrent file sharing.
+
+While most network architecture energy consumption has been explored, a little work is done in exploring energy consumption in hybrid network architecture fashion. 
+For example: energy consumption in combination of P2P and data center (CDN or Cloud).
+
+

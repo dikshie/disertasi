@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  17 AUG 2013 16:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  17 AUG 2013 17:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -701,19 +701,19 @@ Missing character: There is no ” in font txr!
 [48
 
 ]
-Underfull \hbox (badness 1325) in paragraph at lines 131--134
+Underfull \hbox (badness 1325) in paragraph at lines 137--140
 []\OT1/txr/m/sc/10 Institute, U.  \OT1/txr/m/n/10 the 2012 up-time in-sti-tute 
 data cen-ter in-dus-try sur-vey.  Avail-able on $\OT1/txtt/m/n/10 http : / /
  []
 
 [49]
-Underfull \hbox (badness 10000) in paragraph at lines 213--217
+Underfull \hbox (badness 10000) in paragraph at lines 219--223
 []\OT1/txr/m/sc/10 Octoshape\OT1/txr/m/n/10 .  Cnn uses oc-toshape.  Avail-able
  on $\OT1/txtt/m/n/10 http : / / octoshape . com /
  []
 
 [50]
-Underfull \hbox (badness 2781) in paragraph at lines 305--307
+Underfull \hbox (badness 2781) in paragraph at lines 311--313
 []\OT1/txr/m/sc/10 uTorrent Bit-tor-rent Client's Good Set-ting\OT1/txr/m/n/10 
 .  Avail-able on $\OT1/txtt/m/n/10 http : / / forum . utorrent . com /
  []
@@ -724,12 +724,12 @@ Missing character: There is no Â in font txr!
 Missing character: There is no ’ in font txr!
 ) [51] (./mythesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4094 strings out of 493312
- 59962 string characters out of 6137876
+ 4095 strings out of 493312
+ 59971 string characters out of 6137876
  124069 words of memory out of 5000000
- 7427 multiletter control sequences out of 15000+600000
+ 7428 multiletter control sequences out of 15000+600000
  41174 words of font info for 114 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,11n,38p,1162b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mythesis.dvi (54 pages, 203956 bytes).
+Output written on mythesis.dvi (54 pages, 204756 bytes).

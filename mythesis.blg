@@ -4,45 +4,45 @@ The top-level auxiliary file: mythesis.aux
 The style file: acm.bst
 Database file #1: references.bib
 Warning--I didn't find a database entry for ""
-You've used 59 entries,
+You've used 60 entries,
             2253 wiz_defined-function locations,
-            859 strings with 15469 characters,
-and the built_in function-call counts, 22963 in all, are:
-= -- 2183
-> -- 1103
+            864 strings with 15658 characters,
+and the built_in function-call counts, 23543 in all, are:
+= -- 2243
+> -- 1120
 < -- 1
-+ -- 457
-- -- 394
-* -- 1727
-:= -- 3526
-add.period$ -- 174
-call.type$ -- 59
-change.case$ -- 371
++ -- 464
+- -- 400
+* -- 1763
+:= -- 3599
+add.period$ -- 177
+call.type$ -- 60
+change.case$ -- 377
 chr.to.int$ -- 0
-cite$ -- 59
-duplicate$ -- 925
-empty$ -- 1895
-format.name$ -- 394
-if$ -- 4933
+cite$ -- 60
+duplicate$ -- 955
+empty$ -- 1946
+format.name$ -- 400
+if$ -- 5072
 int.to.chr$ -- 0
-int.to.str$ -- 59
-missing$ -- 48
-newline$ -- 295
-num.names$ -- 118
-pop$ -- 493
+int.to.str$ -- 60
+missing$ -- 49
+newline$ -- 300
+num.names$ -- 120
+pop$ -- 503
 preamble$ -- 1
-purify$ -- 315
+purify$ -- 320
 quote$ -- 0
-skip$ -- 650
+skip$ -- 678
 stack$ -- 0
-substring$ -- 1350
-swap$ -- 298
+substring$ -- 1407
+swap$ -- 314
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 236
+type$ -- 240
 warning$ -- 0
-while$ -- 230
-width$ -- 61
-write$ -- 607
+while$ -- 234
+width$ -- 62
+write$ -- 617
 (There was 1 warning)

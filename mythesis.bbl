@@ -72,6 +72,12 @@
 \newblock Fs2you.
 \newblock \url{http://www.rayfile.com/en/}.
 
+\bibitem{6249349}
+{\sc Giannetti, I., Anastasi, G., and Conti, M.}
+\newblock Energy-efficient p2p file sharing for residential bittorrent users.
+\newblock In {\em Computers and Communications (ISCC), 2012 IEEE Symposium
+  on\/} (2012), pp.~000524--000529.
+
 \bibitem{google}
 {\sc Google}.
 \newblock Google data center power usage.
