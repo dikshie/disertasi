@@ -181,16 +181,33 @@ By processing the data from the Bittorrent crawling, we can get the information 
 For example: content popularity distribution, distribution of published content, and publishing rate of new torrents.
 It's depends on Bittorrent web portals, some Bittorrent portals do not give detail information about the torrent information. 
 
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/tracker-crawling.eps}
+\end{center}
+\caption{Bittorrent tracker crawling.} 
+\label{fig:trackercrawling}
+\end{figure}
+
+
 \item BitTorrent trackers crawling:
 While crawling Bittorrent portals can give us information about the torrent type and torrent publisher and some number of seeders and leechers, that technique is not sufficient for more detail information such as distribution of users per country or performance relevant information such as peers arrival rate and peers session time.
 To get that information, we need to collect IP address of seeders and leechers in the Bittorrent swarms.  
 This information can only get from Bittorrent tracker logs by asking to Bittorrent tracker owners or by crawling the Bittorent tracker.
+Figure \ref{fig:trackercrawling} shows the schematic of Bitorrent tracker crawling.  
+First, a Bittorrent client needs to download torrent file from Bittorrent portal.  
+Next, a Bittorrent client send announce message to Bitorrent tracker and Bitorrent tracker will reply by giving list of seeders IP address and list of leechers IP address.  
+A Bittorrent client send announce message again to Bitorrent tracker. 
+Since Bitorrent tracker has been recorded the IP address of crawler, Bittorrent tracker will reply by giving list of leechers IP address only. 
+This process repeat as much as possible to get list of leecher.
+If a Bittorrent client send too many announce message, Bittorrent tracker will block that client. 
+Hence, this technique must be done in friendly way for Bittorrent tracker.
 \end{itemize}
 
 
 \subsubsection{Microscopic Technique}
 While in macroscopic techniques we can get the peers IP level information, that information does not sufficient to infer more detail performance metrics at the peer level such as peers download and upload rate, and how peers can connect each other (graph of the network).
-To get this information, we need more sophisticated techniques that implement wire level Bittorent protocol since the crawling techniques in this case means we join directly to Bittorrent swarm.
+To get this information, we need more sophisticated techniques that implement wire level Bittorent protocol since the crawling techniques in this case means join directly to Bittorrent swarm.
 
 
 \section{Energy Aspect of P2P Network}
