@@ -195,13 +195,16 @@ While crawling Bittorrent portals can give us information about the torrent type
 To get that information, we need to collect IP address of seeders and leechers in the Bittorrent swarms.  
 This information can only get from Bittorrent tracker logs by asking to Bittorrent tracker owners or by crawling the Bittorent tracker.
 Figure \ref{fig:trackercrawling} shows the schematic of Bitorrent tracker crawling.  
-First, a Bittorrent client needs to download torrent file from Bittorrent portal.  
-Next, a Bittorrent client send announce message to Bitorrent tracker and Bitorrent tracker will reply by giving list of seeders IP address and list of leechers IP address.  
-A Bittorrent client send announce message again to Bitorrent tracker. 
-Since Bitorrent tracker has been recorded the IP address of crawler, Bittorrent tracker will reply by giving list of leechers IP address only. 
+First, a Bittorrent crawler needs to download torrent file from Bittorrent portal.  
+Next, a Bittorrent crawler send announce message to Bitorrent tracker and Bitorrent tracker will reply by giving list of seeders IP address and list of leechers IP address.  
+A Bittorrent crawler send announce message again to Bitorrent tracker. 
+Since Bitorrent tracker has been recorded the IP address of the Bittorrent crawler, Bittorrent tracker will reply by giving list of leechers IP address only. 
 This process repeat as many as possible to get list of leechers IP address.
-If a Bittorrent client send too many announce message, Bittorrent tracker will block that client. 
+If a Bittorrent crawler send too many announce message, Bittorrent tracker will block the Bittorrent crawler. 
 Hence, this technique must be done in friendly way for Bittorrent tracker.
+Another challenge is in Bittorrent the peers do not have a permanent peer-id.  
+Everytime Bittorrent client is started a new random peer-id is generated thus it is very difficult to follow a peer using its peer-id. 
+On the other since most of the Bittorrent client is home user which the IP address is assigned in a dynamic way by ISP, identifying peers by their IP address can introduce inaccuracies. 
 \end{itemize}
 
 \begin{figure}[tb]
@@ -216,19 +219,19 @@ Hence, this technique must be done in friendly way for Bittorrent tracker.
 While in macroscopic techniques we can get the peers IP level information, that information does not sufficient to infer more detail performance metrics at the peer level such as peers download and upload rate, and how peers can connect each other (graph of the network).
 To get this information, we need more sophisticated techniques that implement wire level Bittorent protocol since the crawling techniques in this case means join directly to Bittorrent swarm.
 Figure \ref{fig:peeercrawling} shows the schematic functionality of peer crawling.  
-In this peer crawling technique, a Bittorrent client get the IP address of peers participating in a swarm.
+In this peer crawling technique, a Bittorrent crawler get the IP address of peers participating in a swarm.
 The initial process is same with tracker crawling. 
-Afterwards, the Bitorrent client contact each peer and performs the handshake procedure. 
+Afterwards, the Bitorrent crawler contact each peer and performs the handshake procedure. 
 The contacted peers will reply by sending BITFIELD and HAVE message.
 From handshake response we can get information if the peers is using public IP address space or behind NAT. 
-Basically if contacted peers response to the Bittorrent client then that peers is using public IP address space and if that peers silent then that peers are behind NAT.
+Basically if contacted peers response to the Bittorrent crawler then that peers is using public IP address space and if that peers silent then that peers are behind NAT.
 From BITFIELD message we can get information about peers type: seeder or leecher.   
-By measuring the time between the reception of two consecutive HAVE messages from a peer, the Bittorrent client can calculate the time needed to download a chunk.
+By measuring the time between the reception of two consecutive HAVE messages from a peer, the Bittorrent crawler can calculate the time needed to download a chunk.
 Chunk size information is always available in torrent file.
 Thus, dividing the size of the chunk by the time need to download two consecutive HAVE message, we can infer the instantaneous downlaod rate of a peer.
 BITFIELD message contains information about chunks that already has in every peer in the swarms.  
 Thus by comparing BITFIELD message for every peers in the swarm,  we can infer the chunk distributions in the swarms.
-
+Challenges in this technique is the Bittorrent crawler can be blocked by a peer because it send many handshake message and receive many BITFIELD and HAVE message from a peer but the Bittorrent crawler does not upload any information to the peer.
 
 
 
@@ -236,10 +239,18 @@ Thus by comparing BITFIELD message for every peers in the swarm,  we can infer t
 
 \section{Energy Aspect of P2P Network}
 
-Since the seminal paper by Gupta and Singh \cite{Gupta:2003:GI:863955.863959}, presented at SIGCOMM in 2003, the subject of green networking has received considerable attention. 
+Since the seminal paper by Gupta and Singh \cite{Gupta:2003:GI:863955.863959}, the subject of green networking has received considerable attention. 
 In recent years, valuable efforts have been devoted to reducing unnecessary energy expenditure.
-Big companies such as Google, Microsoft, and Amazon, are turning to a host of new technologies to reduce operating costs and consume less energy.
+Big companies and data center operator are turning to a host of new technologies to reduce operating costs and consume less energy.
 Google, for example, is planning to operate its data centers with a zero carbon footprint by using, among other things, hydropower, water-based chillers, and external cold air to do some of the cooling.
+While energy is mostly concerned by companies that run hundred of server and hundred of networking devices inside data center, only a little considering is made for home users. 
+Remembering that P2P applications was the largest fraction of the Internet traffic in the past, although it is now decline due to the popularity of content sharing via cloud computing, we still have many popular P2P application that run based on P2P paradigm.  
+For example, spotify.
+Spotify is fee based music streaming applications for mobile and desktop. 
+It is very popular in Europe and USA. 
+Spotify works like Bitorrent.  
+These figures shows that making P2P applications more energy efficient is important. 
+
 Several approaches have been considered to reduce energy consumption in networks. These include:
 \begin{itemize}
 	\item The design of low power components that are still able to offer acceptable levels of performance. 
