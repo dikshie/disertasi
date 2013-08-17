@@ -156,19 +156,19 @@ Table \ref{tab:measurementtechniques} shows the summary of different techniques 
 \hbox to\hsize{\hfil}
 \begin{tabular}{c|c|c|c}\hline\hline
 Property & Portal crawling & Tracker crawling & Peers crawler \\ \hline
-Scope & Macroscopic & Macroscopic & Microscopic \\ \hline
-Information level & Torrents level & Demographics and  & Peer level performance \\ 
+Scope & macroscopic & macroscopic & microscopic \\ \hline
+Information level & torrents level & demographics and  & peer level performance \\ 
  &  & High level performance  & \\ \hline
 Cost of crawler preparation & low & medium & high \\ \hline
 Obtained result details & basic & medium & high \\ \hline
-Peers population results & - & High & Very High \\ \hline
+Peers population results & - & high & very high \\ \hline
 \end{tabular}
 \end{table}
 
 \subsubsection{Macroscopic Technique}
 The goal macroscopic technique is to understand the demographics of the Bittorrent ecosystem for example the type of published content, the popularity of the content, the distribution of BitTorrent users per country, etc. 
 The macroscopic measurement allows us to get the performance information such as the ratio of between seeder to leechers, the session time of the Bittorrent users, the seedless state (period the torrent is without seeder) duration, etc.
-We can classify the macroscopic techniques into two subcategories: Bittorrent portals crawling and Bittorrent trackers crawling.
+We can classify the macroscopic techniques into two categories: Bittorrent portals crawling and Bittorrent trackers crawling.
 
 \begin{itemize}
 \item BitTorrent portals crawling: 
@@ -185,7 +185,7 @@ It's depends on Bittorrent web portals, some Bittorrent portals do not give deta
 \begin{center}
 \includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/tracker-crawling.eps}
 \end{center}
-\caption{Bittorrent tracker crawling.} 
+\caption{Bittorrent tracker crawling: The Bittorrent crawler fetch the torrent file from Bittorrent portals. Using information from torrent file, the Bittorrent crawler contacts the Bittorrent tracker by sending announce message. The Bitorrent tracker will reply by giving list of seeders and leechers. This process is repeated until obtain all the peers in the swarm.} 
 \label{fig:trackercrawling}
 \end{figure}
 
@@ -199,15 +199,39 @@ First, a Bittorrent client needs to download torrent file from Bittorrent portal
 Next, a Bittorrent client send announce message to Bitorrent tracker and Bitorrent tracker will reply by giving list of seeders IP address and list of leechers IP address.  
 A Bittorrent client send announce message again to Bitorrent tracker. 
 Since Bitorrent tracker has been recorded the IP address of crawler, Bittorrent tracker will reply by giving list of leechers IP address only. 
-This process repeat as much as possible to get list of leecher.
+This process repeat as many as possible to get list of leechers IP address.
 If a Bittorrent client send too many announce message, Bittorrent tracker will block that client. 
 Hence, this technique must be done in friendly way for Bittorrent tracker.
 \end{itemize}
 
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/peer-crawling.eps}
+\end{center}
+\caption{Peer crawling: The initial process in same with the Bittorrent tracker crawling with additional steps for the Bittorrent crawler to contact all the peers in the swarm by sending handshakre request. The contacted peers will reply by sending BITFIELD message and HAVE message.} 
+\label{fig:peeercrawling}
+\end{figure}
 
 \subsubsection{Microscopic Technique}
 While in macroscopic techniques we can get the peers IP level information, that information does not sufficient to infer more detail performance metrics at the peer level such as peers download and upload rate, and how peers can connect each other (graph of the network).
 To get this information, we need more sophisticated techniques that implement wire level Bittorent protocol since the crawling techniques in this case means join directly to Bittorrent swarm.
+Figure \ref{fig:peeercrawling} shows the schematic functionality of peer crawling.  
+In this peer crawling technique, a Bittorrent client get the IP address of peers participating in a swarm.
+The initial process is same with tracker crawling. 
+Afterwards, the Bitorrent client contact each peer and performs the handshake procedure. 
+The contacted peers will reply by sending BITFIELD and HAVE message.
+From handshake response we can get information if the peers is using public IP address space or behind NAT. 
+Basically if contacted peers response to the Bittorrent client then that peers is using public IP address space and if that peers silent then that peers are behind NAT.
+From BITFIELD message we can get information about peers type: seeder or leecher.   
+By measuring the time between the reception of two consecutive HAVE messages from a peer, the Bittorrent client can calculate the time needed to download a chunk.
+Chunk size information is always available in torrent file.
+Thus, dividing the size of the chunk by the time need to download two consecutive HAVE message, we can infer the instantaneous downlaod rate of a peer.
+BITFIELD message contains information about chunks that already has in every peer in the swarms.  
+Thus by comparing BITFIELD message for every peers in the swarm,  we can infer the chunk distributions in the swarms.
+
+
+
+
 
 
 \section{Energy Aspect of P2P Network}

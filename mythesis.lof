@@ -1,7 +1,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces P2P technologies building block.\relax }}{11}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Bittorrent tracker crawling.\relax }}{14}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Bittorrent tracker crawling: The Bittorrent crawler fetch the torrent file from Bittorrent portals. Using information from torrent file, the Bittorrent crawler contacts the Bittorrent tracker by sending announce message. The Bitorrent tracker will reply by giving list of seeders and leechers. This process is repeated until obtain all the peers in the swarm.\relax }}{14}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Peer crawling: The initial process in same with the Bittorrent tracker crawling with additional steps for the Bittorrent crawler to contact all the peers in the swarm by sending handshakre request. The contacted peers will reply by sending BITFIELD message and HAVE message.\relax }}{15}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Simplified view of our approach. Left: At time t=1, the actor gets a PEX message from peer A and learns that peer A is connected to peer B and C. At t=2, the actor gets PEX messages from peers C and A. The actor learns that now peer A is connected to peer D. Thus the actor knows the properties of peer A at t=1 and t=2.\relax }}{19}

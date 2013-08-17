@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  17 AUG 2013 11:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  17 AUG 2013 15:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -487,7 +487,11 @@ c file (type eps)
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/tracker-crawling.eps Graphi
 c file (type eps)
  <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/tracker-crawling.eps>
-[13] [14]) (./ch2.tex [15]
+File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/peer-crawling.eps Graphic f
+ile (type eps)
+
+<../../../papers/p2p-cdn-latex/tex/ipsj/graphs/peer-crawling.eps> [13] [14])
+(./ch2.tex [15]
 Chapter 3.
 [16
 
@@ -720,12 +724,12 @@ Missing character: There is no Â in font txr!
 Missing character: There is no ’ in font txr!
 ) [50] (./mythesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4091 strings out of 493312
- 59863 string characters out of 6137876
+ 4094 strings out of 493312
+ 59962 string characters out of 6137876
  124069 words of memory out of 5000000
- 7425 multiletter control sequences out of 15000+600000
+ 7427 multiletter control sequences out of 15000+600000
  41174 words of font info for 114 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,11n,38p,1162b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mythesis.dvi (53 pages, 199056 bytes).
+Output written on mythesis.dvi (53 pages, 202164 bytes).
