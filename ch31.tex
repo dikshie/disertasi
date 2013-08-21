@@ -246,24 +246,22 @@ Figure \ref{fig:peeercrawling} shows the schematic functionality of peer crawlin
 In this peer crawling technique, a Bittorrent crawler get the IP address of peers participating in a swarm.
 The initial process is same with tracker crawling. 
 Afterwards, the Bitorrent crawler contact each peer and performs the handshake procedure. 
+Handshake message must be the first message sent by Bittorrent client to other peers.
 The contacted peers will reply by sending BITFIELD and HAVE message.
 From handshake response we can get information if the peers is using public IP address space or behind NAT. 
 Basically if contacted peers response to the Bittorrent crawler then that peers is using public IP address space and if that peers silent then that peers are behind NAT.
 From BITFIELD message we can get information about peers type: seeder or leecher.   
 By measuring the time between the reception of two consecutive HAVE messages from a peer, the Bittorrent crawler can calculate the time needed to download a chunk.
-Chunk size information is always available in torrent file.
-Thus, dividing the size of the chunk by the time need to download two consecutive HAVE message, we can infer the instantaneous downlaod rate of a peer.
+Chunk size information itself is always available in torrent file.
+Thus, dividing the size of the chunk by the time need to download two consecutive HAVE message, we can infer the instantaneous download rate of a peer.
 BITFIELD message contains information about chunks that already has in every peer in the swarms.  
 Thus by comparing BITFIELD message for every peers in the swarm,  we can infer the chunk distributions in the swarms.
 Challenges in this technique is the Bittorrent crawler can be blocked by a peer because it send many handshake message and receive many BITFIELD and HAVE message from a peer but the Bittorrent crawler does not upload any information to the peer.
 
 
-
-
-
 \section{Energy Aspect of P2P Network}
 
-Gupta and Singh \cite{Gupta:2003:GI:863955.863959} works on green networking has received a lot of attention.
+Gupta and Singh \cite{Gupta:2003:GI:863955.863959} work on green networking has received a lot of attention.
 In recent years, many efforts have been pushed to reduced energy expenditure.
 Big companies and data center operator are trying new technologies to consume less energy.
 For example Google which is planning to operate its data centers with a zero carbon footprint by using hydropower, water-based chillers, external cold air, etc for cooling its data center.

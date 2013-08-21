@@ -10,7 +10,8 @@ Urvoy Keller et al.\cite{urvoy2007impact} shows that number of connections from 
 Resilience of the swarm is very important for content provider who use Bittorrent like protocol to disseminate their contents. 
 The result of the information about how peer connect each other can be used for doing network partition.  
 For example, we want to know what's happened if high degree peers are remove randomly?; what's happened with peers are removed randomly? will the swarm collapse? or will it decrease download performance?
-
+Some ISPs have started to introduce a policy to minimize the impact of cross AS traffic caused by P2P. 
+This effect of locality will be much better observed if we have peer connectivity level properties information by measuring real Bittorrent swarms topology.
 
 In this Chapter, we first present a methodology to collect the connectivity information at both the swarm and the peer level for the entire lifespan of a real torrent. Specifically, we discover new torrents just after their birth by using the RSS service of the most important BitTorrent portal, namely the Pirate Bay. 
 Afterwards, we exploit the Peer Exchange (PEX) extension of the BitTorrent protocol to gather the set of neighbors for each peer. 
@@ -385,3 +386,4 @@ Some Bitorrent forums suggest decreasing the maximum connection for torrent (swa
 Second, most of the Bittorrent users are home users where their home gateway device cannot give high concurrent connections and Bitorrent is not the main online activity. 
 We argue that the Bittorrent swarm closes to random that we infer from clustering coeficient is caused by Bittorrent mechanism itself that always choose random peers from its neighbors in the choking-unchoking algorithm, optimistic choking algorithm, and optimistic connect algorithm as we explained previously.
 Our approach can infer BitTorrent swarms topology and the result confirmed by simulation.
+

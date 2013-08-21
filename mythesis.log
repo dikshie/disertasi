@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  21 AUG 2013 23:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=latex 2013.8.12)  22 AUG 2013 02:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -297,45 +297,51 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \c@ContinuedFloat=\count104
 Package caption Info: float package is loaded.
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count105
+\c@@ppsavesec=\count106
+\c@@ppsaveapp=\count107
+)
 (./mythesis.aux)
 \openout1 = `mythesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 26.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 26.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 27.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 27.
 
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 26.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 26.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 27.
 
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 26.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 26.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 27.
 
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 26.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 26.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 27.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 26.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 27.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
@@ -550,13 +556,13 @@ File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cascade-energy.eps Graphic
 file (type eps)
 
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cascade-energy.eps>
-Overfull \hbox (28.85902pt too wide) in paragraph at lines 308--309
+Overfull \hbox (28.85902pt too wide) in paragraph at lines 306--307
  [] 
  []
 
-[27] [28] [29] [30]) (./ch4.tex [31]
+[27] [28] [29] [30] [31]) (./ch4.tex [32]
 Chapter 3.
-[32
+[33
 
 ]
 Missing character: There is no â in font txr!
@@ -565,20 +571,20 @@ Missing character: There is no ™ in font txr!
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [33]
+ [34]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/pex_2.eps Graphic file (
 type eps)
  <../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/pex_2.eps>
-Overfull \hbox (44.31964pt too wide) in paragraph at lines 33--34
+Overfull \hbox (44.31964pt too wide) in paragraph at lines 34--35
  [] 
  []
 
-[34] [35] [36] [37]
+[35] [36] [37] [38]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-num.eps Graphic 
 file (type eps)
 
-<../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-num.eps> [38]
-[39]
+<../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-num.eps> [39]
+[40]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/output_2.eps Graphic fil
 e (type eps)
  <../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/output_2.eps>
@@ -595,7 +601,7 @@ File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/gabung-korelasi-p-rh
 o-4region.eps Graphic file (type eps)
 
 <../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/gabung-korelasi-p-rho-4re
-gion.eps> [40] [41] [42] [43]
+gion.eps> [41] [42] [43] [44]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-c
 df-non-nested-lognorm.eps Graphic file (type eps)
 
@@ -614,11 +620,11 @@ File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-pi-exp.eps
  Graphic file (type eps)
 
 <../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-pi-exp.eps>
-[44]
+[45]
 
-LaTeX Warning: Text page 45 contains only floats.
+LaTeX Warning: Text page 46 contains only floats.
 
-[45] [46] [47]
+[46] [47] [48]
 File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-clustering.eps G
 raphic file (type eps)
 
@@ -627,9 +633,9 @@ File: ../../../papers/IEEE-P2P/tex/IEICE/jurnal/netscicom-graphs/simula.eps Gra
 phic file (type eps)
 
 <../../../papers/IEEE-P2P/tex/IEICE/jurnal/netscicom-graphs/simula.eps>
-[48]) (./ch6.tex [49] [50]
+[49] [50]) (./ch6.tex [51]
 Chapter 4.
-[51
+[52
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
@@ -638,7 +644,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
- [52]
+ [53]
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
@@ -652,7 +658,7 @@ Overfull \hbox (25.34242pt too wide) in paragraph at lines 51--52
  [] 
  []
 
-[53] [54]
+[54] [55]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/fs2you-arch.eps Graphic fil
 e (type eps)
  <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/fs2you-arch.eps>
@@ -660,11 +666,11 @@ Overfull \hbox (43.6106pt too wide) in paragraph at lines 101--102
  [] 
  []
 
-[55]
+[56]
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [56] [57]
+ [57] [58]
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
@@ -679,15 +685,15 @@ Overfull \hbox (55.12215pt too wide) detected at line 160
  $[] []$  
  []
 
-[58] [59]
+[59] [60]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps Graphic file (type 
 eps)
- <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps> [60] [61]
+ <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cop.eps> [61] [62]
 Overfull \hbox (60.936pt too wide) detected at line 289
  [] 
  []
 
-[62]
+[63]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/topology.eps Graphic file (
 type eps)
  <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/topology.eps>
@@ -701,14 +707,14 @@ eps)
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps Graphic file (
 type eps)
 
-<../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps> [63]
+<../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cdnp2p-3.eps> [64]
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/difference-dc-all.eps Graph
 ic file (type eps)
 
-<../../../papers/p2p-cdn-latex/tex/ipsj/graphs/difference-dc-all.eps> [64]
+<../../../papers/p2p-cdn-latex/tex/ipsj/graphs/difference-dc-all.eps> [65]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/difference-total-all.eps Gr
 aphic file (type eps)
 
@@ -717,7 +723,7 @@ Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
 
-[65]
+[66]
 File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/lw-energy.eps Graphic file 
 (type eps)
  <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/lw-energy.eps>
@@ -729,7 +735,7 @@ File: ../../../papers/p2p-cdn-latex/tex/ipsj/graphs/difference-total-peer-arriv
 alrate.eps Graphic file (type eps)
 
 <../../../papers/p2p-cdn-latex/tex/ipsj/graphs/difference-total-peer-arrivalrat
-e.eps> [66] [67] [68] [69]
+e.eps> [67] [68] [69] [70]
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
@@ -742,17 +748,39 @@ Missing character: There is no ™ in font txr!
 Missing character: There is no â in font txr!
 Missing character: There is no € in font txr!
 Missing character: There is no ™ in font txr!
- [70]) (./ch7.tex [71]
+ [71]) (./ch7.tex [72]
 Chapter 5.
-[72
+[73
 
-]) [73] (./mythesis.bbl [74]
-LaTeX Font Info:    Try loading font information for OT1+txtt on input line 18.
+]) (./appendices.tex [74] [75] [76
 
+
+]
+Appendix A.
+
+Overfull \hbox (6.4561pt too wide) in paragraph at lines 16--17
+[]\OT1/txr/m/n/12 encoding: the string en-cod-ing for-mat used to gen-er-ate th
+e pieces/chunks/blocks
+ []
+
+[77
+
+]
+Overfull \hbox (14.0881pt too wide) in paragraph at lines 21--22
+[]\OT1/txr/m/n/12 pieces: con-cate-na-tion of all 20 byte SHA1 hash value each 
+pieces/chunks/blocks. 
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+txtt on input line 28.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/txfonts/ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
-)
+) [78] [79]
+[80]
+Appendix B.
+[81
+
+]) (./mythesis.bbl [82]
 Underfull \hbox (badness 10000) in paragraph at lines 15--19
 []\OT1/txr/m/sc/12 Arstechnica\OT1/txr/m/n/12 .  Megau-pload data cost.  $\OT1/
 txtt/m/n/12 http :
@@ -769,20 +797,20 @@ Overfull \hbox (39.22757pt too wide) in paragraph at lines 15--19
 s-[]us-[]9000-[]a-[]day/$\OT1/txr/m/n/12 . 
  []
 
-[75
+[83
 
 ]
 Missing character: There is no Â in font txr!
 Missing character: There is no “ in font txr!
 Missing character: There is no Â in font txr!
 Missing character: There is no ” in font txr!
- [76]
+ [84]
 Underfull \hbox (badness 7203) in paragraph at lines 142--145
 []\OT1/txr/m/sc/12 Inc., A.  \OT1/txr/m/n/12 Avail-able on $\OT1/txtt/m/n/12 ht
 tp : / / support . amd . com / us / Embedded _
  []
 
-[77]
+[85]
 Underfull \hbox (badness 10000) in paragraph at lines 147--150
 []\OT1/txr/m/sc/12 Inc., C.  \OT1/txr/m/n/12 Avail-able on $\OT1/txtt/m/n/12 ht
 tp : / / www . cisco . com / web / partners /
@@ -794,31 +822,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--150
 enter _
  []
 
-[78]
+[86]
 Underfull \hbox (badness 2165) in paragraph at lines 229--232
 []\OT1/txr/m/sc/12 Nordberg, A.  \OT1/txr/m/n/12 Raster-bar libtor-rent.  $\OT1
 /txtt/m/n/12 http : / / www . rasterbar . com /
  []
 
-[79] [80]
+[87] [88]
 Underfull \hbox (badness 1436) in paragraph at lines 328--330
 []\OT1/txr/m/sc/12 uTorrent Bit-tor-rent Client's Fo-rum\OT1/txr/m/n/12 .  Avai
 l-able on $\OT1/txtt/m/n/12 http : / / forum .
  []
 
-[81]
+[89]
 Missing character: There is no Â in font txr!
 Missing character: There is no ‘ in font txr!
 Missing character: There is no Â in font txr!
 Missing character: There is no ’ in font txr!
-) [82] (./mythesis.aux) ) 
+) [90] (./mythesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4114 strings out of 493312
- 60531 string characters out of 6137876
+ 4212 strings out of 493312
+ 61971 string characters out of 6137876
  122093 words of memory out of 5000000
- 7448 multiletter control sequences out of 15000+600000
+ 7541 multiletter control sequences out of 15000+600000
  44136 words of font info for 124 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  36i,11n,38p,1162b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mythesis.dvi (87 pages, 199492 bytes).
+Output written on mythesis.dvi (95 pages, 210900 bytes).
