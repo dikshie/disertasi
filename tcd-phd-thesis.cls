@@ -33,7 +33,7 @@
 
 % 1.33.5. "The gutter margin of both text and diagrams must not be less than 35
 % mm and that on the other three sides not less than 20 mm"
-\RequirePackage[inner=35mm,outer=20mm,top=20mm,bottom=20mm]{geometry}
+\RequirePackage[inner=35mm,outer=20mm,top=30mm,bottom=30mm]{geometry}
 
 % 1.33.5. "Line-spacing must be at one and a half or double spacing between
 % lines."
