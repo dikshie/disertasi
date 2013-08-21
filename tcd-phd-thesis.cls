@@ -23,7 +23,7 @@
 % 1.33.5. "The type must be black and not less than 10 point".  
 % (If user gives another font size as an option to tcd-phd-thesis, the larger
 % of the two will be used.)
-\PassOptionsToClass{10pt}{book}
+\PassOptionsToClass{12pt}{book}
 
 % Process all options
 \ProcessOptions\relax
@@ -38,7 +38,7 @@
 % 1.33.5. "Line-spacing must be at one and a half or double spacing between
 % lines."
 \RequirePackage{setspace}
-\onehalfspacing
+\doublespacing
 
 % Personal preference: don't use that awful Computer Modern font
 \RequirePackage{mathptmx,times}
