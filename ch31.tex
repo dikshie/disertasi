@@ -27,6 +27,16 @@ IP address of server is usually pre-configured when user installing the applicat
 If users want to change the server, user can read on eDonkey web portal.
 The eDonkey server is working as a indexes files and for distributing IP addresses of other eDonkey peers to the eDonkey users.
 
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/how-bittorrent-works.eps}
+\end{center}
+\caption{Building block of Bittorrent.} 
+\label{fig:bittorrentblock}
+\end{figure}
+
+
+
 BitTorrent was created in 2002 by Bram Cohen. 
 It runs on an open protocol specification thus there a lot of Bittorrent implementation.
 To share a file or a set of files through BitTorrent, a torrent file must be created for the first time.  
@@ -34,32 +44,34 @@ The torrent file contains the information of the content, which includes the inf
 The torrent file is usually distributed via Bittorent web portals.
 When a client wants to get a file that shared in Bittorrent web portals, it must obtain the torrent file from Bittorrent portals.
 The client then contacts the trackers listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
+This process from initial phase to join Bittorrent swarm is shown in Fig.\ref{fig:bittorrentblock}
 BitTorrent has generated great enthusiasm for P2P file sharing distribution due to simplicity.  
 Many open source software projects use Bittorrent to distribute their applications which is quite big enough (equal or than CD disk space).
-Important terms in Bittorrent: a seeder is a client who has complete the content and a leecher is a client who download the content.
+Important terms in Bittorrent are a seeder is a client who has complete chunks/blockss and a leecher is a client who download the chunks/blocks.
 
 Beside of P2P for filesharing, we also noted that P2P for streaming is also on the rise especially in China.
 The target of P2P streaming is to build a scalable P2P platform for TV/music delivery. 
 More than a dozen companies are actively working in this area for example UUSe, PPLive, PPStream.  
 Let's take PPLive as an example since it is the most popular P2P streaming service.
-According to \cite{} in 2007, the number of concurrent users for the most popular PPLive session raises to 1.5 million.
+According to \cite{4378423} in 2007, the number of concurrent users for the most popular PPLive session raises to $1.5$ million and aggregate bandwidth up to $100$Gb/s.
 When the PPLive client is launched by users, it retrieves from a channel servers the metadata information of all channels. 
 After users choose the channel, the PPLive client further talks to a tracker of that channel. 
 Next the trackers will give  a list of peers that are watching the same channel. 
 After getting a list of peers, the PPLive client connects to a set of peers, and starts to exchange data. 
 The challenge in P2P streaming is to provide a sustained streaming bit rate to all peers joining the network. 
-Unlike P2P file sharing, where the content can be carried on a best effort basis, in P2P streaming, insufficient delivery bandwidth can lead to poor quality of service. 
+In P2P streaming available bandwidth is very important.  
+Insufficient bandwidth can cause poor video quality.  
 
 \begin{figure}[tb]
 \begin{center}
-\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/p2p-technologies.eps}
+\includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/p2p-technologies.eps}
 \end{center}
-\caption{P2P technologies building block.} 
+\caption{P2P Technologies Building Block. This graph is adapted from \cite{Passarella20121} with modification.} 
 \label{fig:p2ptech}
 \end{figure}
 
+Due to complexity of P2P, many building blocks of P2P teechnology that need to explore related to content delivery. 
 Figure \ref{fig:p2ptech} shows the presentation of P2P technologies building block.
-It is not easy to identify an overall architecture in which the various P2P services related to content delivery. 
 The bottom level provides the basic networking abstractions, i.e., the P2P overlay networks. 
 The middle level provides additional P2P services for delivery and management (including searching)
 Above them, we can see P2P applications which work on the top of previous blocks.
@@ -69,22 +81,33 @@ Finally, security, trust and cooperation are seen as cross-layer issues includin
 
 All P2P networks run on top of the Internet. 
 We often consider the P2P network as an overlay network on the top of Internet. 
-We classified overlay to: structured, unstructured, and hierarchical. 
-Structured overlays is a virtual address space and assign overlay addresses to peers in this space which defines neighborhood relationships between peers.
+We can classify overlay to: structured, unstructured, and hierarchical. 
+In structured overlays, the network is formed in a particular structure. 
 The function of structured overlay is for storing and locating objects. 
 
-In unstructured systems, the unstructured overlay do not enforce any particular structure in the network. 
-Unstructured overlay networks typically close to random graphs. 
-In unstructured P2P networks, peers usually do have not the same role with other peers.
-In unstructured P2P networks, a peer can choose any other peers as neighbor to the some degree of freedom.  
-
-In hierarchical overlay network, we can say that unstructured architectures with superpeers are hierarchical networks.
+In unstructured systems, the unstructured overlay do not form any a fixed structure in the network. 
+Unstructured overlay networks is typically close to random graphs. 
+This is due to nature of every P2P applications that choose neighbors in random.
+In unstructured P2P networks, peers usually do have not the same role with other peers and a peer can choose any other peers as neighbor to the some degree of freedom.  
+In hierarchical overlay network, the network is built in an unstructured architecture with superpeers.
 The superpeers is forming the top level and ordinary peers the bottom level.
-In hierarchical overlay network peers are organized in different groups and each group can runs its own overlay. 
+In hierarchical overlay network, peers are organized in different groups and each group can runs its own overlay. 
+Figure \ref{fig:hierarchicalp2p} shows conceptual of hierarchical P2P network. 
 
-Searching for content in overlay network is one of the key services in P2P which attracted  and still attracts a lot of attention.
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/hierarchical-p2p.eps}
+\end{center}
+\caption{Hierarchical P2P Network.} 
+\label{fig:hierarchicalp2p}
+\end{figure}
+
+
+
+Searching for content in overlay network is one of the key services in P2P.
+Index is a keyword in searching inside P2P network.
 In P2P networks, indices can be centralized, localized, or distributed. 
-In structured overlay network centralized indices typically rely on a unique entity in the structured overlay network that stores the index. 
+In structured overlay network centralized indices typically rely on a unique entity.
 In unstructured overlay network localized indices is usually use for searching. 
 Therefore, a query looking for a particular content must be propagated among peers.
 However, indexing does not solve content poisoning problem in P2P.
@@ -101,14 +124,17 @@ Consistency is important in Bittorrent, that's why Bittorrent provide hash for e
 
 Gossiping is a simple and effective mechanism to spread the information. 
 In P2P overlay networks, each peer participating in a gossiping process contacts of other peers in random and exchange the information between them.
-In push gossip, the contacted peers receive a piece of information from the contacting peer. 
-In pull gossip, the contacted peers send a piece of information to the contacting peer. 
+Gossiping can be in push or pull mode.
+Most of P2P applications working on both modes.
 In Bittorrent implementation gossiping is in push and pull mode and the set of peers to contact is chosen at random.
 
 Another important aspect in security of P2P is related to trust, and particularly to establishment of reputation. 
 Establishing reputation of peers requires collecting information about previous interactions. 
 For example, Bittorrent tracker usually has log to record the peers behavior. 
 If a peer has bad upload/download ratio, Bittorrent tracker can blacklist that peer to join the Bittorrent swarm since the tit-for-tat policy of Bittorrent is the basis of cooperation enforcement.
+We introduce private Bittorrent swarm term where user can join Bittorrent swarms by paying a membership.  
+In private Bittorrent swarm, the trust is very important. 
+Any member who can not fulfill the requirement (e.g minimum upload andwidth, minimum uptime after finishing download) can be blocked from Bittorrent swarm.
 
 We highlight an important aspect related to the impact of P2P technologies on ISP policies (cross layer issues). 
 P2P solutions are network agnostic, in the sense that they do not take any consideration the layer 3 of the network paths. 
@@ -129,7 +155,7 @@ This question can only be answered by doing measurement in real Bittorrent swarm
 Energy was another aspect that is quite separated from current P2P research but now that topic becomes to rise. 
 While popularity of P2P is decline because users now the content to the cloud, in some region P2P filesharing (e.g. Bittorent) applications is still popular.
 Even now content providers, CDN providers, and ISPs are actively exploring the use of peer-to-peer (P2P) technologies to distribute content to homes as a means of reducing both file download times and the energy consumption of data centers. 
-This approach pushes the energy use out of the data centers and into the homes of content consumers not including P2P based applications that run on mobile devices.
+This approach pushes the energy use out of the data centers and into the homes of content consumers including P2P based applications that run on mobile devices.
 With million house are connected to the Internet and million mobile devices are also connected to the Internet, it is very important to consider energy consumption in P2P network.
 
 
@@ -155,8 +181,8 @@ Table \ref{tab:measurementtechniques} shows the summary of different techniques 
 \begin{tabular}{c|c|c|c}\hline\hline
 Property & Portal crawling & Tracker crawling & Peers crawler \\ \hline
 Scope & macroscopic & macroscopic & microscopic \\ \hline
-Information level & torrents level & demographics and  & peer level performance \\ 
- &  & general performance  & \\ \hline
+Information level & torrents level & demographics and  & peer level \\
+ &  & general performance  & performance \\ \hline
 Cost of crawler preparation & low & medium & high \\ \hline
 Obtained result details & basic & medium & high \\ \hline
 Peers population results & - & high & very high \\ \hline
@@ -237,11 +263,11 @@ Challenges in this technique is the Bittorrent crawler can be blocked by a peer 
 
 \section{Energy Aspect of P2P Network}
 
-Since the seminal paper by Gupta and Singh \cite{Gupta:2003:GI:863955.863959}, the subject of green networking has received considerable attention. 
-In recent years, valuable efforts have been devoted to reducing unnecessary energy expenditure.
-Big companies and data center operator are turning to a host of new technologies to reduce operating costs and consume less energy.
-Google, for example, is planning to operate its data centers with a zero carbon footprint by using, hydropower, water-based chillers, and external cold air to do some of the cooling.
-While energy is mostly concerned by companies that run hundred of server and hundred of networking devices inside data center, only a little considering is made for home users. 
+Gupta and Singh \cite{Gupta:2003:GI:863955.863959} works on green networking has received a lot of attention.
+In recent years, many efforts have been pushed to reduced energy expenditure.
+Big companies and data center operator are trying new technologies to consume less energy.
+For example Google which is planning to operate its data centers with a zero carbon footprint by using hydropower, water-based chillers, external cold air, etc for cooling its data center.
+While energy is mostly concerned by companies that run hundred of server and hundred of networking devices inside data center, only a little attention have been made for home users. 
 Remembering that P2P applications was the largest fraction of the Internet traffic in the past, although it is now decline due to the popularity of content sharing via cloud computing, we still have many popular P2P application that run based on P2P paradigm.  
 For example, spotify.
 Spotify is fee based music streaming service for mobile and desktop. 
@@ -268,6 +294,22 @@ Due to the complexity of P2P networks, DVS and DFS can be implemented in hardwar
 While in network level, migrating computation task is the another way to reduce energy consumption.  
 For example in \cite{6249349}, Gianetti et al. propose the usage of Bittorrent proxy for  delegating the Bittorrent client work. 
 Delegating some work to Bittorrent proxy can save up to $25\%$ of energy usage for PC desktop used for Bittorrent file sharing.
+Delegating or proxying workload is not new idea.  
+Example more primitive idea of proxying is Wake on LAN technology that introduced almost two decades ago \cite{wakeonlan}.
+Wake on LAN technology allows computer to be awakened by \textit{magic} packet.
+
+Since energy flow to consumers is based on supply and demand. 
+The saving of small energy in home can affect distribution side of energy. 
+This is known as cascade effect. 
+It not only happened in home and its distribution but it is also appear in data center and its distribution.  
+
+\begin{figure}[tb]
+\begin{center}
+\includegraphics[scale=0.8]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cascade-energy.eps}
+\end{center}
+\caption{Cascade effetct:  1 watt energy saving in server component can reduce 2.8 watt energy in total facility level. This figure adapted from \cite{ciscocascade}} 
+\label{fig:energycascade}
+\end{figure}
 
 While most network architecture energy consumption has been explored, a little work is done in exploring energy consumption in hybrid network architecture fashion. 
 For example: energy consumption in combination of P2P and data center (CDN or Cloud).

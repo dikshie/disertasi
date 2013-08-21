@@ -110,6 +110,11 @@
   technologies, architectures, and protocols for computer communications\/}
   (New York, NY, USA, 2003), SIGCOMM '03, ACM, pp.~19--26.
 
+\bibitem{4378423}
+{\sc Hei, X., Liang, C., Liang, J., Liu, Y., and Ross, K.}
+\newblock A measurement study of a large-scale p2p iptv system.
+\newblock {\em Multimedia, IEEE Transactions on 9}, 8 (2007), 1672--1687.
+
 \bibitem{TR464}
 {\sc Ho\ss{}feld, T., Hock, D., Oechsner, S., Lehrieder, F., Despotovic, Z.,
   Kellerer, W., and Michel, M.}
@@ -132,6 +137,16 @@
 \newblock In {\em Proceedings of the 18th International Workshop on Network and
   Operating Systems Support for Digital Audio and Video\/} (New York, NY, USA,
   2008), NOSSDAV '08, ACM, pp.~75--80.
+
+\bibitem{wakeonlan}
+{\sc Inc., A.}
+\newblock Available on
+  \url{http://support.amd.com/us/Embedded_TechDocs/20213.pdf}.
+
+\bibitem{ciscocascade}
+{\sc Inc., C.}
+\newblock Available on
+  \url{http://www.cisco.com/web/partners/downloads/765/other/Energy_Logic_Reducing_Data_Center_Energy_Consumption.pdf}.
 
 \bibitem{uptime}
 {\sc Institute, U.}
@@ -227,6 +242,12 @@
   distributed networks.
 \newblock In {\em Proceedings of the Third ACM Symposium on Cloud Computing\/}
   (New York, NY, USA, 2012), SoCC '12, ACM, pp.~11:1--11:14.
+
+\bibitem{Passarella20121}
+{\sc Passarella, A.}
+\newblock A survey on content-centric technologies for the current internet:
+  Cdn and p2p solutions.
+\newblock {\em Computer Communications 35}, 1 (2012), 1 -- 32.
 
 \bibitem{pouwelse2004measurement}
 {\sc Pouwelse, J., Garbacki, P., Epema, D., and Sips, H.}

@@ -5,6 +5,12 @@ The significant footprint of BitTorrent in the Internet has motivated researcher
 However, despite this effort, we still have little knowledge regarding the connectivity properties exhibited by real BitTorrent swarms at both swarm and peer level. 
 Due to the difficulty in collecting the required information from real swarms, most of the existing works that analyze connectivity properties are based on simulations or experiments in controlled environments. 
 As a result, they are likely to miss some of the effects affecting BitTorrent swarms in the wild. 
+The analysis of the peer level connectivity in real Bittorrent swarms can reveal important information such as: (1) efficiency of a swarm to disseminate the content; (2) the resilience of the swarm, (3) checking the locality-bias.   
+Urvoy Keller et al.\cite{urvoy2007impact} shows that number of connections from a peer maintains high entropy of the Bittorrent system thus the Bittorrent works in optimal.
+Resilience of the swarm is very important for content provider who use Bittorrent like protocol to disseminate their contents. 
+The result of the information about how peer connect each other can be used for doing network partition.  
+For example, we want to know what's happened if high degree peers are remove randomly?; what's happened with peers are removed randomly? will the swarm collapse? or will it decrease download performance?
+
 
 In this Chapter, we first present a methodology to collect the connectivity information at both the swarm and the peer level for the entire lifespan of a real torrent. Specifically, we discover new torrents just after their birth by using the RSS service of the most important BitTorrent portal, namely the Pirate Bay. 
 Afterwards, we exploit the Peer Exchange (PEX) extension of the BitTorrent protocol to gather the set of neighbors for each peer. 
