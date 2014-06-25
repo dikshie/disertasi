@@ -13,3 +13,398 @@ For example, CNN uses the Octoshape \cite{octoshape} solution that enables their
 From the Internet provider point of view, the presence of so many always-on users suggests that it is possible to delegate a portion of computing, storage and networking tasks to the users, thus creating P2P networks where users can share files and multimedia content. 
 Starting from file sharing protocols, P2P architectures have evolved toward video on demand and support for live events.
 
+Alternatively, video contents can be efficiently distributed on services offered by managed network architectures and CDN companies.
+The major issues of CDN are high deployment cost and good but not unlimited scalability in the long term.  
+Given the complementary features of P2P and CDN, in recent years some hybrid solutions have been proposed and applied to the operational of CDN \cite{Huang:2008:UHC:1496046.1496064,4772628,Yin:2009:DDH:1631272.1631279} to take the best of both approaches.
+In Peer assisted CDN, users can download content from CDN nodes from or other users or peers. 
+A user may cache the content after download to serve requests from other users. 
+Due to the complexity of the behavior of peers, the process should be done in the home gateway user where the ISP can control it.
+
+In this work, we will revisit Guo et al., \cite{1613869} work's PROP as basis to evaluate of the peer-assisted CDN and propose an improvement the model for the PROP.
+We also examine the characteristics of Internet VoD by investigating real-world datasets obtained from Youtube.
+We estimate the video popularity phase.
+Information of video popularity phase will be used for caching strategy
+In P2P assisted CDN for video on demand (VoD), most of researcher assume that catalog of video popularity rank is already established following zipf distribution.  
+This become basis for P2P assisted CDN model in PROP \cite{1613869}.
+Our work is quite different whereas we will use VoD view popularity to aid the PROP model.
+We use Youtube VoD view model for this purpose.
+%In Youtube, video view popularity has three phase which is before-peak, at-peak, and after-peak \cite{Borghol:2011:CMP:2039452.2039717} which we will explain later in sect.\ref{popularity}.
+A twofold of our contributions as follows:
+(1) We use the idea of VoD view popularity model to aid the PROP model. 
+To our knowledge, the combination of PROP model and VoD view popularity model is the first.
+(2) From simulation-based experiments, we find that peer contributions become higher than the PROP model.
+
+%Our paper presentation as follows: (1) we describe related work in sect.\ref{relatedwork}; (2) we explain detail of Youtube popularity evolution model in sect.\ref{popularity}; (3) we explain the caching strategy for CDN and peer in sect.\ref{systemdescription}; (4) we explain our simulation design, simulator, and its evaluation in sect.\ref{evaluation}.
+%Finally, we present our conclusions in section \ref{conclusion}.
+
+
+%\section{Related Work}\label{relatedwork}
+%Content Distribution Networks with peer assist have been successfully deployed on the Internet, such as Akamai \cite{Zhao:2013:PCD:2504730.2504752}, \cite{Huang:2008:UHC:1496046.1496064} and LiveSky \cite{Yin:2010:LEC:1823746.1823750}.  
+%The authors of \cite{Zhao:2013:PCD:2504730.2504752} examine the risks and benefits of peer-assisted content distribution in Akamai and measure the effectiveness of its peer-assisted approach. 
+%The authors of \cite{Huang:2008:UHC:1496046.1496064} conclude from two real world traces that hybrid CDN-P2P can significantly reduce the cost of content distribution and can scale to cope with the exponential growth of Internet video content.  
+%Yin et al. \cite{Yin:2010:LEC:1823746.1823750} described commercial operation of a peer-assisted CDN in China.  
+%LiveSky solved several challenges in the system design, such as dynamic resource scaling of P2P, low startup latency, ease of P2P integration with the existing CDN infrastructure, and network friendliness and upload fairness in the P2P operation.  
+%Xu et al.\cite{DBLP:journals/corr/abs-1212-4915} used game-theory to show the right cooperative profit distribution of P2P can help the ISP to maximize the utility.  
+%Their model can easily be implemented in the context of current Internet economic settlements.  
+%Misra et al.\cite{Misra:2010:IPS:1811099.1811064} also mentioned the importance of P2P architecture to support content delivery networks.
+%The authors use cooperative game theory to formulate simple compensation rules for users who run P2P to support content delivery networks.
+
+%The idea of telco- or ISP-managed CDN has been proposed in recent years.  
+%The complexity of the CDN business encourage telcos and ISPs to manage their own CDN, rather than allow others to run CDNs on their networks.  
+%It has been shown that it is cost effective \cite{federation}\cite{norton2011internet}. 
+%Kamiyama et al. \cite{NoriakiKAMIYAMA2013} proposed optimally ISP operated CDN.
+%Kamiyama et al. mentioned that, in order to deliver large and rich Internet content to users, ISPs need to put their CDNs in data centers.  
+%The locations are limited while the storage is large, making this solution effective, using optimum placement algorithm based on real ISP network topologies.  
+%The authors found that inserting a CDN into an ISP's ladder-type network is effective in reducing the hop count, thus reduce total link cost.  
+%Based on the author definition: Ladder-type network is a network with a maximum degree under $10$.
+%Cisco has initiated an effort to connect telco- or ISP-managed CDNs to each other, to form a CDN federation \cite{federation} using open standards \cite{cdni}.  
+%They argue that the current CDN architecture is not close enough to the users and ISPs can fill this position.
+
+%The idea of utilizing the user's computation power to support ISP operation is not new.  
+%The Figaro project \cite{figaro} proposed the residential gateway as an integrator of different networks and services, becoming an Internet-wide distributed content management for a proposed future Internet architecture \cite{figaro}.  
+%Cha et al.,\cite{Cha:2008:NTP:1855641.1855646} performed trace analysis and found that an IPTV architecture powered by P2P can handle a much larger number of channels, with lower demand for infrastructure compared to IP multicast.  
+%Jiang et al. \cite{Jiang:2012:OMD:2413176.2413193} proposed scalable and adaptive content replication and request routing for CDN servers located in users' home gateways.  
+%Maki et al.,\cite{NaoyaMAKI2012} propose traffic engineering for peer-assisted CDN to control the behavior of clients, and present a solution for optimizing the selection of content files.
+%Mathieu et al., \cite{6249305} are using data gathered from France telecom network to calculate reduction of network load if customers are employed as peer-assisted content delivery.
+
+%Guo et al., \cite{1613869} work's PROP is closest with our work.
+%PROP uses local system (local counter) to calculate the segment popularity in peer-assisted proxy system. 
+%PROP uses popularity for proxy cache replacement strategy. 
+%In peer side, the author use utility function for cache replacement strategy.
+%A utility function assigns numerical value to outcomes, in such a way that outcomes with higher utility are always preferred of outcomes with lower utilities.
+The utility function is also function from popularity.
+%While the authors successfully show that the results are very good, the peer-assisted system behavior over time is not explain because the author focus on properties such as proxy cache size variations and peer cache size variations.
+%The explanation of the optimal number of replicas is not also clear because unavailable information when the snapshot is taken.  
+%In our work, we complement Guo et al., \cite{1613869} work with VoD viewing popularity evolution model and describe the behavior of the peer-assisted CDN over the time.
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.6]{../../hindawi/graphs/timetopeak.eps}
+\end{center}
+\caption{Time to peak empirical distribution.}
+\label{fig:timetopeak}
+\end{figure} 
+
+\section{Estimating Internet VoD Popularity Phase}\label{popularity}
+The objective of estimating Internet VoD popularity phase is to get popularity state of a video whether a video is at before-peal popularity phase or at peak popularity phase, or at after-peak popularity phase.
+We use YouTube as an example of VoD service where we get YouTube content popularity from Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717}.
+The datasets itself measure the evolution of content popularity in 36 weeks by recording video count statistics of YouTube.
+
+In YouTube datasets, we have one-week spacing between consecutive snapshots.  
+We can get how many times the video was view during the one-week period since last week or since snapshot $(i-1)$. 
+Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} define time-to-peak for a video as its age (time since upload) at which its weekly viewing rate is the highest during measurement (from the first week until end of measurement).
+
+The time-to-peak distributions is shown in fig.\ref{fig:timetopeak}.
+Figure \ref{fig:timetopeak} shows Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} work that around three-quarters of a large fraction videos peak within the first six weeks since their upload and beyond six weeks we have uniform distribution thus the time-to-peak is exponentially distributed mixture with uniform distribution. 
+Because we know the peak time (at-peak phase) of every video, we can also know before-peak phase and after-phase of every videos.
+
+To estimate the the rate parameter of exponential part of time-to-peak distribution, we use Maximum Likelihood Estimation (MLE) \cite{clauset2009power}.
+Using MLE method, we can get exponential parameter $\lambda = 0.59$.
+For weekly views distribution, Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} found that beta distribution is a good model to explain video views popularity evolution thus we follow Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} for  weekly views distribution model.\\
+To reveal data distribution of view rate for every video, we plot view rate versus week where we shift week of view rate at-peak phase to zero. 
+Therefore we can get view rate distribution relative to at-peak week as shown in fig.~\ref{fig:viewratedistribution}
+
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.6]{../../hindawi/graphs/datadistribution.eps}
+\end{center}
+\caption{View rate distribution versus week relative to at-peak phase week for every videos, where y-axis in logscale.
+Every points lie in negative x-axis mean view rate of every videos in before-peak phase.
+Every points lie in x-axis$=0$ mean view rate of every videos at-peak phase. 
+Every points lie in positive x-axis mean view rate of every videos in after-peak phase. }
+\label{fig:viewratedistribution}
+\end{figure} 
+
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/transformasi.eps}
+\end{center}
+\caption{Transformation of view rate distribution. We add number week and make it as $x$-axis, View rate as $y$-axis, and relative week to peak as $z$-axis.}
+\label{fig:viewratedistexample}
+\end{figure} 
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/transformasi2.eps}
+\end{center}
+\caption{Final view rate distribution after transformation where $x$-axis is number of week, $y$-axis is view rate.}
+\label{fig:viewratedistexamplered}
+\end{figure} 
+
+We use estimation of video popularity phase in peer caching strategy side.
+How we estimate the video popularity phase is shown in fig.\ref{fig:viewratedistexample} and fig.\ref{fig:viewratedistexamplered}.
+In fig.~\ref{fig:viewratedistexample} part A, we have view rate (y-axis) and relative week to peak (x-axis) which is view rate distribution versus week relative to at-peak phase as also shown completely in fig.~\ref{fig:viewratedistribution}.
+We transform these numbers by adding number of week and make number of week as x-axis, view rate 
+as y-axis, and relative week to peak as z-axis fig.~\ref{fig:viewratedistexample} part B.
+This transformation is shown in fig.~\ref{fig:viewratedistexamplered} denote as diamond points.
+We want to estimate what is the position of that video. 
+Is the video in at-peak phase, before-phase, or after phase.  
+We can estimate the that video position by averaging relative week to peak numbers (the points at z-axis) of the nearest point from datasets. 
+If the average value less than $0$ we estimate the video position at before-peak phase, if the average value equal to $0$ we estimate the video position at at-peak phase,  and if the average value more than $0$ we estimate the video position at after-peak phase.
+
+For example: there is a peer that requests a video where the position of video in fourth week with the last week view rate $vr=2$ (we can get as this data from CDN) shown in fig.~\ref{fig:viewratedistexamplered} denote as cross.
+In this case, the nearest points are the point at third week $(2,1,-1)$ and the point at fifth week $(4,1,1)$.  
+By averaging the points at z-axis of the nearest points $(-1 + 1)/2 = 0$,  we can get estimate that video is in at-peak phase.
+
+\section{System Description}\label{systemdescription}
+In our work, we use Youtube VoD view model to aid our work that based from PROP. 
+The Youtube VoD view model will be used in peer-caching strategy side to exploits the video popularity. 
+
+\subsection{Peer caching strategy}\label{peercachingstrategy}
+Since we can estimate before-peak week, at-peak week, and after-peak week of video, we modified the original utility function from PROP by adding a weight as follows:
+\begin{equation}
+u = \frac{ (f(p) - f(p_{min})) (f(p_{max}) - f(p)) }{r^{\alpha + \beta}} + z
+\end{equation}
+where $z$ is proportion of view count that we get from Youtube datasets.  
+In before-peak week, we get $z=0.149538787758 $,  in at-peak week, we get $z=0.470040393021$, and in after-peak week, we get $z=0.380420819221$.
+In PROP's utility function, the difference between very popular videos and unpopular video is very difficult to differentiate. 
+$p$ represents popularity of the video, $p_{min}$ represents estimation of minimum popularity in P2P system, $p_{max}$ represents estimation of maximum popularity in P2P system, $r$ represents the number of replicas of the video in the system, and $f(p)$ is monotonic non-decreasing function.
+$\alpha$ and $\beta$ are the adjustment factor.
+The CDN can calculate $p_{min}$ and $p_{max}$ then propagate to the P2P system.
+To able to track the simulation, we use default value from PROP for $\alpha=\beta=1$ and $f(p)=log (p)$.
+We choose the video with the smallest $u$ value as the candidate to be replaced when a peer's cache capacity is full.
+For unpopular video $f(p)$ will be very close to $f(p_{min})$ thus $f(p) - f(p_{min})$ will be very close to $0$ then utility function become very small.
+For very populary video $f(p)$ will be very close to $f(p_{max})$ thus $f(p_{max}) - f(p)$ will be very close to $0$ then utility function become very small.  
+Linear addition of $z$ factor here can help the differentiate the value of utility function.
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.4]{../../hindawi/graphs/p2p-system-description.eps}
+\end{center}
+\caption{Peer interaction in simulator.}
+\label{fig:p2pcdninteractioninsimulator}
+\end{figure} 
+
+
+
+\section{Evaluation}\label{evaluation}
+%apa yng dievaluasi.
+%bandingkan 2 proposal ini dng 2 metric yng ada misalnya.
+%kenapa 2 metric ini dipilih.
+%bagaimana evaluasinya:  bikin simulator: a, b, c ,d 
+
+In order to evaluate the proposed peer-caching strategy using before-peak, at-peak, and after-peak information from Youtube VoD view model, we have to compare our model to PROP model.
+We evaluate three metrics which are peer contribution to delivery contents during simulation,  access frequency of cache during simulation, and number of replicas. 
+Peer contribution metric related to byte-hit-ratio. 
+Byte-hit-ratio is defined as the total bytes contents served by peers normalized by the total bytes of video all peers and CDN consume.
+It means more peer contributions, more byte-hit-ratio because peer can get content from another peers. 
+Access frequency of cache reflects the storage utilization. 
+More access means more peer storage utilization.  
+Number of replicas is also related to peer storage utilization.  
+However, too many replicas will waste the storage resources.
+To evaluate these metrics, we developed a peer-assisted CDN simulator. 
+
+
+\subsection{Simulation Design}\label{simulationdesign}
+An event driven simulator is developed using Python for this purpose.
+In our simulator, time is divided into rounds. 
+During a round, a peer request a video.
+
+In fig.\ref{fig:p2pcdninteractioninsimulator}, we describe the process of a peer that requests a video in simulator which derived from PROP.
+A peer and a CDN are implemented in object oriented model. 
+When a peer requests a video, it always goes to a CDN server (step 1). 
+The CDN provides the videos to the peer (step 2). 
+If there is another peer request same video, that request will go to CDN (step 3).  
+A CDN will check its record to see if there are some peers cache that requested video.  
+If there are some peers cache that requested video, a CDN will reply with redirect message that asking a peer to download requested video from other peer (step 4).
+If there are no peers have requested video, a CDN will serve the video.   
+A peer then can request the video to other peer and get the video (step 5 and step 6).
+From above description, we can see that deploying peer-assisted CDN can save some traffic since the clients which form P2P network can sharing the contents or videos.
+
+\subsubsection{Catalog Generator}\label{catalog}
+The goal for catalog generator is to create a catalog video that consist video-id, time when a video is uploaded, a video size, view count terminus, and progress of videos popularity. We assume that a video is uploaded to server following Poisson process with mean rate $\lambda=1$ thus we can get the time when a video is uploaded. 
+The view count terminus for every video is assigned randomly uniform from Youtube datasets and video size for every video is assigned randomly uniform between 1 and 200MB. Finally, we have a catalog that consists of: video-id, time when a video is uploaded, view count terminus, and video size.
+
+\subsubsection{Peer Request Generator}\label{peerrequest}
+In catalog generator, we assume peer request a video to CDN following poisson process with a mean rate $\lambda=1$ \cite{Zink:2009:CYN:1502814.1502987}.
+We assume that a peer choose a video based on a preference from view count and view rate that we can get from catalog generator.  
+Because peer requests are generate from catalog, the video request will follow global popularity video from YouTube
+
+\subsubsection{Simulation Parameters and Scenarios}
+The simulation parameters are follows:
+
+\begin{itemize}
+\item Length: $360$ days.
+\item Video size: uniform random between $1$MB and $200$MB.
+\item Peer capacity: $500$MB.
+\item CDN capacity: $10000$MB.
+\item Number of peers: $100000$.
+\item Number of videos: $10000$.
+\end{itemize}
+
+There are three scenarios in our simulations.
+First, peers choose a video that has a popularity following from Youtube data sets that we already explained in \ref{catalog}.
+Second, peers choose a video that has a popularity following from Youtube data sets and we shift the requests time four weeks.
+Third, peers choose a video that has a popularity following zipf distribution with rate$=0.9$ \cite{6654887}.
+We compare our results to original PROP \cite{1613869} implementation.
+
+
+
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.6]{../../hindawi/graphs/new/repl/contributioncdnpeermodelsortedabs.eps}
+\end{center}
+\caption{Absolute of contribution of peer for the first scenario where $y$-axis in log-scale. Inset figure shows zoom of tail.}
+\label{fig:contribu-normal}
+\end{figure} 
+
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.6]{../../hindawi/graphs/new/shift/contributioncdnpeermodelsortedabs.eps}
+\end{center}
+\caption{Absolute of contribution of peer for the first scenario where $y$-axis in log-scale.Inset figure shows zoom of tail.}
+\label{fig:contribu-shift}
+\end{figure} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%contribution 
+%\begin{figure*}[!t]
+%\centering
+%\subfloat[Absolute of contribution of peer for the first scenario where $y$-axis in log-scale.\label{fig:contribu-normal}]{
+%\includegraphics[width=5.7cm]{graphs/new/repl/contributioncdnpeermodelsortedabs.png}
+%}
+%\hfill
+%\subfloat[Absolute of contribution of peer for the second scenario where $y$-axis in log-scale.\label{fig:contribu-shift}]{
+%\includegraphics[width=5.7cm]{graphs/new/shift/contributioncdnpeermodelsortedabs.png}
+%}
+%\hfill
+%\subfloat[Absolute contribution of peers for the third scenario.\label{fig:contrib-zipf}]{
+%\includegraphics[width=5.7cm]{graphs/new/zipf/contributioncdnpeermodelsortedabs.png}
+%}
+%\vspace{2mm}
+%\caption{Peer contributions compared between model and prop.}
+%\label{fig:peercontribution}
+%\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\subsection{Result and Discussion}\label{resultanddiscussion}
+Figure \ref{fig:contribu-normal} and \ref{fig:contribu-shift} show the absolute peer contribution to deliver videos compared between model and prop. 
+Figure \ref{fig:contribu-normal} and fig.\ref{fig:contribu-shift} show same pattern.
+The peers give more contribution in the tail while in the third scenario the peer give more contribution in body. 
+This is because the zipf distribution of videos popularity in the third scenario is more skew than the first and the second scenario. Thus we can see a few videos have big popularity while the majority have same less popularity. 
+A peers can give more contribution because a video has longer duration than other videos in a peer's cache thus other peer's requests are served by the peer. 
+A video has longer duration than other videos in peer's cache because that a video has bigger utility function than other videos for example a video that will enter the cache. 
+
+Denote $u_{dl}$ is utility function for a video inside the cache and $u_{ms}$ is utility function for a video that will enter the cache,  $p_{dl}$ is the popularity for a video inside the cache and $p_{ms}$ is the popularity for a video that will enter the cache.
+In order a video in cache has longer duration, the utility function for $u_{dl}$ must be bigger than the utility function for $u_{ms}$.
+\begin{equation*}
+u_{dl} > u_{ms}
+\end{equation*}
+
+\begin{align*}
+\frac{ (f(p_{dl}) - f(p_{min})) (f(p_{max}) - f(p_{dl})) }{r^{\alpha + \beta}_{dl}} + z_{dl} > 
+\frac{ (f(p_{ms}) - f(p_{min})) (f(p_{max}) - f(p_{ms})) }{r^{\alpha + \beta}_{ms}} + z_{ms}
+\end{align*}
+
+We assume that number of replicas are same, thus:
+\begin{align*}
+(f(p_{dl}) - f(p_{min})) (f(p_{max}) - f(p_{dl})) -  
+(f(p_{ms}) - f(p_{min})) (f(p_{max}) - f(p_{ms})) > 
+z_{ms} - z_{dl}
+\end{align*}
+
+Since $p_{min}$ and $p_{max}$ are same, we can find that the difference between $p_{dl}$ and $p_{ms}$ must always bigger than the difference between $z_{ms}$ and $z_{dl}$.
+If both videos are in the same position (e.g before-peak, at-peak, or after-peak) then the difference between $p_{dl}$ and $p_{ms}$ is the only factor for utility function.
+However, if the videos are not in the same position then the difference between $p_{dl}$ and $p_{ms}$ must always bigger than the difference between $z_{ms}$ and $z_{dl}$.
+There are two cases for the difference between $z_{ms}$ and $z_{dl}$.
+The first case is negative and the second case is positive.    
+The difference between $z_{ms}$ and $z_{dl}$ is positive when: 
+\begin{itemize}
+\item $z_{ms}$ is in at-peak period and $z_{dl}$ is in before-peak period.
+\item $z_{ms}$ is in at-peak period and $z_{dl}$ is in after-peak period.
+\item $z_{ms}$ is in after-peak period and $z_{dl}$ is in before-peak period.
+\end{itemize}
+When the difference between $z_{ms}$ and $z_{dl}$ is negative, the difference between $p_{dl}$ and $p_{ms}$ is the only factor for utility function.
+
+
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/new/repl/atd.eps}
+\end{center}
+\caption{Number of a video replicas when a peer request a video for the first scenario.}
+\label{fig:atd-normal}
+\end{figure} 
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/new/shift/atd.eps}
+\end{center}
+\caption{Number of a video replicas when a peer request a video for the second scenario.}
+\label{fig:atd-shift}
+\end{figure} 
+
+Figure \ref{fig:atd-normal} and fig.\ref{fig:atd-shift} show number of replicas available when a peer request a video.  
+For the first scenario and the second scenario, the replicas in the beginning of rank data are almost same, while in the body of distribution we can see the model has lower replicas than prop. 
+We calculate the significance test using the Kolmogorov-Smirnov statistic on 2 samples and we find that for the first and second scenario the $p$-values are less than $1$\% thus the results are significant. 
+
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/new/repl/freq.eps}
+\end{center}
+\caption{Frequency a video in peers for the first scenario.}
+\label{fig:freq-normal}
+\end{figure} 
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/new/shift/freq.eps}
+\end{center}
+\caption{Frequency a video in peers for the second scenario.}
+\label{fig:freq-shift}
+\end{figure} 
+
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/new/repl/duration.eps}
+\end{center}
+\caption{Cache duration in peers for the first scenario.}
+\label{fig:duration-normal}
+\end{figure} 
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/new/shift/duration.eps}
+\end{center}
+\caption{Cache duration in peers for the second scenario.}
+\label{fig:duration-shift}
+\end{figure} 
+
+Figure \ref{fig:freq-normal} and fig.\ref{fig:freq-shift}show the frequency a video stay in peers compared between model and prop.
+As all figure show the model has higher frequency than prop to stay in peers except for the beginning rank of data where the model has same frequency with prop in first and second scenario. 
+In the third scenario, in the beginning rank of data the model has lower frequency than prop, then around rank 1000 the model has higher frequency than prop until the end of data. 
+The frequency a video stay in a video can also be viewed in fig \ref{fig:duration-normal} and fig.\ref{fig:duration-shift}, where in the model some videos have longer cache duration than prop, while others have shorter cache duration than prop.  
+Thus, we can see the relationship between cache duration and frequency a video stays in peers. 
+
+
+
+
+\section{Summary}\label{summary}
+This paper presents a scheme for peer-to-peer network can help CDN to deliver the content over the Internet. 
+We show that by introducing the weight to utility function we can increase the peer contribution to deliver the content while decreasing required replicas. 
+We found that there are no much different between the first scenario and the second scenario in peer contribution to deliver a video, while for the third scenario we see the model has higher peer contribution than prop in the body of the distribution.
+We found that in the first scenario and the second scenario, the model gives lower replica in the body of distribution than prop, while the third scenario gives lower replica in the tail of distribution than prop.
+
+Some areas of improvement that we have identified for future are:
+The energy trade off this peer-assisted CDN architecture in order to know how much energy saving by ISP and how much increase of energy at users home gateway side in this architecture since we have higher peer contribution.   
+More numerical experiments for other zipf shape parameters. 
+
+
+
+
+
+
+
+
+
+

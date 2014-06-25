@@ -1,52 +1,62 @@
-\contentsline {chapter}{\numberline {1}Introduction}{8}
-\contentsline {section}{\numberline {1.1}Backround}{8}
-\contentsline {section}{\numberline {1.2}Challenges}{11}
-\contentsline {section}{\numberline {1.3}Motivation}{12}
-\contentsline {section}{\numberline {1.4}Approach}{13}
-\contentsline {section}{\numberline {1.5}Contribution}{14}
-\contentsline {chapter}{\numberline {2}P2P Content Delivery}{15}
-\contentsline {section}{\numberline {2.1}Introduction}{15}
-\contentsline {section}{\numberline {2.2}P2P Measurement}{22}
-\contentsline {subsection}{\numberline {2.2.1}Measuring BitTorrent}{22}
-\contentsline {subsubsection}{Macroscopic Technique}{23}
-\contentsline {subsubsection}{Microscopic Technique}{25}
-\contentsline {section}{\numberline {2.3}Energy Aspect of P2P Network}{27}
-\contentsline {section}{\numberline {2.4}Related Work}{28}
-\contentsline {chapter}{\numberline {3}Characteristics of BitTorrent Swarms}{34}
-\contentsline {section}{\numberline {3.1}Introduction}{34}
-\contentsline {section}{\numberline {3.2}Measurement Methodology}{36}
-\contentsline {subsection}{\numberline {3.2.1}Graph Sampling}{37}
-\contentsline {subsection}{\numberline {3.2.2}Experimental Methodology}{39}
-\contentsline {subsection}{\numberline {3.2.3}Data Analysis Background}{39}
-\contentsline {section}{\numberline {3.3}Experimental Results}{40}
-\contentsline {subsection}{\numberline {3.3.1}Power-law Distribution of Node Degree}{41}
-\contentsline {subsection}{\numberline {3.3.2}Alternative Distributions}{42}
-\contentsline {subsubsection}{Nested Case}{45}
-\contentsline {subsubsection}{Non-Nested Case}{46}
-\contentsline {subsection}{\numberline {3.3.3}Clustering Coefficient}{49}
-\contentsline {section}{\numberline {3.4}Confirmation via Simulation}{50}
-\contentsline {section}{\numberline {3.5}Summary}{51}
-\contentsline {chapter}{\numberline {4}Peer-Assisted Content Delivery}{53}
-\contentsline {section}{\numberline {4.1}Introduction}{53}
-\contentsline {chapter}{\numberline {5}Energy Savings in Peer-Assisted CDN}{55}
-\contentsline {section}{\numberline {5.1}Motivation}{55}
-\contentsline {section}{\numberline {5.2}System Description}{57}
-\contentsline {subsection}{\numberline {5.2.1}Live Streaming}{57}
-\contentsline {subsection}{\numberline {5.2.2}Peer-Assisted Online Storage}{60}
-\contentsline {subsection}{\numberline {5.2.3}Energy Model}{63}
-\contentsline {section}{\numberline {5.3}Result and Analysis}{66}
-\contentsline {subsection}{\numberline {5.3.1}Numerical Parameters}{66}
-\contentsline {subsection}{\numberline {5.3.2}Live Streaming Service}{67}
-\contentsline {subsection}{\numberline {5.3.3}Online Storage}{70}
-\contentsline {section}{\numberline {5.4}Summary}{74}
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{76}
-\contentsline {section}{\numberline {6.1}Conclusion}{76}
-\contentsline {section}{\numberline {6.2}Future Work}{77}
-\contentsline {chapter}{Appendices}{79}
-\contentsline {chapter}{\numberline {A}Some Detail on Bittorrent Terminology}{80}
-\contentsline {section}{\numberline {A.1}Torrent File}{80}
-\contentsline {section}{\numberline {A.2}Handshake}{81}
-\contentsline {section}{\numberline {A.3}HAVE}{82}
-\contentsline {section}{\numberline {A.4}BITFIELD}{82}
-\contentsline {section}{\numberline {A.5}PEX}{82}
-\contentsline {chapter}{\numberline {B}Likelihood Ratio Test}{84}
+\contentsline {chapter}{\numberline {1}Introduction}{9}
+\contentsline {section}{\numberline {1.1}Backround}{9}
+\contentsline {section}{\numberline {1.2}Challenges}{12}
+\contentsline {section}{\numberline {1.3}Motivation}{13}
+\contentsline {section}{\numberline {1.4}Approach}{14}
+\contentsline {section}{\numberline {1.5}Contribution}{16}
+\contentsline {chapter}{\numberline {2}P2P Content Delivery}{17}
+\contentsline {section}{\numberline {2.1}Introduction}{17}
+\contentsline {section}{\numberline {2.2}P2P Measurement}{24}
+\contentsline {subsection}{\numberline {2.2.1}Measuring BitTorrent}{24}
+\contentsline {subsubsection}{Macroscopic Technique}{25}
+\contentsline {subsubsection}{Microscopic Technique}{27}
+\contentsline {section}{\numberline {2.3}Energy Aspect of P2P Network}{29}
+\contentsline {section}{\numberline {2.4}Related Work}{30}
+\contentsline {chapter}{\numberline {3}Characteristics of BitTorrent Swarms}{36}
+\contentsline {section}{\numberline {3.1}Introduction}{36}
+\contentsline {section}{\numberline {3.2}Measurement Methodology}{38}
+\contentsline {subsection}{\numberline {3.2.1}Graph Sampling}{39}
+\contentsline {subsection}{\numberline {3.2.2}Experimental Methodology}{41}
+\contentsline {subsection}{\numberline {3.2.3}Data Analysis Background}{41}
+\contentsline {section}{\numberline {3.3}Experimental Results}{42}
+\contentsline {subsection}{\numberline {3.3.1}Power-law Distribution of Node Degree}{43}
+\contentsline {subsection}{\numberline {3.3.2}Alternative Distributions}{44}
+\contentsline {subsubsection}{Nested Case}{47}
+\contentsline {subsubsection}{Non-Nested Case}{48}
+\contentsline {subsection}{\numberline {3.3.3}Clustering Coefficient}{51}
+\contentsline {section}{\numberline {3.4}Confirmation via Simulation}{52}
+\contentsline {section}{\numberline {3.5}Summary}{53}
+\contentsline {chapter}{\numberline {4}Peer-Assisted Content Delivery}{55}
+\contentsline {section}{\numberline {4.1}Introduction}{55}
+\contentsline {section}{\numberline {4.2}Estimating Internet VoD Popularity Phase}{57}
+\contentsline {section}{\numberline {4.3}System Description}{60}
+\contentsline {subsection}{\numberline {4.3.1}Peer caching strategy}{60}
+\contentsline {section}{\numberline {4.4}Evaluation}{61}
+\contentsline {subsection}{\numberline {4.4.1}Simulation Design}{62}
+\contentsline {subsubsection}{Catalog Generator}{62}
+\contentsline {subsubsection}{Peer Request Generator}{63}
+\contentsline {subsubsection}{Simulation Parameters and Scenarios}{63}
+\contentsline {subsection}{\numberline {4.4.2}Result and Discussion}{63}
+\contentsline {section}{\numberline {4.5}Summary}{68}
+\contentsline {chapter}{\numberline {5}Energy Savings in Peer-Assisted CDN}{70}
+\contentsline {section}{\numberline {5.1}Motivation}{70}
+\contentsline {section}{\numberline {5.2}System Description}{72}
+\contentsline {subsection}{\numberline {5.2.1}Live Streaming}{72}
+\contentsline {subsection}{\numberline {5.2.2}Peer-Assisted Online Storage}{75}
+\contentsline {subsection}{\numberline {5.2.3}Energy Model}{78}
+\contentsline {section}{\numberline {5.3}Result and Analysis}{81}
+\contentsline {subsection}{\numberline {5.3.1}Numerical Parameters}{81}
+\contentsline {subsection}{\numberline {5.3.2}Live Streaming Service}{82}
+\contentsline {subsection}{\numberline {5.3.3}Online Storage}{85}
+\contentsline {section}{\numberline {5.4}Summary}{89}
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{91}
+\contentsline {section}{\numberline {6.1}Conclusion}{91}
+\contentsline {section}{\numberline {6.2}Future Work}{93}
+\contentsline {chapter}{Appendices}{94}
+\contentsline {chapter}{\numberline {A}Some Detail on Bittorrent Terminology}{95}
+\contentsline {section}{\numberline {A.1}Torrent File}{95}
+\contentsline {section}{\numberline {A.2}Handshake}{96}
+\contentsline {section}{\numberline {A.3}HAVE}{97}
+\contentsline {section}{\numberline {A.4}BITFIELD}{97}
+\contentsline {section}{\numberline {A.5}PEX}{97}
+\contentsline {chapter}{\numberline {B}Likelihood Ratio Test}{99}

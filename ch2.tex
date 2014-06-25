@@ -43,11 +43,38 @@ The author in \cite{Huang:2007:IVP:1282427.1282396} and \cite{huang2007peer} pro
 They designed different peer prefetching policies of video on demand system in surplus mode while ensuring user quality of experience.
 A similar analysis has been done in \cite{xu2006analysis} for live video streaming system where the authors proposed different limited peer contribution policies to reduce CDN bandwidth requirement and eventually off the distribution process from CDN to P2P system. 
 An ISP friendly rate allocation schemes for a hybrid CDN-P2P video on demand system in \cite{Wang:2008:IRA:1459359.1459397}. 
+Xu et al.\cite{DBLP:journals/corr/abs-1212-4915} used game-theory to show the right cooperative profit distribution of P2P can help the ISP to maximize the utility.  
+Their model can easily be implemented in the context of current Internet economic settlements.  
+Misra et al.\cite{Misra:2010:IPS:1811099.1811064} also mentioned the importance of P2P architecture to support content delivery networks.
+The authors use cooperative game theory to formulate simple compensation rules for users who run P2P to support content delivery networks.
 These technique try to minimize CDN server bandwidth while reducing ISP unfriendly traffic and maximizing peer prefetching.
 Load on CDN server has been shown to be reduced using this approach while reducing cross ISP traffic.
 Above studies were performed for video on demand or live video streaming.
 While video is the most popular content, the systems can be also for other type contents.
 Moreover while content based services are growing, energy consumption of a content distribution system has not been analyzed.
+
+The idea of telco- or ISP-managed CDN has been proposed in recent years.  
+The complexity of the CDN business encourage telcos and ISPs to manage their own CDN, rather than allow others to run CDNs on their networks.  
+It has been shown that it is cost effective \cite{federation}\cite{norton2011internet}. 
+Kamiyama et al. \cite{NoriakiKAMIYAMA2013} proposed optimally ISP operated CDN.
+Kamiyama et al. mentioned that, in order to deliver large and rich Internet content to users, ISPs need to put their CDNs in data centers.  
+The locations are limited while the storage is large, making this solution effective, using optimum placement algorithm based on real ISP network topologies.  
+The authors found that inserting a CDN into an ISP's ladder-type network is effective in reducing the hop count, thus reduce total link cost.  
+Based on the author definition: Ladder-type network is a network with a maximum degree under $10$.
+Cisco has initiated an effort to connect telco- or ISP-managed CDNs to each other, to form a CDN federation \cite{federation} using open standards \cite{cdni}.  
+They argue that the current CDN architecture is not close enough to the users and ISPs can fill this position.
+Guo et al., \cite{1613869} work's PROP is closest with our work in peer-assisted CDN.
+PROP uses local system (local counter) to calculate the segment popularity in peer-assisted proxy system. 
+PROP uses popularity for proxy cache replacement strategy. 
+
+
+The idea of utilizing the user's computation power to support ISP operation is not new.  
+The Figaro project \cite{figaro} proposed the residential gateway as an integrator of different networks and services, becoming an Internet-wide distributed content management for a proposed future Internet architecture \cite{figaro}.  
+Cha et al.,\cite{Cha:2008:NTP:1855641.1855646} performed trace analysis and found that an IPTV architecture powered by P2P can handle a much larger number of channels, with lower demand for infrastructure compared to IP multicast.  
+Jiang et al. \cite{Jiang:2012:OMD:2413176.2413193} proposed scalable and adaptive content replication and request routing for CDN servers located in users' home gateways.  
+Maki et al.,\cite{NaoyaMAKI2012} propose traffic engineering for peer-assisted CDN to control the behavior of clients, and present a solution for optimizing the selection of content files.
+Mathieu et al., \cite{6249305} are using data gathered from France telecom network to calculate reduction of network load if customers are employed as peer-assisted co
+
 
 Related to CDN and energy usage, in a seminal work \cite{qureshi2009cutting}, the authors show that if costs are based on electricity usage and if the power prices vary in real-time, global load balancing decision can be made such that users are routed to locations with the cheapest power without significantly impacting user performance or bandwidth cost.  
 In \cite{Palasamudram:2012:UBR:2391229.2391240}, the author proposed utilizing batteries for CDN for reducing total supplied power and total power costs.

@@ -29,6 +29,12 @@
 \newblock The case for energy-proportional computing.
 \newblock {\em Computer 40}, 12 (2007), 33--37.
 
+\bibitem{Borghol:2011:CMP:2039452.2039717}
+{\sc Borghol, Y., Mitra, S., Ardon, S., Carlsson, N., Eager, D., and Mahanti,
+  A.}
+\newblock Characterizing and modelling popularity of user-generated videos.
+\newblock {\em Perform. Eval. 68}, 11 (Nov. 2011), 1037--1055.
+
 \bibitem{4509688}
 {\sc Chabarek, J., Sommers, J., Barford, P., Estan, C., Tsiang, D., and Wright,
   S.}
@@ -97,11 +103,24 @@
 \newblock In {\em Communications Workshops (ICC), 2011 IEEE International
   Conference on\/} (2011), pp.~1--6.
 
+\bibitem{6654887}
+{\sc Guillemin, F., Houdoin, T., and Moteau, S.}
+\newblock Volatility of youtube content in orange networks and consequences.
+\newblock In {\em Communications (ICC), 2013 IEEE International Conference
+  on\/} (June 2013), pp.~2381--2385.
+
 \bibitem{guo2005measurements}
 {\sc Guo, L., Chen, S., Xiao, Z., Tan, E., Ding, X., and Zhang, X.}
 \newblock Measurements, analysis, and modeling of bittorrent-like systems.
 \newblock In {\em Proceedings of the 5th ACM SIGCOMM conference on Internet
   Measurement\/} (2005), USENIX Association, p.~4.
+
+\bibitem{1613869}
+{\sc Guo, L., Chen, S., and Zhang, X.}
+\newblock Design and evaluation of a scalable and reliable p2p assisted proxy
+  for on-demand streaming media delivery.
+\newblock {\em Knowledge and Data Engineering, IEEE Transactions on 18}, 5 (May
+  2006), 669--682.
 
 \bibitem{Gupta:2003:GI:863955.863959}
 {\sc Gupta, M., and Singh, S.}
@@ -152,6 +171,12 @@
 {\sc Institute, U.}
 \newblock the 2012 uptime institute data center industry survey.
 \newblock Available on \url{http://uptimeinstitute.com/2012-survey-results}.
+
+\bibitem{4772628}
+{\sc Jiang, H., Li, J., Li, Z., and Liu, J.}
+\newblock Efficient hierarchical content distribution using p2p technology.
+\newblock In {\em Networks, 2008. ICON 2008. 16th IEEE International Conference
+  on\/} (dec. 2008), pp.~1 --6.
 
 \bibitem{Krioukov:2011:NDI:1925861.1925878}
 {\sc Krioukov, A., Mohan, P., Alspaugh, S., Keys, L., Culler, D., and Katz, R.}
@@ -375,6 +400,14 @@
   streaming media distribution.
 \newblock {\em Multimedia Systems 11}, 4 (2006), 383--399.
 
+\bibitem{Yin:2009:DDH:1631272.1631279}
+{\sc Yin, H., Liu, X., Zhan, T., Sekar, V., Qiu, F., Lin, C., Zhang, H., and
+  Li, B.}
+\newblock Design and deployment of a hybrid cdn-p2p system for live video
+  streaming: experiences with livesky.
+\newblock In {\em Proceedings of the 17th ACM international conference on
+  Multimedia\/} (New York, NY, USA, 2009), MM '09, ACM, pp.~25--34.
+
 \bibitem{Yin:2010:LEC:1823746.1823750}
 {\sc Yin, H., Liu, X., Zhan, T., Sekar, V., Qiu, F., Lin, C., Zhang, H., and
   Li, B.}
@@ -386,5 +419,11 @@
 {\sc Zhang, C., Dhungel, P., Liu, Z., and Ross, K.}
 \newblock Bittorrent darknets.
 \newblock In {\em INFOCOM, 2010 Proceedings IEEE\/} (2010), IEEE, pp.~1--9.
+
+\bibitem{Zink:2009:CYN:1502814.1502987}
+{\sc Zink, M., Suh, K., Gu, Y., and Kurose, J.}
+\newblock Characteristics of youtube network traffic at a campus network -
+  measurements, models, and implications.
+\newblock {\em Comput. Netw. 53}, 4 (Mar. 2009), 501--514.
 
 \end{thebibliography}

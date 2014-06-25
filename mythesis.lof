@@ -1,37 +1,50 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Building block of Bittorrent.\relax }}{16}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces P2P Technologies Building Block. This graph is adapted from \cite {Passarella20121} with modification.\relax }}{18}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Hierarchical P2P Network.\relax }}{19}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Bittorrent tracker crawling: The Bittorrent crawler fetch the torrent file from Bittorrent portals. Using information from torrent file, the Bittorrent crawler contacts the Bittorrent tracker by sending announce message. The Bitorrent tracker will reply by giving list of seeders and leechers. This process is repeated until obtain all the peers in the swarm.\relax }}{24}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Peer crawling: The initial process in same with the Bittorrent tracker crawling with additional steps for the Bittorrent crawler to contact all the peers in the swarm by sending handshakre request. The contacted peers will reply by sending BITFIELD message and HAVE message.\relax }}{25}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Cascade effetct: 1 watt energy saving in server component can reduce 2.8 watt energy in total facility level. This figure adapted from \cite {ciscocascade}\relax }}{29}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Building block of Bittorrent.\relax }}{18}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces P2P Technologies Building Block. This graph is adapted from \cite {Passarella20121} with modification.\relax }}{20}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Hierarchical P2P Network.\relax }}{21}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Bittorrent tracker crawling: The Bittorrent crawler fetch the torrent file from Bittorrent portals. Using information from torrent file, the Bittorrent crawler contacts the Bittorrent tracker by sending announce message. The Bitorrent tracker will reply by giving list of seeders and leechers. This process is repeated until obtain all the peers in the swarm.\relax }}{26}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Peer crawling: The initial process in same with the Bittorrent tracker crawling with additional steps for the Bittorrent crawler to contact all the peers in the swarm by sending handshakre request. The contacted peers will reply by sending BITFIELD message and HAVE message.\relax }}{27}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Cascade effetct: 1 watt energy saving in server component can reduce 2.8 watt energy in total facility level. This figure adapted from \cite {ciscocascade}\relax }}{31}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Simplified view of our approach. Left: At time t=1, the actor gets a PEX message from peer A and learns that peer A is connected to peer B and C. At t=2, the actor gets PEX messages from peers C and A. The actor learns that now peer A is connected to peer D. Thus the actor knows the properties of peer A at t=1 and t=2.\relax }}{36}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces CDF plot of number of peers for the 50 swarms during measurement.\relax }}{41}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Node degree fit for snapshots of two torrents, with three fits shown in log scale.\relax }}{43}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces CDF plot of $p$ value of K-S statistics.\relax }}{43}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Scatter plot of $p$ value vs $\rho $ value.\relax }}{44}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$.\relax }}{44}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces CDF plot of $\rho $ value of log-likehood ratio test for power-law v.s log-normal.\relax }}{46}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Scatter plot $p$ values v.s log-likelihood ratio (LR) for likelihood test for power-law vs log-normal.\relax }}{47}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces CDF plot of $\rho $ value of log-likehood ratio test for power-law v.s exponential.\relax }}{47}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Scatter plot $p$ values v.s log-likelihood ratio (LR) for likelihood test for power-law vs exponential.\relax }}{48}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces CDF plot of the clustering coefficient for each torrent.\relax }}{50}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces $\alpha $ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.\relax }}{51}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Simplified view of our approach. Left: At time t=1, the actor gets a PEX message from peer A and learns that peer A is connected to peer B and C. At t=2, the actor gets PEX messages from peers C and A. The actor learns that now peer A is connected to peer D. Thus the actor knows the properties of peer A at t=1 and t=2.\relax }}{38}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces CDF plot of number of peers for the 50 swarms during measurement.\relax }}{43}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Node degree fit for snapshots of two torrents, with three fits shown in log scale.\relax }}{45}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces CDF plot of $p$ value of K-S statistics.\relax }}{45}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Scatter plot of $p$ value vs $\rho $ value.\relax }}{46}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Scatter plot of $p$ value vs log-likelihood ratio (LR) for $\rho < 0.1$.\relax }}{46}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces CDF plot of $\rho $ value of log-likehood ratio test for power-law v.s log-normal.\relax }}{48}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Scatter plot $p$ values v.s log-likelihood ratio (LR) for likelihood test for power-law vs log-normal.\relax }}{49}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces CDF plot of $\rho $ value of log-likehood ratio test for power-law v.s exponential.\relax }}{49}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Scatter plot $p$ values v.s log-likelihood ratio (LR) for likelihood test for power-law vs exponential.\relax }}{50}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces CDF plot of the clustering coefficient for each torrent.\relax }}{52}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces $\alpha $ estimation and $p$ value for global topology and topology inferred from PEX where both done in our simulator.\relax }}{53}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Time to peak empirical distribution.\relax }}{57}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces View rate distribution versus week relative to at-peak phase week for every videos, where y-axis in logscale. Every points lie in negative x-axis mean view rate of every videos in before-peak phase. Every points lie in x-axis$=0$ mean view rate of every videos at-peak phase. Every points lie in positive x-axis mean view rate of every videos in after-peak phase. \relax }}{58}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Transformation of view rate distribution. We add number week and make it as $x$-axis, View rate as $y$-axis, and relative week to peak as $z$-axis.\relax }}{58}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Final view rate distribution after transformation where $x$-axis is number of week, $y$-axis is view rate.\relax }}{59}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Peer interaction in simulator.\relax }}{61}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Absolute of contribution of peer for the first scenario where $y$-axis in log-scale. Inset figure shows zoom of tail.\relax }}{64}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Absolute of contribution of peer for the first scenario where $y$-axis in log-scale.Inset figure shows zoom of tail.\relax }}{64}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Number of a video replicas when a peer request a video for the first scenario.\relax }}{66}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Number of a video replicas when a peer request a video for the second scenario.\relax }}{66}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Frequency a video in peers for the first scenario.\relax }}{67}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Frequency a video in peers for the second scenario.\relax }}{67}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Cache duration in peers for the first scenario.\relax }}{68}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Cache duration in peers for the second scenario.\relax }}{68}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example model of peer-assisted online storage architecture.\relax }}{58}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Example model of peer-assisted online storage architecture.\relax }}{60}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces COP curve for the chilled water cooling units from HP Lab utility data center. As the target temperature of the air the cooling unit pumps into the floor plenum increases, the COP increases.\relax }}{65}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Simplified physical representation flow of data.\relax }}{67}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Power consumption for the server, router, peer, and total system for CDN architecture. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{68}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Power consumption for the server, router, peer and total system for peer-assisted CDN with $N_s^u=0.75$. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{69}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Savings in power consumption between CDN architecture and peer-assisted CDN for server with $N_s^u=[0.25,0.5,0.75,1]$.\relax }}{70}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Savings in power consumption between CDN architecture and peer-assisted CDN for total system with $N_s^u=[0.25,0.5,0.75,1]$.\relax }}{71}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Power consumption for lower bound strategy. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{72}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Savings in power consumption between each bandwidth allocation and CDN architecture for total and server. Note that the server and router energy (data center) are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{73}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Power consumption for total (left axis) and router (right axis) under different server bandwidth allocation strategies when peer arrival rate of less popular varies. We use fixed server bandwidth $S=50$ MBps.\relax }}{74}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example model of peer-assisted online storage architecture.\relax }}{73}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Example model of peer-assisted online storage architecture.\relax }}{75}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces COP curve for the chilled water cooling units from HP Lab utility data center. As the target temperature of the air the cooling unit pumps into the floor plenum increases, the COP increases.\relax }}{80}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Simplified physical representation flow of data.\relax }}{82}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Power consumption for the server, router, peer, and total system for CDN architecture. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{83}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Power consumption for the server, router, peer and total system for peer-assisted CDN with $N_s^u=0.75$. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{84}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Savings in power consumption between CDN architecture and peer-assisted CDN for server with $N_s^u=[0.25,0.5,0.75,1]$.\relax }}{85}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Savings in power consumption between CDN architecture and peer-assisted CDN for total system with $N_s^u=[0.25,0.5,0.75,1]$.\relax }}{86}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Power consumption for lower bound strategy. Note that the server and router energy are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{87}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Savings in power consumption between each bandwidth allocation and CDN architecture for total and server. Note that the server and router energy (data center) are plotted using the right hand scale, and the peer and total energy are plotted using the left hand scale.\relax }}{88}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Power consumption for total (left axis) and router (right axis) under different server bandwidth allocation strategies when peer arrival rate of less popular varies. We use fixed server bandwidth $S=50$ MBps.\relax }}{89}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

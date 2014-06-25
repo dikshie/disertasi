@@ -14,6 +14,12 @@ Some Bitorrent forums suggest decreasing the maximum connection for torrent (swa
 Second, most of the Bittorrent users are home users where their home gateway device cannot give high concurrent connections and Bitorrent is not the main online activity. 
 We argue that the Bittorrent swarm closes to random that we infer from clustering coeficient is caused by Bittorrent mechanism itself that always choose random peers from its neighbors in the choking-unchoking algorithm, optimistic choking algorithm, and optimistic connect algorithm as we explained previously.
 
+
+In peer-assisted CDN, We show that by introducing the $z$ factor to utility function we can increase the peer contribution to deliver the content while decreasing required replicas. 
+We found that there are no much different between the first scenario and the second scenario in peer contribution to deliver a video.
+We found that in the first scenario and the second scenario, the model gives lower replica in the body of distribution than prop, while the third scenario gives lower replica in the tail of distribution than prop.
+Implication of higher peer contribution means CDN can reduce workload because some workload are delegate to peer-to-peer network.
+
 Integrating peer to peer capability to assist the existing CDN has a potential to save energy consumption.
 In this study, we show that event without explicitly considering energy consumption while assigning content, the peer assisted CDN can save energy consumption.
 Although the energy savings depend on number of request (number of clients), number of router and its configuration, for total system energy saving is around $0.5$ to $1.2$.
