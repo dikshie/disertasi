@@ -224,7 +224,7 @@ If a requested video is not available CDN will serve the request.
 The goal for catalog generator is to create a catalog video that consist video-id, time when a video is uploaded, a video size, view count terminus, and progress of videos popularity like Youtube service model. 
 We assume that a video is uploaded to server following Poisson process with mean rate $\lambda=1$ thus we can get the time when a video is uploaded. 
 The view count terminus for every video is assigned randomly uniform from Youtube datasets and video size for every video is assigned randomly uniform between 1 and 200MB. 
-Because very weak relationship between file size and popularity \cite{abhari2010workload} and our work much focus on popularity aspect impact to utility function rather than storage utilization, we believe that assigned random uniform file size from Youtube datasets is fine. 
+Because very weak relationship between file size and popularity \cite{abhari2010workload} and our work much focus on popularity aspect impact to utility function rather than storage optimization, we believe that assigned random uniform file size from Youtube datasets does not have effect to our results. 
 Finally, we have a catalog that consists of: video-id, time when a video is uploaded, view count terminus, and video size.
 
 \subsubsection{Peer Request Generator}\label{peerrequest}
@@ -236,7 +236,6 @@ In scenario B, a peer chooses a video that has popularity following Youtube but 
 The objective of the second scenario, we want to see the peer requests effect to peer-assisted CDN when the request from peers are lag four weeks after popular in Youtube.
 In scenario C, a peer chooses a video that has popularity following zipf distribution with rate$=0.9$ \cite{6654887} thus a peer choose a video that its popularity does not follow Youtube popularity.
 The objective of the third scenario, we want to see the peer request effect to peer-assisted CDN when the requests from peers are totally different from Youtube's videos popularity.
-
 
 \subsubsection{Simulation Parameters and Scenarios}
 The simulation parameters are follows:
