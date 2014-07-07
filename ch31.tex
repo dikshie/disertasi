@@ -31,11 +31,12 @@ The eDonkey server is working as a indexes files and for distributing IP address
 \begin{center}
 \includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/how-bittorrent-works.eps}
 \end{center}
-\caption{Building block of Bittorrent.} 
+\caption{Building block of Bittorrent. 
+L term refer to Leecher and S term refer to Seeder. 
+In a very popular torrent swarm, it is very common that seeder can be more than 40000 seeders and leecher can be more than 50000.
+While 'get torrent' and 'fetch torrent file' only happen in the beginning of process when a peer join to Bitorrent swarm, the announce step will be repeated for every 30 minutes per Bittorrent specification.} 
 \label{fig:bittorrentblock}
 \end{figure}
-
-
 
 BitTorrent was created in 2002 by Bram Cohen. 
 It runs on an open protocol specification thus there a lot of Bittorrent implementation.
@@ -44,6 +45,8 @@ The torrent file contains the information of the content, which includes the inf
 The torrent file is usually distributed via Bittorent web portals.
 When a client wants to get a file that shared in Bittorrent web portals, it must obtain the torrent file from Bittorrent portals.
 The client then contacts the trackers listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
+The announce step as shown in Fig.\ref{fig:bittorrentblock} is also a tool for peer to get current state of tracker e.q list of seeders and leechers.
+Bittorrent specification defines minimum announce interval 30 minutes \cite{torrentspec}.
 This process from initial phase to join Bittorrent swarm is shown in Fig.\ref{fig:bittorrentblock}
 BitTorrent has generated great enthusiasm for P2P file sharing distribution due to simplicity.  
 Many open source software projects use Bittorrent to distribute their applications which is quite big enough (equal or than CD disk space).
@@ -83,7 +86,9 @@ All P2P networks run on top of the Internet.
 We often consider the P2P network as an overlay network on the top of Internet. 
 We can classify overlay to: structured, unstructured, and hierarchical. 
 In structured overlays, the network is formed in a particular structure. 
-The function of structured overlay is for storing and locating objects. 
+The function of structured overlay is for storing and locating objects based on defined virtual address space. 
+The space is organized according to a given geometry which defines neighbourhood relationship between peers.
+For example Pastry \cite{Rowstron:2001:PSD:646591.697650}, which organized peers in a logical ring and pastry's address is a position in the ring. 
 
 In unstructured systems, the unstructured overlay do not form any a fixed structure in the network. 
 Unstructured overlay networks is typically close to random graphs. 
@@ -92,6 +97,8 @@ In unstructured P2P networks, peers usually do have not the same role with other
 In hierarchical overlay network, the network is built in an unstructured architecture with superpeers.
 The superpeers is forming the top level and ordinary peers the bottom level.
 In hierarchical overlay network, peers are organized in different groups and each group can runs its own overlay. 
+A top-level of overlay can be formed by one representative per group.
+This architecture will flexible than conventional unstructured with superpeers as a group can form a different overlay network either structured or unstructured. 
 Figure \ref{fig:hierarchicalp2p} shows conceptual of hierarchical P2P network. 
 
 \begin{figure}[tb]
@@ -349,7 +356,10 @@ This real-world measurement will reflect different types of clients connected to
 We also face difficult-to-characterize network realities such as NAT and firewalls. 
 Our ability to reproduce key aspects of the topology dynamics suggests that these factors have only limited impact on the topology, somewhat to our surprise.
 
-Content Distribution Networks with peer assist have been successfully deployed on the Internet, such as Akamai \cite{Huang:2008:UHC:1496046.1496064} and LiveSky \cite{Yin:2010:LEC:1823746.1823750}.  
+Content delivery networks (CDN) is a large distributed system of servers deployed in multiple data center across the Internet. 
+The objetive of CDN is to serve content to end-users high availability and low latency manner as CDNs are distributed geographically. 
+A CDN is owned, deployed, and maintained by a company that charges content providers or website owners for its services.
+CDN with peer assist have been successfully deployed on the Internet, such as Akamai \cite{Huang:2008:UHC:1496046.1496064} and LiveSky \cite{Yin:2010:LEC:1823746.1823750}.  
 The authors of \cite{Huang:2008:UHC:1496046.1496064} conclude from two real world traces that hybrid CDN-P2P can significantly reduce the cost of content distribution and can scale to cope with the exponential growth of Internet video content.  
 Yin et al. \cite{Yin:2010:LEC:1823746.1823750} described LiveSkye as commercial operation of a peer-assisted CDN in China.  
 LiveSky solved several challenges in the system design, such as dynamic resource scaling of P2P, low startup latency, ease of P2P integration with the existing CDN infrastructure, and network friendliness and upload fairness in the P2P operation.  
@@ -376,7 +386,9 @@ The saving in NaDa comes from underutilizing home gateway, avoidance of cooling 
 The comparison between CDN architecture and peer-to-peer architecture are discussed in \cite{baliga2007energy} and \cite{feldmann2010energy}.
 Both authors in \cite{baliga2007energy} and \cite{feldmann2010energy} agree that CDN architecture is more energy saving compare to peer-to-peer architecture. 
 Another interesting study of energy efficient in content delivery architectures is presented by Guan et al. \cite{5963557}.
-by Guan et al. \cite{5963557} comparing energy efficient of CDN architecture and CCN architecture.
+Guan et al. \cite{5963557} compare energy efficient of CDN architecture and CCN architecture.
+CCN is a new architecture to deliver the contents in the Internet \cite{Jacobson:2009:NNC:1658939.1658941}.  
+CCN uses data storage cache at each level of the network e.g routers to decrease the transmission traffic and also increase the speed of response.
 The authors in \cite{5963557} conclude that CCN is more energy efficient in delivering popular content while the approach with optical bypass is more energy efficient in delivering infrequent accessed content.
 
 To the best of our knowledge, the study of energy in that considering peer-to-peer in CDN architecture is presented in \cite{6524219}.
