@@ -287,7 +287,13 @@ These observations clearly demonstrate that comparing models is a very complex t
 \includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
 \end{center}
 \caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s 
-         log-normal.} %Only $13\%$ $\rho$ values are less than $0.1$.} 
+         log-normal.
+         We divide the figure into two areas with vertical line  $\rho=0.1$ as border.
+         Under nested hypothesis, $\rho$ value is significance value of observed sign of likelihood ratio.
+         if $\rho \le 0.1$ then the sign of log-likelihood ratio is a good indicator of which model is the better fit to the data.
+         In this figure, only $13\%$ of $\rho$ values are less than $0.1$. 
+         Since $87\%$ of $\rho$ values are more than $0.1$, the sign of log-likehood ratio is not good indicator and the test does not favor either model over the other. 
+         } %Only $13\%$ $\rho$ values are less than $0.1$.} 
 \label{fig:cdf-p-lognorm}
 \end{figure}
 
@@ -296,7 +302,9 @@ These observations clearly demonstrate that comparing models is a very complex t
 \includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/lr-p-lognorm.eps}
 \end{center}
 \caption{Scatter plot $p$ values v.s log-likelihood
-         ratio (LR) for likelihood test for power-law vs log-normal.} 
+         ratio (LR) for likelihood test for power-law vs log-normal.
+         In this figure, we show the log-likehood ratio (LR) values for $\rho \le 0.1$.
+         Since the LR values are negative, the alternative distribution not better than power-law model.} 
 \label{fig:scatter-lognorm}
 \end{figure}
 
@@ -304,7 +312,13 @@ These observations clearly demonstrate that comparing models is a very complex t
 \begin{center}
 \includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
 \end{center}
-\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s exponential.} 
+\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s exponential.
+		We divide the figure into two areas with vertical line  $\rho=0.1$ as border.
+		Under nested hypothesis, $\rho$ value is significance value of observed sign of likelihood ratio.
+        if $\rho \le 0.1$ then the sign of log-likelihood ratio is a good indicator of which model is the better fit to the data.
+        In this figure, only $5.5\%$ of $\rho$ values are less than $0.1$.
+        Since $94.5\%$ of $\rho$ values are more than $0.1$, the sign of log-likehood ratio is not good indicator and the test does not favor either model over the other.  
+		} 
          %Only $5.5\%$ $\rho$ values are less than $0.1$.} 
 \label{fig:cdf-p-exp}
 \end{figure}
