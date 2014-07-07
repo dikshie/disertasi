@@ -223,7 +223,9 @@ If a requested video is not available CDN will serve the request.
 \subsubsection{Catalog Generator}\label{catalog}
 The goal for catalog generator is to create a catalog video that consist video-id, time when a video is uploaded, a video size, view count terminus, and progress of videos popularity like Youtube service model. 
 We assume that a video is uploaded to server following Poisson process with mean rate $\lambda=1$ thus we can get the time when a video is uploaded. 
-The view count terminus for every video is assigned randomly uniform from Youtube datasets and video size for every video is assigned randomly uniform between 1 and 200MB. Finally, we have a catalog that consists of: video-id, time when a video is uploaded, view count terminus, and video size.
+The view count terminus for every video is assigned randomly uniform from Youtube datasets and video size for every video is assigned randomly uniform between 1 and 200MB. 
+Because very weak relationship between file size and popularity \cite{abhari2010workload} and our work much focus on popularity aspect impact to utility function rather than storage utilization, we believe that assigned random uniform file size from Youtube datasets is fine. 
+Finally, we have a catalog that consists of: video-id, time when a video is uploaded, view count terminus, and video size.
 
 \subsubsection{Peer Request Generator}\label{peerrequest}
 In catalog generator, we assume peer request a video to CDN following Poisson process with a mean rate $\lambda=1$ \cite{Zink:2009:CYN:1502814.1502987}.
