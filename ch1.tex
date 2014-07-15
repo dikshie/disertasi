@@ -6,22 +6,18 @@ Cisco VNI predicts that video streaming will significantly outweigh other types 
 Contrary to file transfers, video streaming enables users to watch the video while downloading it, which imposes strict requirements on the delivery infrastructure. 
 The users expect a performance similar to the traditional television with short startup delays and without performance degradations or playback stalling during watching. This is exacerbated by the growing requirements on video quality, such as higher resolutions and additional features (high-definition and 3D videos). 
 The higher quality typically results in increased video bitrates that require higher download bandwidth.
-Contrary to file transfers, video streaming enables users to watch the video while downloading it, which imposes strict requirements on the delivery infrastructure. 
-The users expect a performance similar to the traditional television with short startup delays and without performance degradations or play- back stalling during watching. 
-This is exacerbated by the growing requirements on video quality, such as higher resolutions and additional features (high-definition and 3D videos). 
-The higher quality typically results in increased video bitrates that require higher download bandwidth.
 
-Today users are increasingly able to consume videos directly from their TV screens using Internet-enabled Set-top Boxes (STBs) such as digital video recorders, game con- soles, or other entertainment devices. 
-Questions arise as which delivery architecture is able to provide this vast amount of video content to end-user devices and which mechanisms are required to make this architecture scalable and cost-efficient. 
+Today users are increasingly able to consume videos directly from their TV screens using Internet-enabled Set-top Boxes (STBs) such as digital video recorders, game consoles, or other entertainment devices. 
+Questions arise as to which delivery architecture is able to provide this vast amount of video content to end-user devices and which mechanisms are required to make this architecture scalable and cost-efficient. 
 Common solutions are centralized and decentralized delivery architectures employing various mechanisms to deliver video streams to end-users. 
 These delivery architectures build overlay networks on top of the underlying Internet infrastructure.
 The simplest architecture for video streaming is based on the centralized client-server model. Here (one or many) video servers send a separate video stream to each client, which results in high bandwidth costs for popular content and potential scalability issues for large numbers of concurrent users. 
-The peer-to-peer (p2p) paradigm offers a promising alternative to pure server-based video distribution networks. 
-Here, the users, called peers1, not only consume but also provide services to other peers. The application of the p2p paradigm to video streaming uses peers’ resources, such as local storage, computational power, and band- width, to reduce the load and costs of content servers. In the extreme case of pure p2p streaming, there are no dedicated servers anymore and all services are provided by regular peers.
-If we consider a commercial streaming system, a pure p2p solution turns out to be insufficient because it lacks important properties such as service guarantees for users, security, and control by the content provider. 
+The peer-to-peer (P2P) paradigm offers a promising alternative to pure server-based video distribution networks. 
+Here, the users, called peers, not only consume but also provide services to other peers. The application of the P2P paradigm to video streaming uses peers’ resources, such as local storage, computational power, and bandwidth, to reduce the load and costs of content servers. In the extreme case of pure P2P streaming, there are no dedicated servers anymore and all services are provided by regular peers.
+If we consider a commercial streaming system, a pure P2P solution turns out to be insufficient because it lacks important properties such as service guarantees for users, security, and control by the content provider. 
 In order to overcome these limitations, a peer-assisted architecture can combine content servers and peers intelligently.
 
-In order to understand the relationships between entities in P2P-CDN ecosystem and to identify the possible tensions, we must understand their roles in the architecture:
+In order to understand the relationships between entities in a P2P-CDN ecosystem and to identify the possible tensions, we must understand their roles in the architecture:
 \begin{itemize}
 	\item Overlay providers contribute the initial content and host servers for content injection and indexing. 
 	In a pure commercial scenario the overlay provider also acts as a content provider, while in a scenario with user-generated content the content is contributed by users that upload it to content servers. 
@@ -38,20 +34,20 @@ However, the actual delivery costs are shifted from the overlay providers to the
 The reason is the widespread acceptance of flat-rate based pricing for the Internet access. 
 These pricing schemes allow network operators to attract users and to sell high-speed Internet connections. 
 But peer-assisted overlays can also lead to bottlenecks and link congestions, since the Internet architecture is built for the client-server traffic pattern where the traffic flows from content servers to the users. 
-In the last years, the management of overlay traffic that crosses the boundaries of network operators’ domains has gained a lot of attention in the research community. Thereby, various traffic management methods have been proposed to relieve the tension between the overlays and network operators. 
+In recent years, the management of overlay traffic that crosses the boundaries of network operators’ domains has gained a lot of attention in the research community. Thereby, various traffic management methods have been proposed to relieve the tension between the overlays and network operators. 
 However, most of them fail to satisfy the demands of both parties.
 
 \section{Challenges}
-In this section, we discuss the specific challenges of peer-assisted. 
+In this section, we discuss the specific challenges of peer-assisted architectures. 
 Most of these challenges arise from the necessity to achieve quality of service (QoS) comparable to the current client-server systems, while using the limited resources of unreliable peers.
 \begin{itemize}
 	\item {Limited resources of an individual peer compared to a typical server mean that the resources of many peers must be combined to serve the same streaming request. 
 	This applies in particular to the upload bandwidth, which is typically much smaller than the download bandwidth.}
 	\item {Heterogeneity of peers in terms of their resources and behavior. 
 	For example, the upload capacity is a resource that differs between the users and affects the system’s performance significantly.}
-	\item {Lack of service guarantees at peers makes it difficult to ensure a quality streaming experience to the users (comparable to well-dimensioned server-based sys- tems). 
-	In a commercial scenario, in contrast to pure p2p-based systems, all users should be able to receive the quality they paid for, which makes the coupling between the peer’s contribution of resources and received streaming quality undesirable.}
-	\item {Missing or insufficient incentives for users to contribute their resources are a common issue for p2p-based systems.
+	\item {Lack of service guarantees at peers makes it difficult to ensure a quality streaming experience to the users (comparable to well-dimensioned server-based systems). 
+	In a commercial scenario, in contrast to pure P2P-based systems, all users should be able to receive the quality they paid for, which makes the coupling between the peer’s contribution of resources and received streaming quality undesirable.}
+	\item {Missing or insufficient incentives for users to contribute their resources are a common issue for P2P-based systems.
 	In a commercial scenario, it can be partially solved by offering rewards or discounts for contributed resources.
 	For example, a peer might get certain credits for each megabyte of data uploaded to other peers. 
 	However, this does not solve the issue of users that should remain online in order to provide content availability.}
@@ -59,8 +55,8 @@ Most of these challenges arise from the necessity to achieve quality of service 
 	While various approaches were proposed to increase the energy efficiency of servers and routers in terms of reduced power consumption, the same issue applies for the users’ devices. 
 	One interesting aspect here is whether an idle peer should stay online to serve new requests or leave the system. 
 	While the first option would maximize the peer’s contribution to the system, the second option would save energy that might be wasted if the services of this peer are not required.}
-	\item {Negative impact on the network infrastructure is another issue in peer-assisted and pure p2p delivery architectures. 
-	Most p2p and peer-assisted overlays apply their own application level routing mechanisms that might have undesired effects on the underlying network such as congested links or high costs for the transit traffic.}
+	\item {Negative impact on the network infrastructure is another issue in peer-assisted and pure P2P delivery architectures. 
+	Most P2P and peer-assisted overlays apply their own application level routing mechanisms that might have undesired effects on the underlying network such as congested links or high costs for the transit traffic.}
 \end{itemize}
 
 \section{Motivation}
