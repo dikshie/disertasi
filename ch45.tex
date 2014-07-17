@@ -81,96 +81,123 @@ Data from \cite{Borghol:2011:CMP:2039452.2039717}.
 
 
 \section{Determining Internet VoD Popularity Phase}\label{popularity}
-The objective of estimating the Internet VoD popularity phase is to determine whether a video is before-peak, at-peak popularity phase, or after-peak.
-We use Youtube as an example of VoD service where we get Youtube content popularity datasets from Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717}.
-The datasets consist of the measurement of 29000 videos view count and the time when videos are uploaded, during a period of 36 weeks.
-The authors define time-to-peak for a video as its age (time since upload) at which its weekly viewing rate is the highest during measurement (from the first week until end of measurement).
-The time-to-peak distribution is shown in fig.\ref{fig:timetopeak}.
-Figure \ref{fig:timetopeak} shows Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} work that around three-quarters of the videos peak within the first six weeks since their upload. 
-Beyond six weeks we have uniform distribution, thus the time-to-peak is exponentially distributed mix with uniform distribution. 
-To estimate the rate parameter of the exponential part of time-to-peak distribution, we use Maximum Likelihood Estimation (MLE) \cite{clauset2009power}.
-Using MLE, we get the exponential parameter $\lambda = 0.59$.
+
+The objective of determining the Internet VoD popularity phase is to determine whether a video is at before-peak, at-peak, or after-peak phase, to be used by peers in their caching strategy.
+For this purpose we use the Youtube content popularity dataset from Borghol et. al.,\cite{Borghol:2011:CMP:2039452.2039717}  which contains the data of 29791 videos, including the view count and upload time, during 36 weeks of measurements.
+Figure~\ref{fig:timetopeak} is cummulative distribution function (CDF) the time-to-peak distribution from Borghol et. al.,\cite{Borghol:2011:CMP:2039452.2039717}  which shows that around three-quarters of the videos peak within the first six weeks after upload.
+The time-to-peak is exponentially distributed up-to the sixth week, and it is uniform beyond the sixth week.
+Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} define time-to-peak for a video as its age (time since upload) at which its weekly viewing rate is the highest during measurement (from the first week until end of measurement).
 Because we know the peak time (at-peak phase) of every video, we can also find the before-peak phase and after-phase of every video. 
 For detail we refer the readers to \cite{Borghol:2011:CMP:2039452.2039717}.
 
-To reveal the distribution of view rate for every video from datasets, we plot view rate versus week where we shift the week of the at-peak phase to zero, as shown in fig.~\ref{fig:viewratedistribution}
+Suppose a video $v$ in Borghol dataset has a viewing rate $r_v(t)$, $0 <= t < t_f$, and $r_v(t)$ peaks at $t_{vp}$.
+The data is transformed by including the relative time-to-peak, such that each data point is a 2-tuple: video rate and relative time to peak, i.e., $rp_v(t) = ( r_v(t), tp(t) ), tp(t) = t - t_{vp}$.
+Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis for each video is translated by $t_{vp}$ to the left, such that each video peaks at time $0$.
+
+
+% \begin{figure}[!t]
+% \begin{center}
+% \includegraphics[scale=0.7]{../../hindawi/graphs/transformasi.eps}
+% \end{center}
+% \caption{Transformation of view rate distribution. We add week number and make it as $x$-axis, View rate as $y$-axis, and relative week to peak as $z$-axis.}
+% \label{fig:viewratedistexample}
+% \end{figure} 
+
+% \begin{figure}[!t]
+% \begin{center}
+% \includegraphics[scale=0.7]{../../hindawi/graphs/transformasi3.eps}
+% \end{center}
+% \caption{2D visualization of view rate distribution after transformation where $x$-axis is week number, $y$-axis is view rate.}
+% \label{fig:viewratedistexamplered}
+% \end{figure} 
+
+\begin{algorithm}
+\caption{Averaging relative weeks from the nearest neighbor points}
+\label{alg2}
+\begin{algorithmic}[1]
+\REQUIRE {dataset that consist of weeknumber, viewrate, and relative week to at peak.}
+
+\STATE $t$ $\leftarrow$ read(weeknumber) \COMMENT{read week number from dataset}
+\STATE $r_v$ $\leftarrow$ read(viewrate) \COMMENT{read view rate from dataset}
+\STATE $tp$ $\leftarrow$ read(relativeweeksatpeak) \COMMENT{read relative week at peak from dataset}
+
+%\COMMENT{a requested video has week number and view rate}
+\STATE $t_e$ \COMMENT{week number of a requested video}
+\STATE $r_e$ \COMMENT{view rate of a requested video}
+
+\STATE $t_e^{before}$ $\leftarrow$ $(t_e - 1)$ \COMMENT{at one week before}
+\STATE $tp_{before}$ $\leftarrow$ $find\_tp(t_e^{before},r_e,t,r_v,tp)$
+
+\STATE $t_e^{at}$ $\leftarrow$ $(t_e)$ \COMMENT{at same week}
+\STATE $tp_{at}$ $\leftarrow$ $find\_tp(t_e^{at},r_e,t,r_v,tp)$
+
+\STATE $t_e^{after}$ $\leftarrow$ $(t_e+1)$ \COMMENT{at one week after}
+\STATE $tp_{after}$ $\leftarrow$ $find\_tp(t_e^{after},r_e,t,r_v,tp)$
+
+\STATE $tp\_final$ $\leftarrow$ $average(tp_{before}, tp_{at}, tp_{after})$
+\IF{$tp\_final$ $<$ $0$}
+\STATE $phase$ $\leftarrow$ $before$
+\ELSIF{$tp\_final$ $==$ $0$}
+\STATE $phase$ $\leftarrow$ $at$
+\ELSE
+\STATE $phase$ $\leftarrow$ $after$
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{Determine phase for the first access a requested video}
+\label{alg3}
+\begin{algorithmic}[1]
+\REQUIRE {$t_e$ and time-to-peak distribution}
+
+\STATE $len$ $\leftarrow$ 35 
+\FOR{$i=0$ to $len$}
+\STATE draw integer random number between $0$ and $35$ respect to time-to-peak distribution: 
+$d$ $\leftarrow$ $draw\_integer\_random\_number()$
+\ENDFOR
+
+\STATE {$total \leftarrow 0$}
+\FOR{$i=0$ to $t_e$}
+\STATE $total$ $\leftarrow$ $total$ + $count(d,i)$ \COMMENT{counting how many each integer random number and sum those}
+\ENDFOR
+\STATE{$estphase$ $\leftarrow$ $total/36$}
+\IF{$estphase$ $>$ $0.75$}
+\STATE {phase $\leftarrow$ after-peak}
+\ELSIF{$estphase \leq 0.75$ and $estphase > 0.5$}
+\STATE {phase $\leftarrow$ at-peak}
+\ELSE
+\STATE {phase $\leftarrow$ before-peak}
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+
+In determining the phase of a requested video $e$ with known age $t_e$ and view rate $r_e$ at $t_e$, we find the three $r_v$ data points whose rates are closest to $r_e$ at $t_e$, $(t_e - 1)$, and $(t_e + 1)$, and then average the $tp$ of the three data points.
+The phase of the requested video $e$ is estimated to be before-peak, at-peak, or after-peak based on whether the average is negative, $0$, or positive.
+The view rate $r_e$ of a video is calculated by substracting the view counts at the time of the current and the previous video requests.
+The pseudo code for averaging the $tp$ is shown in algorithm \ref{alg2}.
+%The view rate $r_e$  of a video is calculated using the view counts at the time of the current and the previous video requests.
+But when a video is being requested for the first time, the phase can only be estimated using the age of the video.
+In this case, we draw 36 random integer numbers $s_i$, $0 <= i <= 35$,  using the time-to-peak distribution in fig.~\ref{fig:timetopeak} then calculate the count of each integers between $0$ and $t_e$ from the drawn numbers then divide the result by 36, 
+%i.e., $estphase = \sum$ of $0 <= i <= t_e$ , $count(i, s)/36$.
+i.e., $estphase = \sum_{0}^{t_e} \frac{count(i,s)}{36}$.
+The number 36 come from the duration of measurement and each week has its own probability as we shown in fig.~\ref{fig:timetopeak}.
+%This result represents the estimated phase, where $estphase \leq 0.5$ the phase is before-peak; if $0.5 < estphase \leq 0.75$ the phase is at peak, and $estphase > 0.75$ is after-peak.
+%From fig.~\ref{fig:timetopeak} since from first week until sixth week the time 
+This result represents the estimated phase. 
+From time to peak distribution, $50\%$ of video reach peak within four weeks. 
+At that level, we expect that half of videos may reach at-peak and half of videos are not yet reach at-peak.
+Therefore we put $0.5$ as low threshold.  
+Still from the same time to peak distribution $75\%$ of video reach peak within six weeks, and beyond six week the distribution is considered, it means there are not much additional view count. 
+In other words, beyond six weeks we consider videos reach after-peak phase. 
+Therefore we put $0.75$ as high threshold.
+The pseudo code for this purpose is shown in algorithm \ref{alg3}.
+
 
 \begin{figure}[!t]
 \begin{center}
-\includegraphics[scale=0.7]{../../hindawi/graphs/transformasi.eps}
-\end{center}
-\caption{Transformation of view rate distribution. We add week number and make it as $x$-axis, View rate as $y$-axis, and relative week to peak as $z$-axis.}
-\label{fig:viewratedistexample}
-\end{figure} 
-
-\begin{figure}[!t]
-\begin{center}
-\includegraphics[scale=0.7]{../../hindawi/graphs/transformasi3.eps}
-\end{center}
-\caption{2D visualization of view rate distribution after transformation where $x$-axis is week number, $y$-axis is view rate.}
-\label{fig:viewratedistexamplered}
-\end{figure} 
-
-A simple example of determining the video popularity phase is shown in fig.\ref{fig:viewratedistexample} and \ref{fig:viewratedistexamplered}.
-In fig.~\ref{fig:viewratedistexample} we have view rate (y-axis) and relative week to peak (x-axis).
-We transform these numbers by adding week number and make it as x-axis, view rate  as y-axis, and relative week to peak as z-axis fig.~\ref{fig:viewratedistexample}.
-This transformation is shown in fig.~\ref{fig:viewratedistexamplered} denote as box points.
-Assume there is a peer requests a video, we want to estimate what is the phase of that video. 
-Is the video in at-peak phase, before-phase, or after phase.  
-We can estimate that video phase by averaging relative week to peak numbers (the points at z-axis) of the nearest point from datasets. 
-If the average value less than $0$ we estimate the video is at before-peak phase, if the average value equal to $0$ we estimate the video is at at-peak phase,  and if the average value more than $0$ we estimate the video is at after-peak phase.
-
-For example: there is a peer that requests a video where the position of video is in fourth week with the last week view rate $vr=2$ (we can get as this data from CDN) shown in fig.~\ref{fig:viewratedistexamplered} denote as circle.
-In this case, the nearest points are the point at third week $(2,1,-1)$ and the point at fifth week $(4,1,1)$.  
-By averaging the points at z-axis of the nearest points $(-1 + 1)/2 = 0$,  we can get estimate that video is in at-peak phase.
-
-
-
-
-\section{System Description}\label{systemdescription}
-In our work, we use Youtube VoD view model to aid our work that based from PROP. 
-The Youtube VoD view model will be used in peer-caching strategy side to exploits the video popularity while caching strategy in CDN side is out of scope. 
-
-%\subsection{Peer caching strategy}\label{peercachingstrategy}
-Since we can estimate before-peak phase, at-peak phase, and after-peak phase of video, we modified the original utility function from PROP by adding a $z(t)$ factor as follows:
-\begin{equation}
-u = \frac{ (f(p) - f(p_{min})) (f(p_{max}) - f(p)) }{r^{\alpha + \beta}} + z(t)
-\end{equation}
-
-$\frac{ (f(p) - f(p_{min})) (f(p_{max}) - f(p)) }{r^{\alpha + \beta}}$ is the utility function from PROP and $z(t)$ is the z factor from our model.
-$z(t)$ is a function from current time in simulation.
-
-
-\[
- z(t) =
-  \begin{cases}
-   0.15 & \text{if phase estimation is before-peak} \\
-   0.47 & \text{if phase estimation is at-peak} \\
-   0.38 & \text{if phase estimation is after-peak}
-  \end{cases}
-\]
-
-Following \cite{1613869}, we can calculate $p$ as follows:
-\begin{equation}
-p = min \left(\frac{n_i^r}{t_i^r - t_a^i}  , \frac{1}{t_{cur} - t_i^r}\right)
-\end{equation}
-
-Where $n_i^r$ is number of requested video, $t_i^r$ is last time the video is requested, $t_a^i$ is the uploaded time of the video, and $t_{cur}$ is the current time.
-$z(t)$ is proportion of view count that we ge from Youtube datasets.  
-To able to track the simulation, we use default value from PROP thus we refer the readers to \cite{1613869}.
-%$p$ represents popularity of the video, $p_{min}$ represents estimation of minimum popularity in P2P system, $p_{max}$ represents estimation of maximum popularity in P2P system, $r$ represents the number of replicas of the video in the system, and $f(p)$ is monotonic non-decreasing function.
-%$\alpha$ and $\beta$ are the adjustment factor.
-%The CDN can calculate $p_{min}$ and $p_{max}$ then propagate to the P2P system.
-%To able to track the simulation, we use default value from PROP for $\alpha=\beta=1$ and $f(p)=log (p)$.
-We choose the video with the smallest $u$ value as the candidate to be replaced when a peer's cache capacity is full.
-In PROP's utility function, the difference between very popular videos and unpopular video is very difficult to differentiate. 
-For unpopular video $f(p)$ will be very close to $f(p_{min})$ thus $f(p) - f(p_{min})$ will be very close to $0$ then utility function become very small.
-For very popular video $f(p)$ will be very close to $f(p_{max})$ thus $f(p_{max}) - f(p)$ will be very close to $0$ then utility function become very small.  
-Linear addition of $z(t)$ factor can help to differentiate the value of utility function.
-
-\begin{figure}[!t]
-\begin{center}
-\includegraphics[scale=0.7]{../../hindawi/graphs/p2p-system-description.eps}
+\includegraphics[scale=0.6]{../../hindawi/graphs/p2p-system-description.eps}
 \end{center}
 \caption{Peer interaction in simulator.
 When a peer requests a video, it always goes to a CDN server (step 1). 
@@ -179,9 +206,122 @@ If there is another peer request same video, that request will go to CDN (step 3
 A CDN will check its record to see if there is some peers cache that requested video.  
 If there is some peers cache that requested video, a CDN will reply with redirect message that asking a peer to download requested video from other peer (step 4).
 If there s no peers have requested video, a CDN will serve the video.   
-A peer then can request the video to other peer and get the video (step 5 and step 6).}
+A peer then can request the video to other peer and get the video (step 5 and step 6).
+}
 \label{fig:p2pcdninteractioninsimulator}
 \end{figure} 
+
+
+
+
+
+\section{System Description}\label{systemdescription}
+\subsection{System Overview}\label{systemoverview}
+The main components of the system are: (1) CDN and (2) peers which are self organized into a P2P overlay network.
+%CDN itself consist of edge servers that deliver the videos and control plane servers that coordinate or control between the peers and record peers activities.
+%The recording peers activities function is basically maintain a database of which videos are currently available on which peers as well as details about the connectivity of these peers.
+%Peers appear in control plane database when uploading a video, a peer has a video to share, and a peer delete a video in its cache.
+%In current peer-assisted CDN practice, the videos and their corresponding indices are decoupled.
+%In other words, they are maintained by control plane servers.
+Each peer in the system has two functionalities.
+First, a peer is a client that requests a video. 
+Second, a peer is a contributor or share the cached video with other peers in the system. 
+Peers control the number and utilization of their connection based on current resources availability.
+In fig.\ref{fig:p2pcdninteractioninsimulator}, we describe the process of a peer that requests a video which derived from PROP.
+When a video is requested for the first time, the CDN is resposible to deliver the requested video.
+When a CDN receives a query for a same video, a CDN will find suitable peers that currently have a copy of a requested video.
+The CDN then returns information about these peers to the querying peer.
+%In our system, the videos and their corresponding indices are decoupled because in current modern commercial peer-assisted CDN, CDN is responsible for recording each peer activities.  
+
+
+\subsection{Peer caching strategy}\label{peercachingstrategy}
+Since we only discuss peer-to-peer side, the caching strategy used in the CDN is out of scope for this project. 
+For the peer replacement strategy, we introduce \textit{utility function} of a video as:
+\begin{equation}
+u = \frac{ (f(p) - f(p_{min})) (f(p_{max}) - f(p)) }{r^{\alpha + \beta}} + z(t)
+\end{equation}
+where the first term is the utility function from PROP and $z$ is the additional factor from our model. 
+$p$ represents the popularity of the video, $p_{min}$ represents minimum popularity in the system, , $p_{max}$ represents maximum popularity in the system, and $r$ represents number of video replica.
+Following \cite{1613869}, we can calculate $p$ as follows:
+\begin{equation}
+p = min \left(\frac{n_i^r}{t_i^r - t_a^i}  , \frac{1}{t_{cur} - t_i^r}\right)
+\end{equation}
+Where $n_i^r$ is number of requested video, $t_i^r$ is last time the video is requested, $t_a^i$ is the uploaded time of the video, and $t_{cur}$ is the current time.
+To able to track the simulation, we use default value from PROP thus we refer the readers to \cite{1613869} for the details.
+
+The utility function reflects the popularity of a video in the system that considering number of copy of its video or replica. 
+$u$ value itself lies in interval $[0,2]$ Guo et al.,\cite{1613869}.
+We choose video with the smallest utility value as the candidate to be replaced when a peer's cache is full.
+Since we can determine before-peak phase, at-peak phase, and after-peak phase of video, we modified the original utility function from PROP above by adding a $z(t)$ factor as follows:
+
+\begin{equation}
+ z(t) = 
+  \begin{cases}
+   0.15 & \text{if phase estimation is before-peak} \\
+   0.47 & \text{if phase estimation is at-peak} \\
+   0.38 & \text{if phase estimation is after-peak}
+  \end{cases}
+\end{equation}\label{eq:zfactor}
+
+
+$z(t)$ is proportion of view count in before-peak, at-peak, and after-peak to the total view count that we get from Youtube datasets.  
+Because from transformed Youtube dataset we already have before-peak, at-peak, and after-peak phase for each video, we can also calculate how many view count in before-peak phase, at-peak phase, and after-peak phase.  
+However at-peak happens only one week and its view count proportion to the total view count relatively small.
+On the other side, we want to emphasize peer caching of a video during at-peak phase thus proportion of view count of at-peak phase to the total view count is count from $at-peak week - 1$ until $(at-peak week + 1)$. 
+Next we can count proportion of view count of before-peak and after-peak to the total view count.
+The numbers of view count proportion the the total is shown in eq.\ref{eq:zfactor}.
+The value of $z(t)$ is assigned after we finish to determine a video popopularity phase.  
+For example: if we determine a video popularity phase is at-peak, then we assign $z(t)=0.47$.
+%To able to track the simulation, we use default value from PROP thus we refer the readers to \cite{1613869}.
+%$p$ represents popularity of the video, $p_{min}$ represents estimation of minimum popularity in P2P system, $p_{max}$ represents estimation of maximum popularity in P2P system, $r$ represents the number of replicas of the video in the system, and $f(p)$ is monotonic non-decreasing function.
+%$\alpha$ and $\beta$ are the adjustment factor.
+%The CDN can calculate $p_{min}$ and $p_{max}$ then propagate to the P2P system.
+%To able to track the simulation, we use default value from PROP for $\alpha=\beta=1$ and $f(p)=log (p)$.
+%We choose the video with the smallest $u$ value as the candidate to be replaced when a peer's cache capacity is full.
+In PROP's utility function, the difference between very popular videos and unpopular video is very difficult to differentiate. 
+For an unpopular video, $f(p)$ will be very close to $f(p_{min})$ thus $f(p) - f(p_{min})$ will be very close to $0$ then the utility function becomes very small.
+For a very popular video, $f(p)$ will be very close to $f(p_{max})$, thus $f(p_{max}) - f(p)$ will be very close to $0$ and the  utility function becomes very small.  
+Linear addition of $z(t)$ factor can help to differentiate the value of utility function.
+%We summarize peer's decision for caching in pseudo code \ref{alg6}.
+
+% \begin{algorithm}
+% \caption{Peer decision}
+% \label{alg6}
+% \begin{algorithmic}[1]
+% \REQUIRE a requested video popularity phase
+% \STATE{calculate $p_{request}$ for a requested video}
+% \IF{$phase$ $==$ $before$}
+% \STATE{$z$ $\leftarrow$ $0.15$}
+% \ELSIF{$phase$ $==$ $at$}
+% \STATE{$z$ $\leftarrow$ $0.47$}
+% \ELSE
+% \STATE{$z$ $\leftarrow$ $0.38$}
+% \ENDIF
+% \STATE{get $p_{min}$ from CDN}
+% \STATE{get $p_{max}$ from CDN}
+% \STATE{get $r$ from CDN}
+% \STATE{$u_{request}$ $\leftarrow$ $\frac{ (f(p_{request}) - f(p_{min})) (f(p_{max}) - f(p_{request})) }{r^{\alpha + \beta}} + z(t) $} \COMMENT{calculate u for a requested video}
+% \FOR{every video inside peer's cache}\COMMENT{calculate $p$ and $u$ for every video inside peer's cache}
+% \STATE{calculate $p$}
+% \STATE{determine video popularity $phase$}
+% \STATE{assign $z$ value}
+% \STATE{get $r$ from CDN}
+% \STATE{$u$ $\leftarrow$ $\frac{ (f(p) - f(p_{min})) (f(p_{max}) - f(p)) }{r^{\alpha + \beta}} + z(t)$ } \COMMENT{calculate u for a video inside peer's cache}
+% \ENDFOR
+% \STATE{$u_{min} \leftarrow min(u)$}
+% \IF{$u_{request} > u_{min}$ }
+% \IF{space not available}
+% \STATE{delete video with $u_{min}$ inside peer's cache}
+% \STATE{cache a requested video}
+% \ELSE
+% \STATE{cache a requested video}
+% \ENDIF
+% \ELSE
+% \STATE{do not cache a requested video}
+% \ENDIF
+% \end{algorithmic}
+% \end{algorithm}
+
 
 
 
