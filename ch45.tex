@@ -29,29 +29,21 @@ In Peer assisted CDN, users can download content from CDN nodes from or other us
 A user may cache the content after download to serve requests from other users. 
 Due to the complexity of the behavior of peers, the process should be done in the home gateway user where the ISP can control it.
 
-In this work, we will revisit Guo et al.,'s  \cite{1613869} PROP as a basis to evaluate a peer-assisted CDN and propose an improvement to the model for the PROP.
-However, in PROP the difference between very popular videos and unpopular video is very difficult to differentiate. 
-We will explain in sec.\ref{peercachingstrategy} how we can cope with this situation.
-For this work, we will take Youtube as an example of an Internet VoD service model.
+In this work, we will revisit Guo et al.'s, \cite{1613869} PROP as a basis to evaluate peer-assisted CDN and propose an improvement to the model for the PROP called CPPro.
+This system is called CPPro abbreviated from out technical term "CDN-P2P Project".
+We will take Youtube as an example of an Internet VoD service model.
 In the Youtube service model, we can get data such as (1) the time when a video is uploaded and (2) number of access or number of view.
-We can get such data through Youtube'API service.
-%The information of (1) the time when a video is uploaded and (2) number of access or number of view will be used for helping PROP.
-In seminal work, Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} used above information to estimate when a video will become very popular.
+We can get such data using Youtube's API.
+In seminal work, Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} used the above information to estimate when a video will become very popular.
 They divide a video's popularity into three phases: before-peak phase, at-peak phase, and after-peak phase.
 We will use an estimate of a video's popularity phases for helping PROP.
-We will explain video popularity in Sect.\ref{popularity}.
-%We also examine the characteristics of Internet VoD by investigating real-world datasets obtained from Youtube.
-%We estimate the video popularity phase.
-%Information of video popularity phase will be used for caching strategy
-%In P2P assisted CDN for video on demand (VoD), most of researcher assume that catalog of video popularity rank is already established following zipf distribution.  
-%This become basis for P2P assisted CDN model in PROP \cite{1613869}.
-%Our work is quite different whereas we will use VoD view popularity to aid the PROP model.
-%We use Youtube VoD view model for this purpose.
-%In Youtube, video view popularity has three phase which is before-peak, at-peak, and after-peak \cite{Borghol:2011:CMP:2039452.2039717} which we will explain later in sect.\ref{popularity}.
-Our contribution is follows:
+We will explain video popularity in Sec.\ref{popularity}.
+Our contribution is as follows:
 (1) We use the idea of VoD view popularity model to aid the PROP model. 
 To the best of our knowledge, the combination of the PROP model and the VoD view popularity model is new.
-(2) From simulation-based experiments, we find that peer contributions in our model are almost as good as those in PROP while the numbers of replicas are lower than PROP resulting in a reduction of resources required.
+(2) From simulation-based experiments, we find that peer contributions in CPPro are almost as good as  PROP while the numbers of replicas are lower than PROP resulting in a reduction of resources required.
+
+
 
 
 %%related work pindah ke chapter 2
@@ -92,7 +84,6 @@ For detail we refer the readers to \cite{Borghol:2011:CMP:2039452.2039717}.
 Suppose a video $v$ in Borghol dataset has a viewing rate $r_v(t)$, $0 <= t < t_f$, and $r_v(t)$ peaks at $t_{vp}$.
 The data is transformed by including the relative time-to-peak, such that each data point is a 2-tuple: video rate and relative time to peak, i.e., $rp_v(t) = ( r_v(t), tp(t) ), tp(t) = t - t_{vp}$.
 Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis for each video is translated by $t_{vp}$ to the left, such that each video peaks at time $0$.
-
 
 % \begin{figure}[!t]
 % \begin{center}
@@ -172,6 +163,8 @@ $d$ $\leftarrow$ $draw\_integer\_random\_number()$
 \end{algorithm}
 
 
+
+
 In determining the phase of a requested video $e$ with known age $t_e$ and view rate $r_e$ at $t_e$, we find the three $r_v$ data points whose rates are closest to $r_e$ at $t_e$, $(t_e - 1)$, and $(t_e + 1)$, and then average the $tp$ of the three data points.
 The phase of the requested video $e$ is estimated to be before-peak, at-peak, or after-peak based on whether the average is negative, $0$, or positive.
 The view rate $r_e$ of a video is calculated by substracting the view counts at the time of the current and the previous video requests.
@@ -188,7 +181,7 @@ This result represents the estimated phase.
 From time to peak distribution, $50\%$ of video reach peak within four weeks. 
 At that level, we expect that half of videos may reach at-peak and half of videos are not yet reach at-peak.
 Therefore we put $0.5$ as low threshold.  
-Still from the same time to peak distribution $75\%$ of video reach peak within six weeks, and beyond six week the distribution is considered uniform, it means there are not much additional view count. 
+Still from the same time to peak distribution $75\%$ of video reach peak within six weeks, and beyond six week the distribution is considered, it means there are not much additional view count. 
 In other words, beyond six weeks we consider videos reach after-peak phase. 
 Therefore we put $0.75$ as high threshold.
 The pseudo code for this purpose is shown in algorithm \ref{alg3}.
@@ -198,8 +191,8 @@ The pseudo code for this purpose is shown in algorithm \ref{alg3}.
 \begin{center}
 \includegraphics[scale=0.6]{../../hindawi/graphs/p2p-system-description.eps}
 \end{center}
-\caption{Peer interaction in simulator.
-When a peer requests a video, it always goes to a CDN server (step 1). 
+\caption{Peer assisted CDN works as follows:
+when a peer requests a video, it always goes to a CDN server (step 1). 
 The CDN provides the videos to the peer (step 2). 
 If there is another peer request same video, that request will go to CDN (step 3).  
 A CDN will check its record to see if there is some peers cache that requested video.  
@@ -216,6 +209,7 @@ A peer then can request the video to other peer and get the video (step 5 and st
 
 \section{System Description}\label{systemdescription}
 \subsection{System Overview}\label{systemoverview}
+
 The main components of the system are: (1) CDN and (2) peers which are self organized into a P2P overlay network.
 %CDN itself consist of edge servers that deliver the videos and control plane servers that coordinate or control between the peers and record peers activities.
 %The recording peers activities function is basically maintain a database of which videos are currently available on which peers as well as details about the connectivity of these peers.
@@ -233,13 +227,15 @@ The CDN then returns information about these peers to the querying peer.
 %In our system, the videos and their corresponding indices are decoupled because in current modern commercial peer-assisted CDN, CDN is responsible for recording each peer activities.  
 
 
+
 \subsection{Peer caching strategy}\label{peercachingstrategy}
+
 Since we only discuss peer-to-peer side, the caching strategy used in the CDN is out of scope for this project. 
 For the peer replacement strategy, we introduce \textit{utility function} of a video as:
 \begin{equation}
 u = \frac{ (f(p) - f(p_{min})) (f(p_{max}) - f(p)) }{r^{\alpha + \beta}} + z(t)
 \end{equation}
-where the first term is the utility function from PROP and $z$ is the additional factor from our model. 
+where the first term is the utility function from PROP and $z$ is the additional factor for CPPro. 
 $p$ represents the popularity of the video, $p_{min}$ represents minimum popularity in the system, , $p_{max}$ represents maximum popularity in the system, and $r$ represents number of video replica.
 Following \cite{1613869}, we can calculate $p$ as follows:
 \begin{equation}
@@ -253,6 +249,8 @@ $u$ value itself lies in interval $[0,2]$ Guo et al.,\cite{1613869}.
 We choose video with the smallest utility value as the candidate to be replaced when a peer's cache is full.
 Since we can determine before-peak phase, at-peak phase, and after-peak phase of video, we modified the original utility function from PROP above by adding a $z(t)$ factor as follows:
 
+
+
 \begin{equation}
  z(t) = 
   \begin{cases}
@@ -262,15 +260,16 @@ Since we can determine before-peak phase, at-peak phase, and after-peak phase of
   \end{cases}
 \end{equation}\label{eq:zfactor}
 
-
 $z(t)$ is proportion of view count in before-peak, at-peak, and after-peak to the total view count that we get from Youtube datasets.  
 Because from transformed Youtube dataset we already have before-peak, at-peak, and after-peak phase for each video, we can also calculate how many view count in before-peak phase, at-peak phase, and after-peak phase.  
 However at-peak happens only one week and its view count proportion to the total view count relatively small.
 On the other side, we want to emphasize peer caching of a video during at-peak phase thus proportion of view count of at-peak phase to the total view count is count from one week before at-peak until one week after-peak.
 Next we can count proportion of view count of before-peak and after-peak to the total view count.
-The numbers of view count proportion the the total is shown in eq.\ref{eq:zfactor}.
-The value of $z(t)$ is assigned after we finish to determine a video popopularity phase.  
+The numbers of view count proportion for $z(t)$ is shown in eq.\ref{eq:zfactor}.
+
+The value of $z(t)$ is assigned after we finish to determine a video popularity phase.  
 For example: if we determine a video popularity phase is at-peak, then we assign $z(t)=0.47$.
+
 %To able to track the simulation, we use default value from PROP thus we refer the readers to \cite{1613869}.
 %$p$ represents popularity of the video, $p_{min}$ represents estimation of minimum popularity in P2P system, $p_{max}$ represents estimation of maximum popularity in P2P system, $r$ represents the number of replicas of the video in the system, and $f(p)$ is monotonic non-decreasing function.
 %$\alpha$ and $\beta$ are the adjustment factor.
@@ -323,20 +322,18 @@ Linear addition of $z(t)$ factor can help to differentiate the value of utility 
 
 
 
-
 \section{Evaluation}\label{evaluation}
-%apa yng dievaluasi.
-%bandingkan 2 proposal ini dng 2 metric yng ada misalnya.
-%kenapa 2 metric ini dipilih.
-%bagaimana evaluasinya:  bikin simulator: a, b, c ,d 
-In order to evaluate the proposed peer-caching strategy using estimation of before-peak, at-peak, and after-peak information from Youtube VoD view model, we have to compare our model to PROP model.
-We evaluate three metrics, which are peer contribution to delivery contents during simulation,  access frequency of cache during simulation, and number of replicas. 
-Peer contribution metric related to byte-hit-ratio. 
-Byte-hit-ratio is defined as the total bytes contents served by peers normalized by the total bytes of video all peers and CDN consume.
-It means more peer contributions, more byte-hit-ratio because peer can get content from another peers. 
-Access frequency of cache reflects the storage utilization. 
+In order to evaluate the proposed peer-caching strategy using our algoritmic designation of the poplarity phase of before-peak, at-peak, and after-peak information from Youtube VoD view model, we have to compare CPPro to the PROP model.
+We evaluate three metrics, which are: (1) peer contribution to delivery contents during simulation,  access frequency of cache during simulation, and number of replicas. 
+We define peer contribution as how many times a video is delivered by peer during simulation.
+The peer contribution metric is related to the byte-hit-ratio. 
+The byte-hit-ratio is defined as the total bytes of content served by peers normalized by the total bytes of video all peers and the CDN consume.
+With more peer contributions, we will have higher byte-hit-ratio because peer can get content from other peers. 
+However, because we only interested in peer performance, we compare peer contribution between PROP and CPPro.
+Contribution ratio of peer to total contribution (comparing to CDN contribution) becomes irrelevant in this case.
+(2) Access frequency of cache reflects the storage utilization. 
 More access means more peer storage utilization.  
-Number of replicas is also related to peer storage utilization.  
+(3) Number of replicas is also related to peer storage utilization.  
 However, too many replicas will waste the storage resources.
 To evaluate these metrics, we developed a peer-assisted CDN simulator. 
 
@@ -345,41 +342,19 @@ To evaluate these metrics, we developed a peer-assisted CDN simulator.
 This peer-assisted CDN is simulated using an event driven simulation implemented in Python. 
 Peers request videos from a video catalog where the peer request as well as the videos in the catalog are generated using certain distributions.
 
-
-% An event driven simulator is developed using Python for this purpose.
-% In fig.\ref{fig:p2pcdninteractioninsimulator}, we describe the process of a peer that requests a video in simulator, which derived from PROP.
-% A peer and a CDN are implemented in object oriented-model inside the simulator. 
-% In short, a peer always requests to CDN then CDN will decided if a requested video is available in other peers or not. 
-% If a requested video is available in other peers, CDN will redirect the request to other peers.
-% If a requested video is not available CDN will serve the request.
-%When a peer requests a video, it always goes to a CDN server (step 1). 
-%The CDN provides the videos to the peer (step 2). 
-%If there is another peer request same video, that request will go to CDN (step 3).  
-%A CDN will check its record to see if there are some peers cache that requested video.  
-%If there are some peers cache that requested video, a CDN will reply with redirect message that asking a peer to download requested video from other peer (step 4).
-%If there are no peers have requested video, a CDN will serve the video.   
-%A peer then can request the video to other peer and get the video (step 5 and step 6).
-%From above description, we can see that deploying peer-assisted CDN can save some traffic since the clients which form P2P network can sharing the contents or videos.
-
-
 \subsubsection{Video Catalog}\label{catalog}
 Each video in tha catalog has the following properties: 
 video-id,size,upload time, final view count, view count function parameters. 
-The final view count is the total number of views after video at the end of simulation and it is generated using uniform distribution.
+View count parameters are the distribution parameters.
+The final view count is the total number of views of a video at the end of simulation and it is generated using uniform distribution.
 Upload time interval is a Poisson process with $\lambda=1$.
 Video size is generated using a uniform distribution.
 Because of the very weak relationship betwen video size and popularity \cite{abhari2010workload} and because our work focuses on the impact of the popularity aspect on the utility function rather than storage optimization we believe that the choice to assign a random uniform video size from the Youtube dataset does not have an effect to our results. 
-The view rate progression from the upload time until the end of simulation time is modelled using a Beta distribution.
-As Borghol et al.,\cite{Borghol:2011:CMP:2039452.2039717} showed that view rate of a video can be modelled as such. 
-The $\alpha$ and $\beta$ parameters are uniformly distributed. 
+The view rate progression from the upload time until the end of simulation time is modelled using a Beta distribution \cite{Borghol:2011:CMP:2039452.2039717}.
+As Borghol et al.,\cite{Borghol:2011:CMP:2039452.2039717} showed that view rate of a video can be modelled using beta distribution we can calculate $\alpha$ and $\beta$ parameters.
+Since we have view rate at peak, we can use Beta distribution mode formula to calculate $\alpha$ or $\beta$. In this case, we choose $\alpha$ random uniform between $1$ and $3$, thus $\beta$ parameter can be calculated using mode formula.
 
 
-% The goal for the catalog generator is to create a catalog video that consist of the video-id, time when a video is uploaded, a video size, and final view count.
-% % progress of videos popularity like Youtube service model. 
-% We assume that a video is uploaded to the server following Poisson process with mean rate $\lambda=1$. 
-% The final view count for every video is assigned randomly uniform from Youtube datasets and video size for every video is assigned randomly uniform between $1$ and $200$MB from Youtube datasets. 
-% Because of the very weak relationship betwen filesize and popularity \cite{abhari2010workload} and because our work focuses on the impact of the popularity aspect on the utility function rather than storage optimization we believe that the choice to assign a random uniform file size from the Youtube datasets does not have an effect to our results.
-% Finally, we have a catalog that consists of: video-id, time when a video is uploaded, final view count, and video size.
 
 \subsubsection{Peer Request Generator}\label{peerrequest}
 Peers request videos from the catalog using a Poisson process with $\lambda=1$ \cite{Zink:2009:CYN:1502814.1502987} for the inter-arrival time.
@@ -390,37 +365,18 @@ We choose four weeks based on probability from time-to-peak distribution that ha
 Scenario C is where the video popularity in the peer-assisted CDN system does not follow the global popularity of the video. 
 We use Zipf distribution with rate$=0.9$ for this purpose \cite{6654887}.
 
-% In catalog generator, we assume peer request a video to CDN following Poisson process with a mean rate $\lambda=1$ \cite{Zink:2009:CYN:1502814.1502987}.
-% There are three scenarios for peer request (named as scenario A, B, and C):
-% In scenario A, a peer chooses a video that has popularity following Youtube.
-% The objective of the first scenario, we want to see the peer requests effect to peer-assisted CDN when the request following Youtube popularity. 
-% In scenario B, a peer chooses a video that has popularity following Youtube but we shift the request four weeks later.  
-% The objective of the second scenario, we want to see the peer requests effect to peer-assisted CDN when the request from peers are lag four weeks after popular in Youtube. 
-% We choose four weeks based on probability from time-to-peak distribution that half of videos are already reach peak within 4 weeks.
-% In scenario C, a peer chooses a video that has popularity following zipf distribution with rate$=0.9$ \cite{6654887} thus a peer choose a video that its popularity does not follow Youtube popularity.
-% The objective of the third scenario, we want to see the peer request effect to peer-assisted CDN when the requests from peers are totally different from Youtube's videos popularity.
-
 \subsubsection{Simulation Parameters}
 The simulation parameters are follows:
-
 \begin{itemize}
 \item Length: $360$ days.
 \item Video size: uniform random between $1$MB and $200$MB.
-\item Peer capacity: $500$MB.
-\item CDN capacity: $10000$MB.
+\item Peer storage capacity: $500$MB.
+\item CDN storage capacity: $10000$MB.
 \item Number of peers: $100000$.
 \item Number of videos: $10000$.
+\item Peer's caching strategy: CPPro, PROP.
 \end{itemize}
-Finally, we compare our results to original PROP \cite{1613869} implementation.
-
-%There are three scenarios in our simulations.
-%First, peers choose a video that has a popularity following from Youtube data sets that we already explained in \ref{catalog}.
-%Second, peers choose a video that has a popularity following from Youtube data sets and we shift the requests time four weeks.
-%Third, peers choose a video that has a popularity following zipf distribution with rate$=0.9$ \cite{6654887}.
-%We compare our results to original PROP \cite{1613869} implementation.
-
-
-
+Finally, we compare our results to PROP \cite{1613869} implementation.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -538,140 +494,142 @@ Finally, we compare our results to original PROP \cite{1613869} implementation.
 
 
 \subsection{Result and Discussion}\label{resultanddiscussion}
-Figure \ref{fig:contrib-normal}, \ref{fig:contrib-shift}, and \ref{fig:contrib-zipf} show the absolute peer contribution to deliver videos compared between model and prop. 
-Figure \ref{fig:contrib-normal} and fig.\ref{fig:contrib-shift} show same pattern.
-The peers give more contribution in the tail while in the third scenario the peer contribution is mostly same between model and PROP. 
-A peers can give more contribution because a video has longer duration than other videos in a peer's cache thus other peer's requests are served by the peer. 
-A video has longer duration than other videos in peer's cache because that a video has bigger utility function than other videos for example a video that will enter the cache. 
+
+Figure~fig.~\ref{fig:contrib-normal}, \ref{fig:contrib-shift}, and \ref{fig:contrib-zipf}shows the peer contribution in each scenario.
+Peers are ranked by the number of videos served by each one.
+They exhibit a similar pattern and only differ in the tails, where CPPro gives higher contributios, which are not significant to the total results as shown in fig.~\ref{fig:contrib-normal} and \ref{fig:contrib-shift}.
+However, in the scenario C the peer contribution is almost identical in CPPro and PROP. 
+
+The advantage of CPPro to PROP is shown in fig.~\ref{fig:atd-normal}, \ref{fig:atd-shift}, and \ref{fig:atd-zipf}  which show the number of replicas the requested videos at each request event for all scenarios.
+We see that CPPro result in fewer replicas comparing to those of PROP.
+Figure~\ref{fig:atd-zipf} that for scenario C,  CPPro has much fewer replicas than those of PROP.
+It shows that many videos are not cached by CPPro.
+That does not affect the peers contribution comparing to PROP.
+
 
 \begin{table}[!t]
 %% increase table row spacing, adjust to taste
 %\renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Percentage of Cached events and Not-Cached events in Model and PROP}
+\caption{Percentage of Cached events and Not-Cached events in CPPro and PROP.}
 \label{tab:stacked1}
 \centering
 %% Some packages, such as MDW tools, offer better commands for making tables
 %% than the plain LaTeX2e tabular which is used here.
-\begin{tabular}{|l|l|c|c|}
+\begin{tabular}{|l|l|c|c|c|c|}
 \hline
-Scenario & Type & Cached & Not-Cached\\
+Scenario & Type & Cached (times)& Not-Cached (times) & Cached (PetaByte) & Not-Cached (PetaByte)\\
 \hline
-Scenario 1 & Model & $33.5\%$ & $66.5\%$ \\
+A & CPPro & $33.5\%$ & $66.5\%$ & $2422$ & $4808$ \\
 \hline
- & PROP & $52\%$ & $48\%$  \\
-\hline
-
-Scenario 2 & Model & $34.8\%$ & $65.2\%$ \\
-\hline
- & PROP & $52.6\%$ & $47.4\%$  \\
+ & PROP & $52\%$ & $48\%$ & $2416$ & $2230$\\
 \hline
 
-Scenario 3 & Model & $32.4\%$ & $67.6\%$  \\
+B & CPPro & $34.8\%$ & $65.2\%$ & $2423$ & $4540$\\
 \hline
- & PROP & $67.7\%$ & $32.3\%$ \\
+ & PROP & $52.6\%$ & $47.4\%$  &  $2415$  &  $2176$ \\
+\hline
+
+C & CPPro & $32.4\%$ & $67.6\%$  & $2435.5$ & $5079.5$ \\
+\hline
+ & PROP & $67.7\%$ & $32.3\%$ &  $2435.3$ & $1161.9$ \\
 \hline
 \end{tabular}
 \end{table}
 
-Figure \ref{fig:atd-normal}, \ref{fig:atd-shift}, and \ref{fig:atd-normal} show the number of  videos replicas available in system when a peer requests a video.
-As we can see from all figures, the model gives us lower number of replicas than PROP.
-The model gives lower number of replicas than PROP because when a peer requests a video, that peer is not cached the video.
-We can see the proportion of cached and not-cached event in table.\ref{tab:stacked1}. 
-We also present detail of the video phase breakdown in table.\ref{tab:stacked2}.
-In model, not-cached events take around $65\%$ from all events and majority of video phase is  after-peak for both cached events and not-cached events. 
-Because the majority of video phase is  after-peak for both cached events and not-cached events, 
-In PROP, cached events take around $52\%$ from all events for the first scenario and the second scenario, while for the third scenario is $67.7\%$.
-In model not-cached events are bigger than PROP, means peers do not cached the videos thus we get lower replicas number than PROP.
 
-
-Denote $u_{dl}$ is the minimum utility function for a video inside the cache and $u_{ms}$ is utility function for a video that will enter the cache,  $p_{dl}$ is the popularity for a video inside the cache and $p_{ms}$ is the popularity for a video that will enter the cache.
-In order a requested video is cached by a peer, the utility function for $u_{dl}$ must be lower than the utility function for $u_{ms}$.
-
-\begin{align}\label{eq:dlms_1}
-u_{dl} < u_{ms}
-\end{align}
-
-\begin{multline}\label{eq:dlms_2}
-\frac{ (f(p_{dl}) - f(p_{min})) (f(p_{max}) - f(p_{dl})) }{r^{\alpha + \beta}_{dl}} + z_{dl} < \\
-\frac{ (f(p_{ms}) - f(p_{min})) (f(p_{max}) - f(p_{ms})) }{r^{\alpha + \beta}_{ms}} + z_{ms}
-%\end{equation}
-\end{multline}
-
-We assume that numbers of replicas are same, thus:
-\begin{multline}\label{eq:dlms_3}
-(f(p_{dl}) - f(p_{min})) (f(p_{max}) - f(p_{dl})) - \\ 
-(f(p_{ms}) - f(p_{min})) (f(p_{max}) - f(p_{ms})) < \\
-z_{ms} - z_{dl}
-\end{multline}
-
-Since $p_{min}$ and $p_{max}$ are same for $u_{dl}$ and $u_{ms}$, we can arrange the equation become:
-\begin{align}\label{eq:dlms_4}
-f(p_{ms}) - f(p_{dl}) > z_{dl} - z_{ms}
-\end{align}
-
-%comparing with PROP, we can get: 
-%\begin{align}\label{eq:dlms_5}
-%f(p_{ms}) - f(p_{dl}) > 0 \\
-%f(p_{ms}) - f(p_{dl}) > z_{dl} - z_{ms}
-%\end{align}
-
-As we know from table.\ref{tab:stacked2} that the majority of a requested video is after-peak phase and a requested video phase that is  at-peak phase is very small portion, then we can see that $z_{dl} - z_{ms}$ term will be in negative term if $z_{dl}$ is  before-peak phase or $0$ if $z_{dl}$ is  after-peak phase. 
-If $z_{dl} - z_{ms}=0$ then it is same with PROP. 
-Since the not-cached events happen in when a requested video phase after-peak phase, we can get that $f(p_{ms}) - f(p_{dl}) < 0$.
-For the same situation and we compare to the PROP, the probability of $u_{ms}$ less than $u_{dl}$ in the model is less than PROP. 
-Therefore, we can see in the model that the events when a peer does not cache a video are more often than PROP.
 
 \begin{table}[!t]
 %% increase table row spacing, adjust to taste
 %\renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Percentage of Video Phase for Model in cached and not-cached events}
+\caption{Percentage cached and not-cached events for each video popularity phase in CPPro.}
 \label{tab:stacked2}
 \centering
 %% Some packages, such as MDW tools, offer better commands for making tables
 %% than the plain LaTeX2e tabular which is used here.
 \begin{tabular}{|l|l|c|c|c|}
 \hline
-Scenario & Type/Events & Before-Peak & At-Peak & After-Peak\\
+Scenario & Type/Events & Before-Peak & At-Peak  & After-Peak \\
 \hline
-Scenario 1 & Model-Cached & $8.2\%$ & $1.2\%$ & $24.1\%$ \\
+A & CPPro Cached & $8.2\%$ & $1.2\%$ & $24.1\%$  \\
 \hline
- & Model-Not-Cached & $11.2\%$ & $0.8\%$ & $54.5\%$ \\
+ & CPPro Not-Cached & $11.2\%$ & $0.8\%$ & $54.5\%$ \\
  \hline
 
-Scenario 2 & Model-Cached & $6.2\%$ & $1.2\%$ & $29.8\%$ \\
+B & CPPro Cached & $6.2\%$ & $1.2\%$ & $29.8\%$ \\
 \hline
- & Model-Not-Cached & $5.2\%$ & $0.8\%$ & $56.8\%$ \\
+ & CPPro Not-Cached & $5.2\%$ & $0.8\%$ & $56.8\%$ \\
 \hline
 
-Scenario 3 & Model-Cached & $8.0\%$ & $1.8\%$ & $22.7\%$ \\
+C & CPPro Cached & $8.0\%$ & $1.8\%$ & $22.7\%$ \\
 \hline
- & Model-Not-Cached & $15.1\%$ & $0.8\%$ & $51.6\%$ \\
+ & CPPro Not-Cached & $15.1\%$ & $0.8\%$ & $51.6\%$ \\
 \hline
 \end{tabular}
 \end{table}
 
-Figure \ref{fig:freq-normal}, \ref{fig:freq-shift}, and \ref{fig:freq-zipf} show the frequency of a video stay in peers compared between model and PROP.
-As all figure show the model has higher frequency than PROP to stay in peers except for the beginning rank of data where the model has same frequency with prop in first and second scenario. 
-In the third scenario, in the beginning rank of data the model has lower frequency than PROP, then around rank 1000 the model has higher frequency than prop until the end of data. 
-The frequency a video stay in a video can also be viewed in fig \ref{fig:duration-normal},  \ref{fig:duration-shift}, and \ref{fig:duration-zipf}, where in the model some videos have longer cache duration than PROP, while others have shorter cache duration than PROP.  
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.5]{../../hindawi/graphs/new/probability-intuitive.eps}
+\end{center}
+\caption{Process how's a video will be cached or not by a peer. Top part for PROP and bottom part for CPPro. 
+$u_r$ is utility function for a requested video.  
+$u_c$min is utility function for a video inside peer's storage.
+}
+\label{fig:cached-notcached}
+\end{figure} 
+
+
+When a peer requests a video from another peer, a peer has to decide whether a peer wants to cache the video or not to cache the video based on the utility function value.  
+If a peer decided to cache a video, we called it cached event.
+If a peer did not decide to cache a video, we called it not-cached event.
+We breakdown how many cache events occur in our simulation as shown in table.\ref{tab:stacked1}.
+Furthermore, we breakdown again by video phase popularity for CPROP's cached and not-cached events as shown in table.~\ref{tab:stacked2}.
+
+From table.\ref{tab:stacked1}, we can see that CPPro cached less videos compared to PROP for all scenarios.
+In scenario A, CPPro are cached $33\%$ of requested video compared to $52\%$ in PROP.  
+In scenario B, we also have similar number where CPPro are cached $34.8\%$ of requested video compared to $52.6\%$. 
+In scenario C, CPPro are cached $32.4\%$ of requested video compared to $67.7\%$ in PROP.
+However, by summing data volume for cached events and no-cached events, we see that CPPro deliver or contribute of videos delivery more than PROP. 
+These number quantifies our previous analysis. 
+
+In table~\ref{tab:stacked2}, we can see that most of cached events and not-cached events for CPPro occured when a requested video was estimated as after-peak phase.
+In scenario A, cached events occured in after-peak phase around $24.1\%$ from total events (cached events and not-cached events). 
+Similarly in not-cached events, events of a peer was not cache a requested video occured in after-peak phase around $54.5\%$ from total events.
+Scenario B also shows similar result where percentage of cached events occured in after-peak phase is $29.8\%$ from total events and percentage of not-cached events in after-peak phase is $56\%$ from total events.
+Scenario C shows similar result where percentage of cached events occured in after-peak phase is $22.7\%$ from total events and percentage of not-cached events in after-peak phase is $51.6\%$ from total events.
+Intuitively , We learn from these numbers that in at-peak phase, many replicas available thus a peer in CPPro system is decided to cache less video.
+
+As we mentioned before that a peer decision to cache to not-cached a video is based on utility function value.
+We want to know what makes replica in CPPro is lower than PROP.
+Assume a peer requests a video with utility function $u_r$ and the minimum utility function inside peer's cache is $u_c$-min as shown in fig.~\ref{fig:cached-notcached} where we have five videos inside peer's cache.
+Intuitively, When a requested video in after-peak phase, while videos inside peer's storage are in at-peak phase then in CPPro case high probability that a requested video will not be cached.  
+In PROP case, since PROP does not has video popularity phase the probability of a requested video will not be cached is lower than CPPro.
+We also calculate the Kolmogorov-Smirnov statistic on two samples and we find that for all scenarios the $p$-values are less than $0.1$ thus we consider the result are significant. 
+
+
+
+Figure \ref{fig:freq-normal}, \ref{fig:freq-shift}, and \ref{fig:freq-zipf} show the frequency of a video stay in peers compared between CPPro and PROP.
+As all figure show CPPro has higher frequency than PROP to stay in peers except for the beginning rank of data where CPPro has same frequency with PROP in first and second scenario. 
+In the third scenario, in the beginning rank of data CPPro has lower frequency than PROP, then around rank 1000 CPPro has higher frequency than PROP until the end of data. 
+The frequency a video stay in a video can also be viewed in fig \ref{fig:duration-normal},  \ref{fig:duration-shift}, and \ref{fig:duration-zipf}, where in CPPro some videos have longer cache duration than PROP, while others have shorter cache duration than PROP.  
 Thus, we can see the relationship between cache duration and frequency a video stays in peers. 
 
 
 \section{Summary}
 This chapter presents a scheme for peer-to-peer network can help CDN to deliver the content over the Internet. 
-We show that by introducing $z$ factor to utility function we can maintain same peer contribution while reducing number of replicas.
-We found that there are no much different between the first scenario, the second scenario and the third scenario in peer contribution to deliver a video. 
-We found that in the all scenarios, the model gives lower replicas than PROP. 
-This is because in the model, we found that not-cached events are higher than cached events, more specifically, the probability of utility function a requested video in model is lower than PROP.
-Therefore, in the model the numbers of available replicas are lower than PROP. 
+We show that by introducing $z$ factor to utility function CPPro can maintain same peer contribution while reducing number of replicas.
+We found that there are no much different all scenario in term of peer contribution to deliver a video. 
+However, we found that in the all scenarios, CPPro gives lower replicas than PROP. 
+This is because in CPPro, we found intuitively that probability not-cached events occur are higher than cached events, futhermore compared to PROP, probability a peer is not cache a requested video is higher in CPPro compared to PROP.
+Therefore, in CPPro the numbers of available replicas are lower than PROP. 
 We also did the significance test to the number of replicas using the Kolmogorov-Smirnov statistic on two samples and we find that for all scenarios the $p$-values are less than $1$\% thus the results are significant. 
 
-Some areas of improvement that we have identified for future are:
-The energy trade off this peer-assisted CDN architecture in order to know how much energy saving by ISP and how much increase of energy at users home gateway side in this architecture since we have higher peer contribution.   
-More numerical experiments for other zipf shape parameters. 
-
-
+Some areas of improvement that we have identified for future are: (1) since we know the CPPro offer a little bit peer contribution with less replica, we are interested to know the energy trade-off of this peer-assisted CDN architecture in order to know how much energy saving by ISP and how much increase of energy at users home gateway side in this architecture since we have higher peer contribution.   
+(2) Involving the different popularity model from different geographically VoD service.
+This is very important to see the system behavior when receiving request from different location with different popularity while still in the same global CDN service. 
+Futhermore, we can exploit this behavior for commercial ads in VoD service.
