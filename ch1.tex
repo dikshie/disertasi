@@ -71,9 +71,9 @@ While a crawler can be used in other P2P networks such as Gnutella, in BitTorren
 BitTorrent swarm topologies reflect peer behavior.
 The peer relationship behavior is very important as a basis for designing a controllable P2P system to be used together with other systems for example, peer assisted CDN or peer assisted cloud. 
 
-In the current modern content delivery, CDN providers tend to combine P2P with CDN in order to help the scaling the services, especially related to traffic or bandwidth saving.
-It has been done by, for example: Akamai and Pando networks.
-The bigger issue is not traffic or bandwidth that relatively easy to fulfilled by adding a network card into a router or adding more servers, instead energy consumption by CDN provider itself inside data center.
+In the current modern content delivery, CDN providers tend to combine P2P with CDN in order to help with the scaling the services, especially related to traffic or bandwidth saving.
+It has been done by, for example, Akamai and Pando networks.
+The bigger issue is not traffic or bandwidth that can be relatively easily fulfilled by adding a network card into a router or adding more servers, but  instead is the energy consumption by CDN provider itself inside the data center.
 Since the Internet traffic grows, demand for scaling is also grow thus demand for energy is also grow.  
 This growing is constrained by energy supply in data center.
 The usage of peer assisted CDN can be seen not only for helping scaling the services, but there is potential to reduce the energy consumption furthermore this reduction can relax energy budget inside data center. 
@@ -84,13 +84,13 @@ The key factors in this research are: (1) characterization of peer dynamic in P2
 
 \textbf{P2P Swarm Dynamics}\\
 Real-world BitTorrent swarms were measured using a rigorous and simple method in order to understand the BitTorrent topology. 
-To our knowledge, our approach is the first to perform such a study on real-world BitTorrent network topologies. 
+To our knowledge, our approach is the first anyone has to performed such a study on real-world BitTorrent network topologies. 
 We used the BitTorrent peer exchange (PEX) messages to infer the topology of BitTorrent swarms listed on a BitTorrent tracker claiming the be the largest BitTorrent network on the Internet, instead of building small BitTorrent networks on testbed such as PlanetLab or OneLab as other researchers have done\cite{dale2008evolution}.
 We also performed simulations using the same approach to show the validity of the inferred topology resulted from the PEX messages by comparing it with the topology of the simulated network.
 
 \textbf{Peer-Asssisted CDN}\\
 The goal of peer-assisted CDN is to improve the delivery of content by the peer-to-peer network.  
-In this work, we simulate how peer-assisted CDN can deliver the content that involved 100000 peers and with a catalog that consists 10000 videos.
+In this work, we simulated how a peer-assisted CDN can deliver the content that involved 100000 peers and with a catalog that consists of 10000 videos.
 Our model is an improvement from previous researcher \cite{1613869}.
 We found that our peer-assisted CDN model can increase peer contribution while maintaining optimal number of replicas.
 Increasing of peer contributions will impact to the energy usage in CDN side. 
@@ -100,17 +100,17 @@ The CDN side can reduce the workload because some workload of content delivery d
 \textbf{Energy Consumption of peer assisted CDN}\\
 As intermediate step in merging between P2P and CDN, this research introduce energy consumption trade-off in peer-assisted CDN. 
 We analyze the characteristics and the requirements of peer-assisted CDN for live streaming and peer-assisted CDN for online storage.
-Then we proposed energy consumption model for both peer-assisted CDN architectures.
-To be able to validate the result, we use the model from both architectures that currently running on the Internet: LiveSky \cite{Yin:2010:LEC:1823746.1823750} and FS2you \cite{fs2you}.
+Then we proposed an energy consumption model for both peer-assisted CDN architectures.
+To be able to validate the result, we use the models from two architectures that are currently running on the Internet, LiveSky \cite{Yin:2010:LEC:1823746.1823750} and FS2you \cite{fs2you}.
  
 
 
 \section{Contribution}
-This dissertation  contribute to enabling analysis into integration of P2P services and CDN services.
+This dissertation  contributes by enabling analysis into the integration of P2P services and CDN services.
 \begin{itemize}
 	\item For P2P, we propose new and effective methodology to infer BitTorrent swarm topologies. 
-	We show that gathering BitTorrent swarm topologies is important step to understand peer behavior. 
+	We show that gathering BitTorrent swarm topologies is important as a step to understand peer behavior. 
 	\item For Peer-assisted CDN, we show by a simulation that our model can increase peer contribution while maintaining the optimum number of replicas.
-	\item For energy trade-off, we show that both peer-assisted CDN architecture have different energy characteristics that can be used considering model in the service integration between P2P and CDN. 
-	Furthermore this model can use by CDN providers as a basis for: capacity planning in data center and incentive planning to customer who will run peer-assisted mode in home gateway.
+	\item For energy trade-off, we show that both peer-assisted CDN architecture have differences  energy characteristics that can be used by considering the model in the service integration between P2P and CDN. 
+	This model can be used by CDN providers as a basis for: capacity planning in data center and incentive planning to customer who will run peer-assisted mode in home gateway.
 \end{itemize}
