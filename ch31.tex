@@ -1,64 +1,63 @@
 \chapter{P2P Content Delivery}
 \section{Introduction}
 
-P2P applications such as Napster, Gnutella, FastTrack, BitTorrent, Skype and PPLive, have attracted the end users.
-According to the P2P paradigm, the P2P network is formed by peers that equally share the computing resources in a cooperative manner.
-Each peer contributes of its resources such as network bandwidth, storage, etc. 
-As the nodes of P2P grows, the capacity of the network grows, too because many peers join to the network. 
-This enables a P2P application is cheap and it can be used for content delivery.  
+P2P applications such as Napster, Gnutella, FastTrack, BitTorrent, Skype and PPLive have attracted the end users.
+In P2P paradigm, the P2P network is formed by peers that equally share the computing resources in a cooperative manner.
+Each peer contributes some of its resources such as network bandwidth, storage, etc. 
+As the number of nodes in the P2P network grows, the capacity of the network grows. 
+This enables a P2P application to be cheap and it can be used for content delivery.  
 
-We noted that the popular P2P file sharing applications are Gnutella, eDonkey, and Bittorrent.  
+We noted that the popular P2P file sharing applications are Gnutella, eDonkey, and Bittorrent, while other type of P2P applications are storage systems, VoIP, and IPTV \cite{5360707}.
 Gnutella is one of the earliest P2P file sharing applications in the Internet.
-Gnutella is pure P2P applications that do not use a centralized server.
+Gnutella is a pure P2P application that does not use a centralized server.
 A Gnutella peer joins the network via at least one known peer.
-That known peer IP address is obtained via pre-configured addresses. 
+That known peer IP address is obtained via a list of pre-configured addresses. 
 From this initial Gnutella peer, we can discover new Gnutella peers.
-The Gnutella peer will send the search request to all connected peers. 
+The Gnutella peer will send the search request of a file to all connected peers. 
 The recipient peer will answer the query if it knows anything. 
 The recipient peer can forward the request to other peers if it does not know the answer.
-Thus, The query will propagate among the Gnutella network.
-Therefire Gnutella will floods the network for searching.
+Thus, the query will propagate in a flood among the Gnutella network.
 
-Other P2P applications is eDonkey.  
-This applications is very popular in Europe. 
+Another P2P application is eDonkey.  
+This application is very popular in Europe. 
 The eDonkey network operates as a hybrid P2P and server. 
-The eDonkey network consists number of of clients and number of servers. 
-IP address of server is usually pre-configured when user installing the applications for the first time.  
-If users want to change the server, user can read on eDonkey web portal.
-The eDonkey server is working as a indexes files and for distributing IP addresses of other eDonkey peers to the eDonkey users.
+The eDonkey network consists of number of  clients and a number of servers. 
+The IP address of a server is usually pre-configured when the user installs the application for the first time.  
+If the user wants to change the server, he or she can read on eDonkey web portal.
+The eDonkey server works as an index for distributing IP addresses of other eDonkey peers to the eDonkey users.
 
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/how-bittorrent-works.eps}
 \end{center}
 \caption{Building block of Bittorrent. 
-L term refer to Leecher and S term refer to Seeder. 
-In a very popular torrent swarm, it is very common that seeder can be more than 40000 seeders and leecher can be more than 50000.
-While 'get torrent' and 'fetch torrent file' only happen in the beginning of process when a peer join to Bitorrent swarm, the announce step will be repeated for every 30 minutes per Bittorrent specification.} 
+L refers to Leecher and S refers to Seeder. 
+In a very popular torrent swarm, where there may be more than 40000 seeders and more than 50000 leechers.
+While 'get torrent' and 'fetch torrent file' only happen in the beginning of process when a peer join a Bitorrent swarm, the announce step will be repeated for every 30 minutes as the  Bittorrent specification.} 
 \label{fig:bittorrentblock}
 \end{figure}
 
 BitTorrent was created in 2002 by Bram Cohen. 
-It runs on an open protocol specification thus there a lot of Bittorrent implementation.
+It runs on an open protocol specification, thus there are many Bittorrent implementations.
 To share a file or a set of files through BitTorrent, a torrent file must be created for the first time.  
 The torrent file contains the information of the content, which includes the information of the tracker and the hashes of the file blocks to be distributed.
 The torrent file is usually distributed via Bittorent web portals.
-When a client wants to get a file that shared in Bittorrent web portals, it must obtain the torrent file from Bittorrent portals.
+%When a client wants to get a file that shared in Bittorrent web portals, it must obtain the torrent file from Bittorrent portals.
 The client then contacts the trackers listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
-The announce step as shown in Fig.\ref{fig:bittorrentblock} is also a tool for peer to get current state of tracker e.q list of seeders and leechers.
-Bittorrent specification defines minimum announce interval 30 minutes \cite{torrentspec}.
+Important terms in Bittorrent are: a \textit{seeder} is a client who has complete chunks/blocks and a \textit{leecher} is a client who download the chunks/blocks.
+The announce step as shown in Fig.\ref{fig:bittorrentblock} is also a tool for a peer to get the current state of the tracker e.q list of seeders and leechers.
+The Bittorrent specification defines the minimum announce interval to be 30 minutes \cite{torrentspec}.
 This process from initial phase to join Bittorrent swarm is shown in Fig.\ref{fig:bittorrentblock}
 BitTorrent has generated great enthusiasm for P2P file sharing distribution due to simplicity.  
-Many open source software projects use Bittorrent to distribute their applications which is quite big enough (equal or than CD disk space).
-Important terms in Bittorrent are a seeder is a client who has complete chunks/blockss and a leecher is a client who download the chunks/blocks.
+Many open source software projects use Bittorrent to distribute their applications.
 
-Beside of P2P for filesharing, we also noted that P2P for streaming is also on the rise especially in China.
+Besides oP2P for filesharing, we  noted that P2P for streaming is also on the rise, especially in China.
 The target of P2P streaming is to build a scalable P2P platform for TV/music delivery. 
-More than a dozen companies are actively working in this area for example UUSe, PPLive, PPStream.  
-Let's take PPLive as an example since it is the most popular P2P streaming service.
-According to \cite{4378423} in 2007, the number of concurrent users for the most popular PPLive session raises to $1.5$ million and aggregate bandwidth up to $100$Gb/s.
-When the PPLive client is launched by users, it retrieves from a channel servers the metadata information of all channels. 
-After users choose the channel, the PPLive client further talks to a tracker of that channel. 
+More than a dozen companies are actively working in this area; for example, UUSe, PPLive, and PPStream.  
+Let us take PPLive as an example since it is the most popular P2P streaming service.
+According to \cite{4378423} in 2007, the number of concurrent users for the most popular PPLive session rose to $1.5$ million and the aggregate bandwidth to $100$Gb/s.
+When the PPLive client is launched by users, it retrieves from a channel server the metadata for  all channels. 
+After the user chooses the channel, the PPLive client further talks to a tracker of that channel. 
 Next the trackers will give  a list of peers that are watching the same channel. 
 After getting a list of peers, the PPLive client connects to a set of peers, and starts to exchange data. 
 The challenge in P2P streaming is to provide a sustained streaming bit rate to all peers joining the network. 
@@ -69,37 +68,37 @@ Insufficient bandwidth can cause poor video quality.
 \begin{center}
 \includegraphics[scale=0.7]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/p2p-technologies.eps}
 \end{center}
-\caption{P2P Technologies Building Block. This graph is adapted from \cite{Passarella20121} with modification.} 
+\caption{P2P Technologies Building Block. This graph is adapted from \cite{Passarella20121}.} 
 \label{fig:p2ptech}
 \end{figure}
 
-Due to complexity of P2P, many building blocks of P2P teechnology that need to explore related to content delivery. 
+%Due to the complexity of P2P, many technology building blocks of P2P teechnology that need to explore related to content delivery. 
 Figure \ref{fig:p2ptech} shows the presentation of P2P technologies building block.
 The bottom level provides the basic networking abstractions, i.e., the P2P overlay networks. 
-The middle level provides additional P2P services for delivery and management (including searching)
-Above them, we can see P2P applications which work on the top of previous blocks.
-Additional overlay abstractions can be exist in the middle to help delivery process. 
-For examples:  mesh structure and gossip service.
-Finally, security, trust and cooperation are seen as cross-layer issues including the mismatches between P2P applications cooperation and ISPs.
+The middle level provides additional P2P services for delivery and management (including searching).
+Above them, we can see P2P applications which work on top of the previous blocks.
+Additional overlay abstractions can be exist in the middle to help the delivery process, for example,  mesh structure and gossip service.
+Finally, security, trust and cooperation are seen as cross-layer issues including the mismatches between P2P application cooperation and ISPs.
 
 All P2P networks run on top of the Internet. 
 We often consider the P2P network as an overlay network on the top of Internet. 
-We can classify overlay to: structured, unstructured, and hierarchical. 
+We can classify overlays into: \emph{structured}, \emph{unstructured}, and \emph{hierarchical}. 
 In structured overlays, the network is formed in a particular structure. 
-The function of structured overlay is for storing and locating objects based on defined virtual address space. 
+The function of a structured overlay is for storing and locating objects based on a defined virtual address space. 
 The space is organized according to a given geometry which defines neighbourhood relationship between peers.
-For example Pastry \cite{Rowstron:2001:PSD:646591.697650}, which organized peers in a logical ring and pastry's address is a position in the ring. 
+For example, Pastry \cite{Rowstron:2001:PSD:646591.697650}, organized peers in a logical ring and the Pastry's address position in the ring. 
 
-In unstructured systems, the unstructured overlay do not form any a fixed structure in the network. 
-Unstructured overlay networks is typically close to random graphs. 
-This is due to nature of every P2P applications that choose neighbors in random.
-In unstructured P2P networks, peers usually do have not the same role with other peers and a peer can choose any other peers as neighbor to the some degree of freedom.  
-In hierarchical overlay network, the network is built in an unstructured architecture with superpeers.
-The superpeers is forming the top level and ordinary peers the bottom level.
-In hierarchical overlay network, peers are organized in different groups and each group can runs its own overlay. 
-A top-level of overlay can be formed by one representative per group.
-This architecture will flexible than conventional unstructured with superpeers as a group can form a different overlay network either structured or unstructured. 
-Figure \ref{fig:hierarchicalp2p} shows conceptual of hierarchical P2P network. 
+In unstructured systems, the unstructured overlays do not form any fixed structure in the network. 
+Unstructured overlay networks are typically close to random graphs. 
+This is due to the nature of every P2P applications that choose neighbors in random.
+In unstructured P2P networks, peers usually do have not the same role as other peers and a peer can choose any other peers as neighbors with some degree of freedom.  
+In a hierarchical overlay network, the network is built in an unstructured architecture with superpeers.
+The superpeers form the top level and ordinary peers the bottom level.
+Peers are organized in different groups and each group can runs its own overlay. 
+A top-level overlay can be formed by one representative per group.
+This architecture will flexible than a conventional unstructured network. 
+Superpeers as a group can form a different overlay network, either structured or unstructured. 
+Figure \ref{fig:hierarchicalp2p} shows the conceptual of a hierarchical P2P network. 
 
 \begin{figure}[tb]
 \begin{center}
@@ -117,53 +116,54 @@ In P2P networks, indices can be centralized, localized, or distributed.
 In structured overlay network centralized indices typically rely on a unique entity.
 In unstructured overlay network localized indices is usually use for searching. 
 Therefore, a query looking for a particular content must be propagated among peers.
-However, indexing does not solve content poisoning problem in P2P.
+However, indexing does not solve the content poisoning problem in P2P.
 
-In structured overlay networks, due to fix structured form, this networks can provide the support for exact match queries.  
-Let's take Distributed Hash Table (DHT) for example. 
-It has key and address of available content therefore a search operation results is fast and efficient.
+In a structured overlay networks, due to the fixed structured form, can provide the support for exact match queries.  
+Let us take Distributed Hash Table (DHT) as an example for a structured overlay network \cite{Balakrishnan:2003:LUD:606272.606299}.  
+DHT provides a lookup service similar to hash table; (key, value) pairs are stored in a DHT and any peers can efficiently retrieve the value associate with a given key. 
+Therefore a search operation results is fast and efficient.
 
-Replication is tied with P2P networks.  
-Let's take example in Bittorrent.  
-If a user download content in Bittorrent,  it means that user replicated the contents.  
-The block of content that already downloaded replicated in his/her PC and that block can be downloaded by other peers that need.
-Consistency is important in Bittorrent, that's why Bittorrent provide hash for every block for checking the right block and reject bad block from fake content.
+Replication is tied to P2P networks.  
+Take the example of Bittorrent.  
+If a user downloads content in Bittorrent,  it means that the user replicated the content.  
+The block of content  already downloaded replicated is in his/her PC and that block can be downloaded by other peers.
+Consistency is important in Bittorrent, that's why Bittorrent provides a hash for every block for checking for the right block and rejecting bad blocks from fake content.
 
-Gossiping is a simple and effective mechanism to spread the information. 
-In P2P overlay networks, each peer participating in a gossiping process contacts of other peers in random and exchange the information between them.
-Gossiping can be in push or pull mode.
-Most of P2P applications working on both modes.
-In Bittorrent implementation gossiping is in push and pull mode and the set of peers to contact is chosen at random.
+Gossiping is a simple and effective mechanism to spread the content. 
+In P2P overlay networks, each peer participating in a gossiping process contacts other peers at random and exchanges the information between them.
+Gossiping can be done in push or pull mode.
+Most P2P applications work in both modes.
+In Bittorrent, gossiping is done in both push and pull mode and the set of peers to contact is chosen at random.
 
-Another important aspect in security of P2P is related to trust, and particularly to establishment of reputation. 
-Establishing reputation of peers requires collecting information about previous interactions. 
-For example, Bittorrent tracker usually has log to record the peers behavior. 
-If a peer has bad upload/download ratio, Bittorrent tracker can blacklist that peer to join the Bittorrent swarm since the tit-for-tat policy of Bittorrent is the basis of cooperation enforcement.
-We introduce private Bittorrent swarm term where user can join Bittorrent swarms by paying a membership.  
-In private Bittorrent swarm, the trust is very important. 
-Any member who can not fulfill the requirement (e.g minimum upload andwidth, minimum uptime after finishing download) can be blocked from Bittorrent swarm.
+Another important aspect in security of P2P is trust, particularly establishment of reputation. 
+Establishing the reputation of peers requires collecting information about previous interactions. 
+For example, each Bittorrent tracker usually has a log to record the peers' behavior. 
+If a peer has a bad upload/download ratio, a Bittorrent tracker can blacklist that peer to join the Bittorrent swarm since the tit-for-tat policy of Bittorrent is the basis of cooperation enforcement.
+%We introduce private Bittorrent swarm term where user can join Bittorrent swarms by paying a membership.  
+%In private Bittorrent swarm, the trust is very important. 
+%Any member who can not fulfill the requirement (e.g minimum upload andwidth, minimum uptime after finishing download) can be blocked from Bittorrent swarm.
 
 We highlight an important aspect related to the impact of P2P technologies on ISP policies (cross layer issues). 
-P2P solutions are network agnostic, in the sense that they do not take any consideration the layer 3 of the network paths. 
-Having agnostic P2P solutions can cause problems at different levels to ISPs. 
+P2P solutions are network agnostic, in the sense that they do not take into consideration the layer 3 of the network paths. 
+Having agnostic P2P solutions can cause problems at different levels for ISPs. 
 It has been shown that blind selections of neighbors in P2P networks may result in unnecessary traversal of multiple links inside an ISP. 
-Furthermore, it can significantly impact on the shape and amount of traffic among different ISPs, which may result being quite different from what foreseen in ISPs peering agreements.
-Although, many solution to this problem are exist, the implementations are still not deployed widely.  
+Furthermore, it can significantly impact  the shape and amount of traffic among different ISPs, which may be quite different from what was foreseen in ISPs peering agreements.
+Although, many solutions to this problem was exist, the implementations are still not deployed widely.  
 
-While algorithms and mechanism in P2P system has been analyzed by many researchers, measurement of P2P is other aspect that important to do. 
-First example: in cross layer issue, P2P is often blind in selection of neighbors in P2P networks that affect underlying ISP's traffic engineering policies.  
-This effect can only seen if we have good real measurement instead doing simulation.
-Second example: in Bittorrent economic model, reseachers wants to understand the content publishing phenomena. 
-The growing popularity of Bittorrent is primary due to the availability of valuable content without any cost for users.
+While algorithms in P2P systems have been analyzed by many researchers, measurement of P2P is also important.
+In the cross layer issue, P2P is often blind in selection of neighbors in P2P networks, affecting the underlying ISP's traffic engineering policies.  
+This effect can only be seen if we have good real measurement instead of simulation.
+In the Bittorrent economic model, reseachers want to understand the content publishing phenomena. 
+The growing popularity of Bittorrent is primarly due to the availability of valuable content without any cost for users.
 However, publishing valuable content has legal implications for the users who publish the content.
-This raise the question that if content publisher behave in altruistic manner or financial incentives. 
-This question can only be answered by doing measurement in real Bittorrent swarm. 
+This raise the question of whether the content publisher is behaving in an altruistic manner or for financial incentives. 
+This question can only be answered by doing measurement in real Bittorrent swarms \cite{6381497}. 
 
-Energy was another aspect that is quite separated from current P2P research but now that topic becomes to rise. 
-While popularity of P2P is decline because users now the content to the cloud, in some region P2P filesharing (e.g. Bittorent) applications is still popular.
+Energy was another aspect that has been quite distant from current P2P research but now has begun to rise in importance. 
+While popularity of P2P is declining because users now get content from the cloud, in some regions P2P filesharing applications are still popular.
 Even now content providers, CDN providers, and ISPs are actively exploring the use of peer-to-peer (P2P) technologies to distribute content to homes as a means of reducing both file download times and the energy consumption of data centers. 
-This approach pushes the energy use out of the data centers and into the homes of content consumers including P2P based applications that run on mobile devices.
-With million house are connected to the Internet and million mobile devices are also connected to the Internet, it is very important to consider energy consumption in P2P network.
+This approach pushes the energy use out of the data centers and into the homes of content consumers, including P2P based applications that run on mobile devices.
+With million of houses connected to the Internet and millions of mobile devices also connected to the Internet, it is very important to consider energy consumption in P2P networks.
 
 
 \section{P2P Measurement}

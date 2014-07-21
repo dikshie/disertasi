@@ -4,36 +4,36 @@
 
 \chapter*{Summary}
 
-Live video streaming has long been projected as the killer application for Internet.  
+Live video streaming has long been projected as the killer application for the Internet.  
 In recent years with the deployment of increased bandwidth in the last mile, this promise finally turned into reality.
 There are competing technologies to deliver live video streaming:  CDN (content delivery network) and P2P (peer-to-peer).
-CDNs provides end-users with the appearance of traditional client server approaches but enable content providers to handle much larger request volumes.
-At the same time, ISPs can also benefit from deploying CDN servers in their networks as it reduces the total amount of upstream and transit traffic. 
-CDN provide excellent quality to end-users when the workload is within provisioning limits.
+CDNs provide end-users with the appearance of traditional client server approaches but enable content providers to handle much larger request volumes.
+At the same time, ISPs can also benefit from deploying CDN servers in their networks as they reduce the total amount of upstream and transit traffic. 
+CDNs provide excellent quality to end-users when the workload is within provisioning limits.
 P2P systems solve the scalability issue by leveraging the resources of the participating peers, while keeping the server requirement low.
-However, decentralized uncoordinated of P2P operation comes with undesirable side effects: unfairness in the face of heterogeneous peer resources, network unfriendliness, etc. 
-On the other hand, the growth of video traffic is also contribute to increases of power consumption and it's need to be considered.
+However, decentralized, uncoordinated P2P operation comes with undesirable side effects: unfairness in the face of heterogeneous peer resources, network unfriendliness, etc. 
+On the other hand, the growth of video traffic also contributes to increases of power consumption and that must be  considered.
 
-In this research, Bittorrent as one of the most popular and successful P2P applications in the current Internet is taken as example the study of uncoordinated P2P operation.
-First problem to be addressed in this research is how to reveal the topology of real Bittorrent swarms, how dynamic the topology is, and how it affects overall behavior.
-We study of Bittorrent networks, where real-world Bittorrent swarms were measured using a rigorous and simple method in order to understand the Bittorrent network topology. 
-We propose the usage the Bittorrent Peer Exchange (PEX) messages to infer the topology of Bittorrent swarms listed on a Bittorrent tracker claiming to be the largest Bittorrent network on the Internet, instead of building small Bittorrent networks on testbeds such as PlanetLab and OneLab as other researchers have done. 
+In this research, Bittorrent as one of the most popular and successful P2P applications in the current Internet, is taken as an example in a study of uncoordinated P2P operation.
+The first problem to be addressed in this research is how to reveal the topology of real Bittorrent swarms, how dynamic the topology is, and how it affects overall behavior.
+We study Bittorrent networks, where real-world Bittorrent swarms were measured using a rigorous and simple method in order to understand the Bittorrent network topology. 
+We propose  usage of the Bittorrent Peer Exchange (PEX) messages to infer the topology of Bittorrent swarms listed on a Bittorrent tracker claiming to be the largest Bittorrent network on the Internet, instead of building small Bittorrent networks on testbeds such as PlanetLab and OneLab as other researchers have done. 
 We also performed simulations using the same approach to show the validity of the inferred topology  resulted from the PEX messages by comparing it with the topology of the simulated network.
 Our result, verified using the Kolmogorov-Smirnov goodness of fit test and the likelihood ratio test and confirmed via simulation, show that a power-law with exponential cutoff is a more plausible model than a pure power-law distribution.  
-We also found that the average clustering coefficient is very low, implies the the Bittorrent swarms are close to random networks.  
+We also found that the average clustering coefficient is very low, implies the Bittorrent swarms are close to random networks.  
 Bittorrent swarms are far more dynamic than has been recognized previously, potentially impacting attempts to optimize the performance of the system as well as the accuracy of simulations and analyses. 
 
-In the current content delivery architecture, many CDN companies and ISPs adopt hybrid CDN-P2P because the advantage of P2P. 
-In P2P side, peers are organized in a tree based overlay on a per substream basis for live streaming.   
-This ensure that all peers contribute some upload bandwidth. 
-Each CDN server keeps track of clients currently assigned to it to avoid undesirable side effects of P2P.
+In the current content delivery architecture, many CDN companies and ISPs adopt hybrid CDN-P2P because of the advantages of P2P. 
+On the P2P side, peers are organized in a tree based overlay on a per substream basis for live streaming.   
+This ensures that all peers contribute some upload bandwidth. 
+Each CDN server keeps track of clients currently assigned to it to avoid the undesirable side effects of P2P.
 Each client learns about other peers assigned to its designed CDN server.
-Since in hybrid CDN-P2P architecture some of workload or data delivery are done by peers, therefore CDN server foreseeing the potential power consumption reduction. 
-Second problem to addressed in this research is what's the trade-off of hybrid CDN-P2P architecture compare to CDN.
-We solve this problem by proposing simple model of power consumption of CDN server and router including the cost of cooling that needed generated from power consumption of CDN server and router. 
-Furthermore, this power reduction can be used for capacity planning of data center. 
+Since in a hybrid CDN-P2P architecture, some of the workload or data delivery is done by peers, CDN servers benefit from a potential  reduction in power consumption. 
+The second problem to be addressed in this research is the trade-off of hybrid CDN-P2P architecture compare to CDN.
+We solve this problem by proposing a simple model of power consumption of CDN server and router, including the cost of cooling needed generated from the power consumption of the CDN server and router. 
+Furthermore, this power reduction can be used for capacity planning of data centers. 
 
-Finally, proposed methodology can contribute largely to further characterizing P2P networks and promotion of relaxing capacity planning data center in term of energy consumption by hybrid CDN-P2P. 
+Finally, our proposed methodology can contribute to further characterizing P2P networks and promotion of relaxing capacity planning data center in term of energy consumption by hybrid CDN-P2P. 
 \\
 \\
 \\
