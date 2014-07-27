@@ -486,6 +486,36 @@ These results show that the introduction of $z(t)$ component to the utility func
 The advantage of CPPro to PROP is evident in fig.~\ref{fig:atd-normal}, \ref{fig:atd-shift}, and \ref{fig:atd-zipf} which show the number of replicas of the requested videos at each request event.
 
 
+When a peer requests a video from another peer, a peer has to decide whether a peer wants to cache the video or not to cache the video based on the calculated utility function value.  
+If a peer decided to cache a video, we called it cached event.
+If a peer did not decide to cache a video, we called it not-cached event.
+We breakdown how many cache events occur in our simulation as shown in table.\ref{tab:stacked1}.
+Furthermore, we breakdown again by video popularity phase for CPROP's cached and not-cached events as shown in table.~\ref{tab:stacked2}.
+From table.\ref{tab:stacked1}, we can see that CPPro cached less videos compared to PROP for all scenarios.
+
+The cached events happen more frequently in scenario A comparing to scenario B, because in scenario B when we shift requests four weeks later, estimated of requested videos will probably fall at-peak phase or after-peak phase and the videos in peer's cache are also probably estimated at-peak phase or after-peak thus probability of not-cached events are higher in scenario B than scenario A.
+In table.\ref{tab:stacked2}, the at-peak phase has low proportion comparing to before-peak and after-peak phase because when we estimate popularity phase of a requested video, the estimate of video to be at-peak phase occurs when average of relative week is exactly $0$. 
+In table.\ref{tab:stacked2}, the after-peak phase has high proportion comparing to before-peak and after peak phase in scenario A and B because video popularity evolution model that we use to estimate a new requested video assume that after four weeks most of video will enter after peak phase. 
+In scenario B, its higher than scenario A since we shifted four weeks. 
+In scenario C, while after-peak phase has higher proportion than before-peak and at-peak phase, its proportion is lower than scenario A an B because different popularity video choice.
+In table.\ref{tab:stacked2}, the before-peak phase in scenario A has higher proportion comparing to scenario B because in scenario B we shift the video request time four weeks thus the probability of a requested video to be before-peak is lower than scenario A. 
+In scenario C, the proportion before-peak phase is higher than scenario A and B. 
+This probably due to different popularity of video choice that a requested video is estimated to be before-peak phase but the video inside peer's cache are having lower utility function.
+
+In fig.~\ref{fig:atd-normal}, \ref{fig:atd-shift} , and \ref{fig:atd-zipf} show number of replicas available for each scenario when a peer request a video.
+Maximum replica for PROP is around three times from CPPro in scenario A and B, while in scenario C the maximum value for PROP is around two times from CPPro.
+Number of replicas for each scenario are different between CPPro and PROP in the head of distribution and similar in the body and the tail of distribution. 
+Although, we can see two and three times fold difference, it only happens in the head of distribution which are less than $1\%$ from total events in scenario A and B, and less than $5\%$ from total events in scenario C.
+
+Figure~\ref{fig:duration-normal}, \ref{fig:duration-shift}, \ref{fig:duration-zipf} show cache duration from all scenarios.  
+In scenario A and B, cache duration between PROP and CPPro are similiar except in tail of distribution. 
+In scenario C, CPPRO has longer cache duration compared to PROP in the body of distribution and lower cache duration in the tail of distribution.  
+Long cache duration means video stay longer than another video inside peer's cache. 
+If some videos has long cache duration in peer's cache, then big probability that peer's do not cache a requested video because the videos inside the peer's cache have higher utility function. 
+The implication is the peer has low cached events.
+That's what wee see in table~\ref{tab:stacked1}.
+
+
 
 \begin{table}[!t]
 \small
@@ -564,40 +594,6 @@ $u_c$min is utility function for a video inside peer's storage.
 \end{figure} 
 
 
-When a peer requests a video from another peer, a peer has to decide whether a peer wants to cache the video or not to cache the video based on the utility function value.  
-If a peer decided to cache a video, we called it cached event.
-If a peer did not decide to cache a video, we called it not-cached event.
-We breakdown how many cache events occur in our simulation as shown in table.\ref{tab:stacked1}.
-Furthermore, we breakdown again by video phase popularity for CPROP's cached and not-cached events as shown in table.~\ref{tab:stacked2}.
-
-From table.\ref{tab:stacked1}, we can see that CPPro cached less videos compared to PROP for all scenarios.
-In scenario A, CPPro are cached $33\%$ of requested video compared to $52\%$ in PROP.  
-In scenario B, we also have similar number where CPPro are cached $34.8\%$ of requested video compared to $52.6\%$. 
-In scenario C, CPPro are cached $32.4\%$ of requested video compared to $67.7\%$ in PROP.
-However, by summing data volume for cached events and no-cached events, we see that CPPro deliver or contribute of videos delivery more than PROP. 
-These number quantifies our previous analysis. 
-
-In table~\ref{tab:stacked2}, we can see that most of cached events and not-cached events for CPPro occured when a requested video was estimated as after-peak phase.
-In scenario A, cached events occured in after-peak phase around $24.1\%$ from total events (cached events and not-cached events). 
-Similarly in not-cached events, events of a peer was not cache a requested video occured in after-peak phase around $54.5\%$ from total events.
-Scenario B also shows similar result where percentage of cached events occured in after-peak phase is $29.8\%$ from total events and percentage of not-cached events in after-peak phase is $56\%$ from total events.
-Scenario C shows similar result where percentage of cached events occured in after-peak phase is $22.7\%$ from total events and percentage of not-cached events in after-peak phase is $51.6\%$ from total events.
-Intuitively , We learn from these numbers that in at-peak phase, many replicas available thus a peer in CPPro system is decided to cache less video.
-
-As we mentioned before that a peer decision to cache to not-cached a video is based on utility function value.
-We want to know what makes replica in CPPro is lower than PROP.
-Assume a peer requests a video with utility function $u_r$ and the minimum utility function inside peer's cache is $u_c$-min as shown in fig.~\ref{fig:cached-notcached} where we have five videos inside peer's cache.
-Intuitively, When a requested video in after-peak phase, while videos inside peer's storage are in at-peak phase then in CPPro case high probability that a requested video will not be cached.  
-In PROP case, since PROP does not has video popularity phase the probability of a requested video will not be cached is lower than CPPro.
-We also calculate the Kolmogorov-Smirnov statistic on two samples and we find that for all scenarios the $p$-values are less than $0.1$ thus we consider the result are significant. 
-
-
-
-Figure \ref{fig:freq-normal}, \ref{fig:freq-shift}, and \ref{fig:freq-zipf} show the frequency of a video stay in peers compared between CPPro and PROP.
-As all figure show CPPro has higher frequency than PROP to stay in peers except for the beginning rank of data where CPPro has same frequency with PROP in first and second scenario. 
-In the third scenario, in the beginning rank of data CPPro has lower frequency than PROP, then around rank 1000 CPPro has higher frequency than PROP until the end of data. 
-The frequency a video stay in a video can also be viewed in fig \ref{fig:duration-normal},  \ref{fig:duration-shift}, and \ref{fig:duration-zipf}, where in CPPro some videos have longer cache duration than PROP, while others have shorter cache duration than PROP.  
-Thus, we can see the relationship between cache duration and frequency a video stays in peers. 
 
 
 \section{Summary}
