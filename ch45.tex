@@ -229,6 +229,10 @@ The CDN then returns information about these peers to the querying peer.
 \subsection{Peer caching strategy}\label{peercachingstrategy}
 
 A peer stores the requested videos into its cache based on the value of a utility function, i.e., in a peer with a full cache a newly requested video will replace one or more videos in the cache whose utility values are smaller than that of the new video.
+The utility function reflects the popularity of a video in the system that considering number of copy of its video or replica. 
+$u$ value itself lies in interval $[0,2]$ Guo et al.,\cite{1613869}.
+%We choose video with the smallest utility value as the candidate to be replaced when a peer's cache is full.
+
 The utility function of a video is :
 \begin{equation}
 u = \frac{ (f(p) - f(p_{min})) (f(p_{max}) - f(p)) }{r^{\alpha + \beta}} + z(t)
@@ -248,9 +252,6 @@ p = min \left(\frac{n_i^r}{t_i^r - t_a^i}  , \frac{1}{t_{cur} - t_i^r}\right)
 Where $n_i^r$ is number of requested video, $t_i^r$ is last time the video is requested, $t_a^i$ is the time when the video is accessed for the first time, and $t_{cur}$ is the current time.
 To able to track the simulation, we use default value from PROP thus we refer the readers to \cite{1613869} for the details.
 
-The utility function reflects the popularity of a video in the system that considering number of copy of its video or replica. 
-$u$ value itself lies in interval $[0,2]$ Guo et al.,\cite{1613869}.
-We choose video with the smallest utility value as the candidate to be replaced when a peer's cache is full.
 The $z(t)$ values are set as follows:
 
 
