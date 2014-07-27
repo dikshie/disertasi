@@ -29,21 +29,19 @@ In Peer assisted CDN, users can download content from CDN nodes from or other us
 A user may cache the content after download to serve requests from other users. 
 Due to the complexity of the behavior of peers, the process should be done in the home gateway user where the ISP can control it.
 
-In this work, we will revisit Guo et al.'s, \cite{1613869} PROP as a basis to evaluate peer-assisted CDN and propose an improvement to the model for the PROP called CPPro.
-This system is called CPPro abbreviated from out technical term "CDN-P2P Project".
+In this work, we will revisit Guo et al.'s PROP, \cite{1613869} as a basis to evaluate peer-assisted CDN and propose an improvement to the model for the PROP called CPPro (this system is called CPPro abbreviated from our technical term "CDN-P2P Project").
 We will take Youtube as an example of an Internet VoD service model.
-In the Youtube service model, we can get data such as (1) the time when a video is uploaded and (2) number of access or number of view.
+In the Youtube service model, we can get data such as (1) the time when a video is uploaded and (2) the number of accesses or number of views.
 We can get such data using Youtube's API.
-In seminal work, Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} used the above information to estimate when a video will become very popular.
-They divide a video's popularity into three phases: before-peak phase, at-peak phase, and after-peak phase.
+%In seminal work,
+Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} used the above information to estimate when a video will become very popular.
+They divided a video's popularity into three phases: before-peak phase, at-peak phase, and after-peak phase.
 We will use an estimate of a video's popularity phases for helping PROP.
 We will explain video popularity in Sec.\ref{popularity}.
 Our contribution is as follows:
-(1) We use the idea of VoD view popularity model to aid the PROP model. 
-To the best of our knowledge, the combination of the PROP model and the VoD view popularity model is new.
-(2) From simulation-based experiments, we find that peer contributions in CPPro are almost as good as  PROP while the numbers of replicas are lower than PROP resulting in a reduction of resources required.
-
-
+(1) We use the idea of VoD view popularity model to aid the PROP. 
+To the best of our knowledge, the combination of the PROP and the VoD view popularity model is new.
+(2) From simulation-based experiments, we find that peer contributions in CPPro are almost as good as  PROP while the numbers of replicas are lower, achieving the same performance with fewer resources.
 
 
 %%related work pindah ke chapter 2
