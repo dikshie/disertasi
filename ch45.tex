@@ -93,7 +93,7 @@ Suppose a video $v$ in the Borghol dataset has a viewing rate $r_v(t)$, $0 <= t 
 The data is transformed by including the relative time-to-peak, such that each data point is a 2-tuple: video rate and relative time to peak:
 \begin{equation}
 \label{eq:rp}
-rp_v(t) = \langle r_v(t), t_p(t) \rangle
+r_p^v(t) = \langle r_v(t), t_p(t) \rangle
 \end{equation}
 
 \begin{equation}
@@ -188,7 +188,7 @@ $d$ $\leftarrow$ $draw\_integer\_random\_number()$
 
 \STATE {$total \leftarrow 0$}
 \FOR{$i=0$ to $t_e$}
-\STATE $total$ $\leftarrow$ $total$ + $count(d,i)$ \COMMENT{counting how many integer random number and sum those}
+\STATE $total$ $\leftarrow$ $total$ + $count(d,i)$ \COMMENT{counting how many integer random number and sum those number}
 \ENDFOR
 \STATE{$estphase$ $\leftarrow$ $total/36$}
 \IF{$estphase$ $>$ $0.75$}
@@ -203,14 +203,14 @@ $d$ $\leftarrow$ $draw\_integer\_random\_number()$
 
 
 
-
-In determining the phase of a requested video $e$ with known age $t_e$ and view rate $r_e$ at $t_e$, we find the three $r_v$ data points whose rates are closest to $r_e$ at $t_e$, $(t_e - 1)$, and $(t_e + 1)$, and then average the $t_p$ of the three data points.
+In determining the phase of a requested video $e$ with known age $t_e$ and view rate $r_e$ at $t_e$, we find the three $r_v$ data points whose rates are closest to $r_e$ at $t_e$, $(t_e - 1)$, and $(t_e + 1)$ for all videos from Borghol dataset, and then average the $t_p$ of the three data points.
 The phase of the requested video $e$ is estimated to be before-peak, at-peak, or after-peak based on whether the average is negative, $0$, or positive.
 The view rate $r_e$ of a video is calculated by substracting the view counts at the time of the current and the previous video requests.
-The pseudo code for averaging the $tp$ is shown in algorithm \ref{alg2}.
+The pseudo code for averaging the $t_p$ is shown in algorithm \ref{alg2}.
 %The view rate $r_e$  of a video is calculated using the view counts at the time of the current and the previous video requests.
+
 But when a video is being requested for the first time, the phase can only be estimated using the age of the video.
-In this case, we draw 36 random integer numbers $s_i$, $0 <= i <= 35$,  using the time-to-peak distribution in fig.~\ref{fig:timetopeak} then calculate the count of each integers between $0$ and $t_e$ from the drawn numbers then divide the result by 36, 
+In this case, we draw 36 weighted random integer numbers $s_i$, $0 <= i <= 35$ where the weighted factor is from time-to-peak phase CDF as shown in fig.~\ref{fig:timetopeak} then calculate the count of each integers between $0$ and $t_e$ from the drawn numbers then divide the result by 36, 
 %i.e., $estphase = \sum$ of $0 <= i <= t_e$ , $count(i, s)/36$.
 i.e., $estphase = \sum_{0}^{t_e} \frac{count(i,s)}{36}$.
 The number 36 come from the duration of measurement and each week has its own probability as we shown in fig.~\ref{fig:timetopeak}.
