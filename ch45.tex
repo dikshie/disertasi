@@ -132,8 +132,9 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 %\STATE $tp$ $\leftarrow$ read(relativeweeksatpeak) \COMMENT{read relative week at peak from dataset}
 
 %\COMMENT{a requested video has week number and view rate}
-\STATE $t_e$ \COMMENT{week number of a requested video}
-\STATE $r_e$ \COMMENT{view rate of a requested video}
+\STATE $t_e$ $\leftarrow$ $time_{cur} - time_{upload}$ \COMMENT{calculate week number of a requested video which is current time a requested video substract by upload time of a requested video}
+\STATE $r_e$ $\leftarrow$ $viewcount_{cur} - viewcount_{lastweek}$ \COMMENT{calculate view rate of a requested video which is current view count substract by last week view count}
+
 \STATE $len$ $\leftarrow$ $29791*36$ \COMMENT{we have 29791 videos * 36 weeks thus we have 1072476 rows and 3 columns of Borghol's dataset.}
 
 
