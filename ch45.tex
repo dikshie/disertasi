@@ -125,7 +125,7 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 \begin{algorithmic}[1]
 \REQUIRE {dataset that consist of weeknumber, viewrate, and relative week to at peak.}
 
-\STATE $t, r_v, t_p$ $\leftarrow$ read Borghol's dataset {where $t$ is week number (1st column), $r_v$ is view rate (2nd column), and $t_p$ is relative week to at-peak values (3rd column).}
+\STATE $t, r_v, t_p$ $\leftarrow$ read Borghol's dataset \COMMENT{where $t$ is week number (1st column), $r_v$ is view rate (2nd column), and $t_p$ is relative week to at-peak values (3rd column).}
 \STATE $len$ $\leftarrow$ $29791*36$ \COMMENT{we have 29791 videos * 36 weeks thus we have 1072476 rows and 3 columns of Borghol's dataset.}
 
 %\STATE $t$ $\leftarrow$ read(weeknumber) \COMMENT{read week number from dataset}
@@ -140,7 +140,7 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 \STATE $t_e^{before}$ $\leftarrow$ $(t_e - 1)$ \COMMENT{at one week before.}
 %\STATE $tp_{before}$ $\leftarrow$ $find\_tp(t_e^{before},r_e,t,r_v,tp)$
 \FOR{$i=0$ to $len$}
-\IF $t == t_e$ and $r_v = r_e$ 
+\IF {$t == t_e$ and $r_v == r_e$ }
 \STATE $t_p^{before}$ $\leftarrow$ $t_p$  \COMMENT{put $t_p$ value into $t_p^{before}$ list.}
 \ENDIF
 \ENDFOR
@@ -148,7 +148,7 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 \STATE $t_e^{at}$ $\leftarrow$ $(t_e)$ \COMMENT{at same week.}
 %\STATE $tp_{at}$ $\leftarrow$ $find\_tp(t_e^{at},r_e,t,r_v,tp)$
 \FOR{$i=0$ to $len$}
-\IF $t == t_e$ and $r_v = r_e$ 
+\IF {$t == t_e$ and $r_v == r_e$ }
 \STATE $t_p^{at}$ $\leftarrow$ $t_p$  \COMMENT{put $t_p$ value into $t_p^{at}$ list.}
 \ENDIF
 \ENDFOR
@@ -156,15 +156,15 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 \STATE $t_e^{after}$ $\leftarrow$ $(t_e+1)$ \COMMENT{at one week after.}
 %\STATE $tp_{after}$ $\leftarrow$ $find\_tp(t_e^{after},r_e,t,r_v,tp)$
 \FOR{$i=0$ to $len$}
-\IF $t == t_e$ and $r_v = r_e$ 
+\IF {$t == t_e$ and $r_v == r_e$ }
 \STATE $t_p^{after}$ $\leftarrow$ $t_p$  \COMMENT{put $t_p$ value into $t_p^{after}$ list.}
 \ENDIF
 \ENDFOR
 
-\STATE $tp\_final$ $\leftarrow$ $average(t_p^{before}, t_p^{at}, t_p^{after})$
-\IF{$tp\_final$ $<$ $0$} \COMMENT{if relative week to at-peak value is less than 0, estimate a requested video as before-peak.}
+\STATE $t_p^{final}$ $\leftarrow$ $average(t_p^{before}, t_p^{at}, t_p^{after})$
+\IF{$t_p^{final}$ $<$ $0$} \COMMENT{if relative week to at-peak value is less than 0, estimate a requested video as before-peak.}
 \STATE $phase$ $\leftarrow$ $before$
-\ELSIF{$tp\_final$ $==$ $0$} \COMMENT{if relative week to at-peak value is equal to 0, estimate a requested video as at-peak.}
+\ELSIF{$t_p^{final}$ $==$ $0$} \COMMENT{if relative week to at-peak value is equal to 0, estimate a requested video as at-peak.}
 \STATE $phase$ $\leftarrow$ $at$ \COMMENT{if relative week to at-peak value is more than 0, estimate a requested video as after-peak.}
 \ELSE
 \STATE $phase$ $\leftarrow$ $after$
@@ -368,7 +368,7 @@ Peers request videos from a video catalog where the peer request as well as the 
 Each video in the catalog has the following properties: 
 video-id,size,upload time, final view count, view count function parameters. 
 View count parameters are the distribution parameters.
-The final view count is the total number of views of a video at the end of simulation and it is generated using uniform distribution from Borghol dataset.
+The final view count is the total number of views of a video at the end of simulation and it is generated using uniform distribution sampling from Borghol dataset ranging from 27 until 1069385.
 The upload time interval is a Poisson process with $\lambda=1$.
 The video size is generated using a uniform distribution.
 Because of the very weak relationship betwen video size and popularity \cite{abhari2010workload} and because our work focuses on the impact of the popularity aspect on the utility function rather than storage optimization we believe that the choice to assign a random uniform video size from the Youtube dataset does not effect our results. 
