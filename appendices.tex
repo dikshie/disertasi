@@ -1,14 +1,14 @@
 \begin{appendices}
 
-\chapter{Some Detail on Bittorrent Terminology}
+\chapter{Some Detail on BitTorrent Terminology}
 
-In this appendix, we will give more detail explanation some Bittorrent terminology based on Bittorrent specification. 
+In this appendix, we will give more detail explanation some BitTorrent terminology based on BitTorrent specification. 
 
 \section{Torrent File}
 Torrent file or metainfo file has always ending in ".torrent".  
 This file is a bencoded dictionary, containing structure as follows:
 \begin{itemize}
-	\item info: a dictionary descriebed the file of the torrent. 
+	\item info: a dictionary described the file of the torrent. 
 	\item announce: the announce URL of the tracker.
 	\item creation date: the creation time of the torrent in standard UNIX epoch format. 
 	\item comment: free text contain comments from the author.
@@ -23,7 +23,7 @@ info itself has structure as follows:
 \end{itemize}
 
 \section{Handshake}.  
-Handshake is the first message that must sent by Bittorrent client when contacting other peers. 
+Handshake is the first message that must sent by BitTorrent client when contacting other peers. 
 Handshake message format as follows: 
 \begin{verbatim}
 handshake: <pstrlen><pstr><reserved><info_hash><peer_id>
@@ -37,7 +37,7 @@ The details as follows:
 	\item peer\_id is 20 byte string used as a unique ID for the client.
 	\item name:  the file name of content.
 	\item length: length of the file in bytes.
-	\item md5sum: hexadecimal string correponding to the MD5 sum of the file. 
+	\item md5sum: hexadecimal string corresponding to the MD5 sum of the file. 
 \end{itemize}
 
 \section{HAVE}
@@ -121,9 +121,5 @@ is the complementary Gaussian error function which is available widely in scient
 This $p$ value is also call significance value for log-likelihood test. 
 In nested hypothesis where we compare two distributions under same family, if $p$-value is small, the smaller family is better than larger family.
 if not then we can not say no evidence that larger family is needed, while the smaller family gives better fit. 
-
-
-
-
 
 \end{appendices}

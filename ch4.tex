@@ -5,13 +5,13 @@ The significant footprint of BitTorrent in the Internet has motivated researcher
 However, despite this effort, we still have little knowledge regarding the connectivity properties exhibited by real BitTorrent swarms at both swarm and peer level. 
 Due to the difficulty in collecting the required information from real swarms, most of the existing works that analyze connectivity properties are based on simulations or experiments in controlled environments. 
 As a result, they are likely to miss some of the effects affecting BitTorrent swarms in the wild. 
-The analysis of the peer level connectivity in real Bittorrent swarms can reveal important information such as: (1) efficiency of a swarm to disseminate the content; (2) the resilience of the swarm, (3) checking the locality-bias.   
-Urvoy Keller et al.\cite{urvoy2007impact} shows that number of connections from a peer maintains high entropy of the Bittorrent system thus the Bittorrent works in optimal.
-Resilience of the swarm is very important for content provider who use Bittorrent like protocol to disseminate their contents. 
+The analysis of the peer level connectivity in real BitTorrent swarms can reveal important information such as: (1) efficiency of a swarm to disseminate the content; (2) the resilience of the swarm, (3) checking the locality-bias.   
+Urvoy Keller et al.\cite{urvoy2007impact} shows that number of connections from a peer maintains high entropy of the BitTorrent system thus the BitTorrent works in optimal.
+Resilience of the swarm is very important for content provider who use BitTorrent like protocol to disseminate their contents. 
 The result of the information about how peer connect each other can be used for doing network partition.  
 For example, we want to know what's happened if high degree peers are remove randomly?; what's happened with peers are removed randomly? will the swarm collapse? or will it decrease download performance?
 Some ISPs have started to introduce a policy to minimize the impact of cross AS traffic caused by P2P. 
-This effect of locality will be much better observed if we have peer connectivity level properties information by measuring real Bittorrent swarms topology.
+This effect of locality will be much better observed if we have peer connectivity level properties information by measuring real BitTorrent swarms topology.
 
 In this Chapter, we first present a methodology to collect the connectivity information at both the swarm and the peer level for the entire lifespan of a real torrent. Specifically, we discover new torrents just after their birth by using the RSS service of the most important BitTorrent portal, namely the Pirate Bay. 
 Afterwards, we exploit the Peer Exchange (PEX) extension of the BitTorrent protocol to gather the set of neighbors for each peer. 
@@ -24,48 +24,48 @@ We have applied the described methodology to collect the connectivity informatio
 
 \section{Measurement Methodology}
 
-The difficulties in inferring topologies in Bittorrent swarms are caused by the Bittorrent mechanism itself. 
-First, although a Bittorrent \textit{peer} may offer some information about its peers, there is no mechanism for peer \textit{discovery}.  
+The difficulties in inferring topologies in BitTorrent swarms are caused by the BitTorrent mechanism itself. 
+First, although a BitTorrent \textit{peer} may offer some information about its peers, there is no mechanism for peer \textit{discovery}.  
 Second, a peer never sends information about its connections with other peers to the tracker, so we cannot infer overlay topologies by querying or hosting a tracker.  
-Our other options inferring topologies are simulation or deploying Bittorrent nodes in a real network or in a laboratory, e.g., PlanetLab. Deploying hundreds to thousands of nodes in a real network or in the laboratory in a manner that accurately reflects the real world is a very challenging task.
+Our other options inferring topologies are simulation or deploying BitTorrent nodes in a real network or in a laboratory, e.g., PlanetLab. Deploying hundreds to thousands of nodes in a real network or in the laboratory in a manner that accurately reflects the real world is a very challenging task.
 
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.6]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/pex_2.eps}
 \end{center}
-\caption{Simplified view of our approach. Left: At time t=1, the actor gets a PEX message from peer A and
-learns that peer A is connected to peer B and C. At t=2, the actor gets  PEX messages from peers C and A. The actor
-learns that now peer A is connected to peer D. Thus the actor knows the properties of peer A at t=1 and t=2.} 
+\caption{Simplified view of our approach. Left: At time $t=1$, the actor gets a PEX message from peer A and
+learns that peer A is connected to peer B and C. At $t=2$, the actor gets  PEX messages from peers C and A. The actor
+learns that now peer A is connected to peer D. Thus the actor knows the properties of peer A at $t=1$ and $t=2$.} 
 \label{fig:pexworks}
 \end{figure}
 
 We used PEX to collect information about peer neighbors (see Fig.\ref{fig:pexworks}), and then we describe the network formed in terms of properties such as node degree and average clustering. 
-Besides collecting data from real Bittorrent networks, we ran simulations similar to these of Al-Hamra \textit{et al}. \cite{al2009swarming}. 
+Besides collecting data from real BitTorrent networks, we ran simulations similar to these of Al-Hamra \textit{et al}. \cite{al2009swarming}. 
 In these simulations, we assumed that peer arrivals and departures (churn) follow an exponential distribution as explained by Guo \textit{et al}. \cite{guo2005measurements}. 
 For simplification, we assumed that nodes are not behind a NAT.
 Since we are only interested in the construction of the overlay topology, we argue that our simulations are thorough enough to explain the overlay properties.
 
-Temporal graphs have recently been proposed to study real dynamic graphs, with the intuition that the behaviour of dynamic networks can be more accurately captured by a sequence of snapshots of the network topology as it changes over time \cite{grindodevolvingnet}\cite{Tang2009}.
+Temporal graphs have recently been proposed to study real dynamic graphs, with the intuition that the behavior of dynamic networks can be more accurately captured by a sequence of snapshots of the network topology as it changes over time \cite{grindodevolvingnet}\cite{Tang2009}.
 In highly dynamic networks such as P2P, an instantaneous snapshot may capture only a few nodes and links. 
 In this chapter, we study the network dynamics by continuously taking network snapshots over a short time interval $\Delta$, and show them as a time series.
 A snapshot captures all participating peers and their connections within a particular time interval, from which a graph can be generated.
 The snapshot duration may have minor effects on analyzing slowly changing networks.
 However, in a P2P network, the characteristics of the network topology vary greatly with respect to the time scale of the snapshot duration \cite{stutzbach2008characterizing}.
-We consider $\Delta=3 $ minutes to be a reasonable estimate of minimum session length in Bittorrent \cite{stutzbach2006understanding}. 
+We consider $\Delta=3 $ minutes to be a reasonable estimate of minimum session length in BitTorrent \cite{stutzbach2006understanding}. 
 
 \subsection{Graph Sampling}\label{sec:graphsampling}
-Due to the large and dynamic nature of Bittorrent networks, it is often very difficult or impossible to capture global properties. 
+Due to the large and dynamic nature of BitTorrent networks, it is often very difficult or impossible to capture global properties. 
 Facing this difficulty, sampling is a natural approach.
 However, collecting unbiased or representative sampling is also sometimes a challenging task.
 
-Suppose that a Bittorrent overlay network is a graph $G(V,E)$ with the peers or nodes as vertices and connections between the peers as edges. 
+Suppose that a BitTorrent overlay network is a graph $G(V,E)$ with the peers or nodes as vertices and connections between the peers as edges. 
 If we observe the graph in a time series,  i.e., we take samples of the graph, the time-indexed graph is $G_t = G(V_t,E_t)$.   
 From this set of graphs, we can define a measurement window $[t_0,t_0 + \Delta]$ and select peers uniformly at random from the set: $V_{t_0,t_0+\Delta}=\bigcup^{t_0+\Delta}_{t=t_0} V_t$.
 In that equation, we cannot distinguish properties of the same peer at different times, thus it focuses on sampling peers instead of peer properties. 
-Stutzbach \textit{et al}. \cite{stutzbach2007sampling} showed that equation is only appropriate for exponentially distributed  peer session lengths but we know from existing measurement that Bittorrent networks peer session lengths have very high variation \cite{guo2005measurements}. 
+Stutzbach \textit{et al}. \cite{stutzbach2007sampling} showed that equation is only appropriate for exponentially distributed  peer session lengths but we know from existing measurement that BitTorrent networks peer session lengths have very high variation \cite{guo2005measurements}. 
 
-For example: suppose we want to measure number of files shared by peers in Bittorrent swarm.
-In this Bittorrent swarm, half of the peers are up all the time and have many files, while other peers remain around for one minute and are immediately replaced by new short-lived peers who have few files.
+For example: suppose we want to measure number of files shared by peers in BitTorrent swarm.
+In this BitTorrent swarm, half of the peers are up all the time and have many files, while other peers remain around for one minute and are immediately replaced by new short-lived peers who have few files.
 The common method is to observed the system for a long time and sample the peers randomly. 
 This method will incorrectly conclude that most of the peers in the system have very few files.
 The problem with this method is that it focuses on sampling the number of peers instead of peer properties.
@@ -87,23 +87,23 @@ Almost all of these torrents were in steady-state phase, which is more dominant 
 %We joined to that top 30 TV series swarms and log the connection between peers. 
 %Swams of a new episode of TV series are being created weekly and popular TV series attract many people to join the swarm which make these swarms perfect for our experiments.
 We used a modified rasterbar libtorrent \cite{rasterbar} client that is connection greedy, where the client tries to connect to all peers it knows without a limit on the number of connections, and the client logs PEX messages received from other clients.
-PEX messages from old versions of Vuze Bittorrent clients contain all of peers they connected to in the past, hence these clients should be removed from the data.
+PEX messages from old versions of Vuze BitTorrent clients contain all of peers they connected to in the past, hence these clients should be removed from the data.
 Removal of some peers in data processing is valid in terms of sampling with dynamics, see Sect.(\ref{sec:graphsampling}).
-In terms of connectivity, two popular Bittorrent clients (uTorrent and Vuze), by default try to connect to peer candidates randomly without any preference, thus we have random data sets.
+In terms of connectivity, two popular BitTorrent clients (uTorrent and Vuze), by default try to connect to peer candidates randomly without any preference, thus we have random data sets.
 This implies that our data set is independent of measurement location and the number of measurement locations.
 
 %----------------- DATA ANALYSIS BACKGROUND --------------------
 \subsection{Data Analysis Background}
 Many realistic networks exhibit the scale-free property \cite{clauset2009power}, though we note that ``scale-free" is not a complete description of a network topology \cite{doyle2005robust}\cite{mahadevan2006systematic}. 
-It has been suggested that Bittorrent networks also might have scale-free characteristics \cite{dale2008evolution}. 
+It has been suggested that BitTorrent networks also might have scale-free characteristics \cite{dale2008evolution}. 
 In this chapter, we test this hypothesis. 
-Besides testing this hypothesis, we also study the clustering property of Bittorrent swarms. 
+Besides testing this hypothesis, we also study the clustering property of BitTorrent swarms. 
 
 In a scale-free network, the degree distribution follows a power-law distribution.   
 A power-law distribution is quite a natural model and can be generated from simple generative processes \cite{mitzenmacher2004brief}, and power-law models appear in many areas of science \cite{clauset2009power} \cite{mitzenmacher2004brief}. 
-%For Bittorrent networks, we argue that `tit-for-tat' mechanism in Bittorrent will make a node prefer to attach to other nodes that provide higher %download rate rather than higher degree node therefore we need to know the current state of node degree distribution in real Bittorrent systems.
+%For BitTorrent networks, we argue that `tit-for-tat' mechanism in BitTorrent will make a node prefer to attach to other nodes that provide higher %download rate rather than higher degree node therefore we need to know the current state of node degree distribution in real BitTorrent systems.
 %Data with power-law distributed requires special of estimation because of their specific features: slow than exponential decay to zero, violation %cramer condition, possible non-existent some moments, and sparse observation in tail \cite{markovich2007nonparametric}.
-%We argue that consecutive of instantaneous node degree properties through power-law analysis combine with consecutive of instantaneous %clustering coefficient can reveal the dynamics of Bitorrent overlay topologies. 
+%We argue that consecutive of instantaneous node degree properties through power-law analysis combine with consecutive of instantaneous %clustering coefficient can reveal the dynamics of BitTorrent overlay topologies. 
 %We will address clustering coefficient in next section. 
 
 %Let $x$ be the quantity of distribution. 
@@ -141,14 +141,14 @@ For the detailed calculations of both $x_{min}$ and $\alpha$, see Appendix B in 
 \end{center}
 \caption{CDF plot of number of peers for the 50 swarms during measurement.}
 %\caption{CDF plot of number of peers for the 50 swarms during measurement with 104 to 1400 time samples for each torrent. 
-%This clearly shows high variation in the number of peers in every swarm, due to churn in Bittorrent networks.} 
+%This clearly shows high variation in the number of peers in every swarm, due to churn in BitTorrent networks.} 
 \label{fig:num_peers}
 \end{figure}
 
 %--------------- EXPERIMENT RESULT -------------------------
 \section{Experimental Results}\label{result}
 Our time samples for the size of swarms are plotted as the CDF of the number of peers for every swarm during measurement with 104 to 1400 time samples for each torrent, as shown in Fig.\ref{fig:num_peers}. 
-It is clear that the number of peers has high variability due to churn in Bittorrent networks. 
+It is clear that the number of peers has high variability due to churn in BitTorrent networks. 
 %The number of peers will have a relationship with the clustering coefficient, which will be explained in section \ref{clusteringcoef}.
 
 \subsection{Power-law Distribution of Node Degree}
@@ -159,7 +159,7 @@ We show node degree data in cumulative distribution function (CDF) plot, which c
 P_k = \sum_{k'=k}^{\infty} p_{k'}.
 \end{equation}
 
-We want to know the power-law distribution of the measured Bittorrent networks, and we do not know \textit{a priori} if our data are power-law distributed.
+We want to know the power-law distribution of the measured BitTorrent networks, and we do not know \textit{a priori} if our data are power-law distributed.
 %Simply calculating the estimated scaling parameter gives no indication of whether the power-law is a good model.  
 To test the applicability of a power-law distribution, we use the goodness-of-fit test as described by Clauset \textit{et al}. \cite{clauset2009power}. 
 First, we fit data to the power-law model and calculate the Kolmogorov-Smirnov (KS) statistic for this fit. 
@@ -199,7 +199,7 @@ We address these concerns next.
 \includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/aggregate-p-cdf.eps}
 \end{center}
 \caption{CDF plot of $p$ value of K-S statistics.} 
-%It shows that across our entire set of Bittorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
+%It shows that across our entire set of BitTorrent snapshots, around $45\%$ of the time a power-law distribution is not a good fit for the data. 
 %The inset figure shows the CDF plot $p$ value for each torrent. The dash line on $p$ value = 0.1 is the threshold.} 
 \label{fig:cdf-p}
 \end{figure}
@@ -229,7 +229,7 @@ $52\%$ of points lie in area 1, thus an alternative model may be plausible for t
 We divide this figure into four areas where the borders are vertical line $LR=0$ and horizontal line $p = 0.1$.
 $p$ is goodness-fit of test for power-law model, if $p \geq 0.1$ power-law model is good model for data set. $\rho$ is significance test for nested hypothesis.
 $LR$ is the sign of likelihood ratio value.  
-if $LR$ is negative, there is a significant difference in the likelihoods and the altervative model is better.
+if $LR$ is negative, there is a significant difference in the likelihoods and the alternative model is better.
 $58\%$ of points lie in area 3 and $42\%$ lie in area 4. 
 Because area 3 and 4 are negative value of LR, the alternative model is better.
 } 
@@ -242,8 +242,8 @@ Even if we have estimated the power-law parameter properly and the fit is decent
 It is always possible that non-power-law models are better than the power-law model.
 %Direct comparison of models is a method which can directly compare two distributions against each other.
 There are several methods for direct comparison of two distributions such as \textit{likelihood ratio test} \cite{vuong1989likelihood}, \textit{Bayesian test}, and \textit{Minimum description length}.
-The likelihood ratio test idea is to compute the likehood of the data sets under two distributions. 
-The one with the higher likehood is the better fit. 
+The likelihood ratio test idea is to compute the likelihood of the data sets under two distributions. 
+The one with the higher likelihood is the better fit. 
 We use the likelihood ratio test to see whether other distributions can give better parameter estimation.
 
 \subsubsection{Nested Case}
@@ -273,12 +273,12 @@ Although in the case $p$ $<0.1$ we reject power-law as the plausible model, the 
 We believe that these results are caused by peers that are not willing to maintain large numbers of concurrent connections (high node degree).
 %In the nested case, if $\rho$ value $\leq 0.1$ the smaller family provides a better model, otherwise there is no evidence that a larger family is needed %to fit the data \cite{clauset2009power} \cite{vuong1989likelihood}. 
 %Instead showing CDF of $\rho$ values for very swarm which have high variation, Figure \ref{fig:cdf-lr} shows the CDF at $\rho$ value $=0.1$ for every swarm. 
-%It is very sparse and it shows that nested comparison is also very dynamic in Bittorrent temporal networks.
+%It is very sparse and it shows that nested comparison is also very dynamic in BitTorrent temporal networks.
 %Some swarms have CDF at $\rho$ value $=0.1$ more than $80\%$.
 %It means that for those swarms the power-law with exponential cut-off model can fit well.
 %Some swarms have less than $20\%$ of $\rho$ value less than $0.1$ and some others have up to $85\%$ of $\rho$ value less than $0.1$.
 %We see  some snapshots have $\rho$ value less than 0.1 and we can say that on that snapshots power-law with exponential cut-off can be ruled out. 
-%We argue that the power-law with exponential cut-off occurs as implication of node degree bound in Bittorrent networks since a node wants only to attach to neighbors who will give best download rate and Bitorrent client software itself has default maximum connection limit.
+%We argue that the power-law with exponential cut-off occurs as implication of node degree bound in BitTorrent networks since a node wants only to attach to neighbors who will give best download rate and BitTorrent client software itself has default maximum connection limit.
 These observations clearly demonstrate that comparing models is a very complex task in highly dynamic networks.
 
 
@@ -286,13 +286,13 @@ These observations clearly demonstrate that comparing models is a very complex t
 \begin{center}
 \includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-cdf-non-nested-lognorm.eps}
 \end{center}
-\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s 
+\caption{CDF plot of $\rho$ value of log-likelihood ratio test for power-law v.s 
          log-normal.
          We divide the figure into two areas with vertical line  $\rho=0.1$ as border.
          Under nested hypothesis, $\rho$ value is significance value of observed sign of likelihood ratio.
          if $\rho \le 0.1$ then the sign of log-likelihood ratio is a good indicator of which model is the better fit to the data.
          In this figure, only $13\%$ of $\rho$ values are less than $0.1$. 
-         Since $87\%$ of $\rho$ values are more than $0.1$, the sign of log-likehood ratio is not good indicator and the test does not favor either model over the other. 
+         Since $87\%$ of $\rho$ values are more than $0.1$, the sign of log-likelihood ratio is not good indicator and the test does not favor either model over the other. 
          } %Only $13\%$ $\rho$ values are less than $0.1$.} 
 \label{fig:cdf-p-lognorm}
 \end{figure}
@@ -303,7 +303,7 @@ These observations clearly demonstrate that comparing models is a very complex t
 \end{center}
 \caption{Scatter plot $p$ values v.s log-likelihood
          ratio (LR) for likelihood test for power-law vs log-normal.
-         In this figure, we show the log-likehood ratio (LR) values for $\rho \le 0.1$.
+         In this figure, we show the log-likelihood ratio (LR) values for $\rho \le 0.1$.
          Since the LR values are negative, the alternative distribution (log-normal) is not better than power-law model.} 
 \label{fig:scatter-lognorm}
 \end{figure}
@@ -312,12 +312,12 @@ These observations clearly demonstrate that comparing models is a very complex t
 \begin{center}
 \includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/non-nested/aggregate-p-cdf-non-nestedi-exp.eps}
 \end{center}
-\caption{CDF plot of $\rho$ value of log-likehood ratio test for power-law v.s exponential.
+\caption{CDF plot of $\rho$ value of log-likelihood ratio test for power-law v.s exponential.
 		We divide the figure into two areas with vertical line  $\rho=0.1$ as border.
 		Under nested hypothesis, $\rho$ value is significance value of observed sign of likelihood ratio.
         if $\rho \le 0.1$ then the sign of log-likelihood ratio is a good indicator of which model is the better fit to the data.
         In this figure, only $5.5\%$ of $\rho$ values are less than $0.1$.
-        Since $94.5\%$ of $\rho$ values are more than $0.1$, the sign of log-likehood ratio is not good indicator and the test does not favor either model over the other.  
+        Since $94.5\%$ of $\rho$ values are more than $0.1$, the sign of log-likelihood ratio is not good indicator and the test does not favor either model over the other.  
 		} 
          %Only $5.5\%$ $\rho$ values are less than $0.1$.} 
 \label{fig:cdf-p-exp}
@@ -329,7 +329,7 @@ These observations clearly demonstrate that comparing models is a very complex t
 \end{center}
 \caption{Scatter plot $p$ values v.s log-likelihood 
          ratio (LR) for likelihood test for power-law vs exponential.
-         In this figure, we show the log-likehood ratio (LR) values for $\rho \le 0.1$.
+         In this figure, we show the log-likelihood ratio (LR) values for $\rho \le 0.1$.
          Since the LR values are negative, the alternative distribution (exponential) is not better than power-law model.
          } 
 \label{fig:scatter-exp}
@@ -340,15 +340,15 @@ In the non-nested case, we compare power-law distribution with log-normal distri
 We calculate the ratio of two likelihood distributions or the logarithm of the ratio, which is positive or negative depending on which distribution is better.
 The positive or negative sign of log-likelihood ratio does not definitively indicate which model is the better fit. 
 Vuong's \cite{vuong1989likelihood}  method gives a $\rho$ value that can tell us whether the observed sign of likelihood ratio is statistically significant.
-If this $\rho$ value is small ($\rho < 0.1$) then the sign of log-likehood ratio is a reliable indicator of which model is the better fit to the data. 
-If the $\rho$ value is large the sign of log-likehood ratio is not reliable and the test does not favor either model over the other. 
+If this $\rho$ value is small ($\rho < 0.1$) then the sign of log-likelihood ratio is a reliable indicator of which model is the better fit to the data. 
+If the $\rho$ value is large the sign of log-likelihood ratio is not reliable and the test does not favor either model over the other. 
 
-Figure \ref{fig:cdf-p-lognorm} and Fig.\ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for the log-likehood ratio between power-law and log-normal distributions and the log-likehood ratio between power-law and exponential distributions.
+Figure \ref{fig:cdf-p-lognorm} and Fig.\ref{fig:cdf-p-exp} show the CDF of the $\rho$ value for the log-likelihood ratio between power-law and log-normal distributions and the log-likelihood ratio between power-law and exponential distributions.
 Both alternative distributions only show very small number of data points that have $\rho < 0.1$, each at around $13\%$ and $5.5\%$.
 The log-likelihood ratio of these data points have negative signs as shown in Fig.\ref{fig:scatter-lognorm} and Fig.\ref{fig:scatter-exp}, therefore the alternative distributions are not better than power-law.
 With the vast majority of the values for $\rho$ being larger than 0.1, the results of the log-likelihood ratio test are ambiguous. 
 Therefore, it is important to look at theoretical factors or design factors behind the systems to make a sensible judgment.
-For example: a leecher in a Bittorrent swarm is design to prefer the fastest seeders or leechers instead of high degree seeders or leechers. 
+For example: a leecher in a BitTorrent swarm is design to prefer the fastest seeders or leechers instead of high degree seeders or leechers. 
 With this design factor information, we can make a sensible judgment which distributional form is more reasonable.
 
 
@@ -370,17 +370,17 @@ A larger clustering coefficient represents more clustering at nodes in the graph
 The distinction between a random and a non-random graph can be measured by clustering-coefficient metrics \cite{watts1998collective}.
 A network that has a high clustering coefficient and a small average path length is called a \textit{small-world} model \cite{watts1998collective}.
 %%Newman \cite{newman2003properties} mentions that virus outbreaks spread faster in highly clustered networks. 
-In Bittorrent systems, a previous study \cite{legout2007clustering} mentioned the possibility that Bittorrent's efficiency partly comes from the clustering of peers.
+In BitTorrent systems, a previous study \cite{legout2007clustering} mentioned the possibility that BitTorrent's efficiency partly comes from the clustering of peers.
 Figure \ref{fig:cdf-clustering} shows the CDF clustering coefficient value of our data sets.
 Only one torrent exhibits clustering coefficient less than $0.1$ for about $40\%$ of the snapshots, while for the other torrents, more than  $70\%$ are less than $0.1$.
 This low clustering coefficient observation is the same as that observed by Dale \textit{et al}. \cite{dale2008evolution}.
-Considering only the low clustering coefficient, the Bittorrent topologies seem to be close to random graphs.
+Considering only the low clustering coefficient, the BitTorrent topologies seem to be close to random graphs.
 
 \begin{figure}[!tb] 
 \begin{center}
 \includegraphics[scale=1]{../../../papers/IEEE-P2P/tex/IEICE/jurnal/graphs/new/cdf-clustering.eps}
 \end{center}
-\caption{CDF plot of the clustering coefficient for each torrent.}%It is clearly show that Bittorrent networks have low clustering coefficient.} 
+\caption{CDF plot of the clustering coefficient for each torrent.}%It is clearly show that BitTorrent networks have low clustering coefficient.} 
 \label{fig:cdf-clustering}
 \end{figure}
 
@@ -406,15 +406,15 @@ Therefore, the simulator confirms that the PEX method can be used to estimate $\
 
 
 \section{Summary}\label{summary3}
-We have investigated the properties of Bittorrent overlay topologies from the point of view of the peer exchange protocol using real swarms from an operational Bittorrent tracker on the Internet. 
+We have investigated the properties of BitTorrent overlay topologies from the point of view of the peer exchange protocol using real swarms from an operational BitTorrent tracker on the Internet. 
 
-We find that the node degree of the graph formed in a Bittorrent swarm can be described by a power law with exponential cut-off and the observation of a low clustering coefficient implies Bittorrent networks are close to random networks.
-From the Bittorrent protocol point of view, the reason that a Bittorrent swarm can be described by a power-law with exponential cut-off is: leechers in a Bittorrent swarm prefer a few good seeders or neighbors that can give high data rates to exchange the data and seeders have rich connections to leechers as seeders have complete chunks or pieces. 
+We find that the node degree of the graph formed in a BitTorrent swarm can be described by a power law with exponential cut-off and the observation of a low clustering coefficient implies BitTorrent networks are close to random networks.
+From the BitTorrent protocol point of view, the reason that a BitTorrent swarm can be described by a power-law with exponential cut-off is: leechers in a BitTorrent swarm prefer a few good seeders or neighbors that can give high data rates to exchange the data and seeders have rich connections to leechers as seeders have complete chunks or pieces. 
 That behavior explains why seeders have rich connections while leechers only have a few neighbors. 
 We argue that there are two reasons for the cut-off phenomenon. 
-First, most Bittorrent clients configure the maximum number of global connection between $200-300$, however the maximum connection per torrent (swarm) is set between $50 - 90$ by default \cite{clientv}\cite{clientu}.
-Some Bitorrent forums suggest decreasing the maximum connection for torrent (swarm) to between $30-40$ \cite{clientf}. 
-Second, most of the Bittorrent users are home users where their home gateway device cannot give high concurrent connections and Bitorrent is not the main online activity. 
-We argue that the Bittorrent swarm closes to random that we infer from clustering coeficient is caused by Bittorrent mechanism itself that always choose random peers from its neighbors in the choking-unchoking algorithm, optimistic choking algorithm, and optimistic connect algorithm as we explained previously.
+First, most BitTorrent clients configure the maximum number of global connection between $200-300$, however the maximum connection per torrent (swarm) is set between $50 - 90$ by default \cite{clientv}\cite{clientu}.
+Some BitTorrent forums suggest decreasing the maximum connection for torrent (swarm) to between $30-40$ \cite{clientf}. 
+Second, most of the BitTorrent users are home users where their home gateway device cannot give high concurrent connections and BitTorrent is not the main online activity. 
+We argue that the BitTorrent swarm closes to random that we infer from clustering coefficient is caused by BitTorrent mechanism itself that always choose random peers from its neighbors in the choking-unchoking algorithm, optimistic choking algorithm, and optimistic connect algorithm as we explained previously.
 Our approach can infer BitTorrent swarms topology and the result confirmed by simulation.
 

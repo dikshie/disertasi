@@ -1,18 +1,18 @@
 \chapter{Conclusion and Future Work}
 
 \section{Conclusion}
-We have investigated the properties of Bittorrent overlay topologies from the point of view of the peer exchange protocol using real swarms from an operational Bittorrent tracker on the Internet. 
+We have investigated the properties of BitTorrent overlay topologies from the point of view of the peer exchange protocol using real swarms from an operational BitTorrent tracker on the Internet. 
 
-Our results agree in some particulars and disagree in others with prior published work on isolated testbed experiments, suggesting that more work is required to fully model the behavior of real-world Bittorrent networks.
+Our results agree in some particulars and disagree in others with prior published work on isolated testbed experiments, suggesting that more work is required to fully model the behavior of real-world BitTorrent networks.
 
-We find that the node degree of the graph formed in a Bittorrent swarm can be described by a power law with exponential cut-off and the observation of a low clustering coefficient implies Bittorrent networks are close to random networks.
-From the Bittorrent protocol point of view, the reason that a Bittorrent swarm can be described by a power-law with exponential cut-off is: leechers in a Bittorrent swarm prefer a few good seeders or neighbors that can give high data rates to exchange the data and seeders have rich connections to leechers as seeders have complete chunks or pieces. 
+We find that the node degree of the graph formed in a BitTorrent swarm can be described by a power law with exponential cut-off and the observation of a low clustering coefficient implies BitTorrent networks are close to random networks.
+From the BitTorrent protocol point of view, the reason that a BitTorrent swarm can be described by a power-law with exponential cut-off is: leechers in a BitTorrent swarm prefer a few good seeders or neighbors that can give high data rates to exchange the data and seeders have rich connections to leechers as seeders have complete chunks or pieces. 
 That behavior explains why seeders have rich connections while leechers only have a few neighbors. 
 We argue that there are two reasons for the cut-off phenomenon. 
-First, most Bittorrent clients configure the maximum number of global connection between $200-300$, however the maximum connection per torrent (swarm) is set between $50 - 90$ by default \cite{clientv}\cite{clientu}.
-Some Bitorrent forums suggest decreasing the maximum connection for torrent (swarm) to between $30-40$ \cite{clientf}. 
-Second, most of the Bittorrent users are home users where their home gateway device cannot give high concurrent connections and Bitorrent is not the main online activity. 
-We argue that the Bittorrent swarm closes to random that we infer from clustering coeficient is caused by Bittorrent mechanism itself that always choose random peers from its neighbors in the choking-unchoking algorithm, optimistic choking algorithm, and optimistic connect algorithm as we explained previously.
+First, most BitTorrent clients configure the maximum number of global connection between $200-300$, however the maximum connection per torrent (swarm) is set between $50 - 90$ by default \cite{clientv}\cite{clientu}.
+Some BitTorrent forums suggest decreasing the maximum connection for torrent (swarm) to between $30-40$ \cite{clientf}. 
+Second, most of the BitTorrent users are home users where their home gateway device cannot give high concurrent connections and BitTorrent is not the main online activity. 
+We argue that the BitTorrent swarm closes to random that we infer from clustering coefficient is caused by BitTorrent mechanism itself that always choose random peers from its neighbors in the choking-unchoking algorithm, optimistic choking algorithm, and optimistic connect algorithm as we explained previously.
 
 
 In peer-assisted CDN, We show that by introducing the $z$ factor to utility function we can increase the peer contribution to deliver the content while decreasing required replicas. 
@@ -30,6 +30,6 @@ Several areas that we have been identified for future work are: more correlation
 
 \section{Future Work}
 Some areas of improvement that we have identified for future work are: more correlation analysis of the number of peers with $\alpha$ and $p$ value, continued characterization with NATed peers, wider likelihood ratio test with other models and comparing the results with simulation for global graph properties such as distance distribution.
-We hope to incorporate these properties into a complete $dK$ series for the evolution of a real-world Bittorrent overlay as it evolves over time \cite{mahadevan2006systematic}. 
-We conclude that further work throughout the community is necessary to continue to improve the agreement of simulation and controlled experiment with the real world, and that such work will impact our understanding of Bittorrent performance and its effects on the Internet.
-Several areas that we have been identified for future work in energy comsumption of peer-assisted CDN: more correlation analysis of time period to peer energy usage pattern in live streaming, continued characterization of different peer energy usage based on flash memory storage, and comparing energy model with different file popularity models.
+We hope to incorporate these properties into a complete $dK$ series for the evolution of a real-world BitTorrent overlay as it evolves over time \cite{mahadevan2006systematic}. 
+We conclude that further work throughout the community is necessary to continue to improve the agreement of simulation and controlled experiment with the real world, and that such work will impact our understanding of BitTorrent performance and its effects on the Internet.
+Several areas that we have been identified for future work in energy consumption of peer-assisted CDN: more correlation analysis of time period to peer energy usage pattern in live streaming, continued characterization of different peer energy usage based on flash memory storage, and comparing energy model with different file popularity models.

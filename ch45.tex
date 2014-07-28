@@ -87,7 +87,6 @@ Our algorithm for determining a requested video is quite simple.
 As we know the age of a requested video in week number and its view rate, the algorithms looks for Borghol dataset with the same week, one week before, and one week after for the same view rate.  
 We are averaging the relative week to at-peak values in the same week, one week before, and one week after. 
 
-
 Suppose a video $v$ in the Borghol dataset has a viewing rate $r_v(t)$, $0 <= t < t_f$, and $r_v(t)$ peaks at $t_{vp}$.
 %The data is transformed by including the relative time-to-peak, such that each data point is a 2-tuple: video rate and relative time to peak:, i.e., $rp_v(t) =$ < $r_v(t), t_p(t)$ >, $t_p(t) = t - t_{vp}$.
 The data is transformed by including the relative time-to-peak, such that each data point is a 2-tuple: video rate and relative time to peak:
@@ -95,12 +94,10 @@ The data is transformed by including the relative time-to-peak, such that each d
 \label{eq:rp}
 r_p^v(t) = \langle r_v(t), t_p(t) \rangle
 \end{equation}
-
 \begin{equation}
 \label{eq:tp}
 t_p(t) = t - t_{vp}.
 \end{equation}
-
 Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis for each video is translated by $t_{vp}$ to the left, such that each video peaks at time $0$.
 
 % \begin{figure}[!t]
@@ -123,7 +120,7 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 \caption{Averaging relative weeks from the nearest neighbor points}
 \label{alg2}
 \begin{algorithmic}[1]
-\REQUIRE {dataset that consist of weeknumber, viewrate, and relative week to at peak.}
+\REQUIRE {dataset that consist of week number, view rate, and relative week to at peak.}
 
 \STATE $t, r_v, t_p$ $\leftarrow$ read Borghol's dataset \COMMENT{where $t$ is week number (1st column), $r_v$ is view rate (2nd column), and $t_p$ is relative week to at-peak values (3rd column).}
 \STATE $len$ $\leftarrow$ $29791*36$ \COMMENT{we have 29791 videos * 36 weeks thus we have 1072476 rows and 3 columns of Borghol's dataset.}
@@ -133,8 +130,8 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 %\STATE $tp$ $\leftarrow$ read(relativeweeksatpeak) \COMMENT{read relative week at peak from dataset}
 
 %\COMMENT{a requested video has week number and view rate}
-\STATE $t_e$ $\leftarrow$ $time_{cur} - time_{upload}$ \COMMENT{calculate week number of a requested video which is current time a requested video substract by upload time of a requested video.}
-\STATE $r_e$ $\leftarrow$ $viewcount_{cur} - viewcount_{lastweek}$ \COMMENT{calculate view rate of a requested video which is current view count of a requested video substract by last week view count of a requested video.}
+\STATE $t_e$ $\leftarrow$ $time_{cur} - time_{upload}$ \COMMENT{calculate week number of a requested video which is current time a requested video subtract by upload time of a requested video.}
+\STATE $r_e$ $\leftarrow$ $viewcount_{cur} - viewcount_{lastweek}$ \COMMENT{calculate view rate of a requested video which is current view count of a requested video subtract by last week view count of a requested video.}
 
 
 \STATE $t_e^{before}$ $\leftarrow$ $(t_e - 1)$ \COMMENT{at one week before.}
@@ -205,7 +202,7 @@ $d$ $\leftarrow$ $draw\_integer\_random\_number()$
 
 In determining the phase of a requested video $e$ with known age $t_e$ and view rate $r_e$ at $t_e$, we find the three $r_v$ data points whose rates are closest to $r_e$ at $t_e$, $(t_e - 1)$, and $(t_e + 1)$ for all videos from Borghol dataset, and then average the $t_p$ of the three data points.
 The phase of the requested video $e$ is estimated to be before-peak, at-peak, or after-peak based on whether the average is negative, $0$, or positive.
-The view rate $r_e$ of a video is calculated by substracting the view counts at the time of the current and the previous video requests.
+The view rate $r_e$ of a video is calculated by subtracting the view counts at the time of the current and the previous video requests.
 The pseudo code for averaging the $t_p$ is shown in algorithm \ref{alg2}.
 %The view rate $r_e$  of a video is calculated using the view counts at the time of the current and the previous video requests.
 
@@ -268,10 +265,9 @@ The CDN then returns information about these peers to the querying peer.
 
 A peer stores the requested videos into its cache based on the value of a utility function, i.e., in a peer with a full cache a newly requested video will replace one or more videos in the cache whose utility values are smaller than that of the new video.
 The utility function reflects the popularity of a video in the system that considering number of copy of its video or replica. 
-$u$ value itself lies in interval $[0,2]$ Guo et al.,\cite{1613869}.
+PROP's $u$ value itself lies in interval $[0,2]$ Guo et al.,\cite{1613869}.
 %We choose video with the smallest utility value as the candidate to be replaced when a peer's cache is full.
-
-The utility function of a video is :
+Our utility function $u$ is:
 \begin{equation}
 u = \frac{ (f(p) - f(p_{min})) (f(p_{max}) - f(p)) }{r^{\alpha + \beta}} + z(t)
 \end{equation}
@@ -291,8 +287,6 @@ Where $n_i^r$ is number of requested video, $t_i^r$ is last time the video is re
 To able to track the simulation, we use default value from PROP thus we refer the readers to \cite{1613869} for the details.
 
 The $z(t)$ values are set as follows:
-
-
 \begin{equation}
  z(t) = 
   \begin{cases}
@@ -301,7 +295,6 @@ The $z(t)$ values are set as follows:
    0.38 & \text{if phase estimation is after-peak}
   \end{cases}
 \end{equation}\label{eq:zfactor}
-
 
 where the numbers are based on the proportion of video counts in the Youtube dataset before the peaks, around the peaks, and after the peaks. 
 $z(t)$ for at-peak is determined by the total proportion of video counts from 1-week-before until 1-week-after the peak, which accounts to almost half of the total.
@@ -371,9 +364,9 @@ View count parameters are the distribution parameters.
 The final view count is the total number of views of a video at the end of simulation and it is generated using uniform distribution sampling from Borghol dataset ranging from 27 until 1069385.
 The upload time interval is a Poisson process with $\lambda=1$.
 The video size is generated using a uniform distribution.
-Because of the very weak relationship betwen video size and popularity \cite{abhari2010workload} and because our work focuses on the impact of the popularity aspect on the utility function rather than storage optimization we believe that the choice to assign a random uniform video size from the Youtube dataset does not effect our results. 
-The view rate progression from the upload time until the end of simulation time is modelled using a Beta distribution \cite{Borghol:2011:CMP:2039452.2039717}.
-As Borghol et al.,\cite{Borghol:2011:CMP:2039452.2039717} showed that view rate of a video can be modelled using beta distribution we can calculate $\alpha$ and $\beta$ parameters.
+Because of the very weak relationship between video size and popularity \cite{abhari2010workload} and because our work focuses on the impact of the popularity aspect on the utility function rather than storage optimization we believe that the choice to assign a random uniform video size from the Youtube dataset does not effect our results. 
+The view rate progression from the upload time until the end of simulation time is modeled using a Beta distribution \cite{Borghol:2011:CMP:2039452.2039717}.
+As Borghol et al.,\cite{Borghol:2011:CMP:2039452.2039717} showed that view rate of a video can be modeled using beta distribution we can calculate $\alpha$ and $\beta$ parameters.
 We can use beta distribution mode formula $m=\frac{\alpha-1}{\alpha+\beta-2}$ to calculate $\alpha$ or $\beta$. 
 In this case, we choose $\alpha$ random uniform between $1$ and $3$ and $m$ is view rate at-peak, thus we can get $\beta=\frac{\alpha-1}{m}-\alpha-2$.
 
@@ -431,9 +424,6 @@ Finally, we compare our results to PROP \cite{1613869}.
 \label{fig:contrib-zipf}
 \end{figure}
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%% FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%replica
 
@@ -462,6 +452,21 @@ Finally, we compare our results to PROP \cite{1613869}.
 \end{figure}
 
 
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.7]{../../hindawi/graphs/new/repl/atd104.eps}
+\end{center}
+\caption{Comparison of available replicas between CPPro and PROP when a peer requests a video for scenario A with 100000 peers ($x$ axis in log-scale).}
+\label{fig:atd-normal104}
+\end{figure}
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[scale=0.7]{../../hindawi/graphs/new/shift/atd104.eps}
+\end{center}
+\caption{Comparison of available replicas between CPPro and PROP when a peer requests a video for scenario B with 100000 peers ($x$ axis in log-scale).}
+\label{fig:atd-shift104}
+\end{figure}
 
 % \begin{figure}[!t]
 % \begin{center}
@@ -519,7 +524,7 @@ Finally, we compare our results to PROP \cite{1613869}.
 
 \subsection{Result and Discussion}\label{resultanddiscussion}
 
-Figure~\ref{fig:contrib-normal}, \ref{fig:contrib-shift}, and \ref{fig:contrib-zipf} shows the peer contributions in each scenario ranked by the number of videos served by each peer.
+Figure~\ref{fig:contrib-normal}, \ref{fig:contrib-shift}, and \ref{fig:contrib-zipf} shows number of requested satisfied by peer.
 They exhibit a similar pattern and only differ in the tails for all scenarios, where CPPro gives higher, albeit insignificant, results.
 The difference between CPPro and PROP in scenario A is $1.1\%$, $1.7\%$ in scenario B, and $2\%$ for scenario C.
 These results show that the introduction of $z(t)$ component to the utility function does not affect the performance in terms of peer contributions.
@@ -532,6 +537,13 @@ If a peer did not decide to cache a video, we called it not-cached event.
 We breakdown how many cache events occur in our simulation as shown in table.\ref{tab:stacked1}.
 Furthermore, we breakdown again by video popularity phase for CPROP's cached and not-cached events as shown in table.~\ref{tab:stacked2}.
 From table.\ref{tab:stacked1}, we can see that CPPro cached less videos compared to PROP for all scenarios.
+CPPro cached events are fewer than PROP because in CPPro the probability of cached events are fewer than not-cached events. 
+We want to know what makes cached events in CPPro are fewer than PROP.
+Assume a peer requests a video with utility function $u_r$ and the minimum utility function inside the peer's cache is $u_c$-min.% as shown in fig.~\ref{fig:cached-notcached} where we have five videos inside the peer's cache.
+Intuitively, when a requested video is in the after-peak phase and other videos in peer's storage are in the at-peak phase, then in the CPPro case there is a high probability that a requested video will not be cached.  
+In the PROP case, since PROP does not use the video popularity phase, the probability of a requested video will not be cached is lower than CPPro.
+We can take the same intuition for before-peak and at-peak phase.
+
 
 The cached events happen more frequently in scenario A comparing to scenario B, because in scenario B when we shift requests four weeks later, estimated of requested videos will probably fall at-peak phase or after-peak phase and the videos in peer's cache are also probably estimated at-peak phase or after-peak thus probability of not-cached events are higher in scenario B than scenario A.
 In table.\ref{tab:stacked2}, the at-peak phase has low proportion comparing to before-peak and after-peak phase because when we estimate popularity phase of a requested video, the estimate of video to be at-peak phase occurs when average of relative week is exactly $0$. 
@@ -545,10 +557,16 @@ This probably due to different popularity of video choice that a requested video
 In fig.~\ref{fig:atd-normal}, \ref{fig:atd-shift} , and \ref{fig:atd-zipf} show number of replicas available for each scenario when a peer request a video.
 Maximum replica for PROP is around three times from CPPro in scenario A and B, while in scenario C the maximum value for PROP is around two times from CPPro.
 Number of replicas for each scenario are different between CPPro and PROP in the head of distribution and similar in the body and the tail of distribution. 
-Although, we can see two and three times fold difference, it only happens in the head of distribution which are less than $1\%$ from total events in scenario A and B, and less than $5\%$ from total events in scenario C.
+Although, we can see two and three times fold difference in the head of distribution, in fact total difference is only $1\%$ for scenario A and B and $5\%$ for scenario C.
+This is small difference because of small number of peers in the simulation which is same with number of available video.
+The probability of different peers choose a same video is high here. 
+We also performed simulation with 100000 peers and number of available replicas for scenario A and B are shown in fig.~\ref{fig:atd-normal104} and \ref{fig:atd-normal104}.
+In case of 100000 peers, we can see the difference between CPPro and PROP in number of available replicas.
+In this case, the probability of different peers choose a same video is low here. 
+We calculate the Kolmogorov-Smirnov statistic on two samples and we find that for scenario A and scenario B the $p$-values are less than $0.1$ thus we consider the result are significant.
 
 Figure~\ref{fig:duration-normal}, \ref{fig:duration-shift}, \ref{fig:duration-zipf} show cache duration from all scenarios.  
-In scenario A and B, cache duration between PROP and CPPro are similiar except in tail of distribution. 
+In scenario A and B, cache duration between PROP and CPPro are similar except in tail of distribution. 
 In scenario C, CPPRO has longer cache duration compared to PROP in the body of distribution and lower cache duration in the tail of distribution.  
 Long cache duration means video stay longer than another video inside peer's cache. 
 If some videos has long cache duration in peer's cache, then big probability that peer's do not cache a requested video because the videos inside the peer's cache have higher utility function. 
@@ -622,17 +640,16 @@ C & CPPro Cached & $13.7\%$ & $1.7\%$ & $33.8\%$ \\
 \end{table}
 
 
-\begin{figure}[!t]
-\begin{center}
-\includegraphics[scale=0.5]{../../hindawi/graphs/new/probability-intuitive.eps}
-\end{center}
-\caption{Process how's a video will be cached or not by a peer. Top part for PROP and bottom part for CPPro. 
-$u_r$ is utility function for a requested video.  
-$u_c$min is utility function for a video inside peer's storage.
-}
-\label{fig:cached-notcached}
-\end{figure} 
-
+%\begin{figure}[!t]
+%\begin{center}
+%\includegraphics[scale=0.5]{../../hindawi/graphs/new/probability-intuitive.eps}
+%\end{center}
+%\caption{Process how's a video will be cached or not by a peer. Top part for PROP and bottom part for CPPro. 
+%$u_r$ is utility function for a requested video.  
+%$u_c$min is utility function for a video inside peer's storage.
+%}
+%\label{fig:cached-notcached}
+%\end{figure} 
 
 
 
@@ -650,4 +667,4 @@ Some areas of improvement that we have identified for future work are:
 (1) since we know CPPro offers a little bit of peer contribution with fewer replicas, we are interested in knowing the energy trade-off of this peer-assisted CDN architecture in order to know how much energy saving by ISP and how much increase of energy at users home gateway side in this architecture since we have higher peer contribution.   
 (2) Involving the different popularity model from different geographically VoD service.
 This is very important to see the system behavior when receiving requests from different locations with different popularity while still in the same global CDN service. 
-Futhermore, we can exploit this behavior for commercial ads in VoD service.
+Furthermore, we can exploit this behavior for commercial ads in VoD service.

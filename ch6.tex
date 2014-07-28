@@ -120,7 +120,8 @@ In this model, since the server holds an important role in this system, we prese
 There are three server bandwidth allocation strategies: (1) lower bound of the average downloading time; (2) request driven strategy; (3) water leveling strategy. 
 In the lower bound strategy, the server uses the bandwidth for type-1 files until $S_{t1}$ reaches its maximum value, then the residual server bandwidth can be assigned to type-2 files. 
 In the request driven strategy, the server serves every request from peers. 
-The server bandwidth is equally divided among all the peers. Let’s assume that the number of requests for a file to the server is proportional to the peer arrival rate of the file. 
+The server bandwidth is equally divided among all the peers. 
+Let’s assume that the number of requests for a file to the server is proportional to the peer arrival rate of the file. 
 Let’s also assume that when the amount of server bandwidth assigned to one of the two types of files has reached its maximum value, the residual server bandwidth will be assigned to the other type of file. 
 In the water leveling strategy, the server bandwidth is equalized across all the files by taking file popularity into consideration. 
 The server serves the requests from peers according to a certain probability, which is inversely proportional to the peer arrival rate of the file.

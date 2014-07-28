@@ -7,7 +7,7 @@ Each peer contributes some of its resources such as network bandwidth, storage, 
 As the number of nodes in the P2P network grows, the capacity of the network grows. 
 This enables a P2P application to be cheap and it can be used for content delivery.  
 
-We noted that the popular P2P file sharing applications are Gnutella, eDonkey, and Bittorrent, while other type of P2P applications are storage systems, VoIP, and IPTV \cite{5360707}.
+We noted that the popular P2P file sharing applications are Gnutella, eDonkey, and BitTorrent, while other type of P2P applications are storage systems, VoIP, and IPTV \cite{5360707}.
 Gnutella is one of the earliest P2P file sharing applications in the Internet.
 Gnutella is a pure P2P application that does not use a centralized server.
 A Gnutella peer joins the network via at least one known peer.
@@ -28,30 +28,30 @@ The eDonkey server works as an index for distributing IP addresses of other eDon
 
 \begin{figure}[tb]
 \begin{center}
-\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/how-bittorrent-works.eps}
+\includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/how-BitTorrent-works.eps}
 \end{center}
-\caption{Building block of Bittorrent. 
+\caption{Building block of BitTorrent. 
 L refers to Leecher and S refers to Seeder. 
 In a very popular torrent swarm, where there may be more than 40000 seeders and more than 50000 leechers.
-While 'get torrent' and 'fetch torrent file' only happen in the beginning of process when a peer join a Bitorrent swarm, the announce step will be repeated for every 30 minutes as the  Bittorrent specification.} 
+While 'get torrent' and 'fetch torrent file' only happen in the beginning of process when a peer join a BitTorrent swarm, the announce step will be repeated for every 30 minutes as the  BitTorrent specification.} 
 \label{fig:bittorrentblock}
 \end{figure}
 
 BitTorrent was created in 2002 by Bram Cohen. 
-It runs on an open protocol specification, thus there are many Bittorrent implementations.
+It runs on an open protocol specification, thus there are many BitTorrent implementations.
 To share a file or a set of files through BitTorrent, a torrent file must be created for the first time.  
 The torrent file contains the information of the content, which includes the information of the tracker and the hashes of the file blocks to be distributed.
 The torrent file is usually distributed via Bittorent web portals.
-%When a client wants to get a file that shared in Bittorrent web portals, it must obtain the torrent file from Bittorrent portals.
+%When a client wants to get a file that shared in BitTorrent web portals, it must obtain the torrent file from BitTorrent portals.
 The client then contacts the trackers listed in the torrent file to obtain a list of peers that are sharing the file at the same time.  
-Important terms in Bittorrent are: a \textit{seeder} is a client who has complete chunks/blocks and a \textit{leecher} is a client who download the chunks/blocks.
+Important terms in BitTorrent are: a \textit{seeder} is a client who has complete chunks/blocks and a \textit{leecher} is a client who download the chunks/blocks.
 The announce step as shown in Fig.\ref{fig:bittorrentblock} is also a tool for a peer to get the current state of the tracker e.q list of seeders and leechers.
-The Bittorrent specification defines the minimum announce interval to be 30 minutes \cite{torrentspec}.
-This process from initial phase to join Bittorrent swarm is shown in Fig.\ref{fig:bittorrentblock}
+The BitTorrent specification defines the minimum announce interval to be 30 minutes \cite{torrentspec}.
+This process from initial phase to join BitTorrent swarm is shown in Fig.\ref{fig:bittorrentblock}
 BitTorrent has generated great enthusiasm for P2P file sharing distribution due to simplicity.  
-Many open source software projects use Bittorrent to distribute their applications.
+Many open source software projects use BitTorrent to distribute their applications.
 
-Besides oP2P for filesharing, we  noted that P2P for streaming is also on the rise, especially in China.
+Besides P2P for filesharing, we  noted that P2P for streaming is also on the rise, especially in China.
 The target of P2P streaming is to build a scalable P2P platform for TV/music delivery. 
 More than a dozen companies are actively working in this area; for example, UUSe, PPLive, and PPStream.  
 Let us take PPLive as an example since it is the most popular P2P streaming service.
@@ -85,7 +85,7 @@ We often consider the P2P network as an overlay network on the top of Internet.
 We can classify overlays into: \emph{structured}, \emph{unstructured}, and \emph{hierarchical}. 
 In structured overlays, the network is formed in a particular structure. 
 The function of a structured overlay is for storing and locating objects based on a defined virtual address space. 
-The space is organized according to a given geometry which defines neighbourhood relationship between peers.
+The space is organized according to a given geometry which defines neighborhood relationship between peers.
 For example, Pastry \cite{Rowstron:2001:PSD:646591.697650}, organized peers in a logical ring and the Pastry's address position in the ring. 
 
 In unstructured systems, the unstructured overlays do not form any fixed structure in the network. 
@@ -124,24 +124,24 @@ DHT provides a lookup service similar to hash table; (key, value) pairs are stor
 Therefore a search operation results is fast and efficient.
 
 Replication is tied to P2P networks.  
-Take the example of Bittorrent.  
-If a user downloads content in Bittorrent,  it means that the user replicated the content.  
+Take the example of BitTorrent.  
+If a user downloads content in BitTorrent,  it means that the user replicated the content.  
 The block of content  already downloaded replicated is in his/her PC and that block can be downloaded by other peers.
-Consistency is important in Bittorrent, that's why Bittorrent provides a hash for every block for checking for the right block and rejecting bad blocks from fake content.
+Consistency is important in BitTorrent, that's why BitTorrent provides a hash for every block for checking for the right block and rejecting bad blocks from fake content.
 
 Gossiping is a simple and effective mechanism to spread the content. 
 In P2P overlay networks, each peer participating in a gossiping process contacts other peers at random and exchanges the information between them.
 Gossiping can be done in push or pull mode.
 Most P2P applications work in both modes.
-In Bittorrent, gossiping is done in both push and pull mode and the set of peers to contact is chosen at random.
+In BitTorrent, gossiping is done in both push and pull mode and the set of peers to contact is chosen at random.
 
 Another important aspect in security of P2P is trust, particularly establishment of reputation. 
 Establishing the reputation of peers requires collecting information about previous interactions. 
-For example, each Bittorrent tracker usually has a log to record the peers' behavior. 
-If a peer has a bad upload/download ratio, a Bittorrent tracker can blacklist that peer to join the Bittorrent swarm since the tit-for-tat policy of Bittorrent is the basis of cooperation enforcement.
-%We introduce private Bittorrent swarm term where user can join Bittorrent swarms by paying a membership.  
-%In private Bittorrent swarm, the trust is very important. 
-%Any member who can not fulfill the requirement (e.g minimum upload andwidth, minimum uptime after finishing download) can be blocked from Bittorrent swarm.
+For example, each BitTorrent tracker usually has a log to record the peers' behavior. 
+If a peer has a bad upload/download ratio, a BitTorrent tracker can blacklist that peer to join the BitTorrent swarm since the tit-for-tat policy of BitTorrent is the basis of cooperation enforcement.
+%We introduce private BitTorrent swarm term where user can join BitTorrent swarms by paying a membership.  
+%In private BitTorrent swarm, the trust is very important. 
+%Any member who can not fulfill the requirement (e.g minimum upload andwidth, minimum uptime after finishing download) can be blocked from BitTorrent swarm.
 
 We highlight an important aspect related to the impact of P2P technologies on ISP policies (cross layer issues). 
 P2P solutions are network agnostic, in the sense that they do not take into consideration the layer 3 of the network paths. 
@@ -153,11 +153,11 @@ Although, many solutions to this problem was exist, the implementations are stil
 While algorithms in P2P systems have been analyzed by many researchers, measurement of P2P is also important.
 In the cross layer issue, P2P is often blind in selection of neighbors in P2P networks, affecting the underlying ISP's traffic engineering policies.  
 This effect can only be seen if we have good real measurement instead of simulation.
-In the Bittorrent economic model, reseachers want to understand the content publishing phenomena. 
-The growing popularity of Bittorrent is primarly due to the availability of valuable content without any cost for users.
+In the BitTorrent economic model, researchers want to understand the content publishing phenomena. 
+The growing popularity of BitTorrent is primarily due to the availability of valuable content without any cost for users.
 However, publishing valuable content has legal implications for the users who publish the content.
 This raise the question of whether the content publisher is behaving in an altruistic manner or for financial incentives. 
-This question can only be answered by doing measurement in real Bittorrent swarms \cite{6381497}. 
+This question can only be answered by doing measurement in real BitTorrent swarms \cite{6381497}. 
 
 Energy was another aspect that has been quite distant from current P2P research but now has begun to rise in importance. 
 While popularity of P2P is declining because users now get content from the cloud, in some regions P2P filesharing applications are still popular.
@@ -168,21 +168,21 @@ With million of houses connected to the Internet and millions of mobile devices 
 
 \section{P2P Measurement}
 
-Bittorrent is the most successful Peer-to-Peer (P2P) application and was responsible for a major portion of Internet traffic in the past.
+BitTorrent is the most successful Peer-to-Peer (P2P) application and was responsible for a major portion of Internet traffic in the past.
 This has attracted the interest of the research community to evaluated the performance and the demographic aspects of BitTorrent.
-Example current popular an application that use Bittorrent like protocol is Spotify which is a very popular streaming music application in Europe and US.
+Example current popular an application that use BitTorrent like protocol is Spotify which is a very popular streaming music application in Europe and US.
 Bittorent has been largely studied using simulations, models and real measurements. 
-Although simulations and modelling are easier to perform, they typically simplify the problems and they are likely to miss some of the effects which occur in real Bittorent swarms. 
+Although simulations and modeling are easier to perform, they typically simplify the problems and they are likely to miss some of the effects which occur in real Bittorent swarms. 
 Several techniques have been used in order to measure different aspects of BitTorrent so far. 
-Since many popular applications work based on Bittorrent like protocol these days, we will focus on it.
+Since many popular applications work based on BitTorrent like protocol these days, we will focus on it.
 
 \subsection{Measuring BitTorrent}
 In this sub section we describe the BitTorrent measurement techniques defined in the literature so far. 
 We classify them into two main categories macroscopic and microscopic depending on the retrieved information. 
-Table \ref{tab:measurementtechniques} shows the summary of different techniques on Bittorrent measurement. 
+Table \ref{tab:measurementtechniques} shows the summary of different techniques on BitTorrent measurement. 
 
 \begin{table}[thb]
-\caption{Comparison of Measurement Techniques in Bittorrent.}
+\caption{Comparison of Measurement Techniques in BitTorrent.}
 \label{tab:measurementtechniques}
 \hbox to\hsize{\hfil}
 \begin{tabular}{c|c|c|c}\hline\hline
@@ -197,73 +197,73 @@ Peers population results & - & high & very high \\ \hline
 \end{table}
 
 \subsubsection{Macroscopic Technique}
-The goal macroscopic technique is to understand the demographics of the Bittorrent ecosystem for example the type of published content, the popularity of the content, the distribution of BitTorrent users per country, etc. 
-The macroscopic measurement allows us to get the performance information such as the ratio of between seeder to leechers, the session time of the Bittorrent users, the seedless state (period the torrent is without seeder) duration, etc.
-We can classify the macroscopic techniques into two categories: Bittorrent portals crawling and Bittorrent trackers crawling.
+The goal macroscopic technique is to understand the demographics of the BitTorrent ecosystem for example the type of published content, the popularity of the content, the distribution of BitTorrent users per country, etc. 
+The macroscopic measurement allows us to get the performance information such as the ratio of between seeder to leechers, the session time of the BitTorrent users, the seedless state (period the torrent is without seeder) duration, etc.
+We can classify the macroscopic techniques into two categories: BitTorrent portals crawling and BitTorrent trackers crawling.
 
 \begin{itemize}
 \item BitTorrent portals crawling: 
-The (major) Bittorrent portals index millions of torrents in a structured way. 
+The (major) BitTorrent portals index millions of torrents in a structured way. 
 They provide detailed information about each indexed torrent on a specific torrent web page. 
-Once we know the how Bittorrent portals indexing the torrents, we can crawl the Bittorrent portals using that index.
-If we want to analyze the demographics of Bittorrent, we need to crawl a large number of torrents.
-This is take time since millions of torrents exist in Bittorrent portals, every second a new torrent can be published to Bittorrent portals (including fake torrent).
-By processing the data from the Bittorrent crawling, we can get the information related to Bittorrent demographics.
+Once we know the how BitTorrent portals indexing the torrents, we can crawl the BitTorrent portals using that index.
+If we want to analyze the demographics of BitTorrent, we need to crawl a large number of torrents.
+This is take time since millions of torrents exist in BitTorrent portals, every second a new torrent can be published to BitTorrent portals (including fake torrent).
+By processing the data from the BitTorrent crawling, we can get the information related to BitTorrent demographics.
 For example: content popularity distribution, distribution of published content, and publishing rate of new torrents.
-It's depends on Bittorrent web portals, some Bittorrent portals do not give detail information about the torrent information. 
+It's depends on BitTorrent web portals, some BitTorrent portals do not give detail information about the torrent information. 
 
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/tracker-crawling.eps}
 \end{center}
-\caption{Bittorrent tracker crawling: The Bittorrent crawler fetch the torrent file from Bittorrent portals. Using information from torrent file, the Bittorrent crawler contacts the Bittorrent tracker by sending announce message. The Bitorrent tracker will reply by giving list of seeders and leechers. This process is repeated until obtain all the peers in the swarm.} 
+\caption{BitTorrent tracker crawling: The BitTorrent crawler fetch the torrent file from BitTorrent portals. Using information from torrent file, the BitTorrent crawler contacts the BitTorrent tracker by sending announce message. The BitTorrent tracker will reply by giving list of seeders and leechers. This process is repeated until obtain all the peers in the swarm.} 
 \label{fig:trackercrawling}
 \end{figure}
 
 
 \item BitTorrent trackers crawling:
-While crawling Bittorrent portals can give us information about the torrent type and torrent publisher and some number of seeders and leechers, that technique is not sufficient for more detail information such as distribution of users per country or performance relevant information such as peers arrival rate and peers session time.
-To get that information, we need to collect IP address of seeders and leechers in the Bittorrent swarms.  
-This information can only get from Bittorrent tracker logs by asking to Bittorrent tracker owners or by crawling the Bittorent tracker.
-Figure \ref{fig:trackercrawling} shows the schematic of Bitorrent tracker crawling.  
-First, a Bittorrent crawler needs to download torrent file from Bittorrent portal.  
-Next, a Bittorrent crawler send announce message to Bitorrent tracker and Bitorrent tracker will reply by giving list of seeders IP address and list of leechers IP address.  
-A Bittorrent crawler send announce message again to Bitorrent tracker. 
-Since Bitorrent tracker has been recorded the IP address of the Bittorrent crawler, Bittorrent tracker will reply by giving list of leechers IP address only. 
+While crawling BitTorrent portals can give us information about the torrent type and torrent publisher and some number of seeders and leechers, that technique is not sufficient for more detail information such as distribution of users per country or performance relevant information such as peers arrival rate and peers session time.
+To get that information, we need to collect IP address of seeders and leechers in the BitTorrent swarms.  
+This information can only get from BitTorrent tracker logs by asking to BitTorrent tracker owners or by crawling the Bittorent tracker.
+Figure \ref{fig:trackercrawling} shows the schematic of BitTorrent tracker crawling.  
+First, a BitTorrent crawler needs to download torrent file from BitTorrent portal.  
+Next, a BitTorrent crawler send announce message to BitTorrent tracker and BitTorrent tracker will reply by giving list of seeders IP address and list of leechers IP address.  
+A BitTorrent crawler send announce message again to BitTorrent tracker. 
+Since BitTorrent tracker has been recorded the IP address of the BitTorrent crawler, BitTorrent tracker will reply by giving list of leechers IP address only. 
 This process repeat as many as possible to get list of leechers IP address.
-If a Bittorrent crawler send too many announce message, Bittorrent tracker will block the Bittorrent crawler. 
-Hence, this technique must be done in friendly way for Bittorrent tracker.
-Another challenge is in Bittorrent the peers do not have a permanent peer-id.  
-Everytime Bittorrent client is started a new random peer-id is generated thus it is very difficult to follow a peer using its peer-id. 
-On the other since most of the Bittorrent client is home user which the IP address is assigned in a dynamic way by ISP, identifying peers by their IP address can introduce inaccuracies. 
+If a BitTorrent crawler send too many announce message, BitTorrent tracker will block the BitTorrent crawler. 
+Hence, this technique must be done in friendly way for BitTorrent tracker.
+Another challenge is in BitTorrent the peers do not have a permanent peer-id.  
+Everytime BitTorrent client is started a new random peer-id is generated thus it is very difficult to follow a peer using its peer-id. 
+On the other since most of the BitTorrent client is home user which the IP address is assigned in a dynamic way by ISP, identifying peers by their IP address can introduce inaccuracies. 
 \end{itemize}
 
 \begin{figure}[tb]
 \begin{center}
 \includegraphics[scale=0.6]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/peer-crawling.eps}
 \end{center}
-\caption{Peer crawling: The initial process in same with the Bittorrent tracker crawling with additional steps for the Bittorrent crawler to contact all the peers in the swarm by sending handshakre request. The contacted peers will reply by sending BITFIELD message and HAVE message.} 
+\caption{Peer crawling: The initial process in same with the BitTorrent tracker crawling with additional steps for the BitTorrent crawler to contact all the peers in the swarm by sending handshake request. The contacted peers will reply by sending BITFIELD message and HAVE message.} 
 \label{fig:peeercrawling}
 \end{figure}
 
 \subsubsection{Microscopic Technique}
 While in macroscopic techniques we can get the peers IP level information, that information does not sufficient to infer more detail performance metrics at the peer level such as peers download and upload rate, and how peers can connect each other (graph of the network).
-To get this information, we need more sophisticated techniques that implement wire level Bittorent protocol since the crawling techniques in this case means join directly to Bittorrent swarm.
+To get this information, we need more sophisticated techniques that implement wire level Bittorent protocol since the crawling techniques in this case means join directly to BitTorrent swarm.
 Figure \ref{fig:peeercrawling} shows the schematic functionality of peer crawling.  
-In this peer crawling technique, a Bittorrent crawler get the IP address of peers participating in a swarm.
+In this peer crawling technique, a BitTorrent crawler get the IP address of peers participating in a swarm.
 The initial process is same with tracker crawling. 
-Afterwards, the Bitorrent crawler contact each peer and performs the handshake procedure. 
-Handshake message must be the first message sent by Bittorrent client to other peers.
+Afterwards, the BitTorrent crawler contact each peer and performs the handshake procedure. 
+Handshake message must be the first message sent by BitTorrent client to other peers.
 The contacted peers will reply by sending BITFIELD and HAVE message.
 From handshake response we can get information if the peers is using public IP address space or behind NAT. 
-Basically if contacted peers response to the Bittorrent crawler then that peers is using public IP address space and if that peers silent then that peers are behind NAT.
+Basically if contacted peers response to the BitTorrent crawler then that peers is using public IP address space and if that peers silent then that peers are behind NAT.
 From BITFIELD message we can get information about peers type: seeder or leecher.   
-By measuring the time between the reception of two consecutive HAVE messages from a peer, the Bittorrent crawler can calculate the time needed to download a chunk.
+By measuring the time between the reception of two consecutive HAVE messages from a peer, the BitTorrent crawler can calculate the time needed to download a chunk.
 Chunk size information itself is always available in torrent file.
 Thus, dividing the size of the chunk by the time need to download two consecutive HAVE message, we can infer the instantaneous download rate of a peer.
 BITFIELD message contains information about chunks that already has in every peer in the swarms.  
 Thus by comparing BITFIELD message for every peers in the swarm,  we can infer the chunk distributions in the swarms.
-Challenges in this technique is the Bittorrent crawler can be blocked by a peer because it send many handshake message and receive many BITFIELD and HAVE message from a peer but the Bittorrent crawler does not upload any information to the peer.
+Challenges in this technique is the BitTorrent crawler can be blocked by a peer because it send many handshake message and receive many BITFIELD and HAVE message from a peer but the BitTorrent crawler does not upload any information to the peer.
 
 
 \section{Energy Aspect of P2P Network}
@@ -271,18 +271,18 @@ Challenges in this technique is the Bittorrent crawler can be blocked by a peer 
 Gupta and Singh \cite{Gupta:2003:GI:863955.863959} work on green networking has received a lot of attention.
 In recent years, many efforts have been pushed to reduced energy expenditure.
 Big companies and data center operator are trying new technologies to consume less energy.
-For example Google which is planning to operate its data centers with a zero carbon footprint by using hydropower, water-based chillers, external cold air, etc for cooling its data center.
+For example Google which is planning to operate its data centers with a zero carbon footprint by using hydro-power, water-based chillers, external cold air, etc for cooling its data center.
 While energy is mostly concerned by companies that run hundred of server and hundred of networking devices inside data center, only a little attention have been made for home users. 
 Remembering that P2P applications was the largest fraction of the Internet traffic in the past, although it is now decline due to the popularity of content sharing via cloud computing, we still have many popular P2P application that run based on P2P paradigm.  
 For example, spotify.
 Spotify is fee based music streaming service for mobile and desktop. 
 It is very popular in Europe and USA. 
-Spotify works like Bitorrent though there are several difference.
+Spotify works like BitTorrent though there are several difference.
 These figures shows that making P2P applications more energy efficient is important.
 These days ISPs have evolved from providing basic Internet connectivity to offering higher valued services such as Internet+TV+phone.
 In this value added service, the STBs or home gateways play an increasingly important. 
-This STBs is same powerfull as PC desktop while the shape quite small compared to desktop PC. 
-However, the powerfull of STB means consume more power. 
+This STBs is same powerful as PC desktop while the shape quite small compared to desktop PC. 
+However, the powerful of STB means consume more power. 
 Since broadband home Internet users are increasing, consideration to reduce energy consumption of STB is required. 
 
 Several approaches have been considered to reduce energy consumption. 
@@ -297,8 +297,8 @@ Another way is by migrating computation or delegate the workload, typically usin
 
 Due to the complexity of P2P networks, DVS and DFS can be implemented in hardware level.  
 While in network level, migrating computation task is the another way to reduce energy consumption.  
-For example in \cite{6249349}, Gianetti et al. propose the usage of Bittorrent proxy for  delegating the Bittorrent client work. 
-Delegating some work to Bittorrent proxy can save up to $25\%$ of energy usage for PC desktop used for Bittorrent file sharing.
+For example in \cite{6249349}, Gianetti et al. propose the usage of BitTorrent proxy for  delegating the BitTorrent client work. 
+Delegating some work to BitTorrent proxy can save up to $25\%$ of energy usage for PC desktop used for BitTorrent file sharing.
 Delegating or proxying workload is not new idea.  
 Example more primitive idea of proxying is Wake on LAN technology that introduced almost two decades ago \cite{wakeonlan}.
 Wake on LAN technology allows computer to be awakened by \textit{magic} packet.
@@ -312,7 +312,7 @@ It not only happened in home and its distribution but it is also appear in data 
 \begin{center}
 \includegraphics[scale=0.8]{../../../papers/p2p-cdn-latex/tex/ipsj/graphs/cascade-energy.eps}
 \end{center}
-\caption{Cascade effetct:  1 watt energy saving in server component can reduce 2.8 watt energy in total facility level. This figure adapted from \cite{ciscocascade}} 
+\caption{Cascade effect:  1 watt energy saving in server component can reduce 2.8 watt energy in total facility level. This figure adapted from \cite{ciscocascade}} 
 \label{fig:energycascade}
 \end{figure}
 
@@ -322,30 +322,30 @@ For example: energy consumption in combination of P2P and data center (CDN or Cl
 
 \section{Related Work}
 
-Bittorrent protocol performance has been explored extensively \cite{guo2005measurements}\cite{legout2006rarest}\cite{pouwelse2004measurement}\cite{tian2007modeling}\cite{li2010measurement}\cite{zhang2010bittorrent}.  
+BitTorrent protocol performance has been explored extensively \cite{guo2005measurements}\cite{legout2006rarest}\cite{pouwelse2004measurement}\cite{tian2007modeling}\cite{li2010measurement}\cite{zhang2010bittorrent}.  
 %The rarest first algorithm was discussed in \cite{legout2006rarest}, average download speed was discussed in \cite{pouwelse2004measurement}, peer arrival and departure process was discussed in \cite{guo2005measurements} and the effect of distributon of the peers on the download job progress was discussed in Y.Tian \textit{et al}. \cite{tian2007modeling}.
 %The huge numbers of peers sending P2P download requests to random targets on the Internet and anti-P2P companies injecting bogus peers through PEX were discussed in Z.Li \textit{et al}. \cite{li2010measurement}.
-%Higher upload-to-download ratios in  Bittorrent darknet were discussed in C.Zhang \textit{et al}. \cite{zhang2010bittorrent}.
+%Higher upload-to-download ratios in  BitTorrent darknet were discussed in C.Zhang \textit{et al}. \cite{zhang2010BitTorrent}.
 Although we know that the topology can have a large impact on performance, to date only a few papers have addressed the issue.
-Urvoy \textit{et al}. \cite{urvoy2007impact} used a discrete event simulator to show that the time to distribute a file in a Bittorrent swarm has a strong relation to the overlay topology.  
-Al-Hamra \textit{et al}. \cite{al2007understanding}, also using a discrete event simulator, showed that Bittorrent creates a robust overlay topology and the overlay topology formed is not random. 
+Urvoy \textit{et al}. \cite{urvoy2007impact} used a discrete event simulator to show that the time to distribute a file in a BitTorrent swarm has a strong relation to the overlay topology.  
+Al-Hamra \textit{et al}. \cite{al2007understanding}, also using a discrete event simulator, showed that BitTorrent creates a robust overlay topology and the overlay topology formed is not random. 
 They also show that peer exchange (PEX) generates a chain-like overlay with a large diameter. 
-Dale \textit{et al}. \cite{dale2008evolution}, in an experimental study on PlanetLab, show that in the initial stage of Bittorrent a peer will get a random peer list from the tracker. 
+Dale \textit{et al}. \cite{dale2008evolution}, in an experimental study on PlanetLab, show that in the initial stage of BitTorrent a peer will get a random peer list from the tracker. 
 They found that a network of peers that unchoked each other is scale-free and the node degree follows a power-law distribution with exponent approximately 2. 
-Dale \textit{et al}. \cite{dale2008evolution} also showed that the path length formed in Bittorrent swarms averages four hops and Bittorrent swarms have low average clustering coefficient.  
+Dale \textit{et al}. \cite{dale2008evolution} also showed that the path length formed in BitTorrent swarms averages four hops and BitTorrent swarms have low average clustering coefficient.  
 However, little work has been done on confirming that such controlled experiments correspond to the system. %that topology in the real world. 
 
 We emphasize that compared to Ho\ss{}feld \textit{et al}. \cite{TR464}, our work provides a completely different approach and goal.
-Ho\ss{}feld \textit{et al}. \cite{TR464} discuss the AS (Autonomous System) level topology of Bittorrent swarm for optimizing overlay traffic across ASes, while our study focus on microscopic dynamic aspect which is Bittorrent swarms topology itself (peer level or IP address level). 
+Ho\ss{}feld \textit{et al}. \cite{TR464} discuss the AS (Autonomous System) level topology of BitTorrent swarm for optimizing overlay traffic across ASes, while our study focus on microscopic dynamic aspect which is BitTorrent swarms topology itself (peer level or IP address level). 
 The closest work to ours is Kryczka \textit{et al}. \cite{Kryczka2011}.
 While our method is somewhat similar to theirs, they focus on clustering and locality while our focus is on node degree and clustering.
 They use PEX to discover peer relationship, unfortunately they do not explain in detail how to process the PEX data set.
-Because of differing PEX implementations between Bittorrent clients, we need to be careful with it in data processing.  
-In our work, we describe PEX behavior and its limitation on two popular Bittorrent clients: Vuze and uTorrent, and we also explain how to treat PEX data from different Bittorrent clients. 
-We also provide simulation result to confirm that our methods for infering peer relationship with PEX is valid.  
-They observed that Bittorrent swarms have slightly higher clustering coefficient compared to random graphs of the same size and they observe neither Bittorrent swarm fulfills the properties of small world.
+Because of differing PEX implementations between BitTorrent clients, we need to be careful with it in data processing.  
+In our work, we describe PEX behavior and its limitation on two popular BitTorrent clients: Vuze and uTorrent, and we also explain how to treat PEX data from different BitTorrent clients. 
+We also provide simulation result to confirm that our methods for inferring peer relationship with PEX is valid.  
+They observed that BitTorrent swarms have slightly higher clustering coefficient compared to random graphs of the same size and they observe neither BitTorrent swarm fulfills the properties of small world.
 The slightly difference in clustering come from the difference of PEX data processing. 
-They assume that PEX is the same and complete for all Bittorrent clients, therefore they get slightly different results. 
+They assume that PEX is the same and complete for all BitTorrent clients, therefore they get slightly different results. 
 
 Our results agree with previous research \cite{dale2008evolution} in some areas and disagree in others, perhaps for two reasons.
 First, power-law claims must be handled carefully. 
@@ -357,7 +357,7 @@ We also face difficult-to-characterize network realities such as NAT and firewal
 Our ability to reproduce key aspects of the topology dynamics suggests that these factors have only limited impact on the topology, somewhat to our surprise.
 
 Content delivery networks (CDN) is a large distributed system of servers deployed in multiple data center across the Internet. 
-The objetive of CDN is to serve content to end-users high availability and low latency manner as CDNs are distributed geographically. 
+The objective of CDN is to serve content to end-users high availability and low latency manner as CDNs are distributed geographically. 
 A CDN is owned, deployed, and maintained by a company that charges content providers or website owners for its services.
 CDN with peer assist have been successfully deployed on the Internet, such as Akamai \cite{Huang:2008:UHC:1496046.1496064} and LiveSky \cite{Yin:2010:LEC:1823746.1823750}.  
 The authors of \cite{Huang:2008:UHC:1496046.1496064} conclude from two real world traces that hybrid CDN-P2P can significantly reduce the cost of content distribution and can scale to cope with the exponential growth of Internet video content.  
@@ -381,7 +381,7 @@ The result shows that batteries can provide up to 14\% power savings.
 
 The idea that utilize ISP controlled home gateway to provide computing and storage services and adopts managed peer-to-peer model is presented in \cite{valancius2009greening}. 
 Valancius et al. \cite{valancius2009greening} show that distributing computing platform in NaDa (Nano Data Center) save at least 20-30\% energy compare to traditional data centers.
-The saving in NaDa comes from underutilizing home gateway, avoidance of cooling costs, and the reduction of network energy consumption as a result of demand and service co-localization.
+The saving in NaDa comes from under-utilizing home gateway, avoidance of cooling costs, and the reduction of network energy consumption as a result of demand and service co-localization.
 
 The comparison between CDN architecture and peer-to-peer architecture are discussed in \cite{baliga2007energy} and \cite{feldmann2010energy}.
 Both authors in \cite{baliga2007energy} and \cite{feldmann2010energy} agree that CDN architecture is more energy saving compare to peer-to-peer architecture. 
@@ -394,7 +394,7 @@ The authors in \cite{5963557} conclude that CCN is more energy efficient in deli
 To the best of our knowledge, the study of energy in that considering peer-to-peer in CDN architecture is presented in \cite{6524219}.
 Mandal et al. \cite{6524219} mentioned that hybrid CDN-P2P systems can reduce a significant amount energy in the optical core network around 20-40\% less energy.  
 %The authors are focus on energy consumption of different algorithms for minimizing server bandwidth based on popularity of content, by maximizing peer request, the %authors can minimizing CDN workload. 
-The authors only considered energy consumption of hardware especially optical devices and does not include overhead inside data center, CDN server energy comsumption, and consumed power by peers.
+The authors only considered energy consumption of hardware especially optical devices and does not include overhead inside data center, CDN server energy consumption, and consumed power by peers.
 Our work is quite different, we take number of peers with static content and add overhead of data center which is  power of cooling cause by temperature of hardware for different purpose which are live streaming and video on demand.
 
 
