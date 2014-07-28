@@ -80,10 +80,27 @@ Figure~\ref{fig:timetopeak} is the cumulative distribution function (CDF) of the
 The time-to-peak is exponentially distributed up to the sixth week, and it is uniform beyond the sixth week.
 Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} define time-to-peak for a video as its age (time since upload) at which its weekly viewing rate is the highest during measurement (from the first week until end of measurement).
 Because we know the peak time (at-peak phase) of every video, we can also find the before-peak phase and after-phase of every video. 
+Borghol et al., \cite{Borghol:2011:CMP:2039452.2039717} mentioned that view count evolution follows beta distribution.
 For detail we refer the readers to \cite{Borghol:2011:CMP:2039452.2039717}.
 
+Our algorithm for determining a requested video is quite simple.  
+As we know the age of a requested video in week number and its view rate, the algorithms looks for Borghol dataset with the same week, one week before, and one week after for the same view rate.  
+We are averaging the relative week to at-peak values in the same week, one week before, and one week after. 
+
+
 Suppose a video $v$ in the Borghol dataset has a viewing rate $r_v(t)$, $0 <= t < t_f$, and $r_v(t)$ peaks at $t_{vp}$.
-The data is transformed by including the relative time-to-peak, such that each data point is a 2-tuple: video rate and relative time to peak, i.e., $rp_v(t) =$ < $r_v(t), t_p(t)$ >, $t_p(t) = t - t_{vp}$.
+%The data is transformed by including the relative time-to-peak, such that each data point is a 2-tuple: video rate and relative time to peak:, i.e., $rp_v(t) =$ < $r_v(t), t_p(t)$ >, $t_p(t) = t - t_{vp}$.
+The data is transformed by including the relative time-to-peak, such that each data point is a 2-tuple: video rate and relative time to peak:
+\begin{equation}
+\label{eq:rp}
+rp_v(t) = \langle r_v(t), t_p(t) \rangle
+\end{equation}
+
+\begin{equation}
+\label{eq:tp}
+t_p(t) = t - t_{vp}.
+\end{equation}
+
 Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis for each video is translated by $t_{vp}$ to the left, such that each video peaks at time $0$.
 
 % \begin{figure}[!t]
@@ -330,25 +347,25 @@ Peers request videos from a video catalog where the peer request as well as the 
 Each video in the catalog has the following properties: 
 video-id,size,upload time, final view count, view count function parameters. 
 View count parameters are the distribution parameters.
-The final view count is the total number of views of a video at the end of simulation and it is generated using uniform distribution.
+The final view count is the total number of views of a video at the end of simulation and it is generated using uniform distribution from Borghol dataset.
 The upload time interval is a Poisson process with $\lambda=1$.
 The video size is generated using a uniform distribution.
-Because of the very weak relationship betwen video size and popularity \cite{abhari2010workload} and because our work focuses on the impact of the popularity aspect on the utility function rather than storage optimization we believe that the choice to assign a random uniform video size from the Youtube dataset does not have an effect to our results. 
+Because of the very weak relationship betwen video size and popularity \cite{abhari2010workload} and because our work focuses on the impact of the popularity aspect on the utility function rather than storage optimization we believe that the choice to assign a random uniform video size from the Youtube dataset does not effect our results. 
 The view rate progression from the upload time until the end of simulation time is modelled using a Beta distribution \cite{Borghol:2011:CMP:2039452.2039717}.
 As Borghol et al.,\cite{Borghol:2011:CMP:2039452.2039717} showed that view rate of a video can be modelled using beta distribution we can calculate $\alpha$ and $\beta$ parameters.
-We can use Beta distribution mode formula $m=\frac{\alpha-1}{\alpha+\beta-2}$ to calculate $\alpha$ or $\beta$. 
+We can use beta distribution mode formula $m=\frac{\alpha-1}{\alpha+\beta-2}$ to calculate $\alpha$ or $\beta$. 
 In this case, we choose $\alpha$ random uniform between $1$ and $3$ and $m$ is view rate at-peak, thus we can get $\beta=\frac{\alpha-1}{m}-\alpha-2$.
 
 
 
 \subsubsection{Peer Request Generator}\label{peerrequest}
 Peers request videos from the catalog using a Poisson process with $\lambda=1$ \cite{Zink:2009:CYN:1502814.1502987} for the inter-arrival time.
-For the requested videos there are three scenarios namely A,B,and C.
-Scenario A is where the video popularity in the peer-assisted CDN system follows the global popularity of the video.
-Scenario B is where the video popularity in the peer-assisted CDN system lag four weeks behind the global popularity of the video. 
-We choose four weeks based on probability from time-to-peak distribution that half of videos are already reach peak within four weeks.
-Scenario C is where the video popularity in the peer-assisted CDN system does not follow the global popularity of the video. 
-We use Zipf distribution with rate$=0.9$ for this purpose \cite{6654887}.
+For the requested videos there are three scenarios A,B,and C.
+In Scenario A, the video popularity in the peer-assisted CDN system follows the global popularity of the video.
+In Scenario B, the video popularity in the peer-assisted CDN system lags four weeks behind the global popularity of the video. 
+We choose four weeks lags based on the probability from time-to-peak distribution that half of videos are already reach peak within four weeks.
+In Scenario C, the video popularity in the peer-assisted CDN system does not follow the global popularity of the video. 
+We use a Zipf distribution with rate$=0.9$ for this purpose \cite{6654887}.
 
 
 \subsubsection{Simulation Parameters}
@@ -362,7 +379,7 @@ The simulation parameters are follows:
 \item Number of videos: $10000$.
 \item Peer's caching strategy: CPPro, PROP.
 \end{itemize}
-Finally, we compare our results to PROP \cite{1613869} implementation.
+Finally, we compare our results to PROP \cite{1613869}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
