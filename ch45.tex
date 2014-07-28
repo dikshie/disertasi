@@ -125,24 +125,43 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 \begin{algorithmic}[1]
 \REQUIRE {dataset that consist of weeknumber, viewrate, and relative week to at peak.}
 
-\STATE $t$ $\leftarrow$ read(weeknumber) \COMMENT{read week number from dataset}
-\STATE $r_v$ $\leftarrow$ read(viewrate) \COMMENT{read view rate from dataset}
-\STATE $tp$ $\leftarrow$ read(relativeweeksatpeak) \COMMENT{read relative week at peak from dataset}
+\STATE $t, r_v, t_p$ $\leftarrow$ read Borghol's dataset {where $t$ is week number (1st column), $r_v$ is view rate (2nd column), and $t_p$ is relative week to at-peak values (3rd column)}
+
+%\STATE $t$ $\leftarrow$ read(weeknumber) \COMMENT{read week number from dataset}
+%\STATE $r_v$ $\leftarrow$ read(viewrate) \COMMENT{read view rate from dataset}
+%\STATE $tp$ $\leftarrow$ read(relativeweeksatpeak) \COMMENT{read relative week at peak from dataset}
 
 %\COMMENT{a requested video has week number and view rate}
 \STATE $t_e$ \COMMENT{week number of a requested video}
 \STATE $r_e$ \COMMENT{view rate of a requested video}
+\STATE $len$ $\leftarrow$ $29791*36$ \COMMENT{we have 29791 videos * 36 weeks thus we have 1072476 rows and 3 columns of Borghol's dataset.}
+
 
 \STATE $t_e^{before}$ $\leftarrow$ $(t_e - 1)$ \COMMENT{at one week before}
-\STATE $tp_{before}$ $\leftarrow$ $find\_tp(t_e^{before},r_e,t,r_v,tp)$
+%\STATE $tp_{before}$ $\leftarrow$ $find\_tp(t_e^{before},r_e,t,r_v,tp)$
+\FOR{$i=0$ to $len$}
+\IF $t == t_e$ and $r_v = r_e$ 
+\STATE $t_p^{before}$ $\leftarrow$ $t_p$  \COMMENT{put $t_p$ value into $t_p^{before}$ list}
+\ENDIF
+\ENDFOR
 
 \STATE $t_e^{at}$ $\leftarrow$ $(t_e)$ \COMMENT{at same week}
-\STATE $tp_{at}$ $\leftarrow$ $find\_tp(t_e^{at},r_e,t,r_v,tp)$
+%\STATE $tp_{at}$ $\leftarrow$ $find\_tp(t_e^{at},r_e,t,r_v,tp)$
+\FOR{$i=0$ to $len$}
+\IF $t == t_e$ and $r_v = r_e$ 
+\STATE $t_p^{at}$ $\leftarrow$ $t_p$  \COMMENT{put $t_p$ value into $t_p^{at}$ list}
+\ENDIF
+\ENDFOR
 
 \STATE $t_e^{after}$ $\leftarrow$ $(t_e+1)$ \COMMENT{at one week after}
-\STATE $tp_{after}$ $\leftarrow$ $find\_tp(t_e^{after},r_e,t,r_v,tp)$
+%\STATE $tp_{after}$ $\leftarrow$ $find\_tp(t_e^{after},r_e,t,r_v,tp)$
+\FOR{$i=0$ to $len$}
+\IF $t == t_e$ and $r_v = r_e$ 
+\STATE $t_p^{after}$ $\leftarrow$ $t_p$  \COMMENT{put $t_p$ value into $t_p^{after}$ list}
+\ENDIF
+\ENDFOR
 
-\STATE $tp\_final$ $\leftarrow$ $average(tp_{before}, tp_{at}, tp_{after})$
+\STATE $tp\_final$ $\leftarrow$ $average(t_p^{before}, t_p^{at}, t_p^{after})$
 \IF{$tp\_final$ $<$ $0$}
 \STATE $phase$ $\leftarrow$ $before$
 \ELSIF{$tp\_final$ $==$ $0$}
@@ -153,8 +172,10 @@ Figure~\ref{fig:viewratedistribution} shows the Borghol's dataset with time axis
 \end{algorithmic}
 \end{algorithm}
 
+
+
 \begin{algorithm}
-\caption{Determine phase for the first access a requested video}
+\caption{Determine phase for the first time access of a requested video}
 \label{alg3}
 \begin{algorithmic}[1]
 \REQUIRE {$t_e$ and time-to-peak distribution}
